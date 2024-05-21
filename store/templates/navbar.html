@@ -14,10 +14,19 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
 
                 <!-- Nav Items -->
-                <!--Consider deleting and using brand logo as home button-->
+
+                <!--Consider deleting permantly and using brand logo as home button
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a></li>
+                -->
+
                 <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
 
+                <!-- Login and Logout -->
+                {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Sign Out</a></li>
+                {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Sign In</a></li>
+                {% endif %}
                 <!-- Full Screen Drop Down Menu Displaying Categories -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
