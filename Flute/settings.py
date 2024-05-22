@@ -19,6 +19,8 @@ ALLOWED_HOSTS = ['8000-taylorcarr-flute-aa1gahc6wv5.ws-eu114.gitpod.io']
 
 CSRF_TRUSTED_ORIGINS = ['https://8000-taylorcarr-flute-aa1gahc6wv5.ws-eu114.gitpod.io']
 
+AUTHENTICATION_BACKENDS = ['store.backends.EmailBackend', 'django.contrib.auth.backends.ModelBackend']
+
 # Application definition
 
 INSTALLED_APPS = [
