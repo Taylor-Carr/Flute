@@ -44,7 +44,7 @@
                 <br>
                 <!--Quantity drop down menu delete or re purpose -->
                 <div class="col-md-2">
-                <select class="form-select" aria-label="Default select example" id="qty-cart">
+                <select class="form-select" aria-label="Default select example" id="select{{ product.id }}">
                         {% for key, value in quantities.item %}
 
                             {% if key == product.id|slugify %}
@@ -63,7 +63,7 @@
                 <div class="d-flex mt-3">
                     <!--Un-needed quantity-->
                     <!--<input class="form-control me-3" id="inputQuantity" type="number" value="1" style="max-width: 3rem;" />-->
-                    <button class="btn btn-dark" type="button" data-index="{{ product.id }}" id="">
+                    <button class="btn btn-dark update-cart" type="button" data-index="{{ product.id }}" id="">
                         <i class="bi-cart-fill me-1"></i>
                         Delete Item
                     </button>
@@ -89,4 +89,29 @@
 <br>
 <br>
 <br>
+
+<script>
+    $(document).on('click', '#update-cart', function(e) {
+        e.preventDefault();
+        var productid = $(this).data('index');
+
+        $.ajax({
+            type: 'POST',
+            url: '{% url "cart_add" %}',
+            data: {
+                product_id: $(this).data('index'),  // Correctly get the product ID from the button's value
+                product_qty: $('#select' + productid + 'option:selected').text(),  // Get the selected quantity value
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                action: 'post'
+                    },
+            success: function(json) {
+                location.reload();
+            },
+            error: function(xhr, errmsg, err) {
+                console.error(errmsg);
+            }
+        });
+    });
+    </script>
+
 {% endblock %}
