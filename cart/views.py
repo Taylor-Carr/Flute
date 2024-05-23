@@ -28,7 +28,14 @@ def cart_add(request):
         return JsonResponse({'qty': cart_quantity})
 
 def cart_delete(request):
-    pass
+    cart = Cart(request)
+    if request.method == 'POST' and request.POST.get('action') == 'post':
+        product_id = int(request.POST.get('product_id'))
+        cart.delete(product=product_id)
+        return JsonResponse({'product': product_id})
+    return JsonResponse({'error': 'Invalid request'}, status=400)
+
+   
 
 def cart_update(request):
     cart = Cart(request)

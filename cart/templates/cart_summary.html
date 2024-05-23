@@ -63,7 +63,7 @@
                 <div class="d-flex mt-3">
                     <!--Un-needed quantity-->
                     <!--<input class="form-control me-3" id="inputQuantity" type="number" value="1" style="max-width: 3rem;" />-->
-                    <button class="btn btn-dark update-cart" type="button" data-index="{{ product.id }}" id="">
+                    <button class="btn btn-dark delete-product" type="button" data-index="{{ product.id }}" id="delete-product">
                         <i class="bi-cart-fill me-1"></i>
                         Delete Item
                     </button>
@@ -91,6 +91,7 @@
 <br>
 
 <script>
+
     $(document).on('click', '#update-cart', function(e) {
         e.preventDefault();
         var productid = $(this).data('index');
@@ -112,6 +113,27 @@
             }
         });
     });
-    </script>
+
+    $(document).on('click', '#delete-product', function(e) {
+    e.preventDefault();  // Prevent the default button action
+    var productid = $(this).data('index');  // Get the product ID from data-index
+
+    $.ajax({
+        type: 'POST',
+        url: '{% url "cart_delete" %}',  // URL for the view handling the deletion
+        data: {
+            product_id: productid,  // Correctly get the product ID from the button's value
+            csrfmiddlewaretoken: '{{ csrf_token }}',  // Ensure the CSRF token is included
+            action: 'post'
+        },
+        success: function(json) {
+            location.reload();  // Reload the page on successful request
+        },
+        error: function(xhr, errmsg, err) {
+            console.error(errmsg);  // Log any errors
+        }
+    });
+});
+</script>
 
 {% endblock %}
