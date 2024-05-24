@@ -1,4 +1,5 @@
 from store.models import Product
+
 class Cart:
     def __init__(self, request):
         self.session = request.session
@@ -23,6 +24,26 @@ class Cart:
         return sum(self.cart.values())
     def __len__(self):
         return len(self.cart)
+
+
+    def cart_total(self):
+        product_ids = self.cart.keys()
+        products = Product.objects.filter(id__in=product_ids)
+        quantities = self.cart
+        total = 0
+    
+        # Create a dictionary to map product IDs to their prices
+        product_prices = {product.id: product.price for product in products}
+    
+        for key, value in quantities.items(): 
+            key = int(key)
+            for product in products:
+                if product.id == key:
+                    total = total + (product.price * value)
+                    
+        return total
+
+
 
     def get_prods(self):
         #get id from cart
