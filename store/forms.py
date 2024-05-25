@@ -1,7 +1,29 @@
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django import forms
 from .models import Customer
+
+
+class UpdateUserForm(UserChangeForm):
+    email = forms.EmailField(label="", widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email Address'}))
+    first_name = forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'First Name'}))
+    last_name = forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Last Name'}))
+    company_name = forms.CharField(label="", max_length=70, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Company Name'}))
+    #Hide password text at bottom of for
+    password = None
+
+    class Meta:
+        model = Customer
+        fields = ('company_name', 'first_name', 'last_name', 'email')
+
+    def __init__(self, *args, **kwargs):
+        super(UpdateUserForm, self).__init__(*args, **kwargs)
+        self.fields['email'].widget.attrs['class'] = 'form-control'
+        self.fields['email'].widget.attrs['placeholder'] = 'Email'
+        self.fields['email'].label = ''
+
+
+
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(label="", widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email Address'}))
@@ -10,17 +32,14 @@ class SignUpForm(UserCreationForm):
     company_name = forms.CharField(label="", max_length=70, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Company Name'}))
 
     class Meta:
-        # replaced user with customer
         model = Customer
         fields = ('company_name', 'first_name', 'last_name', 'email', 'password1', 'password2')
 
     def __init__(self, *args, **kwargs):
         super(SignUpForm, self).__init__(*args, **kwargs)
-        # email instead of username
         self.fields['email'].widget.attrs['class'] = 'form-control'
         self.fields['email'].widget.attrs['placeholder'] = 'Email'
         self.fields['email'].label = ''
-        # self.fields['email'].help_text = '<span class="form-text text-muted"><small>Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</small></span>'
 
         self.fields['password1'].widget.attrs['class'] = 'form-control'
         self.fields['password1'].widget.attrs['placeholder'] = 'Password'

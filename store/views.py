@@ -4,10 +4,35 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .forms import SignUpForm
+from .forms import SignUpForm, UpdateUserForm
 from django import forms
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Customer
 
+def category_summary(request):
+    categories = Category.objects.all()
+    return render(request, 'category_summary.html', {"categories":categories})
+
+def update_user(request):
+    if request.user.is_authenticated:
+        try:
+            current_customer = Customer.objects.get(email=request.user.email)
+        except Customer.DoesNotExist:
+            messages.error(request, "Customer profile does not exist")
+            return redirect('home')
+
+        user_form = UpdateUserForm(request.POST or None, instance=current_customer)
+
+        if request.method == 'POST':
+            if user_form.is_valid():
+                user_form.save()
+                messages.success(request, "Account Updated")
+                return redirect('home')
+
+        return render(request, "update_user.html", {'user_form': user_form})
+    else:
+        messages.error(request, "Please log in to update your account")
+        return redirect('home')
 
 def category(request, foo):
     foo = foo.replace('-', ' ')

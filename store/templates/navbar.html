@@ -24,6 +24,7 @@
                 <!-- Login and Logout -->
                 {% if user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Sign Out</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'update_user' %}">Update account</a></li>
                 {% else %}
                     <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Sign In</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Sign Up</a></li>
@@ -32,7 +33,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="{% url 'home' %}">All Websites</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category_summary' %}">All Categories</a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" href="{% url 'category' 'Commerce' %}">E-Commerce</a></li>
                         <li><a class="dropdown-item" href="{% url 'category' 'Construction' %}">Construction</a></li>
