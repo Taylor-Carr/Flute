@@ -1,9 +1,5 @@
-  <!-- Navigation-->
-
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container px-4 px-lg-5">
-
         <!-- Brand Logo and Home Button -->
         <a class="navbar-brand" href="{% url 'home' %}">FLUTE</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,24 +7,22 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Nav Items -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <!-- Conditional display of the search form -->
+                {% if request.path != '/search/' %}
+                    <!-- Add a form in the navbar for quick search -->
+                    <li class="nav-item">
+                        <form class="d-flex" method="get" action="{% url 'search' %}">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </li>
+                {% endif %}
 
-                <!-- Nav Items -->
-
-                <!--Consider deleting permantly and using brand logo as home button
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a></li>
-                -->
-
+                <!-- About link -->
                 <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
 
-                <!-- Login and Logout -->
-                {% if user.is_authenticated %}
-                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Sign Out</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'update_user' %}">Update account</a></li>
-                {% else %}
-                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Sign In</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Sign Up</a></li>
-                {% endif %}
                 <!-- Full Screen Drop Down Menu Displaying Categories -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
@@ -42,6 +36,24 @@
                 </li>
             </ul>
 
+            <!-- Sign in and Update account dropdown menu -->
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAccount" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Account
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownAccount">
+                        {% if user.is_authenticated %}
+                            <li><a class="dropdown-item" href="{% url 'logout' %}">Sign Out</a></li>
+                            <li><a class="dropdown-item" href="{% url 'update_user' %}">Update account</a></li>
+                        {% else %}
+                            <li><a class="dropdown-item" href="{% url 'login' %}">Sign In</a></li>
+                            <li><a class="dropdown-item" href="{% url 'register' %}">Sign Up</a></li>
+                        {% endif %}
+                    </ul>
+                </li>
+            </ul>
+
             <!-- Cart Icon and Cart Quantity -->
             <form class="d-flex">
                 <a class="btn btn-outline-dark" href="{% url 'cart_summary' %}">
@@ -51,10 +63,7 @@
                         {{ cart|length }}
                     </span>
                 </a>
-                </button>
             </form>
-
         </div>
     </div>
-
 </nav>

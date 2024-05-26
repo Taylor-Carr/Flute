@@ -8,6 +8,24 @@ from .forms import SignUpForm, UpdateUserForm, ChangePasswordForm
 from django import forms
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Customer
+from .forms import SearchForm
+
+
+def search(request):
+    form = SearchForm(request.GET)
+    query = request.GET.get('query')
+    results = []
+
+    print("Received query:", query)  # Debugging print
+
+    if query:
+        results = Product.objects.filter(name__icontains=query)
+        print("Found", len(results), "results")  # Debugging print
+
+    return render(request, 'search.html', {'form': form, 'query': query, 'results': results})
+
+
+
 
 def category_summary(request):
     categories = Category.objects.all()

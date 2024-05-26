@@ -3,6 +3,10 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm, SetPassw
 from django import forms
 from .models import Customer
 
+
+class SearchForm(forms.Form):
+    query = forms.CharField(max_length=100, required=True, label='Search')
+    
 class ChangePasswordForm(SetPasswordForm):
     class Meta:
         model = Customer

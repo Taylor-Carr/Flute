@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5">
+    <h1>Search</h1>
+    <form method="get" action="{% url 'search' %}" class="d-flex mb-4">
+        {% csrf_token %}
+        <input class="form-control me-2" type="search" placeholder="Search for products..." aria-label="Search" name="query" value="{{ query }}">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+
+    {% if query %}
+        <h2>Results for "{{ query }}"</h2>
+        <div class="row">
+            {% if results %}
+                {% for product in results %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ product.name }}</h5>
+                                <p class="card-text">£{{ product.price }}</p>
+                                <a href="{% url 'product' product.id %}" class="btn btn-primary">View Product</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-12">
+                    <p>No results found for your search query.</p>
+                </div>
+            {% endif %}
+        </div>
+    {% else %}
+        <h2>Please enter a search term to find products.</h2>
+    {% endif %}
+</div>
+{% endblock %}
