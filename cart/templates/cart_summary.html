@@ -97,48 +97,48 @@
 
 <script>
 
-    $(document).on('click', '#update-cart', function(e) {
-        e.preventDefault();
-        var productid = $(this).data('index');
-
-        $.ajax({
-            type: 'POST',
-            url: '{% url "cart_add" %}',
-            data: {
-                product_id: $(this).data('index'),  // Correctly get the product ID from the button's value
-                product_qty: $('#select' + productid + 'option:selected').text(),  // Get the selected quantity value
-                csrfmiddlewaretoken: '{{ csrf_token }}',
-                action: 'post'
-                    },
-            success: function(json) {
-                location.reload();
-            },
-            error: function(xhr, errmsg, err) {
-                console.error(errmsg);
-            }
-        });
-    });
-
-    $(document).on('click', '#delete-product', function(e) {
-    e.preventDefault();  // Prevent the default button action
-    var productid = $(this).data('index');  // Get the product ID from data-index
+$(document).on('click', '.update-cart', function(e){
+    e.preventDefault();
+    var productid = $(this).data('index');
 
     $.ajax({
         type: 'POST',
-        url: '{% url "cart_delete" %}',  // URL for the view handling the deletion
+        url: '/cart/update/',  // Replace this with the actual URL
         data: {
-            product_id: productid,  // Correctly get the product ID from the button's value
-            csrfmiddlewaretoken: '{{ csrf_token }}',  // Ensure the CSRF token is included
+            product_id: $(this).data('index'),
+            product_qty: $('#select' + productid + ' option:selected').text(),
+            csrfmiddlewaretoken: '{{ csrf_token }}',
             action: 'post'
         },
-        success: function(json) {
-            location.reload();  // Reload the page on successful request
+        success: function(json){
+            location.reload();
         },
-        error: function(xhr, errmsg, err) {
-            console.error(errmsg);  // Log any errors
+        error: function(xhr, errmsg, err){
+            // Handle errors
         }
     });
 });
+
+$(document).on('click', '.delete-product', function(e){
+    e.preventDefault();
+    
+    $.ajax({
+        type: 'POST',
+        url: '/cart/delete/',  // Replace this with the actual URL
+        data: {
+            product_id: $(this).data('index'),
+            csrfmiddlewaretoken: '{{ csrf_token }}',
+            action: 'post'
+        },
+        success: function(json){
+            location.reload();
+        },
+        error: function(xhr, errmsg, err){
+            // Handle errors
+        }
+    });
+});
+
 </script>
 
 {% endblock %}
