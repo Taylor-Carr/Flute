@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
 from .models import Product, Category
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .forms import SignUpForm, UpdateUserForm
+from .forms import SignUpForm, UpdateUserForm, ChangePasswordForm
 from django import forms
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Customer
@@ -12,6 +12,34 @@ from .models import Customer
 def category_summary(request):
     categories = Category.objects.all()
     return render(request, 'category_summary.html', {"categories":categories})
+
+
+
+def update_password(request):
+    if request.user.is_authenticated:
+        try:
+            current_customer = Customer.objects.get(email=request.user.email)
+        except Customer.DoesNotExist:
+            messages.error(request, "Customer profile does not exist")
+            return redirect('home')
+
+        user_form = ChangePasswordForm(request.POST or None)
+
+        if request.method == 'POST':
+            if user_form.is_valid():
+                request.user.set_password(user_form.cleaned_data['new_password1'])
+                request.user.save()
+                update_session_auth_hash(request, request.user) 
+
+                messages.success(request, "Password Updated")
+                return redirect('home')
+
+        return render(request, "update_password.html", {'form': user_form})
+    else:
+        messages.error(request, "Please log in to change your password")
+        return redirect('login')
+
+
 
 def update_user(request):
     if request.user.is_authenticated:
@@ -34,6 +62,7 @@ def update_user(request):
         messages.error(request, "Please log in to update your account")
         return redirect('home')
 
+
 def category(request, foo):
     foo = foo.replace('-', ' ')
     try:
@@ -44,11 +73,10 @@ def category(request, foo):
         messages.error(request, "That category doesn't exist")
         return redirect('home')
 
-
-def product(request,pk):
-    product = Product.objects.get(id=pk)
-    return render (request, 'product.html', {'product':product})
-
+def product(request, pk):
+    product = get_object_or_404(Product, id=pk)
+    related_products = Product.objects.filter(category=product.category).exclude(id=pk)[:4]  
+    return render(request, 'product.html', {'product': product, 'related_products': related_products})
 
 def home(request):
     products = Product.objects.all()
