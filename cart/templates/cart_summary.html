@@ -21,20 +21,35 @@
     <div class="container px-4 px-lg-5 my-5">
         <div class="row gx-4 gx-lg-5 align-items-center">
             <div class="col-md-6">
-                <img class="card-img-top mb-5 mb-md-0" src="{{ product.image.url }}" alt="Product Image" />
+                <div id="carouselProductDetail{{ product.id }}" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        {% for image in product.images.all %}
+                        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                            <img class="d-block w-100" src="{{ image.image.url }}" alt="Product Image {{ forloop.counter }}">
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselProductDetail{{ product.id }}" role="button" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselProductDetail{{ product.id }}" role="button" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </a>
+                </div>
             </div>
             <div class="col-md-6">
                 <h1 class="display-5 fw-bolder">{{ product.name }}</h1>
                 <p class="lead">{{ product.description }}</p>
-    
                 <div class="d-flex">
                     {% if product.on_sale %}
-                        <div class="price">
-                            <strike class="text-muted me-2">£{{ product.price }}</strike>
-                            £{{ product.sale_price }}
-                        </div>
+                    <div class="price">
+                        <strike class="text-muted me-2">£{{ product.price }}</strike>
+                        £{{ product.sale_price }}
+                    </div>
                     {% else %}
-                        <div class="price">£{{ product.price }}</div>
+                    <div class="price">£{{ product.price }}</div>
                         <br>
                         <!-- PRODUCT ID TAKE OUT AT END OF FIRST DEV CYCLE -->
                         ID: {{ product.id }}
@@ -42,23 +57,6 @@
                 </div>
                 <br>
                 <br>
-                <!--Quantity drop down menu delete or re purpose -->
-                <!--<div class="col-md-2">
-                <select class="form-select" aria-label="Default select example" id="select{{ product.id }}">
-                        {% for key, value in quantities.item %}
-
-                            {% if key == product.id|slugify %}
-                        <option selected>
-                            {{ value }}
-                        </option>
-                            {% endif %}
-
-                        {% endfor %}
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                  </select>
-                </div>-->
     
                 <div class="d-flex mt-3">
                     <!--Un-needed quantity-->

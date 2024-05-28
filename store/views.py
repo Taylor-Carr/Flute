@@ -91,14 +91,14 @@ def category(request, foo):
         messages.error(request, "That category doesn't exist")
         return redirect('home')
 
-def product(request, pk):
-    product = get_object_or_404(Product, id=pk)
-    related_products = Product.objects.filter(category=product.category).exclude(id=pk)[:4]  
-    return render(request, 'product.html', {'product': product, 'related_products': related_products})
-
 def home(request):
-    products = Product.objects.all()
-    return render (request, 'home.html', {'products':products})
+    products = Product.objects.all().prefetch_related('images')
+    return render(request, 'home.html', {'products': products})
+
+def product_detail(request, pk):
+    product = get_object_or_404(Product, id=pk)
+    related_products = Product.objects.filter(category=product.category).exclude(id=pk)[:4]
+    return render(request, 'product.html', {'product': product, 'related_products': related_products})
 
 def about(request):
     return render (request, 'about.html', {})
