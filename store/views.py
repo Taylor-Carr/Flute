@@ -31,6 +31,17 @@ def category_summary(request):
     categories = Category.objects.all()
     return render(request, 'category_summary.html', {"categories":categories})
 
+def faqs(request):
+    return render(request, 'faqs.html', {})
+
+def contact(request):
+    if request.user.is_authenticated:
+        return render(request, 'contact.html', {})
+    else:
+        messages.error(request, "Please Sign in to contact Flute")
+        return redirect('login')
+
+
 
 
 def update_password(request):
@@ -102,6 +113,9 @@ def product_detail(request, pk):
 
 def about(request):
     return render (request, 'about.html', {})
+
+def privacy(request):
+    return render (request, 'privacy.html', {})
 
 def login_user(request):
     if request.method == "POST":

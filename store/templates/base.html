@@ -47,16 +47,18 @@
                     <div class="col-md-3">
                         <h4>Company</h4>
                         <ul>
-                            <li><a href="#">About Flute</a></li>
-                            <li><a href="#">Our Products</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="{% url 'about' %}">About Us</a></li>
+                            <li><a href="{% url 'category_summary' %}">Our Products</a></li>
+                            <li><a href="{% url 'privacy' %}">Privacy Policy</a></li>
                         </ul>
                     </div>
                     <div class="col-md-3">
                         <h4>Support</h4>
                         <ul>
-                            <li><a href="#">FAQs</a></li>
+                            <li><a href="{% url 'faqs' %}">FAQ</a></li>
+                            <li><a href="{% url 'contact' %}">Contact Us</a></li>
                             <li><a href="#">Order Status</a></li>
+                            <li><a href="{% url 'update_user' %}">Update Account</a></li>
                             <!-- Add more support links here if needed -->
                         </ul>
                     </div>
@@ -64,7 +66,7 @@
                         <h4>Store</h4>
                         <ul>
                             <li><a href="#">Landing Pages</a></li>
-                            <li><a href="#">E-Commerce</a></li>
+                            <li><a href="{% url 'category' 'Commerce' %}">E-Commerce</a></li>
                             <!-- Add more store links here if needed -->
                         </ul>
                     </div>

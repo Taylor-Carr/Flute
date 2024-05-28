@@ -1,19 +1,6 @@
 {% extends 'base.html'%}
 
 {% block content %}
-
-        <!-----Header / Hero Section ----->
-
-        <header class="bg-dark py-5">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Checkout</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">View your cart</p>
-                </div>
-            </div>
-        </header>
-<br>
-<br>
 <div class="container">
     {% if cart_products %}
     {% for product in cart_products %}
@@ -21,7 +8,7 @@
     <div class="container px-4 px-lg-5 my-5">
         <div class="row gx-4 gx-lg-5 align-items-center">
             <div class="col-md-6">
-                <div id="carouselProductDetail{{ product.id }}" class="carousel slide" data-bs-ride="carousel">
+                <div id="carouselProductDetail{{ product.id }}" class="carousel slide">
                     <div class="carousel-inner">
                         {% for image in product.images.all %}
                         <div class="carousel-item {% if forloop.first %}active{% endif %}">
@@ -76,14 +63,54 @@
     <br>
     <br>
     {% else %}
-    <div class="container">
-        Cart Empty..
-        <div class="d-flex mt-3">
-            <a class="btn btn-dark" type="button" href="{% url 'home' %}" id="">
-                Shop Websites
-            </a>
+    
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-black">
+                <h1 class="display-4 fw-bolder">Basket</h1>
+                <p class="lead fw-normal text-black-50 mb-0">Your Basket is empty.</p>
+            </div>
+            <div class="d-flex mt-3">
+                <a class="btn btn-dark" type="button" href="{% url 'home' %}" id="">
+                    Shop Websites
+                </a>
+            </div>
+        </div>
+
+        <!-- Related products -->
+<section class="py-5 bg-light">
+    <div class="container px-4 px-lg-5 my-5">
+        <h2 class="fw-bolder mb-4">Recommended for you</h2>
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            {% for related_product in related_products %}
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image -->
+                    <img class="card-img-top" src="{{ related_product.images.first.image.url }}" alt="..." />
+                    <!-- Product details -->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name -->
+                            <h5 class="fw-bolder">{{ related_product.name }}</h5>
+                            <!-- Product price -->
+                            {% if related_product.on_sale %}
+                            <strike class="text-muted me-2">£{{ related_product.price }}</strike>
+                            £{{ related_product.sale_price }}
+                            {% else %}
+                            £{{ related_product.price }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <!-- Product actions -->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'product' related_product.id %}">View Product</a></div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
     </div>
+</section>
+
     {% endif %}
 </div>
 <br>

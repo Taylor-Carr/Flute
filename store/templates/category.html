@@ -25,7 +25,7 @@
                             <div class="badge bg-light text-black position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                             {% endif %}
                             <!-- Product image carousel -->
-                            <div id="carouselProduct{{ product.id }}" class="carousel slide" data-bs-ride="carousel">
+                            <div id="carouselProduct{{ product.id }}" class="carousel slide">
                                 <div class="carousel-inner">
                                     {% for image in product.images.all %}
                                     <div class="carousel-item {% if forloop.first %}active{% endif %}">

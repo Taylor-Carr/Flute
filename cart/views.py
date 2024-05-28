@@ -1,14 +1,27 @@
 from django.shortcuts import render, get_object_or_404
 from .cart import Cart
-from store.models import Product
+from store.models import Product, Category
 from django.http import JsonResponse, HttpResponseBadRequest
 
 def cart_summary(request):
     cart = Cart(request)
-    cart_products = cart.get_prods()  # Corrected: Call as function
-    quantities = cart.get_quants()  # Corrected: Call as function
+    cart_products = cart.get_prods()
+    quantities = cart.get_quants()
     totals = cart.cart_total()
-    return render(request, "cart_summary.html", {"cart_products": cart_products, "quantities": quantities, "totals": totals})
+
+    if cart_products:
+        related_products = Product.objects.filter(
+            category__in=[product.category for product in cart_products]
+        ).exclude(id__in=[product.id for product in cart_products])[:4]
+    else:
+        related_products = Product.objects.all()[:4]  # Show top 4 products if the cart is empty
+
+    return render(request, "cart_summary.html", {
+        "cart_products": cart_products,
+        "quantities": quantities,
+        "totals": totals,
+        "related_products": related_products
+    })
 
 
 def cart_add(request):

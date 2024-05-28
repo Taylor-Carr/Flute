@@ -5,13 +5,13 @@
     <div class="container px-4 px-lg-5">
         <!-- Brand Logo and Home Button -->
         <a class="navbar-brand" href="{% url 'home' %}">
-            <img src="{% static 'assets/Flute Logo White New Ball.png' %}" alt="FLUTE" style="height: 35px;">
+            <img src="{% static 'assets/Flute Logo White New Ball.png' %}" alt="FLUTE" style="height: 50px;">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
 
              <!-- Conditional display of the search form -->
              {% if request.path != '/search/' %}
@@ -26,8 +26,8 @@
              </form>
              {% endif %}
 
-             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                <!-- Full Screen Drop Down Menu Displaying Categories -->
+             <!-- Full Screen Drop Down Menu Displaying Categories
+             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownStore" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Store &#x25be;
@@ -40,16 +40,18 @@
                         <li><a class="dropdown-item" href="{% url 'category' 'Restaurant' %}">Restaurant</a></li>
                     </ul>
                 </li>
-            </ul>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                <!-- Full Screen Drop Down Menu Displaying Support Links -->
+            </ul> -->
+            
+            <!-- Full Screen Drop Down Menu Displaying Support Links -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownSupport" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         24/7 Support &#x25be;
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownSupport">
                         <!-- 24/7 Support link -->
-                        <li class="nav-item"><a class="nav-link" href="">Support</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'faqs' %}">FAQs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact Us</a></li>
                         <!-- Divider -->
                         <li><hr class="dropdown-divider" /></li>
                         <!-- About link -->
@@ -58,41 +60,70 @@
                 </li>
             </ul>
         </div>
+        
+        <!-- Sign in and Update account dropdown menu -->
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            {% if user.is_authenticated %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle d-flex flex-column align-items-center" href="#" id="navbarDropdownAccount" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-user mb-1"></i>
+                        <span class="d-block">Account</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownAccount">
+                        <li><a class="dropdown-item" href="{% url 'logout' %}">Sign Out</a></li>
+                        <li><a class="dropdown-item" href="{% url 'update_user' %}">Orders</a></li>
+                        <li><a class="dropdown-item" href="{% url 'update_user' %}">Update Account</a></li>
+                    </ul>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="btn ms-2" href="{% url 'login' %}">Sign In</a>
+                </li>
+                <!--Point un auth users to login form doubling as sign up form-->
+                <!--li class="nav-item">
+                    <a class="btn btn-outline-dark ms-2" href="{% url 'register' %}">Join</a>
+                </li--->
+            {% endif %}
+        </ul>
 
-            <!-- Sign in and Update account dropdown menu -->
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                {% if user.is_authenticated %}
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAccount" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-solid fa-user"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownAccount">
-                            <li><a class="dropdown-item" href="{% url 'logout' %}">Sign Out</a></li>
-                            <li><a class="dropdown-item" href="{% url 'update_user' %}">Update Account</a></li>
-                        </ul>
-                    </li>
-                {% else %}
-                    <li class="nav-item">
-                        <a class="btn ms-2" href="{% url 'login' %}">Sign In</a>
-                    </li>
-                    <!--li class="nav-item">
-                        <a class="btn btn-outline-dark ms-2" href="{% url 'register' %}">Join</a>
-                    </li--->
-                {% endif %}
-            </ul>
-
-            <!-- Cart Icon and Cart Quantity -->
-            <form class="d-flex">
-                <a class="btn btn---bs-white: #fff" href="{% url 'cart_summary' %}">
-                    <i class="fas fa-shopping-basket me-1"></i>
-                    {% if cart|length > 0 %}
+        <!-- Cart Icon and Cart Quantity -->
+        <form class="d-flex">
+            <a class="btn btn---bs-white: #fff d-flex flex-column align-items-center" href="{% url 'cart_summary' %}">
+                <i class="fas fa-shopping-basket mb-1"></i>
+                {% if cart|length > 0 %}
                     <span class="text- ms-1" id="cart_quantity">
                         {{ cart|length }}
                     </span>
                 {% endif %}
-                </a>
-            </form>
-
-        </div>
+                <span class="d-block">Basket</span>
+            </a>
+        </form>
     </div>
+</div>
 </nav>
+
+
+
+                            <!-- Separate Navigation Bar for Category Items -->
+                            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                                <div class="container px-4 px-lg-5">
+                                    <div class="collapse navbar-collapse justify-content-center" id="navbarCategoryItems">
+                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                            <!-- Add your category items here -->
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{% url 'category_summary' %}">Shop all Categories</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{% url 'category' 'Commerce' %}">E-Commerce</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{% url 'category' 'Construction' %}">Construction</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{% url 'category' 'Restaurant' %}">Restaurant</a>
+                                            </li>
+                                            <!-- Add more category items as needed -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
