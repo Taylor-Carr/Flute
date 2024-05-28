@@ -16,6 +16,8 @@
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
         <!-- Jquery-->
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <!--Font Awesome-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     </head>
     <body>
 
@@ -37,11 +39,54 @@
 
         {% endblock %}
 
-
         <!-----Footer----->
 
-        <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; WebFlute 2024</p></div>
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#">About Flute</a></li>
+                            <li><a href="#">Our Products</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Order Status</a></li>
+                            <!-- Add more support links here if needed -->
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h4>Store</h4>
+                        <ul>
+                            <li><a href="#">Landing Pages</a></li>
+                            <li><a href="#">E-Commerce</a></li>
+                            <!-- Add more store links here if needed -->
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h4>Follow Us</h4>
+                        <div class="social-links">
+                            <ul>
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="m-0 text-center text-white">Copyright &copy; WebFlute 2024</p>
+                    </div>
+                </div>
+            </div>
         </footer>
 
         <!-----Bootstrap core JS----->

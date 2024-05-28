@@ -91,6 +91,75 @@
   }
 }
 
+
+
+
+
+/* Nav Bar */
+
+.nav-item.dropdown .nav-link::after {
+  display: none; /* Hide the default arrow */
+}
+
+.nav-item.dropdown .nav-link i.fas.fa-bars {
+  margin-right: 5px; /* Adjust the margin as needed */
+}
+
+/* Footer */
+.footer ul {
+  list-style-type: none; /* Hide bullet points */
+  padding-left: 0; /* Remove default left padding */
+}
+
+.footer ul li {
+  margin-bottom: 8px; /* Add some spacing between list items */
+}
+
+.footer a {
+  color: #ffffff; /* Set link color */
+  text-decoration: none; /* Remove underline */
+}
+
+.footer a:hover {
+  text-decoration: none; /* Ensure no underline on hover */
+}
+
+.footer ul li:hover a {
+  border-bottom: 1px solid #ffffff; /* Add underline on hover */
+  color: #DB4A2B;
+}
+
+.footer ul li:hover a:focus {
+  outline: none; /* Remove default browser highlighting */
+}
+
+.footer {
+  background-color: #333333; /* Set background color */
+  color: #ffffff; /* Set text color */
+  padding: 30px 0; /* Add padding top and bottom */
+}
+
+.social-links ul {
+  padding-left: 0; /* Remove default left padding */
+  margin-top: 10px; /* Add some spacing from the section title */
+}
+
+.social-links ul li {
+  display: inline-block; /* Display social icons horizontally */
+  margin-right: 10px; /* Add spacing between social icons */
+}
+
+.social-links a {
+  color: #ffffff; /* Set social icon color */
+  font-size: 24px; /* Adjust social icon size */
+  text-decoration: none; /* Remove underline */
+}
+
+.social-links a:hover {
+  color: #cccccc; /* Change social icon color on hover */
+}
+
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -103,6 +172,7 @@ body {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
 
 hr {
   margin: 1rem 0;
