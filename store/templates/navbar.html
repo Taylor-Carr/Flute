@@ -5,7 +5,7 @@
     <div class="container px-4 px-lg-5">
         <!-- Brand Logo and Home Button -->
         <a class="navbar-brand" href="{% url 'home' %}">
-            <img src="{% static 'assets/Flute Logo White New Ball.png' %}" alt="FLUTE" style="height: 50px;">
+            <img src="{% static 'assets/Flute Logo White New Ball.png' %}" alt="FLUTE" style="height: 45px;">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -16,31 +16,15 @@
              <!-- Conditional display of the search form -->
              {% if request.path != '/search/' %}
              <!-- Add a form in the navbar for quick search -->
-             <form class="d-flex mx-auto" method="get" action="{% url 'search' %}" style="max-width: 650px; width: 100%;">
-                 <div class="input-group">
-                     <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="query">
-                     <button class="btn btn-outline-dark" type="submit">
-                         <i class="bi bi-search"></i>
-                     </button>
-                 </div>
-             </form>
+             <form class="d-flex mx-auto" method="get" action="{% url 'search' %}" style="max-width: 550px; width: 100%;">
+                <div class="input-group">
+                    <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="query">
+                    <button class="btn btn-dark" type="submit">
+                        <i class="bi bi-search text-white"></i> <!-- Change icon color to white -->
+                    </button>
+                </div>
+            </form>
              {% endif %}
-
-             <!-- Full Screen Drop Down Menu Displaying Categories
-             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdownStore" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Store &#x25be;
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownStore">
-                        <li><a class="dropdown-item" href="{% url 'category_summary' %}">All Categories</a></li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="{% url 'category' 'Commerce' %}">E-Commerce</a></li>
-                        <li><a class="dropdown-item" href="{% url 'category' 'Construction' %}">Construction</a></li>
-                        <li><a class="dropdown-item" href="{% url 'category' 'Restaurant' %}">Restaurant</a></li>
-                    </ul>
-                </li>
-            </ul> -->
             
             <!-- Full Screen Drop Down Menu Displaying Support Links -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -50,12 +34,12 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownSupport">
                         <!-- 24/7 Support link -->
-                        <li class="nav-item"><a class="nav-link" href="{% url 'faqs' %}">FAQs</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'faqs' %}" id="nav-text" >FAQs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}" id="nav-text">Contact Us</a></li>
                         <!-- Divider -->
                         <li><hr class="dropdown-divider" /></li>
                         <!-- About link -->
-                        <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About Flute</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'about' %}" id="nav-text">About Flute</a></li>
                     </ul>
                 </li>
             </ul>
@@ -67,18 +51,21 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle d-flex flex-column align-items-center" href="#" id="navbarDropdownAccount" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-solid fa-user mb-1"></i>
-                        <span class="d-block">Account</span>
+                        <span class="d-block" id="nav-text">Account</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownAccount">
-                        <li><a class="dropdown-item" href="{% url 'logout' %}">Sign Out</a></li>
-                        <li><a class="dropdown-item" href="{% url 'update_user' %}">Orders</a></li>
-                        <li><a class="dropdown-item" href="{% url 'update_user' %}">Update Account</a></li>
+                        <li><a class="dropdown-item" href="{% url 'logout' %}" id="nav-text">Sign Out</a></li>
+                        <li><a class="dropdown-item" href="{% url 'update_user' %}" id="nav-text">Orders</a></li>
+                        <li><a class="dropdown-item" href="{% url 'update_user' %}" id="nav-text">Update Account</a></li>
                     </ul>
                 </li>
             {% else %}
-                <li class="nav-item">
-                    <a class="btn ms-2" href="{% url 'login' %}">Sign In</a>
-                </li>
+            <li class="nav-item">
+                <a class="btn ms-2 d-flex flex-column align-items-center" href="{% url 'login' %}">
+                    <i class="fa-solid fa-user mb-1"></i>
+                    <span id="nav-text">Log In</span>
+                </a>
+            </li>
                 <!--Point un auth users to login form doubling as sign up form-->
                 <!--li class="nav-item">
                     <a class="btn btn-outline-dark ms-2" href="{% url 'register' %}">Join</a>
@@ -86,44 +73,36 @@
             {% endif %}
         </ul>
 
-        <!-- Cart Icon and Cart Quantity -->
-        <form class="d-flex">
-            <a class="btn btn---bs-white: #fff d-flex flex-column align-items-center" href="{% url 'cart_summary' %}">
-                <i class="fas fa-shopping-basket mb-1"></i>
-                {% if cart|length > 0 %}
-                    <span class="text- ms-1" id="cart_quantity">
-                        {{ cart|length }}
-                    </span>
-                {% endif %}
-                <span class="d-block">Basket</span>
-            </a>
-        </form>
+       <!-- Cart Icon and Cart Quantity -->
+       <form class="d-flex align-items-center">
+        <a class="btn ms-2 btn-custom d-flex flex-column align-items-center text-center" href="{% url 'cart_summary' %}">
+            <i class="fas fa-shopping-basket mb-1" id="basket-icon"></i>
+            <span id="nav-text">Basket</span>
+        </a>
+        {% if cart|length > 0 %}
+            <span class="ms-2 badge " id="cart_quantity">{{ cart|length }}</span>
+        {% endif %}
+    </form>
+
+
     </div>
 </div>
 </nav>
 
 
 
-                            <!-- Separate Navigation Bar for Category Items -->
-                            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                                <div class="container px-4 px-lg-5">
-                                    <div class="collapse navbar-collapse justify-content-center" id="navbarCategoryItems">
-                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                            <!-- Add your category items here -->
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{% url 'category_summary' %}">Shop all Categories</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{% url 'category' 'Commerce' %}">E-Commerce</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{% url 'category' 'Construction' %}">Construction</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{% url 'category' 'Restaurant' %}">Restaurant</a>
-                                            </li>
-                                            <!-- Add more category items as needed -->
-                                        </ul>
-                                    </div>
-                                </div>
-                            </nav>
+                         <!-- Separate Navigation Bar for Category Items -->
+                         <nav id="second-navbar">
+                            <div class="container">
+                                <ul>
+                                    <li><a href="{% url 'category_summary' %}">Shop all Websites - </a></li>
+                                    <li><a href="{% url 'category' 'Commerce' %}">E-Commerce</a></li>
+                                    <li><a href="">Blog</a></li>
+                                    <li><a href="">Educational Websites</a></li>
+                                    <li><a href="{% url 'category' 'Construction' %}">Business/Corporate</a></li>
+                                    <li><a href="">Portfolio Websites</a></li>
+                                    <li><a href="">Personal Websites</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                        
