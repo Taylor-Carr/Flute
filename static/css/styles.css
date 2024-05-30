@@ -156,7 +156,7 @@
 }
 
 #second-navbar ul li {
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 400;
   font-family: 'League Spartan';
   color: black;
@@ -222,20 +222,22 @@
 
 
 /* Center hero section */
+
 .hero-section {
   background-color: #ffffff; /* Set background color */
   padding: 30px; /* Adjust vertical padding as needed */
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
   margin: 30px;
-  max-width: 85vw;
+  width: 90%;
   margin: auto; /* Center horizontally */
   margin-top: 20px;
+  border: 2px solid #f5f5f5;
 }
+
 /* Image within hero section */
 .hero-section img {
   max-height: 70px; /* Set the maximum height of the image */
-  margin-bottom: 20px; /* Adjust margin-bottom as needed */
+  margin-bottom: 10px; /* Adjust margin-bottom as needed */
 }
 
 /* Hero content styling */
@@ -247,21 +249,33 @@
 }
 
 .hero-content p {
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 800;
+  font-size: 20px;
   font-family: 'League Spartan', sans-serif;
   color: grey; /* Set text color to black */
 }
+
 .btn-custom {
-  background-color: #ff6b6b;
-  border: none;
+  font-weight: 500;
+  font-family: 'League Spartan', sans-serif;
+  background-color: transparent;
+  border: 1.5px solid #DB4A2B; /* Orange outline */
+  color: #000000; /* Black text */
+  padding: 5px 10px; /* Adjust padding as needed */
+  font-size: 16px; /* Adjust font size as needed */
+  text-decoration: none; /* Remove default underline */
+  border-radius: 6px; /* Add border radius for rounded corners */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
 }
 
 .btn-custom:hover {
-  background-color: #ff4757;
+  background-color: #DB4A2B; /* Orange background on hover */
+  color: #FFFFFF; /* White text on hover */
 }
 
+
 /* Footer */
+
 .footer ul {
   list-style-type: none; /* Hide bullet points */
   padding-left: 0; /* Remove default left padding */
@@ -295,13 +309,14 @@
   padding: 30px 0; /* Add padding top and bottom */
 }
 .footer-copyright {
-  padding-top: 20px;
+  padding-top: 15px;
   font-weight: 500;
   font-family: 'League Spartan', sans-serif;
   color: black;
 }
 .footer-title {
   margin-bottom: 8px;
+  font-size: 18px;
   font-weight: 500;
   font-family: 'League Spartan', sans-serif;
   color: black;
@@ -314,6 +329,16 @@
 .social-links ul li {
   display: inline-block; /* Display social icons horizontally */
   margin-right: 10px; /* Add spacing between social icons */
+  margin-bottom: 8px;
+}
+
+/* footer page links */
+
+.footer ul li a {
+  font-size: 15px;
+  font-weight: 400;
+  font-family: 'League Spartan', sans-serif;
+  color: black;
 }
 
 .social-links a {
@@ -325,6 +350,37 @@
 .social-links a:hover {
   color: black; /* Change social icon color on hover */
 }
+
+/* Category Page */
+
+.card:hover {
+  transform: translateY(-10px);
+  transition: transform 0.3s;
+}
+.card-img-top:hover {
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+.card {
+  max-width: 250px; /* Set the maximum width for the cards */
+  margin: 0 auto; /* Center the cards horizontally */
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 1rem; /* Reduce padding */
+}
+
+.card-footer {
+  padding: 0.5rem; /* Reduce padding */
+}
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
 
 /* Product Cards */
 

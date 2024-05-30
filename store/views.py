@@ -102,8 +102,10 @@ def category(request, foo):
         messages.error(request, "That category doesn't exist")
         return redirect('home')
 
+#change product category to display on home page
 def home(request):
-    products = Product.objects.all().prefetch_related('images')
+    business_category = Category.objects.get(name='Business Corporate')
+    products = Product.objects.filter(category=business_category)
     return render(request, 'home.html', {'products': products})
 
 def product_detail(request, pk):
