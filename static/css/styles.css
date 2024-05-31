@@ -159,7 +159,7 @@
   font-size: 15px;
   font-weight: 400;
   font-family: 'League Spartan';
-  color: black;
+  color: #333;
   padding: 0 20px; /* Adjust padding to increase space between items */
 }
 
@@ -273,7 +273,63 @@
   color: #FFFFFF; /* White text on hover */
 }
 
+/* SIGN UP FORM */
 
+.signup-modal {
+  /* Center the modal vertically and horizontally */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-modal .modal-content {
+  /* Set a fixed width for the modal content */
+  width: 400px;
+}
+
+.signup-modal .modal-body {
+  
+  /* Add padding to the modal body */
+  padding: 20px;
+}
+
+.signup-modal input[type="text"],
+.signup-modal input[type="email"],
+.signup-modal input[type="password"] {
+  /* Add margin bottom to input fields */
+  margin-bottom: 10px;
+}
+
+.signup-modal .btn-primary {
+  /* Make the primary button stand out */
+  background-color: #007bff;
+  border-color: #007bff;
+  color: #fff;
+}
+
+.signup-modal .btn-primary:hover {
+  /* Add hover effect for the primary button */
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.signup-modal .modal-title {
+  /* Style the modal title */
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.signup-modal .btn-close {
+  /* Style the close button */
+  color: #000;
+  opacity: 0.5;
+}
+
+.signup-modal .btn-close:hover {
+  /* Add hover effect for the close button */
+  color: #000;
+  opacity: 0.75;
+}
 /* Footer */
 
 .footer ul {

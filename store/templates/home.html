@@ -8,7 +8,9 @@
             <div class="container hero-content text-center">
                 <h1 class="display-4 fw-bolder mb-4">Get online FAST with<img src="{% static 'assets/Flute Logo White New Ball.png' %}" alt="Company Logo"></h1>
                 <p class="lead fw-normal mb-4">Getting started with Flute is easy! Simply sign up, choose a plan that suits your needs, and follow the guided steps to set up your website or online store.</p>
-            <a class="btn-custom" href="{% url 'register' %}">Sign up</a>
+                <button type="button" class="btn ms-2 d-flex flex-column align-items-center" data-bs-toggle="modal" data-bs-target=".signup-modal">
+                    <span id="nav-text">Sign Up</span>
+                </button>
             </div>
         </div>
 </header>

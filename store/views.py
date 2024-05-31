@@ -157,3 +157,24 @@ def register(request):
     else:
         form = SignUpForm()
     return render(request, 'register.html', {'form': form})
+
+def register_popup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.email = form.cleaned_data.get('email')
+            user.save()
+            password = form.cleaned_data.get('password1')
+            user = authenticate(email=user.email, password=password)
+            if user is not None:
+                login(request, user)
+                messages.success(request, "Registration successful.")
+                return redirect('home')
+            else:
+                messages.error(request, "Failed to authenticate user.")
+        else:
+            messages.error(request, "Unsuccessful registration. Invalid information.")
+    else:
+        form = SignUpForm()
+    return render(request, 'register_popup.html', {'form': form})
