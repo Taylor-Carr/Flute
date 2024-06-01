@@ -116,6 +116,9 @@ def product_detail(request, pk):
 def about(request):
     return render (request, 'about.html', {})
 
+def customise(request):
+    return render (request, 'customise.html', {})
+
 def privacy(request):
     return render (request, 'privacy.html', {})
 

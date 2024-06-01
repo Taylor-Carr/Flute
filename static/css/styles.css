@@ -12,6 +12,7 @@
  */
  /* google fonts */
  @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 :root {
   --bs-blue: #0d6efd;
@@ -80,6 +81,16 @@
   --bs-link-hover-color: #0a58ca;
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff3cd;
+  --primary-color: #6c757d;
+  --secondary-color: #343a40;
+  --accent-color: #f8f9fa;
+  --text-color: #212529;
+  --sale-badge-bg: #ffc107;
+  /* Card Styling */
+  --card-bg: #ffffff;
+  --card-border-radius: 6px;
+  --card-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.2s;
 }
 
 *,
@@ -105,7 +116,7 @@
 }
 
 .nav-item.dropdown .nav-link i.fas.fa-bars {
-  margin-right: 5px; /* Adjust the margin as needed */
+  margin-right: 10px; /* Adjust the margin as needed */
 }
 
 .navbar.navbar-light {
@@ -114,28 +125,27 @@
 }
 
 .navbar-light .navbar-nav .nav-link {
+  margin-left: 12px;
   color: black;
   font-weight: 500; /* Make the text bold */
 }
 
 .navbar li a {
-  font-size: 17px;
-  font-weight: 700;
-  font-family: 'League Spartan';
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Inter';
   color: #333; /* Change text color */
 }
 
 #nav-text {
-  font-size: 17px;
-  font-weight: 400;
-  font-family: 'League Spartan';
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'Inter';
   color: #333; /* Change text color */
 }
 
 
-/* Second Nav Bar for category */
-
-/*#second-navbar .nav-link*/ 
+/* Second Nav Bar for categories */
 
 #second-navbar {
   background-color: #f5f5f5;
@@ -156,11 +166,11 @@
 }
 
 #second-navbar ul li {
-  font-size: 15px;
-  font-weight: 400;
-  font-family: 'League Spartan';
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Inter';
   color: #333;
-  padding: 0 20px; /* Adjust padding to increase space between items */
+  padding: 0 15px; /* Adjust padding to increase space between items */
 }
 
 #second-navbar ul li a {
@@ -236,15 +246,16 @@
 
 /* Image within hero section */
 .hero-section img {
-  max-height: 70px; /* Set the maximum height of the image */
-  margin-bottom: 10px; /* Adjust margin-bottom as needed */
+  max-height: 50px; /* Set the maximum height of the image */
+  margin-bottom: 10px;
+  margin-left: 5px; /* Adjust margin-bottom as needed */
 }
 
 /* Hero content styling */
 .hero-content h1 {
-  font-size: 40px;
-  font-weight: 900;
-  font-family: 'League Spartan';
+  font-size: 30px;
+  font-weight: 400;
+  font-family: 'Inter';
   color: black; /* Set text color to black */ /* Adjust max-width as needed */
 }
 
@@ -255,23 +266,127 @@
   color: grey; /* Set text color to black */
 }
 
-.btn-custom {
+#btn-custom {
   font-weight: 500;
   font-family: 'League Spartan', sans-serif;
   background-color: transparent;
   border: 1.5px solid #DB4A2B; /* Orange outline */
   color: #000000; /* Black text */
-  padding: 5px 10px; /* Adjust padding as needed */
-  font-size: 16px; /* Adjust font size as needed */
+  padding: 5px 5px; /* Adjust padding as needed */
+  font-size: 15px; /* Adjust font size as needed */
   text-decoration: none; /* Remove default underline */
-  border-radius: 6px; /* Add border radius for rounded corners */
+  border-radius: 5px; /* Add border radius for rounded corners */
   transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
 }
 
-.btn-custom:hover {
+#btn-custom:hover {
   background-color: #DB4A2B; /* Orange background on hover */
   color: #FFFFFF; /* White text on hover */
 }
+
+/* PRODUCT CARD STYLING */
+
+.product-card {
+  background-color: var(--card-bg);
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.badge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.badge.bg-light {
+  background-color: var(--sale-badge-bg);
+  color: var(--text-color);
+}
+
+.carousel .carousel-inner .carousel-item img {
+  border-radius: var(--card-border-radius) var(--card-border-radius) 0 0;
+}
+
+.product-details {
+  font-weight: 500;
+  font-family: 'League Spartan', sans-serif;
+  padding: 1rem;
+  text-align: center;
+}
+
+.product-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  font-family: 'League Spartan', sans-serif;
+  margin-bottom: 0.5rem;
+}
+
+.card-footer {
+  background-color: transparent;
+  border-top: none;
+  padding: 1rem;
+  text-align: center;
+}
+
+.card-footer .btn {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.card-footer .btn:hover {
+  background-color: var(--primary-color);
+  color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+  .row-cols-1 .col, .row-cols-md-2 .col, .row-cols-lg-3 .col, .row-cols-xl-4 .col {
+      flex: 0 0 100%;
+      max-width: 100%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .row-cols-md-2 .col {
+      flex: 0 0 50%;
+      max-width: 50%;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+  .row-cols-lg-3 .col {
+      flex: 0 0 33.3333%;
+      max-width: 33.3333%;
+  }
+}
+
+@media (min-width: 1201px) {
+  .row-cols-xl-4 .col {
+      flex: 0 0 25%;
+      max-width: 25%;
+  }
+}
+
+/* Cart Summary related projects */
+.rounded-border {
+  border-radius: 16px;
+  background-color: #f5f5f5; /* Adjust the value as needed */
+}
+
+.cart-related-title {
+  font-weight: 500;
+  font-family: 'League Spartan', sans-serif;
+  color: grey;
+}
+
+
 
 /* SIGN UP FORM */
 
