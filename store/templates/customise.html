@@ -1,57 +1,54 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<header class="bg-dark py-5">
-    <div class="container px-4 px-lg-5 my-5">
-        <div class="text-center text-white">
-            <h1 class="display-4 fw-bolder">Customise</h1>
-            <p class="lead fw-normal text-white-50 mb-0">Get online fast with Flute.</p>
-        </div>
-    </div>
-</header>
-
 <div class="container my-5">
-    <form method="post" action="{% url 'customise' %}">
+    <form method="post" action="{% url 'customise' %}" enctype="multipart/form-data">
         {% csrf_token %}
-        
+        <!--Company logo upload -->
         <div class="mb-3">
-            <label for="productColor" class="form-label">Choose Color</label>
-            <div id="productColor">
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="color" id="colorRed" value="red">
-                    <label class="form-check-label" for="colorRed">Red</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="color" id="colorBlue" value="blue">
-                    <label class="form-check-label" for="colorBlue">Blue</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="color" id="colorGreen" value="green">
-                    <label class="form-check-label" for="colorGreen">Green</label>
-                </div>
+            <label for="Image" class="form-label">Upload Company Logo</label>
+            <input class="form-control" type="file" id="productImage" name="product_image">
+        </div>
+        <!--Use Font as Company logo button-->
+        <div class="mb-3">
+            <label class="form-check-label">Use Company Name as Logo</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="use_default_font" id="useDefaultFont" value="true" checked>
             </div>
         </div>
-        
+        <!-- Upload work photos or use stock images -->
         <div class="mb-3">
-            <label for="productSize" class="form-label">Choose Size</label>
-            <select class="form-select" id="productSize" name="size">
-                <option selected>Select a size</option>
-                <option value="small">Small</option>
-                <option value="medium">Medium</option>
-                <option value="large">Large</option>
-            </select>
+            <label for="productPhotos" class="form-label">Upload Work/Company Photos (Multiple)</label>
+            <input class="form-control" type="file" id="productPhotos" name="product_photos" multiple>
         </div>
-        
+        <!--  or use stock work images button -->
         <div class="mb-3">
-            <label for="customText" class="form-label">Custom Text</label>
-            <input type="text" class="form-control" id="customText" name="custom_text" placeholder="Enter your custom text">
+            <label class="form-check-label">Use Stock Images Related to your company</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="use_stock_images" id="useStockImages" value="true">
+                <label class="form-check-label" for="useStockImages"></label>
+            </div>
+
         </div>
-        
+        <!-- Fonts - Search Bar -->
         <div class="mb-3">
-            <label for="quantity" class="form-label">Quantity</label>
-            <input type="number" class="form-control" id="quantity" name="quantity" min="1" max="100" value="1">
+            <label for="fontSearch" class="form-label">Search Available Fonts</label>
+            <input type="text" class="form-control" id="fontSearch" name="font_search" placeholder="Enter font name">
         </div>
-        
+        <!-- Fonts - Use default fonts button -->
+        <div class="mb-3">
+            <label class="form-check-label">Default Font</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="use_default_font" id="useDefaultFont" value="true" checked>
+            </div>
+        </div>
+        <!-- Company Slogan -->
+        <div class="mb-3">
+            <label for="companySlogan" class="form-label">Company Slogan</label>
+            <input type="text" class="form-control" id="companySlogan" name="company_slogan" placeholder="Enter company slogan">
+        </div>
+
+        <!-- Pay Button -->
         <button type="submit" class="btn btn-primary" href="{% url 'category_summary' %}">Pay</button>
     </form>
 </div>
