@@ -216,7 +216,7 @@
 
 #services h2 {
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   margin-bottom: 5px;
   margin-top: 25px;
   font-weight: 500;
@@ -354,7 +354,7 @@
   font-weight: 500;
   font-family: 'Inter';
   color: #333; 
-  font-size: 0.5rem; /* Adjusted to fit smaller container */
+  font-size: 1.2rem; /* Adjusted to fit smaller container */
   margin: 0;
   animation: slideIn 1.5s ease-out forwards;
 }
@@ -362,7 +362,7 @@
   font-weight: 500;
   font-family: 'Inter';
   color: #333; 
-  font-size: 0.6rem; /* Adjusted to fit smaller container */
+  font-size: 0.9rem; /* Adjusted to fit smaller container */
   margin: 20px 0;
   opacity: 0;
   animation: fadeInText 3s ease-in-out forwards;
