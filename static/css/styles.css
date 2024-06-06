@@ -225,23 +225,31 @@
 
 #service-items {
   display: flex;
+  flex-wrap: wrap; /* Ensure items wrap onto a new row if necessary */
   justify-content: center;
-  gap: 40px;
 }
 
-#service-item {
-  text-align: center;
+.service-card {
   max-width: 300px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin: 10px; /* Add margin to create space between cards */
 }
 
-#service-item h3 {
+.service-card-body {
+  padding: 20px;
+  text-align: center;
+}
+
+.service-card-body h3 {
   font-size: 1.2rem;
   margin-bottom: 20px;
   font-weight: 500;
   font-family: 'Inter';
 }
 
-#service-item p {
+.service-card-body p {
   font-size: 0.9rem;
   color: #666666;
   font-weight: 500;
