@@ -208,6 +208,46 @@
   transform: scaleX(1);
 } 
 
+/* Services Section */
+#services {
+  padding: 50px 20px;
+  background-color: #ffffff;
+}
+
+#services h2 {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 5px;
+  margin-top: 25px;
+  font-weight: 500;
+  font-family: 'Inter';
+}
+
+#service-items {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+#service-item {
+  text-align: center;
+  max-width: 300px;
+}
+
+#service-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-family: 'Inter';
+}
+
+#service-item p {
+  font-size: 0.9rem;
+  color: #666666;
+  font-weight: 500;
+  font-family: 'Inter';
+}
+
 /* Cart Styling */
 
 #cart_quantity {
@@ -260,7 +300,7 @@
   left: -5px;
   width: calc(100% + 10px);
   height: calc(100% + 10px);
-  border: 1px solid #DB4A2B; /* Adjust border color as needed */
+  border: 2px solid #DB4A2B; /* Adjust border color as needed */
   box-sizing: border-box;
   border-radius: 12px;
 }
@@ -287,6 +327,17 @@
   z-index: 1;
   border-radius: 12px solid white;
 }
+#hero-h1-span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#hero-h1-span.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 .hero-content {
   border-radius: 12px solid white;
   position: relative;
@@ -303,7 +354,7 @@
   font-weight: 500;
   font-family: 'Inter';
   color: #333; 
-  font-size: 1.2rem; /* Adjusted to fit smaller container */
+  font-size: 0.5rem; /* Adjusted to fit smaller container */
   margin: 0;
   animation: slideIn 1.5s ease-out forwards;
 }

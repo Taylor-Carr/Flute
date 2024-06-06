@@ -49,9 +49,11 @@
                 <br>
                 <div class="d-flex">
                     <button class="btn btn-dark me-2" type="button" value="{{ product.id }}" id="add-cart">
-                        <i class="bi-cart-fill me-1"></i> Add to Cart
+                        <i class="bi-cart-fill me-1"></i> Save to Cart
                     </button>
-                    <a class="btn btn-outline-dark" href="{% url 'customise' %}">Customise</a>
+                    <button type="button" class="btn ms-2 d-flex flex-column align-items-center" data-bs-toggle="modal" data-bs-target=".customise-modal" id="customise-btn">
+                        <span>Customise and Pay</span>
+                    </button>
                 </div>
             </div>
         </div>

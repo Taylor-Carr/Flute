@@ -104,7 +104,7 @@ def category(request, foo):
 
 #change product category to display on home page
 def home(request):
-    business_category = Category.objects.get(name='Business Corporate')
+    business_category = Category.objects.get(name='BusinessCorporate')
     products = Product.objects.filter(category=business_category)
     return render(request, 'home.html', {'products': products})
 
@@ -180,4 +180,4 @@ def register_popup(request):
             messages.error(request, "Unsuccessful registration. Invalid information.")
     else:
         form = SignUpForm()
-    return render(request, 'register_popup.html', {'form': form})
+    return render(request, 'register.html', {'form': form})
