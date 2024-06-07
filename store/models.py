@@ -95,6 +95,13 @@ class ProductCustomization(models.Model):
     customer = models.OneToOneField(Customer, on_delete=models.CASCADE)
     logo_image = models.ImageField(upload_to='logo_images/', blank=True, null=True)
     use_default_font = models.BooleanField(default=True)
+    industry = models.CharField(max_length=100, blank=True, null=True)
+    services = models.CharField(max_length=100, blank=True, null=True)
+    company_established = models.DateField(blank=True, null=True)
+    about_company = models.TextField(blank=True, null=True)
+    target_market = models.CharField(max_length=100, blank=True, null=True)
+    areas_covered = models.CharField(max_length=100, blank=True, null=True)
+    reference_website = models.URLField(blank=True, null=True)
 
     def __str__(self):
         return f'Product Customization for {self.customer}'

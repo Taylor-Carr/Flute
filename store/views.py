@@ -198,11 +198,19 @@ def register_and_customize(request):
             )
 
             # Create the ProductCustomization
-            ProductCustomization.objects.create(
-                customer=customer,
-                logo_image=form.cleaned_data.get('logo_image'),
-                use_default_font=form.cleaned_data.get('use_default_font'),
-            )
+            customization_data = {
+                'customer': customer,
+                'logo_image': form.cleaned_data.get('logo_image'),
+                'use_default_font': form.cleaned_data.get('use_default_font'),
+                'industry': form.cleaned_data.get('industry'),
+                'services': form.cleaned_data.get('services'),
+                'company_established': form.cleaned_data.get('company_established'),
+                'about_company': form.cleaned_data.get('about_company'),
+                'target_market': form.cleaned_data.get('target_market'),
+                'areas_covered': form.cleaned_data.get('areas_covered'),
+                'reference_website': form.cleaned_data.get('reference_website'),
+            }
+            ProductCustomization.objects.create(**customization_data)
 
             # Authenticate and log in the user
             user = authenticate(email=customer.email, password=form.cleaned_data['password1'])

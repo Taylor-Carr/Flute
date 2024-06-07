@@ -49,13 +49,43 @@
                             <label for="id_logo_image" class="form-label">Upload Company Logo</label>
                             {{ form.logo_image }}
                         </div>
-                    </div>
-                    <div class="mb-3 form-check">
-                        {{ form.use_default_font }}
-                        <label for="id_use_default_font" class="form-check-label">Use Company Name as Logo</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Sign Up and Pay</button>
-                </form>
+                        <div class="mb-3 form-check">
+                            {{ form.use_default_font }}
+                            <label for="id_use_default_font" class="form-check-label">Use Company Name as Logo</label>
+                        </div>
+                        <!-- Additional Fields -->
+                        <div class="mb-3">
+                            <label for="id_industry" class="form-label">Industry</label>
+                            {{ form.industry }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_services" class="form-label">Services</label>
+                            {{ form.services }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_company_established" class="form-label">Company Established</label>
+                            {{ form.company_established }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_about_company" class="form-label">About Your Company</label>
+                            {{ form.about_company }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_target_market" class="form-label">Target Market</label>
+                            {{ form.target_market }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_areas_covered" class="form-label">Areas Your Business Covers</label>
+                            {{ form.areas_covered }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_reference_website" class="form-label">Reference Website (Website You Like)</label>
+                            {{ form.reference_website }}
+                        </div>
+                        <!-- End of Additional Fields -->
+                        <button type="submit" class="btn btn-primary">Sign Up and Pay</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

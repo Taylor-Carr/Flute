@@ -54,15 +54,6 @@ class SignUpForm(UserCreationForm):
         fields = ('company_name', 'first_name', 'last_name', 'email', 'phone', 'password1', 'password2')
 
 # ProductCustomizationForm for ProductCustomization model
-class ProductCustomizationForm(forms.ModelForm):
-    logo_image_image = forms.ImageField(label="Upload Company Logo", required=False, widget=forms.FileInput(attrs={'class': 'form-control'}))
-    use_default_font = forms.BooleanField(label="Use Company Name as Logo", required=False, widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}))
-
-    class Meta:
-        model = ProductCustomization
-        fields = ('logo_image', 'use_default_font',)
-
-# CombinedForm that combines both forms
 class CombinedForm(forms.Form):
     email = forms.EmailField(label="", widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email Address'}))
     first_name = forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'First Name'}))
@@ -73,9 +64,16 @@ class CombinedForm(forms.Form):
     password2 = forms.CharField(label="", widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Confirm Password'}))
     logo_image = forms.ImageField(label="Upload Company Logo", required=False, widget=forms.FileInput(attrs={'class': 'form-control'}))
     use_default_font = forms.BooleanField(label="Use Company Name as Logo", required=False, widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}))
+    industry = forms.CharField(label="Industry", max_length=100, required=True, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Industry'}))
+    services = forms.CharField(label="Services", max_length=100, required=True, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Services'}))
+    company_established = forms.DateField(label="Company Established", required=False, widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date', 'placeholder': 'Company Established'}))
+    about_company = forms.CharField(label="About Your Company", required=False, widget=forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'About Your Company'}))
+    target_market = forms.CharField(label="Target Market", required=False, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Target Market'}))
+    areas_covered = forms.CharField(label="Areas Your Business Covers", required=False, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Areas Your Business Covers'}))
+    reference_website = forms.URLField(label="Reference Website (Website You Like)", required=False, widget=forms.URLInput(attrs={'class': 'form-control', 'placeholder': 'Reference Website'}))
 
     class Meta:
-        fields = ('company_name', 'first_name', 'last_name', 'email', 'phone', 'password1', 'password2', 'product_image', 'use_default_font', 'additional_preference')
+        fields = ('company_name', 'first_name', 'last_name', 'email', 'phone', 'password1', 'password2', 'logo_image', 'use_default_font', 'industry', 'services', 'company_established', 'about_company', 'target_market', 'areas_covered', 'reference_website', 'additional_preference')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
