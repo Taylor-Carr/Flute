@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div><h1>beans</h1></div>
+<section>
+    <!--<div class="modal fade" id="CustomerModal" tabindex="-1" aria-labelledby="CustomerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="CustomerModalLabel">Sign Up and Customize Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>---->
+                <div class="modal-body">
+                    <form method="POST" action="{% url 'register_and_customize' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
+                        <div class="mb-3">
+                            <label for="id_company_name" class="form-label">Company Name</label>
+                            {{ form.company_name }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_first_name" class="form-label">First Name</label>
+                            {{ form.first_name }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_last_name" class="form-label">Last Name</label>
+                            {{ form.last_name }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_email" class="form-label">Email Address</label>
+                            {{ form.email }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_phone" class="form-label">Phone Number</label>
+                            {{ form.phone }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_password1" class="form-label">Password</label>
+                            {{ form.password1 }}
+                            {{ form.password1.help_text|safe }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_password2" class="form-label">Confirm Password</label>
+                            {{ form.password2 }}
+                            {{ form.password2.help_text|safe }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_logo_image" class="form-label">Upload Company Logo</label>
+                            {{ form.logo_image }}
+                        </div>
+                    </div>
+                    <div class="mb-3 form-check">
+                        {{ form.use_default_font }}
+                        <label for="id_use_default_font" class="form-check-label">Use Company Name as Logo</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign Up and Pay</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</section>
+
+                        
+
+{% endblock %}

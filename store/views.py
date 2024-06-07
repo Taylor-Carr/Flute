@@ -4,10 +4,10 @@ from django.contrib.auth import authenticate, login, logout, update_session_auth
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .forms import SignUpForm, UpdateUserForm, ChangePasswordForm
+from .forms import SignUpForm, UpdateUserForm, ChangePasswordForm, CombinedForm
 from django import forms
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Customer
+from .models import Customer, ProductCustomization
 from .forms import SearchForm
 
 
@@ -181,3 +181,39 @@ def register_popup(request):
     else:
         form = SignUpForm()
     return render(request, 'register.html', {'form': form})
+
+
+def register_and_customize(request):
+    if request.method == 'POST':
+        form = CombinedForm(request.POST, request.FILES)
+        if form.is_valid():
+            # Create the Customer
+            customer = Customer.objects.create_user(
+                email=form.cleaned_data['email'],
+                first_name=form.cleaned_data['first_name'],
+                last_name=form.cleaned_data['last_name'],
+                company_name=form.cleaned_data['company_name'],
+                phone=form.cleaned_data['phone'],
+                password=form.cleaned_data['password1']
+            )
+
+            # Create the ProductCustomization
+            ProductCustomization.objects.create(
+                customer=customer,
+                logo_image=form.cleaned_data.get('logo_image'),
+                use_default_font=form.cleaned_data.get('use_default_font'),
+            )
+
+            # Authenticate and log in the user
+            user = authenticate(email=customer.email, password=form.cleaned_data['password1'])
+            if user is not None:
+                login(request, user)
+                messages.success(request, "Registration and customization successful.")
+                return redirect('home')
+            else:
+                messages.error(request, "Failed to authenticate user.")
+        else:
+            messages.error(request, "Unsuccessful registration. Invalid information.")
+    else:
+        form = CombinedForm()
+    return render(request, 'register_and_customize.html', {'form': form})

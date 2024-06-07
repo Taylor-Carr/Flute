@@ -33,11 +33,11 @@ class Customer(AbstractBaseUser, PermissionsMixin):
     company_name = models.CharField(max_length=70)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    phone = models.CharField(max_length=11)
+    phone = models.CharField(max_length=14)
     email = models.EmailField(max_length=100, unique=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-
+    
     groups = models.ManyToManyField(
         Group,
         related_name='customer_set',
@@ -90,3 +90,11 @@ class Order(models.Model):
 
     def __str__(self):
         return self.product.name
+
+class ProductCustomization(models.Model):
+    customer = models.OneToOneField(Customer, on_delete=models.CASCADE)
+    logo_image = models.ImageField(upload_to='logo_images/', blank=True, null=True)
+    use_default_font = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f'Product Customization for {self.customer}'

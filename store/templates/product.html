@@ -51,9 +51,8 @@
                     <button class="btn btn-dark me-2" type="button" value="{{ product.id }}" id="add-cart">
                         <i class="bi-cart-fill me-1"></i> Save to Cart
                     </button>
-                    <button type="button" class="btn ms-2 d-flex flex-column align-items-center" data-bs-toggle="modal" data-bs-target=".customise-modal" id="customise-btn">
-                        <span>Customise and Pay</span>
-                    </button>
+                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'register_and_customize'  %}">Customise</a>
+                    </div>
                 </div>
             </div>
         </div>
