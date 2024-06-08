@@ -295,8 +295,8 @@
 
 .hero-wrapper {
   position: relative;
-  width: 66.67%;
-  height: 25%;
+  width: 90%; /* Set width to 80% of the screen width */
+  max-width: 90rem; /* Limit maximum width to 800px for larger screens */
   margin: 0 auto; /* Center horizontally */
   margin-top: 25px;
   border-radius: 12px solid #f5f5f5;
@@ -308,7 +308,7 @@
   left: -5px;
   width: calc(100% + 10px);
   height: calc(100% + 10px);
-  border: 2px solid #DB4A2B; /* Adjust border color as needed */
+  border: 3px solid #DB4A2B; /* Adjust border color as needed */
   box-sizing: border-box;
   border-radius: 12px;
 }
@@ -515,6 +515,84 @@
   }
 }
 
+
+/* FAQS */
+.faq-header.bg-dark {
+  border-radius: 20px;
+  margin: 2rem auto; /* Center the header horizontally */
+  padding: 5px;
+  width: 90%; /* Set width to 80% of the screen width */
+  max-width: 90rem; /* Limit maximum width to 800px for larger screens */
+}
+
+.faq-header .text-white {
+  color: #DB4A2B !important;
+  font-weight: 500;
+  font-family: 'League Spartan', sans-serif;
+  font-size: 2rem;
+}
+
+.faq-header .text-white-50 {
+  color:#ffffff !important;
+  font-weight: 500;
+  font-family: 'League Spartan', sans-serif;
+  font-size: 1.4rem;
+}
+    /* Accordion Styles */
+ #faqAccordion .accordion-button {
+      background-color: #ffffff;
+      color: #333;
+      border: none;
+      padding: 1rem;
+      font-size: 1rem;
+      font-weight: bold;
+      text-align: left;
+  }
+
+  #faqAccordion .accordion-button:focus {
+      box-shadow: none;
+  }
+
+  #faqAccordion .accordion-button:not(.collapsed) {
+      background-color: #DB4A2B !important;
+      color: #ffffff !important;
+  }
+
+  #faqAccordion .accordion-button::after {
+    color: #333 !important; /* Dark red color for the arrow */
+}
+
+#faqAccordion .accordion-button:not(.collapsed)::after {
+    color: #333 !important; /* White color for the arrow when not collapsed */
+}
+
+  #faqAccordion .accordion-item {
+      border: none;
+      margin-bottom: 1rem;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  #faqAccordion .accordion-body {
+      background-color: #ffffff;
+      padding: 1.5rem;
+      border-top: 1px solid #f5f5f5;
+      font-size: 1.2rem;
+      font-weight: 500;
+      font-family: 'League Spartan', sans-serif;
+  }
+
+  /* FAQS Button Styles */
+  .faq-button.btn-primary {
+      background-color: #DB4A2B;
+      border-color: #DB4A2B;
+  }
+
+  .faq-button.btn-primary:hover {
+      background-color: #f04020;
+      border-color: #f04020;
+  }
 /* Cart Summary related projects */
 .rounded-border {
   border-radius: 16px;
