@@ -3,24 +3,44 @@
 
 {% block content %}
 
-<header>
+<!--<header>
     <div class="hero-wrapper">
         <div class="hero-border"></div>
-        <div class="hero-section d-flex align-items-center justify-content-center">
-            <div class="container hero-content text-center">
+        <div class="hero-section d-flex align-items-center">
+            <div class="background-circles">
+                <div class="circle circle1"></div>
+                <div class="circle circle2"></div>
+                <div class="circle circle3"></div>
+            </div>
+            <div class="container hero-content">
                 <h1>
-                    <span id="hero-h1-span">Get</span>
-                    <span id="hero-h1-span">Online</span>
-                    <span id="hero-h1-span">Fast</span>
-                    <span id="hero-h1-span">with</span>
-                    <span id="hero-h1-span"><img src="{% static 'assets/Flute Logo White New Ball.png' %}" alt="Company Logo"></span>
+                    <span class="hero-h1-span visible">Get</span>
+                    <span class="hero-h1-span visible">Online</span>
+                    <span class="hero-h1-span visible">Fast</span>
+                    <span class="hero-h1-span visible">with</span>
+                    <span class="hero-h1-span visible"><img src="{% static 'assets/Flute Logo White New Ball.png' %}" alt="Company Logo"></span>
                 </h1>
-                <p class="lead fw-normal mb-4">Getting started with Flute is easy! Choose a plan that suits your needs, fill out our on boarding form and we'll build your website within 7 days.</p>
+                <p class="lead fw-normal mb-4">Getting started with Flute is easy! Choose a plan that suits your needs, fill out our onboarding form, and we'll build your website within 7 days.</p>
+                <a href="#" id="hero-btn" class="btn">Get Started</a>
+            </div>
+        </div>
+    </div>
+</header>-->
+
+<header class="hero-section py-4">
+    <div class="container">
+        <div class="row justify-content-center"> <!-- Adding justify-content-center to center the column horizontally -->
+            <div class="col-md-9 col-lg-6"> <!-- Adjust the column width as needed -->
+                <div class="hero-card">
+                    <div class="hero-content text-center">
+                        <h1>Get online fast with Flute</h1>
+                        <p>Getting started with Flute is easy! Choose a plan that suits your needs, fill out our onboarding form, and we'll build your website within 7 days.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </header>
-
 <!-- Services Section -->
 <section id="services">
     <div class="container">
