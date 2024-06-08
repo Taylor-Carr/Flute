@@ -19,7 +19,7 @@
                             {% csrf_token %}
                             <!-- Display non-field errors -->
                             {{ form.non_field_errors }}
-                            
+                            <h1>Sign Up</h1>
                             <!-- Company Name Field -->
                             <div class="mb-3">
                                 <label for="id_company_name" class="form-label">Company Name</label>
@@ -63,7 +63,7 @@
                                 {{ form.password2 }}
                                 <small class="form-text text-muted">{{ form.password2.help_text|safe }}</small>
                             </div>
-            
+                            <h1>About your Bussiness</h1>
                             <!-- Upload Company Logo Field -->
                             <div class="mb-3">
                                 <label for="id_logo_image" class="form-label">Upload Company Logo</label>

@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
-<header class="bg-dark py-5">
-    <div class="container px-4 px-lg-5 my-5">
-        <div class="text-center text-white">
-            <h1 class="display-4 fw-bolder">Shop All Websites</h1>
-            <p class="lead fw-normal text-white-50 mb-0">choose a category below</p>
+<header class="hero-section">
+    <div class="container">
+        <div class="row justify-content-center"> <!-- Adding justify-content-center to center the column horizontally -->
+            <div class="col-md-12 col-lg-12"> <!-- Adjust the column width as needed -->
+                <div class="hero-card">
+                    <div class="hero-content text-center">
+                        <h1>Shop All Websites </h1>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </header>
@@ -13,19 +19,23 @@
 <br>
 <br>
 <br>
-<div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-4">
-    {% for category in categories %}
-    <div class="col">
-        <div class="card h-100">
-            <img class="card-img-top" src="{{ category.image.url }}" alt="{{ category.name }}" />
-            <div class="card-body">
-                <h5 class="card-title">{{ category.name }}</h5>
-            </div>
-            <div class="card-footer text-center">
-                <a href="{% url 'category' category %}" class="btn btn-outline-dark">View Category</a>
+
+<section>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-4">
+        {% for category in categories %}
+        <div class="col">
+            <div class="card h-100">
+                <img class="card-img-top" src="{{ category.image.url }}" alt="{{ category.name }}" />
+                <div class="card-body">
+                    <h5 class="card-title">{{ category.name }}</h5>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="{% url 'category' category %}" class="btn btn-outline-dark">View Category</a>
+                </div>
             </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
-</div>
+</section>
+
 {% endblock %}
