@@ -1,13 +1,11 @@
- // Text animation hero section
- document.addEventListener('DOMContentLoaded', () => {
-    const spans = document.querySelectorAll('#hero-h1-span');
+document.addEventListener('DOMContentLoaded', () => {
+    const spans = document.querySelectorAll('.hero-h1-span');
     spans.forEach((span, index) => {
         setTimeout(() => {
             span.classList.add('visible');
         }, index * 400); // Adjust the delay time as needed
     });
 });
-
 
 $(document).ready(function() {
     // Trigger login modal

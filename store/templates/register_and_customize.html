@@ -3,130 +3,122 @@
 
 {% block content %}
 
-<section>
-    <!--<div class="modal fade" id="CustomerModal" tabindex="-1" aria-labelledby="CustomerModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content form-container">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="CustomerModalLabel">Sign Up and Customize Product</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>-->
-        
-                <div class="modal-body">
-                    <div class="form-container">
-                        <!-- Form Start -->
-                        <form method="POST" action="{% url 'register_and_customize' %}" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            <!-- Display non-field errors -->
-                            {{ form.non_field_errors }}
-                            <h1>Sign Up</h1>
-                            <!-- Company Name Field -->
-                            <div class="mb-3">
-                                <label for="id_company_name" class="form-label">Company Name</label>
-                                {{ form.company_name }}
-                            </div>
-            
-                            <!-- First Name Field -->
-                            <div class="mb-3">
-                                <label for="id_first_name" class="form-label">First Name</label>
-                                {{ form.first_name }}
-                            </div>
-            
-                            <!-- Last Name Field -->
-                            <div class="mb-3">
-                                <label for="id_last_name" class="form-label">Last Name</label>
-                                {{ form.last_name }}
-                            </div>
-            
-                            <!-- Email Address Field -->
-                            <div class="mb-3">
-                                <label for="id_email" class="form-label">Email Address</label>
-                                {{ form.email }}
-                            </div>
-            
-                            <!-- Phone Number Field -->
-                            <div class="mb-3">
-                                <label for="id_phone" class="form-label">Phone Number</label>
-                                {{ form.phone }}
-                            </div>
-            
-                            <!-- Password Field -->
-                            <div class="mb-3">
-                                <label for="id_password1" class="form-label">Password</label>
-                                {{ form.password1 }}
-                                <small class="form-text text-muted">{{ form.password1.help_text|safe }}</small>
-                            </div>
-            
-                            <!-- Confirm Password Field -->
-                            <div class="mb-3">
-                                <label for="id_password2" class="form-label">Confirm Password</label>
-                                {{ form.password2 }}
-                                <small class="form-text text-muted">{{ form.password2.help_text|safe }}</small>
-                            </div>
-                            <h1>About your Bussiness</h1>
-                            <!-- Upload Company Logo Field -->
-                            <div class="mb-3">
-                                <label for="id_logo_image" class="form-label">Upload Company Logo</label>
-                                {{ form.logo_image }}
-                            </div>
-            
-                            <!-- Use Company Name as Logo Checkbox -->
-                            <div class="mb-3 form-check">
-                                {{ form.use_default_font }}
-                                <label for="id_use_default_font" class="form-check-label">Use Company Name as Logo</label>
-                            </div>
-            
-                            <!-- Additional Fields -->
-                            <!-- Industry Field -->
-                            <div class="mb-3">
-                                <label for="id_industry" class="form-label">Industry</label>
-                                {{ form.industry }}
-                            </div>
-            
-                            <!-- Services Field -->
-                            <div class="mb-3">
-                                <label for="id_services" class="form-label">Services</label>
-                                {{ form.services }}
-                            </div>
-            
-                            <!-- Company Established Field -->
-                            <div class="mb-3">
-                                <label for="id_company_established" class="form-label">Company Established</label>
-                                {{ form.company_established }}
-                            </div>
-            
-                            <!-- About Your Company Field -->
-                            <div class="mb-3">
-                                <label for="id_about_company" class="form-label">About Your Company</label>
-                                {{ form.about_company }}
-                            </div>
-            
-                            <!-- Target Market Field -->
-                            <div class="mb-3">
-                                <label for="id_target_market" class="form-label">Target Market</label>
-                                {{ form.target_market }}
-                            </div>
-            
-                            <!-- Areas Your Business Covers Field -->
-                            <div class="mb-3">
-                                <label for="id_areas_covered" class="form-label">Areas Your Business Covers</label>
-                                {{ form.areas_covered }}
-                            </div>
-            
-                            <!-- Reference Website Field -->
-                            <div class="mb-3">
-                                <label for="id_reference_website" class="form-label">Reference Website (Website You Like)</label>
-                                {{ form.reference_website }}
-                            </div>
-                            <!-- End of Additional Fields -->
-            
-                            <!-- Submit Button -->
-                            <button type="submit" class="btn btn-primary">Sign Up and Pay</button>
-                        </form>
-                        <!-- Form End -->
-                    </div>
+
+<section class="customize-form-section">
+    <div class="customize-form-modal-body">
+        <div class="form-container"> <!-- Updated class name to form-container -->
+            <!-- Form Start -->
+            <form method="POST" action="{% url 'register_and_customize' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <!-- Display non-field errors -->
+                {{ form.non_field_errors }}
+                <h5>Sign Up</h5>
+                <!-- Company Name Field -->
+                <div class="customize-form-mb-3">
+                    <label for="id_company_name" class="form-label">Company Name</label>
+                    {{ form.company_name }}
                 </div>
-         
+
+                <!-- First Name Field -->
+                <div class="customize-form-mb-3">
+                    <label for="id_first_name" class="form-label">First Name</label>
+                    {{ form.first_name }}
+                </div>
+
+                <!-- Last Name Field -->
+                <div class="customize-form-mb-3">
+                    <label for="id_last_name" class="form-label">Last Name</label>
+                    {{ form.last_name }}
+                </div>
+
+                <!-- Email Address Field -->
+                <div class="customize-form-mb-3">
+                    <label for="id_email" class="form-label">Email Address</label>
+                    {{ form.email }}
+                </div>
+
+                <!-- Phone Number Field -->
+                <div class="customize-form-mb-3">
+                    <label for="id_phone" class="form-label">Phone Number</label>
+                    {{ form.phone }}
+                </div>
+
+                <!-- Password Field -->
+                <div class="customize-form-mb-3">
+                    <label for="id_password1" class="form-label">Password</label>
+                    {{ form.password1 }}
+                    <small class="customize-form-text-muted">{{ form.password1.help_text|safe }}</small>
+                </div>
+
+                <!-- Confirm Password Field -->
+                <div class="customize-form-mb-3">
+                    <label for="id_password2" class="form-label">Confirm Password</label>
+                    {{ form.password2 }}
+                    <small class="customize-form-text-muted">{{ form.password2.help_text|safe }}</small>
+                </div>
+                <h5>About your Business</h5>
+                <!-- Upload Company Logo Field -->
+                <div class="customize-form-mb-3">
+                    <label for="id_logo_image" class="form-label">Upload Company Logo</label>
+                    {{ form.logo_image }}
+                </div>
+
+                <!-- Use Company Name as Logo Checkbox -->
+                <div class="customize-form-mb-3 form-check">
+                    {{ form.use_default_font }}
+                    <label for="id_use_default_font" class="form-check-label">Use Company Name as Logo</label>
+                </div>
+
+                <!-- Additional Fields -->
+                <!-- Industry Field -->
+                <div class="customize-form-mb-3">
+                    <label for="id_industry" class="form-label">Industry</label>
+                    {{ form.industry }}
+                </div>
+
+                <!-- Services Field -->
+                <div class="customize-form-mb-3">
+                    <label for="id_services" class="form-label">Services</label>
+                    {{ form.services }}
+                </div>
+
+                <!-- Company Established Field -->
+                <div class="customize-form-mb-3">
+                    <label for="id_company_established" class="form-label">Company Established</label>
+                    {{ form.company_established }}
+                </div>
+
+                <!-- About Your Company Field -->
+                <div class="customize-form-mb-3">
+                    <label for="id_about_company" class="form-label">About Your Company</label>
+                    {{ form.about_company }}
+                </div>
+
+                <!-- Target Market Field -->
+                <div class="customize-form-mb-3">
+                    <label for="id_target_market" class="form-label">Target Market</label>
+                    {{ form.target_market }}
+                </div>
+
+                <!-- Areas Your Business Covers Field -->
+                <div class="customize-form-mb-3">
+                    <label for="id_areas_covered" class="form-label">Areas Your Business Covers</label>
+                    {{ form.areas_covered }}
+                </div>
+
+                <!-- Reference Website Field -->
+                <div class="customize-form-mb-3">
+                    <label for="id_reference_website" class="form-label">Reference Website (Website You Like)</label>
+                    {{ form.reference_website }}
+                </div>
+                <!-- End of Additional Fields -->
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary">Sign Up and Pay</button>
+            </form>
+            <!-- Form End -->
+        </div>
+    </div>
 </section>
 
                         

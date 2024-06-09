@@ -130,6 +130,7 @@
   font-weight: 500; /* Make the text bold */
 }
 
+
 .navbar li a {
   font-size: 12px;
   font-weight: 500;
@@ -210,7 +211,7 @@
 
 /* Services Section */
 #services {
-  padding: 50px 20px;
+  padding: 40px 15px;
   background-color: #ffffff;
 }
 
@@ -230,11 +231,14 @@
 }
 
 .service-card {
-  max-width: 300px;
   background-color: #ffffff;
   border-radius: 15px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   margin: 10px; /* Add margin to create space between cards */
+  height: 100%; /* Ensure all cards are of equal height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .service-card-body {
@@ -255,7 +259,6 @@
   font-weight: 500;
   font-family: 'Inter';
 }
-
 /* Cart Styling */
 
 #cart_quantity {
@@ -289,139 +292,8 @@
   background-color: transparent; /* Ensure the background is transparent */
   border: none; /* Remove any border */
 }
-/*
-.hero-wrapper {
-  position: relative;
-  width: 90%;
-  max-width: 90rem;
-  margin: 0 auto;
-  margin-top: 25px;
-  padding: 5px;
-}
-.hero-border {
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  width: calc(100% + 10px);
-  height: calc(100% + 10px);
-  border: 3px solid #DB4A2B;
-  box-sizing: border-box;
-  border-radius: 12px;
-}
-.hero-section {
-  display: flex;
-  align-items: center;
-  text-align: left;
-  width: 100%;
-  height: 100%;
-  background-color: white;
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-}
-.hero-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgb(255, 255, 255);
-  z-index: 1;
-  border-radius: 12px;
-}
-.background-circles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  overflow: hidden;
-}
-.circle {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.3;
-}
-.circle1 {
-  width: 150px;
-  height: 150px;
-  z-index: 2;
-  background-color: #DB4A2B;
-  top: 20%;
-  left: 10%;
-}
-.circle2 {
-  width: 200px;
-  height: 200px;
-  z-index: 2;
-  background-color: #FFC107;
-  top: 50%;
-  left: 70%;
-}
-.circle3 {
-  width: 100px;
-  height: 100px;
-  z-index: 2;
-  background-color: #17A2B8;
-  top: 80%;
-  left: 30%;
-}
-.hero-content {
-  position: relative;
-  z-index: 2;
-  color: #333;
-  animation: fadeIn 2s ease-in-out;
-  text-align: left;
-}
-.hero-content h1 {
-  font-weight: 700;
-  font-family: 'Inter', sans-serif;
-  color: #333;
-  font-size: 2.5rem;
-  margin: 0;
-  animation: slideIn 1.5s ease-out forwards;
-}
-.hero-content p {
-  font-weight: 500;
-  font-family: 'Inter', sans-serif;
-  color: #333;
-  font-size: 1rem;
-  margin: 20px 0;
-  opacity: 0;
-  animation: fadeInText 3s ease-in-out forwards;
-}
-.hero-content img {
-  height: 60px;
-  vertical-align: middle;
-}
-.hero-h1-span {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-.hero-h1-span.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-#hero-btn {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 1rem;
-  color: white;
-  background: #DB4A2B;
-  border: none;
-  border-radius: 12px;
-  text-decoration: none;
-  transition: background 0.3s;
-  opacity: 0;
-  animation: fadeInButton 4s ease-in-out forwards;
-}
-#hero-btn:hover {
-  background: #c13927;
-}*/
+
+/* Hero Section */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -453,63 +325,65 @@
   }
 }
 
-
 header {
-  margin-top: 5px;
+  margin-top: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
   max-width: 100%;
   width: 90rem;
+  padding: 0; /* Ensure no padding is pushing content */
 }
 
-/* Hero Section */
+
 .hero-section {
-  padding-top: 30px; /* Increase the padding to make the header taller */
+  padding-top: 30px;
   padding-bottom: 30px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0; /* Ensure no padding is pushing content */
 }
 
 .hero-card {
-  background-color: #f5f5f5; /* Yellow color #FFF5BA*/
+  background-color: #f5f5f5;
   border-radius: 20px;
-  padding: 20px; /* Reduce the padding to make the hero card thinner */
-  max-width: 1200px; /* Adjust the max-width as needed */
-  width: 90%;
+  padding: 20px;
+  max-width: 1200px;
+  width: 100%; /* Ensure full width */
   text-align: center;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
+  margin: 0 auto; /* Center the card */
 }
 
 /* Semi-Circle on the Right */
 .hero-card::before {
   content: '';
   position: absolute;
-  top: 50%;
-  right: -100px;
-  width: 175px;
-  height: 175px;
-  background: radial-gradient(circle at 30% 70%, #D58668, #DB4A2B); /* Radial gradient background */
+  top: 35%;
+  right: -80px;
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle at 30% 70%, #D58668, #DB4A2B);
   border-radius: 50%;
   transform: translateY(-50%);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Shadow effect */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Semi-Circle on the Left */
 .hero-card::after {
   content: '';
   position: absolute;
-  bottom: -100px; /* Adjust this value to position the circle */
-  left: -100px; /* Adjust this value to position the circle */
+  bottom: -100px;
+  left: -100px;
   width: 175px;
   height: 175px;
-  background: radial-gradient(circle at 40% 50%, #FFA07A, #DB4A2B); /* Radial gradient background */
+  background: radial-gradient(circle at 40% 50%, #FFA07A, #DB4A2B);
   border-radius: 50%;
-  box-shadow: 0 10px 20px rgba(0.3, 0.3, 0.3, 0.3); /* Shadow effect */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Hero Content */
@@ -519,45 +393,44 @@ header {
 }
 
 .hero-content h1 {
-  color: #000; /* Black color */
-  font-size: 2.2rem;
-  padding-left: 35px;
-  padding-right: 35px;
+  color: #000;
+  font-size: 2rem;
+  padding: 0; /* Remove extra padding */
   margin: 0;
-  margin-right:50px;
-  font-weight: 700;
+  font-weight: 800;
   font-family: 'Inter';
-  text-align: center;
-  
+  text-align: center; /* Ensure text is centered */
 }
 
 .hero-content p {
-  color: #000; /* Black color */
-  font-size: 1.2rem;
-  margin-top: 20px;
-  margin-right: 70px;
-  font-weight: 500;
-  font-family: 'Inter';
   padding-left: 25px;
   padding-right: 25px;
-  text-align: center;
- 
+  color: #000;
+  font-size: 13px;
+  margin: 20px 0 0 0; /* Ensure no side margins */
+  font-weight: 600;
+  font-family: 'Inter';
+  text-align: center; /* Ensure text is centered */
 }
 
 .hero-content img {
-  height: 60px;
-  vertical-align: middle;
+  height: 50px;
+  vertical-align: bottom;
+  margin: 0;
 }
+
 .hero-h1-span {
   display: inline-block;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
+
 .hero-h1-span.visible {
   opacity: 1;
   transform: translateY(0);
 }
+
 .hero-buttons {
   margin-top: 30px;
 }
@@ -595,33 +468,44 @@ header {
 /* Responsive Design */
 @media (max-width: 768px) {
   .hero-card {
-      padding: 20px;
+    padding: 20px;
   }
 
   .hero-content h1 {
-      font-size: 1.5rem;
+    font-size: 1.5rem;
   }
 
   .hero-content p {
-      font-size: 0.9rem;
+    font-size: 0.9rem;
   }
 
   .btn {
-      padding: 8px 16px;
-      font-size: 0.9rem;
+    padding: 8px 16px;
+    font-size: 0.9rem;
   }
 
   .hero-card::before,
   .hero-card::after {
-      width: 150px;
-      height: 150px;
-      border-left-width: 75px;
-      border-right-width: 75px;
-      border-bottom-width: 150px;
-      right: -75px;
-      left: -75px;
+    width: 150px;
+    height: 150px;
+    border-left-width: 75px;
+    border-right-width: 75px;
+    border-bottom-width: 150px;
+    right: -75px;
+    left: -75px;
   }
 }
+
+/* Our Most Popular Websites section*/
+
+.popular-title {
+  color: #000;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: 'Inter';
+  text-align: center;
+}
+
 /* PRODUCT CARD STYLING */
 
 .product-card {
@@ -688,35 +572,47 @@ header {
 }
 
 @media (max-width: 768px) {
-  .row-cols-1 .col, .row-cols-md-2 .col, .row-cols-lg-3 .col, .row-cols-xl-4 .col {
-      flex: 0 0 100%;
-      max-width: 100%;
+  .product-card {
+    transform: scale(0.9); /* Slightly smaller cards */
   }
 }
 
 @media (min-width: 769px) and (max-width: 992px) {
-  .row-cols-md-2 .col {
-      flex: 0 0 50%;
-      max-width: 50%;
+  .product-card {
+    transform: scale(0.9); /* Slightly smaller cards */
   }
 }
 
 @media (min-width: 993px) and (max-width: 1200px) {
-  .row-cols-lg-3 .col {
-      flex: 0 0 33.3333%;
-      max-width: 33.3333%;
+  .product-card {
+    transform: scale(0.95); /* Slightly smaller cards */
   }
 }
 
 @media (min-width: 1201px) {
-  .row-cols-xl-4 .col {
-      flex: 0 0 25%;
-      max-width: 25%;
+  .product-card {
+    transform: scale(0.95); /* Slightly smaller cards */
   }
 }
 
 
 /* FAQS */
+/* home page faq */
+
+.faq-header-home {
+  color: #DB4A2B ;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.4rem;
+}
+
+.faq-contact {
+  text-decoration: none;
+  color: #DB4A2B !important;
+  margin-left: 4px;
+  font-weight: 500;
+  font-family: 'Inter';
+}
 .faq-header.bg-dark {
   border-radius: 20px;
   margin: 2rem auto; /* Center the header horizontally */
@@ -805,7 +701,46 @@ header {
   color: grey;
 }
 
-/* Sign up and customize form */
+
+/* Custom Background for Form Section */
+.customize-form-section {
+  position: relative;
+  padding: 50px 20px;
+  background: #f5f5f5; /* Light background color */
+}
+
+.customize-form-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #DB4A2B 30%, #ffffff 30%); /* Diagonal gradient */
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
+  z-index: 1;
+}
+
+.customize-form-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ffffff 50%, #DB4A2B 50%); /* Diagonal gradient */
+  clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
+  z-index: 1;
+}
+
+.customize-form-modal-body {
+  position: relative;
+  z-index: 2;
+  background: none; /* Removed background color */
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: none; /* Removed box shadow */
+}
 
 .form-container {
   max-width: 600px;
@@ -815,29 +750,58 @@ header {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .form-container h5 {
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   margin-bottom: 20px;
 }
+
 .form-container .btn-primary {
   background-color: #007bff;
   border-color: #007bff;
 }
+
 .form-container .form-label {
   font-weight: 500;
   color: #333;
 }
+
 .form-container .form-control {
   border-radius: 5px;
 }
+
 .form-container .form-check-label {
   margin-left: 5px;
 }
+
 .form-container button[type="submit"] {
   width: 100%;
   padding: 10px;
 }
+
+.customize-form-text-muted {
+  color: #6c757d;
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+  .customize-form-modal-body {
+      padding: 20px;
+  }
+
+  .form-container h5 {
+      font-size: 1.5rem;
+  }
+
+  .customize-form-mb-3 {
+      margin-bottom: 1rem;
+  }
+}
+
+
+
+
 
 /* SIGN UP FORM */
 

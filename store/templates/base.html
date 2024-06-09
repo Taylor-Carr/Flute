@@ -24,6 +24,7 @@
     <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="container px-4 px-lg-5">
             <!-- Brand Logo and Home Button -->
+
             <a class="navbar-brand" href="{% url 'home' %}">
                 <img src="{% static 'assets/Flute Logo White New Ball.png' %}" alt="FLUTE" style="height: 45px;">
             </a>
@@ -34,8 +35,11 @@
             <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
     
                 <!-- Conditional display of the search form -->
+
                 {% if request.path != '/search/' %}
+
                 <!-- Add a form in the navbar for quick search -->
+
                 <form class="d-flex mx-auto" method="get" action="{% url 'search' %}" style="max-width: 550px; width: 100%;">
                     <div class="input-group">
                         <input class="form-control" type="search" placeholder="Search our websites by industry..." aria-label="Search" name="query">
@@ -44,9 +48,11 @@
                         </button>
                     </div>
                 </form>
+
                 {% endif %}
                 
                 <!-- Full Screen Drop Down Menu Displaying Support Links -->
+
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownSupport" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -66,20 +72,27 @@
             </div>
             
             <!-- Sign in and Update account dropdown menu -->
+
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
                 {% if user.is_authenticated %}
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle d-flex flex-column align-items-center" href="#" id="navbarDropdownAccount" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa-solid fa-user mb-1"></i>
                             <span class="d-block" id="nav-text">Account</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownAccount">
-                            <li><a class="dropdown-item" href="{% url 'logout' %}" id="nav-text">Sign Out</a></li>
                             <li><a class="dropdown-item" href="{% url 'update_user' %}" id="nav-text">Orders</a></li>
                             <li><a class="dropdown-item" href="{% url 'update_user' %}" id="nav-text">Update Account</a></li>
+                            <li><a class="dropdown-item" href="{% url 'logout' %}" id="nav-text">Sign Out</a></li>
                         </ul>
                     </li>
+
+                    
+
                 {% else %}
+
                 <li class="nav-item">
                     <button type="button" class="btn ms-2 d-flex flex-column align-items-center" data-bs-toggle="modal" data-bs-target="#loginModal">
                         <i class="fa-solid fa-user mb-1"></i>
@@ -92,32 +105,38 @@
                         <span id="nav-text">Sign Up</span>
                     </button>
                 </li>
+
                 {% endif %}
+
             </ul>
     
            <!-- Cart Icon and Cart Quantity -->
-           <form class="d-flex align-items-center">
+
+           <!--<form class="d-flex align-items-center">
             <a class="btn ms-2 btn-custom d-flex flex-column align-items-center text-center" href="{% url 'cart_summary' %}">
                 <i class="fas fa-shopping-basket mb-1" id="basket-icon"></i>
                 <span id="nav-text">Basket</span>
             </a>
+
             {% if cart|length > 0 %}
+
                 <span class="ms-2 badge" id="cart_quantity">{{ cart|length }}</span>
+
             {% endif %}
-        </form>
+        </form>-->
         </div>
     </div>
-    </nav>
+</nav>
     
-    <!-- Separate Navigation Bar for Category Items -->
+    <!-- Separate Navigation Bar for Category Items ie nav 2 -->
+
     <nav id="second-navbar">
         <div class="container">
             <ul>
                 <li><a href="{% url 'category_summary' %}">Shop all Websites</a></li>
-                <li><a href="{% url 'category' 'Commerce' %}">E-Commerce</a></li>
+                <li><a href="{% url 'category' 'E Commerce' %}">E-Commerce</a></li>
+                <li><a href="{% url 'category' 'Landing Pages' %}">Landing Pages</a></li>
                 <li><a href="{% url 'category' 'Blog' %}">Blog</a></li>
-                <li><a href="{% url 'category' 'Educational Websites' %}">Educational Websites</a></li>
-                <li><a href="{% url 'category' 'Business Corporate' %}">Business / Corporate</a></li>
                 <li><a href="{% url 'category' 'Portfolio Websites' %}">Portfolio Websites</a></li>
                 <li><a href="{% url 'category' 'Personal Websites' %}">Personal Websites</a></li>
             </ul>
@@ -125,6 +144,7 @@
     </nav>
 
     <!-- Error Messages -->
+
     {% if messages %}
         {% for message in messages %}
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -190,6 +210,7 @@
     </div>
 
     <!-- Footer -->
+
     <footer class="footer">
         <div class="container">
             <div class="row">
