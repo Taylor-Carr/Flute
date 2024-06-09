@@ -702,10 +702,20 @@ header {
 }
 
 
+/* Contact header */
+.contact-header {
+  margin-bottom: 5px;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 500;
+  font-family: 'League Spartan', sans-serif;
+}
+
 /* Custom Background for Form Section */
+
 .customize-form-section {
   position: relative;
-  padding: 50px 20px;
+  padding: 10px 10px;
   background: #f5f5f5; /* Light background color */
 }
 
@@ -738,7 +748,7 @@ header {
   z-index: 2;
   background: none; /* Removed background color */
   border-radius: 15px;
-  padding: 30px;
+  padding: 20px;
   box-shadow: none; /* Removed box shadow */
 }
 
@@ -799,8 +809,45 @@ header {
   }
 }
 
+/* Contact Form */
 
+.contact-form {
+  background-color: #f8f9fa; /* Background color */
+  padding: 40px;
+  border-radius: 10px;
+  margin-bottom: 8rem;
+}
 
+.contact-form label {
+  font-weight: bold;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ced4da; /* Border color */
+  border-radius: 5px;
+}
+
+.contact-form textarea {
+  resize: none; /* Prevent resizing of textarea */
+}
+
+.contact-form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff; /* Button color */
+  color: #fff; /* Button text color */
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #0056b3; /* Button hover color */
+}
 
 
 /* SIGN UP FORM */
