@@ -51,25 +51,6 @@
 
                 {% endif %}
                 
-                <!-- Full Screen Drop Down Menu Displaying Support Links -->
-
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdownSupport" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            24/7 Support &#x25be;
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownSupport">
-                            <!-- 24/7 Support link -->
-                            <li class="nav-item"><a class="nav-link" href="{% url 'faqs' %}" id="nav-text">FAQs</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}" id="nav-text">Contact Us</a></li>
-                            <!-- Divider -->
-                            <li><hr class="dropdown-divider" /></li>
-                            <!-- About link -->
-                            <li class="nav-item"><a class="nav-link" href="{% url 'about' %}" id="nav-text">About Flute</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
             
             <!-- Sign in and Update account dropdown menu -->
 
@@ -89,9 +70,47 @@
                         </ul>
                     </li>
 
-                    
+                    <!-- Full Screen Drop Down Menu Displaying Support Links -->
+
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownSupport" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            24/7 Support &#x25be;
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownSupport">
+                            <!-- 24/7 Support link -->
+                            <li class="nav-item"><a class="nav-link" href="{% url 'faqs' %}" id="nav-text">FAQs</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}" id="nav-text">Contact Us</a></li>
+                            <!-- Divider -->
+                            <li><hr class="dropdown-divider" /></li>
+                            <!-- About link -->
+                            <li class="nav-item"><a class="nav-link" href="{% url 'about' %}" id="nav-text">About Flute</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
 
                 {% else %}
+
+                <!-- Full Screen Drop Down Menu Displaying Support Links -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownSupport" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            24/7 Support &#x25be;
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownSupport">
+                            <!-- 24/7 Support link -->
+                            <li class="nav-item"><a class="nav-link" href="{% url 'faqs' %}" id="nav-text">FAQs</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}" id="nav-text">Contact Us</a></li>
+                            <!-- Divider -->
+                            <li><hr class="dropdown-divider" /></li>
+                            <!-- About link -->
+                            <li class="nav-item"><a class="nav-link" href="{% url 'about' %}" id="nav-text">About Flute</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
 
                 <li class="nav-item">
                     <button type="button" class="btn ms-2 d-flex flex-column align-items-center" data-bs-toggle="modal" data-bs-target="#loginModal">
@@ -99,12 +118,16 @@
                         <span id="nav-text">Log In</span>
                     </button>
                 </li>
+
+                <!-- Sign Up Icon / revue user journey -->
+                <!--
                 <li class="nav-item">
                     <button type="button" class="btn ms-2 d-flex flex-column align-items-center" data-bs-toggle="modal" data-bs-target=".signup-modal">
                         <i class="fa-solid fa-user mb-1"></i>
                         <span id="nav-text">Sign Up</span>
                     </button>
                 </li>
+            -->
 
                 {% endif %}
 
@@ -158,31 +181,31 @@
     {% endblock %}
 
     <!-- Modals for Login and Register -->
-    <!-- Login Modal -->
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form method="POST" action="{% url 'login' %}">
-                        {% csrf_token %}
-                        <div class="mb-3">
-                            <label for="loginEmail" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="loginEmail" name="email" placeholder="Email Address" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="loginPassword" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="loginPassword" name="password" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Sign In</button>
-                    </form>
-                </div>
+   <!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm" method="POST" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="loginEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="loginEmail" name="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="loginPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="loginPassword" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign In</button>
+                </form>
             </div>
         </div>
     </div>
+</div>
 
     <div class="signup-modal modal fade" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
         <div class="modal-dialog">

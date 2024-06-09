@@ -815,7 +815,7 @@ header {
   background-color: #f8f9fa; /* Background color */
   padding: 40px;
   border-radius: 10px;
-  margin-bottom: 8rem;
+  margin-bottom: 6rem;
 }
 
 .contact-form label {
@@ -837,18 +837,19 @@ header {
 }
 
 .contact-form button {
-  padding: 10px 20px;
+  padding: 10px 30px;
   border: none;
   border-radius: 5px;
-  background-color: #007bff; /* Button color */
+  background-color: #000; /* Button color */
   color: #fff; /* Button text color */
   cursor: pointer;
+  font-family: 'Inter';
+  font-size: 1rem;
 }
 
 .contact-form button:hover {
-  background-color: #0056b3; /* Button hover color */
+  background-color: #000; /* Button hover color */
 }
-
 
 /* SIGN UP FORM */
 
@@ -984,37 +985,96 @@ header {
   color: black; /* Change social icon color on hover */
 }
 
-/* Category Page */
+/* Category Summary Page */
 
-.card:hover {
+/* Custom styles for summary cards */
+
+.summary-title-header {
+  padding: 10px;
+}
+
+#summary-title {
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: 'League Spartan', sans-serif;
+  color: black;
+}
+.summary-padding {
+  margin-bottom: 20px;
+}
+
+.summary-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.summary-card:hover {
   transform: translateY(-10px);
-  transition: transform 0.3s;
-}
-.card-img-top:hover {
-  opacity: 0.8;
-  transition: opacity 0.3s;
-}
-.card {
-  max-width: 250px; /* Set the maximum width for the cards */
-  margin: 0 auto; /* Center the cards horizontally */
-  border: none;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-.card-body {
-  padding: 1rem; /* Reduce padding */
+.summary-card-img {
+  height: 200px;
+  object-fit: cover;
 }
 
-.card-footer {
-  padding: 0.5rem; /* Reduce padding */
-}
-.btn-sm {
-  padding: 0.25rem 0.5rem;
-  font-size: 0.875rem;
+.summary-card-body h5 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  margin-top: 10px;
 }
 
+.summary-card-footer {
+  border-top: none;
+  background-color: transparent;
+}
 
+.summary-card-btn {
+  border-radius: 20px;
+  padding: 10px 20px;
+}
+
+/* Spacing adjustments */
+.container {
+  max-width: 1200px;
+}
+
+@media (max-width: 992px) {
+  .summary-col {
+      flex: 0 0 50%;
+      max-width: 50%;
+  }
+}
+
+@media (max-width: 576px) {
+  .summary-col {
+      flex: 0 0 100%;
+      max-width: 100%;
+  }
+}
+
+/* Product Card before buy */
+.price {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  color: black; /* Adjust text color as needed */
+}
+
+#detail-img {
+  border-radius: 12px; /* Adjust the value as needed */
+}
+
+#product-detail-title {
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  color: #333;
+}
+
+#detail-dropdown {
+  text-decoration: none;
+  font-weight: 700;
+  color: black;
+}
 /* Product Cards */
 
 .product-card {

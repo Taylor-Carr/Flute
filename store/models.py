@@ -56,7 +56,7 @@ class Customer(AbstractBaseUser, PermissionsMixin):
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'company_name']
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'company_name', 'phone']
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'

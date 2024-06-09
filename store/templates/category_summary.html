@@ -2,13 +2,13 @@
 {% load static %}
 {% block content %}
 
-<header class="hero-section">
+<header class="hero-section summary-title-header">
     <div class="container">
         <div class="row justify-content-center"> <!-- Adding justify-content-center to center the column horizontally -->
             <div class="col-md-12 col-lg-12"> <!-- Adjust the column width as needed -->
                 <div class="hero-card">
                     <div class="hero-content text-center">
-                        <h1>Shop All Websites </h1>
+                        <h1 id="summary-title">Shop All Websites </h1>
                     </div>
                 </div>
             </div>
@@ -20,22 +20,26 @@
 <br>
 <br>
 
-<section>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-4">
-        {% for category in categories %}
-        <div class="col">
-            <div class="card h-100">
-                <img class="card-img-top" src="{{ category.image.url }}" alt="{{ category.name }}" />
-                <div class="card-body">
-                    <h5 class="card-title">{{ category.name }}</h5>
-                </div>
-                <div class="card-footer text-center">
-                    <a href="{% url 'category' category %}" class="btn btn-outline-dark">View Category</a>
+<section class="py-5 summary-padding">
+    <div class="container px-4 px-lg-5">
+        <div class="row summary-row">
+            {% for category in categories %}
+            <div class="col summary-col">
+                <div class="card summary-card h-100">
+                    <img class="card-img-top summary-card-img" src="{{ category.image.url }}" alt="{{ category.name }}" />
+                    <div class="card-body text-center summary-card-body">
+                        <h5 class="summary-card-title">{{ category.name }}</h5>
+                    </div>
+                    <div class="card-footer text-center summary-card-footer">
+                        <a href="{% url 'category' category %}" class="btn btn-outline-dark summary-card-btn">View Category</a>
+                    </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
 </section>
+
+
 
 {% endblock %}

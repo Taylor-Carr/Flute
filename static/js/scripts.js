@@ -14,9 +14,26 @@ $(document).ready(function() {
         $('#loginModal').modal('show');
     });
 
-    // Trigger signup modal (assuming the button has the class "signup-button")
-    $('.signup-button').click(function(e) {
+    // Handle form submission
+    $('#loginForm').submit(function(e) {
         e.preventDefault();
-        $('#signupModal').modal('show');
+        var form = $(this);
+        var url = form.attr('action');
+        var formData = form.serialize();
+
+        $.post(url, formData)
+            .done(function(response) {
+                // Assuming your backend returns a JSON response with a 'success' field
+                if (response.success) {
+                    // Redirect to home page or perform any other action
+                    window.location.href = "{% url 'home' %}";
+                } else {
+                    // Display error message or handle accordingly
+                    alert("Login failed. Please try again.");
+                }
+            })
+            .fail(function() {
+                alert("An error occurred. Please try again later.");
+            });
     });
 });

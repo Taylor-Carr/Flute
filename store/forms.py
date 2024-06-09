@@ -31,12 +31,13 @@ class UpdateUserForm(UserChangeForm):
     first_name = forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'First Name'}))
     last_name = forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Last Name'}))
     company_name = forms.CharField(label="", max_length=70, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Company Name'}))
+    phone = forms.CharField(label="", max_length=11, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Phone Number'}))
     #Hide password text at bottom of for
     password = None
 
     class Meta:
         model = Customer
-        fields = ('company_name', 'first_name', 'last_name', 'email')
+        fields = ('company_name', 'first_name', 'last_name', 'email', 'phone')
 
 
 
