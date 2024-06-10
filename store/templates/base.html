@@ -57,7 +57,25 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
                 {% if user.is_authenticated %}
+                    <!--
+                
+                
+                   <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex flex-column align-items-center" href="#" id="navbarDropdownAccount" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-user mb-1"></i>
+                            <span class="d-block" id="nav-text">Account</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownAccount">
+                            <li><a class="dropdown-item" href="{% url 'update_user' %}" id="nav-text">Orders</a></li>
+                            <li><a class="dropdown-item" href="{% url 'update_user' %}" id="nav-text">Update Account</a></li>
+                            <li><a class="dropdown-item" href="{% url 'logout' %}" id="nav-text">Sign Out</a></li>
+                        </ul>
+                    </li>
 
+                
+                
+                
+                    -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle d-flex flex-column align-items-center" href="#" id="navbarDropdownAccount" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa-solid fa-user mb-1"></i>
@@ -111,13 +129,15 @@
                     </li>
                 </ul>
             </div>
-
-                <li class="nav-item">
+            <!--                   
+               <li class="nav-item">
                     <button type="button" class="btn ms-2 d-flex flex-column align-items-center" data-bs-toggle="modal" data-bs-target="#loginModal">
                         <i class="fa-solid fa-user mb-1"></i>
                         <span id="nav-text">Log In</span>
                     </button>
                 </li>
+
+            -->
 
                 <!-- Sign Up Icon / revue user journey -->
                 <!--
@@ -156,8 +176,8 @@
     <nav id="second-navbar">
         <div class="container">
             <ul>
-                <li><a href="{% url 'category_summary' %}">Shop all Websites</a></li>
-                <li><a href="{% url 'category' 'E Commerce' %}">E-Commerce</a></li>
+                <li><a href="{% url 'category_summary' %}">Shop all Landing Pages</a></li>
+                <li><a href="{% url 'category' 'E Commerce' %}"></a>E-Commerce</li>
                 <li><a href="{% url 'category' 'Landing Pages' %}">Landing Pages</a></li>
                 <li><a href="{% url 'category' 'Blog' %}">Blog</a></li>
                 <li><a href="{% url 'category' 'Portfolio Websites' %}">Portfolio Websites</a></li>
@@ -180,8 +200,8 @@
     {% block content %}
     {% endblock %}
 
-    <!-- Modals for Login and Register -->
-   <!-- Login Modal -->
+    <!-- Modals for Login and Register 
+   Login Modal 
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -207,6 +227,8 @@
     </div>
 </div>
 
+
+
     <div class="signup-modal modal fade" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -217,20 +239,20 @@
                 <div class="modal-body">
                     <form method="POST" action="{% url 'register_popup' %}">
                         {% csrf_token %}
-                        <!-- Your form fields go here -->
+                       
                         <input type="text" name="company_name" class="form-control" placeholder="Company Name">
                         <input type="text" name="first_name" class="form-control" placeholder="First Name">
                         <input type="text" name="last_name" class="form-control" placeholder="Last Name">
                         <input type="email" name="email" class="form-control" placeholder="Email Address">
                         <input type="password" name="password1" class="form-control" placeholder="Password">
                         <input type="password" name="password2" class="form-control" placeholder="Confirm Password">
-                        <!-- End of form fields -->
+                       
                         <button type="submit" class="btn btn-primary">Sign Up</button>
                     </form>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Footer -->
 
@@ -251,17 +273,21 @@
                     <ul>
                         <li><a href="{% url 'faqs' %}">FAQ</a></li>
                         <li><a href="{% url 'contact' %}">Contact Us</a></li>
+
+                        <!---
                         <li><a href="#">Order Status</a></li>
                         <li><a href="{% url 'update_user' %}">Update Account</a></li>
-                        <!-- Add more support links here if needed -->
+                         Add more support links here if needed -->
+
                     </ul>
                 </div>
                 <div class="col-md-3">
                     <h4 class="footer-title">Store</h4>
                     <ul>
-                        <li><a href="#">Landing Pages</a></li>
+                        <li><a href="{% url 'category_summary' %}"> Shop all Landing Pages</a></li>
+                        <!---
                         <li><a href="{% url 'category' 'Commerce' %}">E-Commerce</a></li>
-                        <!-- Add more store links here if needed -->
+                         Add more store links here if needed -->
                     </ul>
                 </div>
                 <div class="col-md-3">

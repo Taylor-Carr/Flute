@@ -10,13 +10,13 @@
                 <div class="hero-card">
                     <div class="hero-content text-center">
                         <h1>
-                            <span class="hero-h1-span visible">Get</span>
-                            <span class="hero-h1-span visible">Online</span>
-                            <span class="hero-h1-span visible">Fast</span>
-                            <span class="hero-h1-span visible">with</span>
                             <span class="hero-h1-span visible"><img src="{% static 'assets/Flute_Logo_White_New_Ball-removebg-preview.png' %}" alt="Company Logo"></span>
+                            <span class="hero-h1-span visible">The</span>
+                            <span class="hero-h1-span visible">Landing</span>
+                            <span class="hero-h1-span visible">Page</span>
+                            <span class="hero-h1-span visible">People</span>
                         </h1>
-                        <p>Getting started with Flute is easy! Choose a plan that suits your needs, fill out our onboarding form, and we'll build your website within 7 days.</p>
+                        <p>Getting started with Flute is easy! Choose a plan that suits your needs, fill out our onboarding form, and we'll build your landing page within 2 days.</p>
                     </div>
                 </div>
             </div>
@@ -25,68 +25,52 @@
 </header>
 
 
-<!---Popular website---->
-
 <section class="py-5">
-    <h2 class="text-center mt-5 popular-title">Our Most Popular Websites</h2>
-    <div id="popularWebsitesCarousel" class="carousel slide">
-        <div class="carousel-inner">
+    <h2 class="text-center mt-5 popular-title">Pick A Plan</h2>
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
             {% for product in products %}
-            {% if forloop.first %}<div class="carousel-item active">{% else %}<div class="carousel-item">{% endif %}
-                <div class="container px-4 px-lg-5 mt-5">
-                    <div class="row gx-4 gx-lg-5 justify-content-center">
-                        <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-5"> <!-- Adjust column classes here -->
-                            <div class="card h-100 product-card">
-                                {% if product.on_sale %}
-                                <div class="badge bg-light text-black position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                                {% endif %}
-                                <div id="carouselProduct{{ product.id }}" class="carousel slide">
-                                    <div class="carousel-inner">
-                                        {% for image in product.images.all %}
-                                        <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                                            <img class="d-block w-100 product-image img-fluid" src="{{ image.image.url }}" alt="Product Image {{ forloop.counter }}">
-                                        </div>
-                                        {% endfor %}
-                                    </div>
-                                    <a class="carousel-control-prev" href="#carouselProduct{{ product.id }}" role="button" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carouselProduct{{ product.id }}" role="button" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Next</span>
-                                    </a>
-                                </div>
-                                <div class="card-body p-4 product-details">
-                                    <div class="text-center">
-                                        <h5 class="fw-bolder product-title">{{ product.name }}</h5>
-                                        {% if product.on_sale %}
-                                        <strike>£{{ product.price }}</strike>
-                                        <br>
-                                        £{{ product.sale_price }}
-                                        {% else %}
-                                        £{{ product.price }}
-                                        {% endif %}
-                                    </div>
-                                </div>
-                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'product' product.id %}">View Product</a></div>
-                                </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-5">
+                <div class="card h-100 product-card">
+                    {% if product.on_sale %}
+                    <div class="badge bg-light text-black position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                    {% endif %}
+                    <div id="carouselProduct{{ product.id }}" class="carousel slide">
+                        <div class="carousel-inner">
+                            {% for image in product.images.all %}
+                            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                <img class="d-block w-100 product-image img-fluid" src="{{ image.image.url }}" alt="Product Image {{ forloop.counter }}">
                             </div>
+                            {% endfor %}
                         </div>
+                        <a class="carousel-control-prev" href="#carouselProduct{{ product.id }}" role="button" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselProduct{{ product.id }}" role="button" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </a>
+                    </div>
+                    <div class="card-body p-4 product-details">
+                        <div class="text-center">
+                            <h5 class="fw-bolder product-title">{{ product.name }}</h5>
+                            {% if product.on_sale %}
+                            <strike>£{{ product.price }}</strike>
+                            <br>
+                            £{{ product.sale_price }}
+                            {% else %}
+                            £{{ product.price }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'product' product.id %}">View Product</a></div>
                     </div>
                 </div>
             </div>
             {% endfor %}
         </div>
-        <a class="carousel-control-prev" href="#popularWebsitesCarousel" role="button" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#popularWebsitesCarousel" role="button" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </a>
     </div>
 </section>
 
@@ -94,32 +78,41 @@
 
 <section id="services">
     <div class="container">
+        <h2>How it works</h2>
         <div id="service-items" class="row justify-content-center">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="card service-card">
                     <div class="card-body service-card-body">
-                        <h3>Money Back Guarantee</h3>
+                        <h3>Pick a plan that suits you</h3>
                         <p>Professional web design services to give your business an online presence.</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="card service-card">
                     <div class="card-body service-card-body">
-                        <h3>SEO</h3>
+                        <h3>fill out an on boarding form</h3>
                         <p>Optimize your website to rank higher in search engines and attract more visitors.</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="card service-card">
                     <div class="card-body service-card-body">
-                        <h3>Hosting</h3>
+                        <h3>We'll Send a design proposal</h3>
                         <p>Create a strong brand identity that sets you apart from the competition.</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
+                <div class="card service-card">
+                    <div class="card-body service-card-body">
+                        <h3>If your happy, we'll launch</h3>
+                        <p>Create a strong brand identity that sets you apart from the competition.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
                 <div class="card service-card">
                     <div class="card-body service-card-body">
                         <h3>Updating your Website</h3>

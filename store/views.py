@@ -8,7 +8,7 @@ from .forms import SignUpForm, UpdateUserForm, ChangePasswordForm, CombinedForm
 from django import forms
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Customer, ProductCustomization
-from .forms import SearchForm
+from .forms import SearchForm, ContactForm
 
 
 def search(request):
@@ -35,12 +35,28 @@ def faqs(request):
     return render(request, 'faqs.html', {})
 
 def contact(request):
-    if request.user.is_authenticated:
-        return render(request, 'contact.html', {})
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            # Process the form data
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+            
+            # Send email (or save to database)
+            send_mail(
+                f'Contact Form Submission from {name}',
+                message,
+                email,
+                ['your_email@example.com'],  # Replace with your email
+            )
+            
+            # Redirect to a success page or show a success message
+            return redirect('contact_success')  # Replace with your success page URL name
     else:
-        messages.error(request, "Please Sign in to contact Flute")
-        return redirect('login')
-
+        form = ContactForm()
+    
+    return render(request, 'contact.html', {'form': form})
 
 
 

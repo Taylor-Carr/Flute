@@ -4,6 +4,14 @@ from django import forms
 from .models import Customer, ProductCustomization
 
 
+class ContactForm(forms.Form):
+    company_name = forms.CharField(label="", max_length=70, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Company Name'}))
+    first_name = forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'First Name'}))
+    last_name = forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Last Name'}))
+    email = forms.EmailField(label="", widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email Address'}))
+    message = forms.CharField(widget=forms.Textarea)
+    
+
 class SearchForm(forms.Form):
     query = forms.CharField(max_length=100, required=True, label='Search')
     
