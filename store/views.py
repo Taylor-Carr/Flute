@@ -133,9 +133,9 @@ def login_user(request):
             return redirect('home')
         else:
             messages.error(request, "There was an error, please try again")
-            return redirect('login')
+            return redirect('home')
     else:
-        return render(request, 'login.html', {})
+        return render(request, 'base.html', {})
 
 def logout_user(request):
     logout(request)

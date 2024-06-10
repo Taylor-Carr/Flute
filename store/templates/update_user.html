@@ -1,28 +1,30 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-6 contact-form"> <!-- Apply contact-form class -->
-            <div class="card">
-                <div class="card-body">
-                    <h2 class="card-title text-center">Update User Information</h2>
+
+<section class="py-5 customize-form-section">
+    <div class="container px-4 px-lg-5">
+    <div class="row justify-content-center"> <!-- Center the content horizontally -->
+                <div class="card-body customize-form-modal-body"> <!-- Add padding -->
+                    <h2 class="card-title text-center">Update User Information</h2> <!-- Center the heading -->
                     <form method="POST" action="{% url 'update_user' %}">
                         {% csrf_token %}
                         {{ user_form.as_p }}
-                        <div class="d-grid gap-2 mt-3">
-                            <button type="submit" class="btn btn-primary btn-lg">Confirm Changes</button>
+                        <div class="d-grid gap-2 mt-3"> <!-- Add margin top and style for button group -->
+                            <button type="submit" class="btn btn-primary btn-lg">Confirm Changes</button> <!-- Style the button -->
                         </div>
                     </form>
-                    <hr class="my-4">
-                    <div class="text-center">
-                        <a href="{% url 'update_password' %}" class="btn btn-link">Change Password</a>
+                    <hr class="my-4"> <!-- Add a horizontal rule -->
+                    <div class="text-center"> <!-- Center-align the link -->
+                        <a href="{% url 'update_password' %}" class="btn btn-link">Change Password</a> <!-- Style the link as a button -->
                     </div>
                 </div>
-            </div>
-        </div>
+            
     </div>
 </div>
+</div>
+</section>
+
 
 
 
