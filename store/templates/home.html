@@ -11,12 +11,14 @@
                     <div class="hero-content text-center">
                         <h1>
                             <span class="hero-h1-span visible"><img src="{% static 'assets/Flute_Logo_White_New_Ball-removebg-preview.png' %}" alt="Company Logo"></span>
-                            <span class="hero-h1-span visible">The</span>
+                            <span class="hero-h1-span visible">We</span>
+                            <span class="hero-h1-span visible">Build</span>
                             <span class="hero-h1-span visible">Landing</span>
-                            <span class="hero-h1-span visible">Page</span>
-                            <span class="hero-h1-span visible">People</span>
+                            <span class="hero-h1-span visible">Pages<span class="hero-h1-span visible" id="dot-end">.</span></span>
+                            
+                            <span class="hero-h1-span visible" id="hero-dot"></span>
                         </h1>
-                        <p>Getting started with Flute is easy! Choose a plan that suits your needs, fill out our onboarding form, and we'll build your landing page within 2 days.</p>
+                        <p>Get noticed online with Flute! Choose a plan, fill out our onboarding form, and we'll build your landing page within 2 days.</p>
                     </div>
                 </div>
             </div>
@@ -25,9 +27,8 @@
 </header>
 
 
-<section class="py-5">
-    <h2 class="text-center mt-5 popular-title">Pick A Plan</h2>
-    <div class="container px-4 px-lg-5 mt-5">
+<section class="py-1">
+    <div class="container px-4 px-lg-5 mt-5 plans-con">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             {% for product in products %}
             <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-5">

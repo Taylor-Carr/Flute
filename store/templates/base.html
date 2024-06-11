@@ -26,7 +26,7 @@
             <!-- Brand Logo and Home Button -->
 
             <a class="navbar-brand" href="{% url 'home' %}">
-                <img src="{% static 'assets/Flute Logo White New Ball.png' %}" alt="FLUTE" style="height: 45px;">
+                <img src="{% static 'assets/Flute Logo White New Ball.png' %}" alt="FLUTE" style="height: 56px;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -40,9 +40,9 @@
 
                 <!-- Add a form in the navbar for quick search -->
 
-                <form class="d-flex mx-auto" method="get" action="{% url 'search' %}" style="max-width: 550px; width: 100%;">
+                <form class="d-flex mx-auto" method="get" action="{% url 'search' %}" style="max-width: 690px; width: 100%;">
                     <div class="input-group">
-                        <input class="form-control" type="search" placeholder="Search our websites by industry..." aria-label="Search" name="query">
+                        <input class="form-control" type="search" placeholder="Search our landing pages by industry..." aria-label="Search" name="query">
                         <button class="btn btn-dark" type="submit">
                             <i class="bi bi-search text-white"></i> 
                         </button>
@@ -176,12 +176,21 @@
     <nav id="second-navbar">
         <div class="container">
             <ul>
+            <!--Commment out for future use -->
+            <!---
                 <li><a href="{% url 'category_summary' %}">Shop all Landing Pages</a></li>
                 <li><a href="{% url 'category' 'E Commerce' %}"></a>E-Commerce</li>
                 <li><a href="{% url 'category' 'Landing Pages' %}">Landing Pages</a></li>
                 <li><a href="{% url 'category' 'Blog' %}">Blog</a></li>
                 <li><a href="{% url 'category' 'Portfolio Websites' %}">Portfolio Websites</a></li>
                 <li><a href="{% url 'category' 'Personal Websites' %}">Personal Websites</a></li>
+            -->
+                <!---Currently used for value prop -->
+                <li></li>
+                <li><i class="fa-solid fa-credit-card" id="nav-value-icon"></i></a>Pay after approving your design</li>
+                <li><i class="fa-solid fa-magnifying-glass" id="nav-value-icon"></i>SEO Optimised</li>
+                <li><i class="fa-solid fa-tablet-screen-button" id="nav-value-icon"></i>Mobile Responsive</li>
+                <li><i class="fa-solid fa-truck-fast" id="nav-value-icon"></i>Launch within 2 days</li>
             </ul>
         </div>
     </nav>
