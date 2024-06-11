@@ -26,13 +26,12 @@
     </div>
 </header>
 
-
 <section class="py-1">
-    <div class="container px-4 px-lg-5 mt-5 plans-con">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="container px-3 px-lg-5 mt-5 plans-con">
+        <div class="row gx-3 gx-lg-5 justify-content-center">
             {% for product in products %}
             <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-5">
-                <div class="card h-100 product-card">
+                <div class="card h-100 featured-product-card">
                     {% if product.on_sale %}
                     <div class="badge bg-light text-black position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                     {% endif %}
@@ -56,17 +55,25 @@
                     <div class="card-body p-4 product-details">
                         <div class="text-center">
                             <h5 class="fw-bolder product-title">{{ product.name }}</h5>
+                            <h5 class="fw-bolder product-descript">What's Included &#x25be;</h5>
+                            <ul class="fw-bolder product-descript-list">
+                                <li>SEO</li>
+                                <li>Hosting</li>
+                                <li>Copywriting</li>
+                            </ul>
                             {% if product.on_sale %}
                             <strike>£{{ product.price }}</strike>
                             <br>
                             £{{ product.sale_price }}
                             {% else %}
-                            £{{ product.price }}
+                            <h5 class="fw-bolder product-price">£{{ product.price }}</h5>
                             {% endif %}
                         </div>
                     </div>
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'product' product.id %}">View Product</a></div>
+                    <div class="d-grid">
+                        <a class="btn btn-dark home-product-button" href="{% url 'product' product.id %}">
+                            Continue</i>
+                        </a>
                     </div>
                 </div>
             </div>
