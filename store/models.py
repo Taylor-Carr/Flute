@@ -61,11 +61,19 @@ class Customer(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
 
+
+class Benefit(models.Model):
+    description = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.description
+
 class Product(models.Model):
     name = models.CharField(max_length=70)
     price = models.DecimalField(default=0, decimal_places=2, max_digits=6)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
     description = models.CharField(max_length=300, default='', blank=True, null=True)
+    benefits = models.ManyToManyField(Benefit)
     on_sale = models.BooleanField(default=False)
     sale_price = models.DecimalField(default=0, decimal_places=2, max_digits=6)
 

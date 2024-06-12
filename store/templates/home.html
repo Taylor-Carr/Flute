@@ -39,7 +39,7 @@
                         <div class="carousel-inner">
                             {% for image in product.images.all %}
                             <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                                <img class="d-block w-100 product-image img-fluid" src="{{ image.image.url }}" alt="Product Image {{ forloop.counter }}">
+                                <a href="{% url 'product' product.id %}"><img class="d-block w-100 product-image img-fluid" src="{{ image.image.url }}" alt="Product Image {{ forloop.counter }}"></a>
                             </div>
                             {% endfor %}
                         </div>
@@ -62,17 +62,19 @@
                                 <li>Copywriting</li>
                             </ul>
                             {% if product.on_sale %}
-                            <strike>£{{ product.price }}</strike>
-                            <br>
+
                             £{{ product.sale_price }}
+
                             {% else %}
+
                             <h5 class="fw-bolder product-price">£{{ product.price }}</h5>
+
                             {% endif %}
                         </div>
                     </div>
                     <div class="d-grid">
                         <a class="btn btn-dark home-product-button" href="{% url 'product' product.id %}">
-                            Continue</i>
+                            Continue
                         </a>
                     </div>
                 </div>
@@ -89,42 +91,42 @@
         <h2>How It Works</h2>
         <div id="service-items" class="row justify-content-center">
             <div class="col-md-4">
-                <div class="card service-card">
+                <div class="card service-card" id="service-card">
                     <div class="card-body service-card-body">
-                        <h3>Pick a plan that suits you</h3>
+                        <h3><div class="service-num">1.</div>Pick a plan that suits you</h3>
                         <p>Professional web design services to give your business an online presence.</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card service-card">
+                <div class="card service-card" id="service-card">
                     <div class="card-body service-card-body">
-                        <h3>fill out an on boarding form</h3>
+                        <h3><div class="service-num">2.</div>fill out an on boarding form</h3>
                         <p>Optimize your website to rank higher in search engines and attract more visitors.</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card service-card">
+                <div class="card service-card"  id="service-card">
                     <div class="card-body service-card-body">
-                        <h3>We'll Send a design proposal</h3>
-                        <p>Create a strong brand identity that sets you apart from the competition.</p>
+                        <h3><div class="service-num">3.</div>We'll Send a design proposal</h3>
+                        <p>Create a strong brand identity that sets you apart from the competition.sets you apart </p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card service-card">
+                <div class="card service-card" id="service-card">
                     <div class="card-body service-card-body">
-                        <h3>If your happy, we'll launch</h3>
-                        <p>Create a strong brand identity that sets you apart from the competition.</p>
+                        <h3><div class="service-num">4.</div>If your happy, we'll launch</h3>
+                        <p>Optimize your website to rank higher in search engines and attract more visitors.</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card service-card">
+                <div class="card service-card" id="service-card">
                     <div class="card-body service-card-body">
-                        <h3>Updating your Website</h3>
-                        <p>Create a strong brand identity that sets you apart from the competition.</p>
+                        <h3><div class="service-num">5.</div>Updating your Website</h3>
+                        <p>Optimize your website to rank higher in search engines and attract more visitors.</p>
                     </div>
                 </div>
             </div>

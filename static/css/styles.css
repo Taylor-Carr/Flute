@@ -223,14 +223,27 @@
 
 /* Services Section */
 #services {
-  padding: 40px 15px;
-  background-color: #ffffff;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  border-radius: 20px;
+  padding: 20px 15px;
+  background: #f5f5f5;
 }
 
 #services h2 {
-  text-align: center;
-  font-size: 1.8rem;
-  margin-bottom: 15px;
+  color: #333;
+  text-align: left;
+  font-size: 2rem;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-family: 'League Spartan';
+}
+
+.service-num {
+  font-size: 1.4rem;
+  color: #DB4A2B;
+  text-align: left;
   font-weight: 600;
   font-family: 'League Spartan';
 }
@@ -241,12 +254,15 @@
   justify-content: center;
 }
 
-.service-card {
-  background-color: #f5f5f5;
+/* Glassy transparent card */
+#service-card {
+  background: rgba(255, 255, 255, 0.1); /* White hue with 20% opacity */
+  backdrop-filter: blur(10px); /* Blur effect for glassy look */
   border-radius: 15px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   margin: 10px; /* Add margin to create space between cards */
-  height: 100%; /* Ensure all cards are of equal height */
+  width: calc(25% - 20px); /* Adjust card width for spacing */
+  min-width: 300px; /* Ensure minimum width */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -260,15 +276,39 @@
 .service-card-body h3 {
   font-size: 1.2rem;
   margin-bottom: 20px;
+  color: #333;
   font-weight: 500;
   font-family: 'Inter';
 }
 
 .service-card-body p {
   font-size: 0.9rem;
-  color: #666666;
+  color: #333;
   font-weight: 500;
   font-family: 'Inter';
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  #services {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  #service-card {
+    width: calc(50% - 20px); /* Adjust card width for smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  #services {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  #service-card {
+    width: calc(100% - 20px); /* Adjust card width for mobile screens */
+  }
 }
 /* Cart Styling */
 
@@ -531,12 +571,6 @@ header {
   border-radius: 4px solid black;
 }
 
-.featured-product-card .badge {
-  font-size: 0.75rem;
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-}
-
 .featured-product-card .badge.bg-light {
   background-color: var(--sale-badge-bg);
   color: var(--text-color);
@@ -558,9 +592,9 @@ header {
 
 /* Description list */
 .featured-product-card .product-descript-list {
-  font-weight: 600;
+  font-weight: 400;
   font-family: 'Inter', sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   padding-bottom: 0.4rem;
   padding-left: 0.4rem;
   padding-right: 0.4rem;
@@ -570,8 +604,8 @@ header {
 
 /* Title */
 .featured-product-card .product-title {
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-size: 1.45rem;
+  font-weight: 600;
   color:#DB4A2B;
   font-family: 'League Spartan', sans-serif;
   margin-bottom: 0.5rem;
@@ -580,7 +614,7 @@ header {
 /* Price */
 .featured-product-card .product-price {
   font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: 600;
   font-family: 'Inter', sans-serif;
 }
 
@@ -643,6 +677,38 @@ header {
 
 /* PRODUCT CARD STYLING */
 
+#product-detail-title {
+  color: #DB4A2B;
+}
+.value-add {
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: 'Inter';
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.value-icons {
+  color: #DB4A2B;
+  margin-right: 5px; /* Adjusted for better spacing */
+}
+
+#detail-dropdown {
+  color: #DB4A2B;
+}
+
+.inlcude-list {
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Inter';
+  color: #333;
+}
+
+
+
 .product-card {
   background-color: var(--card-bg);
   border-radius: var(--card-border-radius);
@@ -681,11 +747,11 @@ header {
   text-align: center;
 }
 
-.product-title {
+#product-detail-title {
   font-size: 1.25rem;
   font-weight: 500;
   font-family: 'League Spartan', sans-serif;
-  margin-bottom: 0.5rem;
+  margin-bottom: 3rem;
 }
 
 .card-footer {
@@ -739,6 +805,7 @@ header {
   font-weight: 500;
   font-family: 'Inter', sans-serif;
   font-size: 1.4rem;
+  margin-top: 10px;
 }
 
 .faq-contact {
