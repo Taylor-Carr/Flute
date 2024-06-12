@@ -131,8 +131,8 @@
 }
 
 #navbarDropdownSupport {
-  color: #DB4A2B;
-  font-weight: 600;
+  color: #333;
+  font-weight: 700;
   font-family: 'Inter';
   font-size: 0.8rem;
 }
@@ -150,6 +150,42 @@
   font-family: 'Inter';
   color: #333; /* Change text color */
 }
+
+.input-group {
+  position: relative;
+  width: 100%;
+  border-radius: 20px; /* Apply border-radius to the input group */
+  border: 0.1px solid #f5f5f5;
+  overflow: hidden; /* Ensure the border-radius is applied correctly */
+}
+
+#search-button {
+  background-color: #DB4A2B; /* Custom color */
+  border: none;
+  border-radius: 50%; /* Circular button */
+  color: #fff; /* Text color */
+  height: 2rem; /* Adjust height to make the button smaller */
+  width: 2rem; /* Adjust width to make the button smaller */
+  padding: 0.rem; /* Add padding */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0.5rem; /* Adjust position to ensure the button is inside the input group */
+  top: 50%;
+  transform: translateY(-50%); /* Center the button vertically */
+}
+
+#search-button .bi-search {
+  font-size: 1rem; /* Adjust icon size */
+}
+
+.form-control {
+  border-radius: 20px; /* Apply border-radius to the input */
+  padding-right: 3rem; /* Add padding to make space for the button */
+  box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+}
+
 .shopping-basket {
   font-size: 12px;
   font-weight: 500;
@@ -675,11 +711,29 @@ header {
 }
 
 
-/* PRODUCT CARD STYLING */
+/* PRODUCT DETAIL CARD STYLING */
+
+#detail-img {
+  border-radius: 12px; /* Adjust the value as needed */
+}
+
+/* Product detail title */
 
 #product-detail-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-family: 'League Spartan', sans-serif;
   color: #DB4A2B;
 }
+
+
+.product-details {
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  text-align: left;
+}
+
 .value-add {
   font-size: 0.8rem;
   font-weight: 700;
@@ -688,7 +742,6 @@ header {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-top: 1rem;
 }
 
 .value-icons {
@@ -698,15 +751,55 @@ header {
 
 #detail-dropdown {
   color: #DB4A2B;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 5px;
 }
 
-.inlcude-list {
-  font-size: 1rem;
+.dropdown-circle {
+  color: #DB4A2B;
+  font-size: 0.6rem;
+  text-align: center;
+  margin-right: 0.6rem;
+}
+
+.include-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates two columns */
+  gap: 0.5rem; /* Space between items */
+  padding: 0;
+  list-style-type: none;
+}
+
+.include-list li {
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
-  font-family: 'Inter';
+  font-size: 0.9rem;
   color: #333;
 }
 
+
+
+.price {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  color:#DB4A2B; 
+  font-size: 1.4rem;
+  margin-bottom: 0.2rem;
+}
+
+#detail-img {
+  border-radius: 12px; /* Adjust the value as needed */
+}
+
+
+.card-footer {
+  background-color: transparent;
+  border-top: none;
+  padding: 1rem;
+  text-align: center;
+}
 
 
 .product-card {
@@ -740,26 +833,6 @@ header {
   border-radius: var(--card-border-radius) var(--card-border-radius) 0 0;
 }
 
-.product-details {
-  font-weight: 500;
-  font-family: 'League Spartan', sans-serif;
-  padding: 1rem;
-  text-align: center;
-}
-
-#product-detail-title {
-  font-size: 1.25rem;
-  font-weight: 500;
-  font-family: 'League Spartan', sans-serif;
-  margin-bottom: 3rem;
-}
-
-.card-footer {
-  background-color: transparent;
-  border-top: none;
-  padding: 1rem;
-  text-align: center;
-}
 
 .card-footer .btn {
   color: var(--primary-color);
@@ -796,6 +869,63 @@ header {
   }
 }
 
+/* Product info section - detail page */
+
+.product-info-section {
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.product-info-section h2 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  font-size: 1.4rem;
+  color:#333;
+  list-style: none;
+}
+
+.product-info-section .product-details {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.info-dropdown {
+  color: #DB4A2B;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 1rem;
+  list-style: none;
+}
+
+#detailedInfo {
+  margin-top: 1rem;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-body h3 {
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.card-body ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.card-body ul li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #555;
+}
 
 /* FAQS */
 /* home page faq */
@@ -1254,63 +1384,6 @@ header {
   }
 }
 
-/* Product Card before buy */
-.price {
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  color: black; /* Adjust text color as needed */
-}
-
-#detail-img {
-  border-radius: 12px; /* Adjust the value as needed */
-}
-
-#product-detail-title {
-  font-size: 2rem;
-  font-weight: 600;
-  font-family: 'Inter', sans-serif;
-  color: #333;
-}
-
-#detail-dropdown {
-  text-decoration: none;
-  font-weight: 700;
-  color: black;
-}
-/* Product Cards */
-
-.product-card {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  height: 100px; 
-  width: 250px; 
-}
-/* Product image styling */
-.product-image {
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  object-fit: cover;
-}
-
-/* Product details styling */
-.product-details {
-  padding: 20px;
-}
-
-/* Product title styling */
-.product-title {
-  font-family: 'League Spartan', sans-serif;
-  font-weight: 300;
-  color: black; /* Adjust text color as needed */
-}
-
-/* Product price styling */
-.product-price {
-  font-family: 'League Spartan', sans-serif;
-  font-weight: bold;
-  color: black; /* Adjust text color as needed */
-}
 
 
 body {
