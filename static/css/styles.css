@@ -812,8 +812,45 @@ header {
   margin-bottom: 0.2rem;
 }
 
+/* PRODUCT IMAGE SCROLL */
+
+#img-container {
+  max-height: 500px; /* Adjust this height as needed */
+  overflow-y: auto;
+}
+
+/* Custom scrollbar for WebKit browsers (Chrome, Safari) */
+#img-container::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+#img-container::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Roundness of the scrollbar thumb */
+}
+
+#img-container::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color when hovering over the scrollbar thumb */
+}
+
+#img-container::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color of the scrollbar track */
+}
+
+/* Custom scrollbar for Firefox */
+#img-container {
+  scrollbar-width: thin; /* Width of the scrollbar */
+  scrollbar-color: #888 #f1f1f1; /* Color of the scrollbar thumb and track */
+}
+
+/* For Edge and IE (legacy) */
+#img-container {
+  -ms-overflow-style: -ms-autohiding-scrollbar; /* Automatically hides scrollbar when not in use */
+}
+
 #detail-img {
-  border-radius: 12px; /* Adjust the value as needed */
+  max-height: none; /* Ensure the image itself is not restricted by height */
+  width: auto; /* Maintain aspect ratio */
 }
 
 

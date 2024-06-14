@@ -11,7 +11,9 @@
                     <div class="carousel-inner">
                         {% for image in product.images.all %}
                         <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                            <img class="d-block w-100" id="detail-img" src="{{ image.image.url }}" alt="Product Image {{ forloop.counter }}">
+                            <div id="img-container">
+                                <img class="d-block w-100" id="detail-img" src="{{ image.image.url }}" alt="Product Image {{ forloop.counter }}">
+                            </div>
                         </div>
                         {% endfor %}
                     </div>
