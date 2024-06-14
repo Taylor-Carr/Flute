@@ -6,27 +6,44 @@
 <section class="py-2">
     <div class="container px-4 px-lg-5 my-5">
         <div class="row gx-4 gx-lg-5 align-items-center">
-            <div class="col-md-6">
-                <div id="carouselProductDetail{{ product.id }}" class="carousel slide">
-                    <div class="carousel-inner">
-                        {% for image in product.images.all %}
-                        <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                            <div id="img-container">
-                                <img class="d-block w-100" id="detail-img" src="{{ image.image.url }}" alt="Product Image {{ forloop.counter }}">
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselProductDetail{{ product.id }}" role="button" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselProductDetail{{ product.id }}" role="button" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </a>
+
+<div class="col-md-6">
+    <div id="carouselProductDetail{{ product.id }}" class="carousel slide">
+        <div class="carousel-inner">
+            {% for image in product.images.all %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <div id="img-container">
+                    <img class="d-block w-100" id="detail-img-{{ forloop.counter }}" src="{{ image.image.url }}" alt="Product Image {{ forloop.counter }}" onclick="showImageModal('{{ image.image.url }}')">
                 </div>
             </div>
+            {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#carouselProductDetail{{ product.id }}" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselProductDetail{{ product.id }}" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </a>
+    </div>
+</div>
+
+<!-- Modal Structure -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="color:#DB4A2B;"></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-img-container">
+                    <img id="modal-img" class="img-fluid" src="" alt="Expanded Image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
             <div class="col-md-6">
                 <!--Product Name-->
                 <h1 class="display-5 fw-bolder" id="product-detail-title">Our {{ product.name }} - Landing Page</h1>
@@ -183,6 +200,13 @@
             }
         });
     });
+
+    function showImageModal(imageUrl) {
+    var modalImg = document.getElementById('modal-img');
+    modalImg.src = imageUrl;
+    var imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+    imageModal.show();
+}
 </script>
 
 {% endblock %}
