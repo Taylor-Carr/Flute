@@ -974,6 +974,11 @@ header {
   border-radius: var(--card-border-radius) var(--card-border-radius) 0 0;
 }
 
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1); /* Invert icon color */
+}
+
 
 .card-footer .btn {
   color: var(--primary-color);
