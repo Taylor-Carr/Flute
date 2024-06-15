@@ -39,7 +39,9 @@
                         <div class="carousel-inner">
                             {% for image in product.images.all %}
                             <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                                <a href="{% url 'product' product.id %}"><img class="d-block w-100 product-image img-fluid" src="{{ image.image.url }}" alt="Product Image {{ forloop.counter }}"></a>
+                                <div class="img-container">
+                                    <a href="{% url 'product' product.id %}"><img class="d-block w-100 product-image img-fluid" src="{{ image.image.url }}" alt="Product Image {{ forloop.counter }}"></a>
+                                </div>
                             </div>
                             {% endfor %}
                         </div>
@@ -62,13 +64,13 @@
                                 <li>Copywriting</li>
                             </ul>
                             {% if product.on_sale %}
-
+            
                             £{{ product.sale_price }}
-
+            
                             {% else %}
-
+            
                             <h5 class="fw-bolder product-price">£{{ product.price }}</h5>
-
+            
                             {% endif %}
                         </div>
                     </div>
@@ -85,12 +87,9 @@
 </section>
 
 <!-- Services Section -->
-
 <section id="services">
+    <h2>How does it Work?</h2>
     <div class="container">
-        <p></p>
-        <h2>How does it Work?</h2>
-        <p></p>
         <div id="service-items" class="row justify-content-center">
             <div class="col-md-4">
                 <div class="card service-card" id="service-card">

@@ -262,16 +262,14 @@
 
 /* Services Section */
 #services {
-  margin-left: 5rem;
-  margin-right: 5rem;
-  border-radius: 20px;
+  margin-left: 2rem;
+  margin-right: 2rem;
   padding: 20px 15px;
   background: #333;
 }
 
 #services h2 {
   color: #ffffff;
-  text-align: center;
   font-size: 2.4rem;
   margin-left: 10px;
   margin-bottom: 5px;
@@ -639,6 +637,46 @@ header {
   border-radius: var(--card-border-radius) var(--card-border-radius) 0 0;
 }
 
+/* Make the image container scrollable */
+.img-container {
+  max-height: 250px; /* Adjust this height as needed */
+  overflow-y: auto;
+}
+
+/* Custom scrollbar for WebKit browsers (Chrome, Safari) */
+.img-container::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.img-container::-webkit-scrollbar-thumb {
+  background: black; /* Color of the scrollbar thumb */
+  border-radius: 4px; /* Roundness of the scrollbar thumb */
+}
+
+.img-container::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color when hovering over the scrollbar thumb */
+}
+
+.img-container::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color of the scrollbar track */
+}
+
+/* Custom scrollbar for Firefox */
+.img-container {
+  scrollbar-width: thin; /* Width of the scrollbar */
+  scrollbar-color: #888 #f1f1f1; /* Color of the scrollbar thumb and track */
+}
+
+/* For Edge and IE (legacy) */
+.img-container {
+  -ms-overflow-style: -ms-autohiding-scrollbar; /* Automatically hides scrollbar when not in use */
+}
+
+/* Ensuring the image itself scales properly */
+.product-image {
+  max-height: none; /* Ensure the image itself is not restricted by height */
+  width: auto; /* Maintain aspect ratio */
+}
 /* Description */
 
 .featured-product-card .product-descript {
