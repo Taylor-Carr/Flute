@@ -134,7 +134,7 @@
 }
 
 #navbarDropdownSupport {
-  color: #333;
+  color: #fff;
   font-weight: 700;
   font-family: 'Inter';
   font-size: 0.8rem;
@@ -158,8 +158,8 @@
   position: relative;
   width: 100%;
   border-radius: 20px; /* Apply border-radius to the input group */
-  outline: 0.6px solid #333; /* Use outline for consistent border thickness */
   overflow: hidden; /* Ensure the border-radius is applied correctly */
+  border: 0.5px solid black;
 }
 
 #search-button {
@@ -265,16 +265,16 @@
   margin-left: 2rem;
   margin-right: 2rem;
   padding: 20px 15px;
-  background: #333;
 }
 
 #services h2 {
-  color: #ffffff;
+  color: #333;
   font-size: 2.4rem;
   margin-left: 10px;
   margin-bottom: 5px;
   font-weight: 600;
   font-family: 'League Spartan';
+  text-align: center;
 }
 
 .service-num {
@@ -333,14 +333,14 @@
 .service-card-body h3 {
   font-size: 1.2rem;
   margin-bottom: 20px;
-  color: #ffffff;
+  color: #333;
   font-weight: 500;
   font-family: 'Poppins';
 }
 
 .service-card-body p {
   font-size: 0.9rem;
-  color: #ffffff;
+  color: #333;
   font-weight: 500;
   font-family: 'Inter';
 }
@@ -434,6 +434,7 @@
 }
 
 header {
+  background-color: #fff;
   margin-top: 25px;
   display: flex;
   justify-content: center;
