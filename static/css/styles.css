@@ -113,7 +113,12 @@
 
 
 /* Nav Bar */
-
+.nav-container {
+  max-width: 1200px; /* Match this with the container max-width */
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px; /* Optional: Add padding to align content with the main container */
+}
 .nav-item.dropdown .nav-link::after {
   display: none; /* Hide the default arrow */
 }
@@ -134,8 +139,8 @@
 }
 
 #navbarDropdownSupport {
-  color: #fff;
-  font-weight: 700;
+  color: #333;
+  font-weight: 800;
   font-family: 'Inter';
   font-size: 0.8rem;
 }
@@ -159,7 +164,16 @@
   width: 100%;
   border-radius: 20px; /* Apply border-radius to the input group */
   overflow: hidden; /* Ensure the border-radius is applied correctly */
-  border: 0.5px solid black;
+  border: 1px solid grey; /* Custom border for the input group */
+}
+
+.input-group input {
+  border: none; /* Remove the default border of the input */
+  outline: none; /* Remove the default outline of the input */
+  width: 100%;
+  padding: 8px 6px; /* Adjust padding as needed */
+  box-sizing: border-box; /* Ensure padding does not affect the width */
+  border-radius: 20px; /* Apply border-radius to match the input group */
 }
 
 #search-button {
@@ -202,29 +216,32 @@
   font-weight: 900;
 }
 
-
 /* Second Nav Bar for categories */
-
 #second-navbar {
   background-color: #f5f5f5;
   padding: 5px 0;
-  padding-right: 5rem;
+  width: 100%;
 }
 
 #second-navbar .container {
   display: flex;
   justify-content: center;
+  max-width: 1200px; /* Match this with the container max-width */
+  width: 100%;
+  margin: 0 auto;
 }
 
 #nav-value-icon {
   padding-right: 6px;
-  color:#DB4A2B;
+  color: #DB4A2B;
 }
+
 #second-navbar ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
   display: flex;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
   justify-content: space-between;
 }
 
@@ -234,7 +251,8 @@
   font-family: 'Inter';
   color: #333;
   padding: 3px 35px; /* Adjust padding to increase space between items */
-
+  display: flex;
+  align-items: center; /* Vertically center the content */
 }
 
 #second-navbar ul li a {
@@ -258,147 +276,17 @@
 
 #second-navbar ul li a:hover::after {
   transform: scaleX(1);
-} 
-
-/* Services Section */
-#services {
-  margin-left: 2rem;
-  margin-right: 2rem;
-  padding: 20px 15px;
 }
 
-#services h2 {
-  color: #333;
-  font-size: 2.4rem;
-  margin-left: 10px;
-  margin-bottom: 5px;
-  font-weight: 600;
-  font-family: 'League Spartan';
-  text-align: center;
-}
-
-.service-num {
-  font-size: 1.4rem;
-  color: #DB4A2B;
-  text-align: left;
-  font-weight: 600;
-  font-family: 'League Spartan';
-}
-
-#service-items {
-  display: flex;
-  flex-wrap: wrap; /* Ensure items wrap onto a new row if necessary */
-  justify-content: center;
-}
-
-#service-card {
-  position: relative; /* Needed to position the pseudo-element */
-  background: rgba(255, 255, 255, 0.1); /* White hue with 20% opacity */
-  backdrop-filter: blur(10px); /* Blur effect for glassy look */
-  border-radius: 15px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  margin: 10px; /* Add margin to create space between cards */
-  width: calc(25% - 20px); /* Adjust card width for spacing */
-  min-width: 300px; /* Ensure minimum width */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  overflow: hidden; /* Hide overflow to clip pseudo-element */
-}
-
-#service-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(45deg, #DB4A2B, #FF6347, #FF4500); /* Gradient colors */
-  z-index: -1; /* Ensure the border is behind the card content */
-  border-radius: 15px; /* Match the parent border-radius */
-  mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0); /* Mask out the inside of the border */
-  mask-composite: exclude; 
-  -webkit-mask-composite: destination-out; /* For WebKit browsers */
-  padding: 2px; /* Adjust the padding to control the border thickness */
-  pointer-events: none; /* Prevent interactions with the pseudo-element */
-}
-
-.service-card-body {
-  padding: 20px;
-  text-align: center;
-}
-
-.service-card-body h3 {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-  color: #333;
-  font-weight: 500;
-  font-family: 'Poppins';
-}
-
-.service-card-body p {
-  font-size: 0.9rem;
-  color: #333;
-  font-weight: 500;
-  font-family: 'Inter';
-}
-
-/* Responsive adjustments */
-@media (max-width: 992px) {
-  #services {
-    margin-left: 2rem;
-    margin-right: 2rem;
+/* Responsive Design */
+@media (max-width: 768px) {
+  #second-navbar ul {
+    justify-content: center; /* Center the items on smaller screens */
   }
 
-  #service-card {
-    width: calc(50% - 20px); /* Adjust card width for smaller screens */
+  #second-navbar ul li {
+    padding: 3px 20px; /* Adjust padding for smaller screens */
   }
-}
-
-@media (max-width: 576px) {
-  #services {
-    margin-left: 1rem;
-    margin-right: 1rem;
-  }
-
-  #service-card {
-    width: calc(100% - 20px); /* Adjust card width for mobile screens */
-  }
-}
-/* Cart Styling */
-
-#cart_quantity {
-  background-color: transparent; /* Remove background color */
-  color:#ffffff; /* Set text color to black */
-  padding: 0; /* Remove padding */
-  font-size: 0.8em; /* Adjust font size */
-  display: inline-block; /* Ensure it doesn't take up the whole line */
-  margin-left: 2px; /* Add space between text and quantity */
-  font-weight: bold; /* Make the text bold */
-}
-
-/* Custom button styling */
-.btn-custom {
-  background-color: #fff;
-  color: #333;
-  border: none;
-  text-decoration: none;
-  padding: 0; /* Remove padding */
-}
-
-/* Adjust margin for the basket icon */
-.fa-shopping-basket {
-  margin-bottom: 5px; /* Add space between the icon and the text */
-}
-
-
-/* Badge style */
-.badge {
-  align-self: center; /* Align the badge vertically center */
-  background-color: transparent; /* Ensure the background is transparent */
-  border: none; /* Remove any border */
 }
 
 /* Hero Section */
@@ -433,66 +321,69 @@
   }
 }
 
+/* Container Styles */
+.container {
+  max-width: 1200px; /* Adjust to your desired max width */
+  width: 100%;
+  margin: 0 auto; /* Center the container */
+  padding: 0 10px; /* Optional: Add padding for responsive spacing */
+}
+
+/* Header */
 header {
   background-color: #fff;
-  margin-top: 25px;
+  margin-top: 2rem;
+  display: flex;
+  width: 100%; /* Full width */
+  padding-top: 1rem;
+  margin: 0 auto; /* Center the section horizontally */
+}
+
+/* Hero Section */
+.hero-section {
+  width: 100%; /* Full width */
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 100%;
-  width: 90rem;
-  padding: 0; /* Ensure no padding is pushing content */
-}
-
-
-.hero-section {
   padding-top: 30px;
   padding-bottom: 30px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0; /* Ensure no padding is pushing content */
 }
 
+/* Hero Card */
 .hero-card {
-  background-color: #f5f5f5;
+  background-color: #f9f9f9;
   border-radius: 20px;
   padding: 20px;
-  max-width: 1200px;
+  max-width: 1200px; /* Match the max width of the container */
   width: 100%; /* Ensure full width */
   text-align: center;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
   position: relative;
-  overflow: hidden;
+  overflow: hidden; /* Ensure pseudo-elements are visible */
   margin: 0 auto; /* Center the card */
 }
 
-/* Semi-Circle on the Right */
-.hero-card::before {
+/* Adjust the Semi-Circles */
+.hero-card::before, .hero-card::after {
   content: '';
   position: absolute;
-  top: 35%;
-  right: -80px;
-  width: 160px;
-  height: 160px;
   background: radial-gradient(circle at 30% 70%, #D58668, #DB4A2B);
   border-radius: 50%;
-  transform: translateY(-50%);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Semi-Circle on the Left */
+.hero-card::before {
+  top: 30%;
+  right: -75px;
+  width: 160px;
+  height: 160px;
+}
+
 .hero-card::after {
-  content: '';
-  position: absolute;
   bottom: -100px;
   left: -100px;
   width: 175px;
   height: 175px;
-  background: radial-gradient(circle at 40% 50%, #FFA07A, #DB4A2B);
-  border-radius: 50%;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Hero Content */
@@ -503,21 +394,20 @@ header {
 
 .hero-content h1 {
   color: #000;
-  font-size: 1.9rem;
-  padding: 8px; /* Remove extra padding */
+  font-size: 2rem;
+  padding: 6px;
   margin: 0;
-  font-weight: 800;
+  font-weight: 700;
   font-family: 'League Spartan';
-  text-align: center; /* Ensure text is centered */
+  text-align: center;
 }
 
-#dot-end {
+#dot-end, #hero-dot {
   color: #DB4A2B;
   font-size: 2rem;
 }
 
 #hero-dot {
-  color: #DB4A2B;
   font-size: 4rem;
   margin-left: 0;
   width: 50px;
@@ -527,22 +417,23 @@ header {
   transform: translateY(-40%);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
+
 .hero-content p {
-  padding-left: 25px;
-  padding-right: 25px;
+  padding-left: 55px;
+  padding-right: 55px;
   color: #000;
-  font-size: 15px;
-  margin: 20px 0 0 0; /* Ensure no side margins */
+  font-size: 16px;
+  margin: 20px 0 0 0;
   font-weight: 600;
   font-family: 'Inter';
-  text-align: center; /* Ensure text is centered */
+  text-align: center;
 }
 
 .hero-content img {
-  height: 50px;
+  height: 60px;
   vertical-align: bottom;
   margin: 0;
-  padding-right: 1rem;
+  padding-right: 0.5rem;
 }
 
 .hero-h1-span {
@@ -556,8 +447,6 @@ header {
   opacity: 1;
   transform: translateY(0);
 }
-
-
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -578,8 +467,7 @@ header {
     font-size: 0.9rem;
   }
 
-  .hero-card::before,
-  .hero-card::after {
+  .hero-card::before, .hero-card::after {
     width: 150px;
     height: 150px;
     border-left-width: 75px;
@@ -605,14 +493,60 @@ header {
 }
 
 
+.home-title-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px; /* Remove padding */
+}
+.home-title-title {
+  margin-bottom: 10px; /* Adjust spacing as needed */
+  text-align: left;
+  color: #DB4A2B;
+  font-size: 3rem;
+  margin-top: 40px;
+  font-weight: 600;
+  font-family: 'Poppins';
+}
+
+#product-title-p {
+  text-align: left;
+  font-family: 'Poppins';
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: grey;
+}
+
+
+
 /* Home Page Product */
 
+.product-container {
+  max-width: 100%; /* Allow the container to take full width */
+  margin: 0 auto;
+  padding: 0 0px; /* Remove padding */
+}
 
-/* PRODUCT CARD STYLING FOR FEATURED PRODUCTS */
+/* Adjust column width */
+@media (min-width: 992px) {
+  .col-xl-2-5 {
+    flex: 0 0 20%; /* Each card takes 20% of the width */
+    max-width: 20%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .col-xl-2-5 {
+    flex: 0 0 18%; /* Adjust further for larger screens if needed */
+    max-width: 18%;
+  }
+}
 
 .featured-product-card {
-  flex: 0 0 29%; /* Adjust width to 23% for wider cards */
-  margin: 5%; /* Add margin for spacing between cards */
+  flex: 0 0 45%; /* Adjust width to 45% for larger cards */
+  margin-left: 2% !important; /* Increase margin for more space between cards */
+  margin-right: 2% !important; /* Increase margin for more space between cards */
+  min-height: 450px; /* Set a minimum height for the cards */
   background-color: var(--card-bg);
   border-radius: var(--card-border-radius);
   box-shadow: var(--card-shadow);
@@ -640,7 +574,7 @@ header {
 
 /* Make the image container scrollable */
 .img-container {
-  max-height: 250px; /* Adjust this height as needed */
+  max-height: 300px; /* Adjust this height as needed */
   overflow-y: auto;
 }
 
@@ -678,13 +612,13 @@ header {
   max-height: none; /* Ensure the image itself is not restricted by height */
   width: auto; /* Maintain aspect ratio */
 }
-/* Description */
 
+/* Description */
 .featured-product-card .product-descript {
   font-weight: 500;
   font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
-  padding: 0.4rem;
+  padding: 0.2rem;
   text-align: center;
 }
 
@@ -704,7 +638,7 @@ header {
 .featured-product-card .product-title {
   font-size: 1.45rem;
   font-weight: 600;
-  color:#DB4A2B;
+  color: #DB4A2B;
   font-family: 'League Spartan', sans-serif;
   margin-bottom: 0.5rem;
 }
@@ -714,8 +648,8 @@ header {
   font-size: 1.25rem;
   font-weight: 600;
   font-family: 'Inter', sans-serif;
+  color: #DB4A2B;
 }
-
 
 .featured-product-card .card-footer {
   background-color: transparent;
@@ -726,14 +660,14 @@ header {
 
 .featured-product-card .card-footer .btn .home-product-button {
   color: #ffffff;
-  border-color: var(--primary-color);
-  background-color: black;
+  border-color: #333;
+  background-color: #333;
 }
 
 .home-product-button {
- margin-bottom: 10px;
- margin-left: 10px;
- margin-right: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .featured-product-card .card-footer .btn:hover {
@@ -744,34 +678,34 @@ header {
 /* Phone */
 @media (max-width: 768px) {
   .featured-product-card {
-    flex: 0 0 23%; /* Adjust width for large screens */
-    margin: 1%; /* Adjust margin for large screens */
+      flex: 0 0 100%; /* Full width for small screens */
+      margin: 2% !important; /* Increase margin for more space between cards */
   }
 }
 
-/* tablet */
+/* Tablet */
 @media (min-width: 769px) and (max-width: 992px) {
   .featured-product-card {
-    flex: 0 0 23%; /* Adjust width for large screens */
-    margin: 1%; /* Adjust margin for large screens */
+      flex: 0 0 48%; /* Adjust width for medium screens */
+      margin: 2% !important; /* Increase margin for more space between cards */
   }
 }
-/* laptop */
+
+/* Laptop */
 @media (min-width: 993px) and (max-width: 1200px) {
   .featured-product-card {
-    flex: 0 0 35%; /* Adjust width for large screens */
-    margin: 10%; /* Adjust margin for large screens */
+      flex: 0 0 48%; /* Adjust width for large screens */
+      margin: 2% !important; /* Increase margin for more space between cards */
   }
 }
 
-/* wide monitor */
+/* Wide Monitor */
 @media (min-width: 1201px) {
   .featured-product-card {
-    flex: 0 0 23%; /* Adjust width for large screens */
-    margin: 1%; /* Adjust margin for large screens */
+      flex: 0 0 45%; /* Adjust width for very large screens */
+      margin: 2% !important; /* Increase margin for more space between cards */
   }
 }
-
 
 /* PRODUCT DETAIL CARD STYLING */
 
@@ -1016,6 +950,242 @@ header {
   }
 }
 
+
+/* Services Section */
+#services {
+  background-color: #f9f9f9;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin: 0 auto; /* Center the section horizontally */
+  margin-bottom: 3rem;
+}
+
+.services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px; 
+}
+
+#services h2 {
+  color: #DB4A2B;
+  font-size: 3rem;
+  margin-top: 15px;
+  font-weight: 600;
+  font-family: 'Poppins';
+  text-align: left;
+}
+
+#services-title-p {
+  color: grey;
+  font-family: 'Inter';
+  font-weight: 600;
+  font-size: 0.8rem; /* Font size for paragraphs */
+  margin-bottom: 1rem;
+}
+
+
+.service-num {
+  font-size: 1.4rem;
+  color: #DB4A2B;
+  text-align: left;
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-family: 'League Spartan';
+}
+
+#service-items {
+  display: flex;
+  flex-wrap: wrap; /* Ensure items wrap onto a new row if necessary */
+  justify-content: center;
+}
+
+#service-card {
+  position: relative; /* Needed to position the pseudo-element */
+  background: #333; /* White hue with 20% opacity */
+  backdrop-filter: blur(10px); /* Blur effect for glassy look */
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin: 10px; /* Add margin to create space between cards */
+  width: calc(25% - 20px); /* Adjust card width for spacing */
+  min-width: 300px; /* Ensure minimum width */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden; /* Hide overflow to clip pseudo-element */
+}
+
+
+.service-card-body {
+  text-align: center;
+}
+
+.service-card-body h3 {
+  font-size: 1.4rem;
+  padding: 10px;
+  margin-bottom: 20px;
+  color: #fff;
+  font-weight: 500;
+  font-family: 'Poppins';
+}
+
+#service-p {
+  font-size: 0.9rem!important;
+  color: #fff!important;
+  font-weight: 500!important;
+  font-family: 'Inter'!important;
+  text-align: left!important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  #services {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  #service-card {
+    width: calc(50% - 20px); /* Adjust card width for smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  #services {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  #service-card {
+    width: calc(100% - 20px); /* Adjust card width for mobile screens */
+  }
+}
+
+
+/* Why Section Styles */
+
+.why-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px; /* Padding around text content */
+}
+.why-section {
+  background:#fff;
+  padding: 1rem 0; /* Adjust padding as needed */
+}
+
+.why-content {
+  padding: 0 10px; /* Padding around text content */
+  text-align: left; /* Align text to the left */
+}
+
+.title-small-about {
+  text-align: left;
+  font-family: 'Poppins';
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: grey;
+}
+
+
+.why-content h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3rem;
+  font-weight: 600;
+  color: #DB4A2B;
+  margin-bottom: 20px; /* Space below heading */
+}
+
+.why-content {
+  font-family: 'Inter';
+  font-size: 1rem; /* Font size for paragraphs */
+  color: #666; /* Slightly darker text color */
+  margin-bottom: 30px; /* Space below paragraphs */
+}
+
+.why-p-1 {
+  font-family: 'Inter';
+  font-weight: 600;
+  font-size: 1.1rem; /* Font size for paragraphs */
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+}
+
+.why-p-2 {
+  padding: 0 5px;
+  font-family: 'Lato';
+  font-size: 1em; /* Font size for paragraphs */
+}
+
+
+/* Carousel Styles */
+
+.carousel {
+  height: 100%; /* Ensure carousel takes full height of container */
+}
+
+.carousel-inner {
+  height: 100%; /* Ensure inner items take full height of carousel */
+}
+
+.carousel-item img {
+  margin-right: 40px;
+  height: 100%; /* Ensure images fill the carousel item */
+  object-fit: cover; /* Cover to fill entire space */
+  border-radius: 12px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: auto; /* Adjust width of controls */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+.carousel-control-prev {
+  left: -50px; /* Adjust left position of previous control */
+}
+
+.carousel-control-next {
+  right: -50px; /* Adjust right position of next control */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1); /* Invert icon color */
+  background-color: transparent; /* Ensure no background color on icon itself */
+}
+/* Cart Styling */
+
+#cart_quantity {
+  background-color: transparent; /* Remove background color */
+  color:#ffffff; /* Set text color to black */
+  padding: 0; /* Remove padding */
+  font-size: 0.8em; /* Adjust font size */
+  display: inline-block; /* Ensure it doesn't take up the whole line */
+  margin-left: 2px; /* Add space between text and quantity */
+  font-weight: bold; /* Make the text bold */
+}
+
+/* Custom button styling */
+.btn-custom {
+  background-color: #fff;
+  color: #333;
+  border: none;
+  text-decoration: none;
+  padding: 0; /* Remove padding */
+}
+
+/* Adjust margin for the basket icon */
+.fa-shopping-basket {
+  margin-bottom: 5px; /* Add space between the icon and the text */
+}
+
+
+/* Badge style */
+.badge {
+  align-self: center; /* Align the badge vertically center */
+  background-color: transparent; /* Ensure the background is transparent */
+  border: none; /* Remove any border */
+}
 /* Product info section - detail page */
 
 .product-info-section {
@@ -1077,12 +1247,25 @@ header {
 /* FAQS */
 /* home page faq */
 
-.faq-header-home {
+.faq-header-bg {
+  background-color: #f5f5f5;
+  padding-top: 4rem;
+}
+
+.faq-section {
+  background-color: #f5f5f5;
+}
+
+.faq-card-bg {
+  background-color: white;
+}
+
+#faq-header-home {
   color: #DB4A2B ;
-  font-weight: 500;
-  font-family: 'Inter', sans-serif;
-  font-size: 1.4rem;
-  margin-top: 10px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  font-size: 3rem;
+  margin-top: 5px;
 }
 
 .faq-contact {
@@ -1113,6 +1296,8 @@ header {
   font-family: 'League Spartan', sans-serif;
   font-size: 1.4rem;
 }
+
+
     /* Accordion Styles */
  #faqAccordion .accordion-button {
       background-color: #ffffff;
@@ -1153,6 +1338,7 @@ header {
       background-color: #ffffff;
       padding: 1.5rem;
       border-top: 1px solid #f5f5f5;
+      border-radius: 20px;
       font-size: 1.2rem;
       font-weight: 500;
       font-family: 'League Spartan', sans-serif;
@@ -1191,101 +1377,110 @@ header {
 }
 
 /* Custom Background for Form Section */
+/* Custom Background for Form Section */
 
-.customize-form-section {
-  position: relative;
-  padding: 10px 10px;
-  background: #f5f5f5; /* Light background color */
+  /* Custom Background for Form Section */
+
+  .customize-form-section {
+    position: relative;
+    padding: 10px 10px;
+    background: #f5f5f5; /* Light background color */
 }
 
 .customize-form-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #DB4A2B 30%, #ffffff 30%); /* Diagonal gradient */
-  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
-  z-index: 1;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #DB4A2B 30%, #ffffff 30%); /* Diagonal gradient */
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
+    z-index: 1;
 }
 
 .customize-form-section::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #ffffff 50%, #DB4A2B 50%); /* Diagonal gradient */
-  clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
-  z-index: 1;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ffffff 50%, #DB4A2B 50%); /* Diagonal gradient */
+    clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
+    z-index: 1;
 }
 
 .customize-form-modal-body {
-  position: relative;
-  z-index: 2;
-  background: none; /* Removed background color */
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: none; /* Removed box shadow */
+    position: relative;
+    z-index: 2;
+    background: none; /* Removed background color */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: none; /* Removed box shadow */
 }
 
 .form-container {
-  max-width: 600px;
-  margin: 15px auto;
-  padding: 20px;
-  background-color: #f8f9fa;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 15px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .form-container h5 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
-  margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
+
 .form-container .btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
+    background-color: #DB4A2B;
+    border-color: #DB4A2B;
 }
 
 .form-container .form-label {
-  font-weight: 500;
-  color: #333;
+    font-weight: 500;
+    color: #333;
+    margin-top: 10px;
 }
 
 .form-container .form-control {
-  border-radius: 5px;
+    border-radius: 5px;
 }
 
 .form-container .form-check-label {
-  margin-left: 5px;
+    margin-left: 5px;
+    margin-top: 5px;
 }
 
 .form-container button[type="submit"] {
-  width: 100%;
-  padding: 10px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
 }
 
 .customize-form-text-muted {
-  color: #6c757d;
+    color: #6c757d;
 }
 
 /* Media Query for Smaller Screens */
 @media (max-width: 768px) {
-  .customize-form-modal-body {
-      padding: 20px;
-  }
+    .customize-form-modal-body {
+        padding: 20px;
+    }
 
-  .form-container h5 {
-      font-size: 1.5rem;
-  }
+    .form-container h5 {
+        font-size: 1.5rem;
+    }
 
-  .customize-form-mb-3 {
-      margin-bottom: 1rem;
-  }
+    .customize-form-mb-3 {
+        margin-bottom: 1rem;
+    }
 }
 
 /* Contact Form */
@@ -1417,7 +1612,7 @@ header {
 }
 
 .footer {
-  background-color: #f5f5f5; /* Set background color */
+  background-color: #fff; /* Set background color */
   color: black; /* Set text color */
   padding: 30px 0; /* Add padding top and bottom */
 }
@@ -1432,7 +1627,7 @@ header {
   font-size: 18px;
   font-weight: 500;
   font-family: 'League Spartan', sans-serif;
-  color: black;
+  color: #DB4A2B;
 }
 .social-links ul {
   padding-left: 0; /* Remove default left padding */

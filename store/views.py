@@ -11,6 +11,25 @@ from .models import Customer, ProductCustomization
 from .forms import SearchForm, ContactForm
 
 
+def register_and_customize(request):
+    if request.method == 'POST':
+        form = CombinedForm(request.POST, request.FILES)
+        if form.is_valid():
+            # Handle the form submission here
+            # For example, save the data to the database
+            email = form.cleaned_data['email']
+            # Handle other fields similarly
+            # Handle the files
+            files = request.FILES.getlist('upload_images')
+            for file in files:
+                # Process each file here
+                pass
+            return redirect('success_url')  # Replace with your success URL
+    else:
+        form = CombinedForm()
+
+    return render(request, 'your_template.html', {'form': form})
+
 def search(request):
     form = SearchForm(request.GET)
     query = request.GET.get('query')

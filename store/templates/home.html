@@ -3,34 +3,35 @@
 
 {% block content %}
 
-<header class="hero-section">
+<header>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12 col-lg-12">
-                <div class="hero-card">
-                    <div class="hero-content text-center">
-                        <h1>
-                            <span class="hero-h1-span visible"><img src="{% static 'assets/Flute_Logo_White_New_Ball-removebg-preview.png' %}" alt="Company Logo"></span>
-                            <span class="hero-h1-span visible">We</span>
-                            <span class="hero-h1-span visible">Build</span>
-                            <span class="hero-h1-span visible">Landing</span>
-                            <span class="hero-h1-span visible">Pages<span class="hero-h1-span visible" id="dot-end">.</span></span>
-                            
-                            <span class="hero-h1-span visible" id="hero-dot"></span>
-                        </h1>
-                        <p>Get noticed online with Flute! Choose a plan, fill out our onboarding form, and we'll build and launch your landing page within 7 days.</p>
-                    </div>
-                </div>
-            </div>
+      <div class="hero-section">
+        <div class="hero-card">
+          <div class="hero-content text-center">
+            <h1>
+              <span class="hero-h1-span visible"><img src="{% static 'assets/Flute_Logo_White_New_Ball-removebg-preview.png' %}" alt="Company Logo"></span>
+              <span class="hero-h1-span visible">We</span>
+              <span class="hero-h1-span visible">Build</span>
+              <span class="hero-h1-span visible">Websites<span class="hero-h1-span visible" id="dot-end">.</span></span>
+              <span class="hero-h1-span visible" id="hero-dot"></span>
+            </h1>
+            <p>Get noticed online with Flute! Fill out our questionnaire, we'll build and launch your website within 7 days.</p>
+          </div>
         </div>
+      </div>
     </div>
-</header>
-
+  </header>
+<section id="home-title-section">
+    <div class="home-title-container">
+        <h2 class="home-title-title text-left">It Starts With Picking a Plan</h2> <!-- Add your title here -->
+        <p id="product-title-p">Get Online Fast With Flute.</p>
+    </div>
+</section>
 <section class="py-1">
-    <div class="container px-3 px-lg-5 mt-5 plans-con">
-        <div class="row gx-3 gx-lg-5 justify-content-center">
+    <div class="product-container px-0 px-lg-0 mt-2 plans-con">
+        <div class="product-container row justify-content-center">
             {% for product in products %}
-            <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-5">
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-5"> <!-- Changed column classes for wider cards -->
                 <div class="card h-100 featured-product-card">
                     {% if product.on_sale %}
                     <div class="badge bg-light text-black position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
@@ -64,19 +65,15 @@
                                 <li>Copywriting</li>
                             </ul>
                             {% if product.on_sale %}
-            
                             £{{ product.sale_price }}
-            
                             {% else %}
-            
                             <h5 class="fw-bolder product-price">£{{ product.price }}</h5>
-            
                             {% endif %}
                         </div>
                     </div>
                     <div class="d-grid">
                         <a class="btn btn-dark home-product-button" href="{% url 'product' product.id %}">
-                            Continue
+                            View Plan
                         </a>
                     </div>
                 </div>
@@ -88,31 +85,69 @@
 
 <!-- Services Section -->
 <section id="services">
-    <div class="container">
-        <h2>How does it Work?</h2>
+    <div class="services-container">
+        <h2>We build for any business</h2>
+        <p id="services-title-p">HOW DOES IT WORK?</p>
         <div id="service-items" class="row justify-content-center">
             <div class="col-md-4">
                 <div class="card service-card" id="service-card">
                     <div class="card-body service-card-body">
-                        <h3><div class="service-num">1.</div>Pick a plan that suits you</h3>
-                        <p>Professional web design services to give your business an online presence.</p>
+                        <h3><div class="service-num">Step 1</div>Complete our questionare</h3>
+                        <p id="service-p">Professional web design services to give your business an online presence.</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card service-card" id="service-card">
                     <div class="card-body service-card-body">
-                        <h3><div class="service-num">2.</div>fill out an on boarding form</h3>
-                        <p>Optimize your website to rank higher in search engines and attract more visitors.</p>
+                        <h3><div class="service-num">Step 2</div>We'll Build your website</h3>
+                        <p id="service-p">Optimize your website to rank higher in search engines and attract more visitors.</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card service-card"  id="service-card">
                     <div class="card-body service-card-body">
-                        <h3><div class="service-num">3.</div>We'll Send a design proposal</h3>
-                        <p>Create a strong brand identity that sets you apart from the competition.sets you apart </p>
+                        <h3><div class="service-num">Step 3</div>Approval and launch</h3>
+                        <p id="service-p">Create a strong brand identity that sets you apart from the competition.sets you apart </p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Why Flute?-->
+<section class="why-section">
+    <div class="why-container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="why-content">
+                    <h2>See Our Most Popular Sites</h2>
+                    <p class="title-small-about">Why us?</p>
+                    <p class="about-p-1">Our team of dedicated cleaners is passionate about transforming homes and businesses with our expert cleaning services. Our mission is to deliver exceptional quality, surpassing our clients' expectations every time.</p>
+                    <p class="about-p-2">With a commitment to professionalism and thoroughness, we take pride in enhancing spaces and creating environments that our clients love to live and work in. Whether it's a residential project or a commercial venture, we bring efficiency, reliability, and a keen eye for detail to every cleaning task.</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div id="whyCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner scrollable-container">
+                        {% for image in product.images.all %}
+                        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                            <div id="img-container">
+                                <img class="d-block w-100" id="detail-img-{{ forloop.counter }}" src="{{ image.image.url }}" alt="Product Image {{ forloop.counter }}" onclick="showImageModal('{{ image.image.url }}')">
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#whyCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#whyCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -122,13 +157,13 @@
 
 <!-- FAQ section Header -->
 
-<header class="hero-section">
+<header class="hero-section faq-header-bg">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12 col-lg-12">
-                <div class="hero-card">
+                <div class="hero-card faq-card-bg">
                     <div class="hero-content text-center">
-                        <h1 class="faq-header-home">FAQ</h1>
+                        <h1 id="faq-header-home">FAQ</h1>
                         <p>Have a question that's not listed here?<a href="{% url 'contact' %}" class="faq-contact">Contact Us</a></p>
                     </div>
                 </div>
@@ -139,7 +174,7 @@
 
 <!---Faq accordion -->
 
-<section class="py-5">
+<section class="py-5  faq-section">
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-lg-8 col-xl-6">

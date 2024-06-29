@@ -2,6 +2,10 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, SetPasswordForm
 from django import forms
 from .models import Customer, ProductCustomization
+from django.forms.widgets import ClearableFileInput
+
+class MultiFileInput(ClearableFileInput):
+    allow_multiple_selected = True
 
 
 class ContactForm(forms.Form):
@@ -62,7 +66,6 @@ class SignUpForm(UserCreationForm):
         model = Customer
         fields = ('company_name', 'first_name', 'last_name', 'email', 'phone', 'password1', 'password2')
 
-# ProductCustomizationForm for ProductCustomization model
 class CombinedForm(forms.Form):
     email = forms.EmailField(label="", widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email Address'}))
     first_name = forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'First Name'}))
@@ -80,10 +83,15 @@ class CombinedForm(forms.Form):
     target_market = forms.CharField(label="Target Market", required=False, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Target Market'}))
     areas_covered = forms.CharField(label="Areas Your Business Covers", required=False, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Areas Your Business Covers'}))
     reference_website = forms.URLField(label="Reference Website (Website You Like)", required=False, widget=forms.URLInput(attrs={'class': 'form-control', 'placeholder': 'Reference Website'}))
+    offered_services = forms.CharField(label="What services do you offer?", required=False, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'What services do you offer?'}))
+    common_questions = forms.CharField(label="What common questions do your customers ask?", required=False, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'What common questions do your customers ask?'}))
+    special_offers = forms.CharField(label="Do you offer any special offers?", required=False, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Do you offer any special offers?'}))
+    upload_video = forms.FileField(label="Upload Video", required=False, widget=forms.FileInput(attrs={'class': 'form-control'}))
+    upload_images = forms.FileField(label="Upload Images", required=False, widget=MultiFileInput(attrs={'class': 'form-control', 'multiple': True}))
+    use_stock_images = forms.ChoiceField(label="Use Stock Images", choices=[(True, 'Yes'),], widget=forms.RadioSelect(attrs={'class': 'form-check-input'}))
 
     class Meta:
-        fields = ('company_name', 'first_name', 'last_name', 'email', 'phone', 'password1', 'password2', 'logo_image', 'use_default_font', 'industry', 'services', 'company_established', 'about_company', 'target_market', 'areas_covered', 'reference_website', 'additional_preference')
-
+        fields = ('company_name', 'first_name', 'last_name', 'email', 'phone', 'password1', 'password2', 'logo_image', 'use_default_font', 'industry', 'services', 'company_established', 'about_company', 'target_market', 'areas_covered', 'reference_website', 'offered_services', 'common_questions', 'special_offers', 'upload_video', 'upload_images', 'use_stock_images')
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['email'].widget.attrs['class'] = 'form-control'
