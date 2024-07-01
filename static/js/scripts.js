@@ -37,3 +37,43 @@ $(document).ready(function() {
             });
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Get open modal button
+    var openModalBtn = document.getElementById("openModalBtn");
+    // Get modal element
+    var modal = document.getElementById("customizeFormModal");
+    // Get close button
+    var closeBtn = document.querySelector(".closeBtn");
+
+    // Check if modal element exists
+    if (modal) {
+        // Listen for open click
+        openModalBtn.addEventListener("click", openModal);
+
+        // Listen for close click
+        closeBtn.addEventListener("click", closeModal);
+
+        // Listen for outside click
+        window.addEventListener("click", clickOutside);
+
+        // Function to open modal
+        function openModal() {
+            modal.style.display = "block";
+        }
+
+        // Function to close modal
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        // Function to close modal if outside click
+        function clickOutside(e) {
+            if (e.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    } else {
+        console.error("Modal element not found.");
+    }
+});

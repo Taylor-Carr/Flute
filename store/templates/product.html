@@ -98,15 +98,13 @@
                         <i class="fa-solid fa-rotate value-icons"></i> Unlimited Revisions Until Launch
                         </div>
                     </div>
-
             
                     <!-- Continue Button -->
                     <div class="d-grid">
-                        <a class="btn btn-dark" href="{% url 'register_and_customize' %}">
+                        <a id="openModalBtn" class="btn btn-primary">
                             Continue <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -114,7 +112,139 @@
 </section>
 
 
+<!-- Customise form pop up -->
+<div id="customizeFormModal" class="modal">
+  <div class="modal-content">
+    <span class="closeBtn">&times;</span>
+    <section class="customize-form-section">
+      <div class="form-container">
+        <form method="POST" action="{% url 'register_and_customize' %}" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form.non_field_errors }}
+          <h5>Sign Up</h5>
 
+          <div class="customize-form-mb-3">
+            <label for="id_company_name" class="form-label">Company Name</label>
+            {{ form.company_name }}
+          </div>
+
+          <div class="customize-form-mb-3">
+            <label for="id_first_name" class="form-label">First Name</label>
+            {{ form.first_name }}
+          </div>
+
+          <div class="customize-form-mb-3">
+            <label for="id_last_name" class="form-label">Last Name</label>
+            {{ form.last_name }}
+        </div>
+
+        <div class="customize-form-mb-3">
+            <label for="id_email" class="form-label">Email Address</label>
+            {{ form.email }}
+        </div>
+
+        <div class="customize-form-mb-3 form-input">
+            <label for="id_phone" class="form-label">Phone Number</label>
+            <div class="form-input">{{ form.phone }}</div>
+        </div>
+
+        <div class="customize-form-mb-3">
+            <label for="id_password1" class="form-label">Password</label>
+            {{ form.password1 }}
+            <small class="customize-form-text-muted">{{ form.password1.help_text|safe }}</small>
+        </div>
+
+        <div class="customize-form-mb-3">
+            <label for="id_password2" class="form-label">Confirm Password</label>
+            {{ form.password2 }}
+            <small class="customize-form-text-muted">{{ form.password2.help_text|safe }}</small>
+        </div>
+
+        <h5>About your Business</h5>
+
+        <div class="customize-form-mb-3">
+            <label for="id_logo_image" class="form-label">Upload Company Logo</label>
+            {{ form.logo_image }}
+        </div>
+
+        <div class="customize-form-mb-3 form-check">
+            {{ form.use_default_font }}
+            <label for="id_use_default_font" class="form-check-label">Use Company Name as Logo</label>
+        </div>
+
+        <div class="customize-form-mb-3">
+            <label for="id_industry" class="form-label">Industry</label>
+            {{ form.industry }}
+        </div>
+
+        <div class="customize-form-mb-3">
+            <label for="id_services" class="form-label">Services</label>
+            {{ form.services }}
+        </div>
+
+        <div class="customize-form-mb-3">
+            <label for="id_company_established" class="form-label">Company Established</label>
+            {{ form.company_established }}
+        </div>
+
+        <div class="customize-form-mb-3">
+            <label for="id_about_company" class="form-label">About Your Company</label>
+            {{ form.about_company }}
+        </div>
+
+        <div class="customize-form-mb-3">
+            <label for="id_target_market" class="form-label">Target Market</label>
+            {{ form.target_market }}
+        </div>
+
+        <div class="customize-form-mb-3">
+            <label for="id_areas_covered" class="form-label">Areas Your Business Covers</label>
+            {{ form.areas_covered }}
+        </div>
+
+        <div class="customize-form-mb-3">
+            <label for="id_reference_website" class="form-label">Reference Website (Website You Like)</label>
+            {{ form.reference_website }}
+        </div>
+
+        <div class="customize-form-mb-3">
+            <label for="id_offered_services" class="form-label">What services do you offer?</label>
+            {{ form.offered_services }}
+        </div>
+
+        <div class="customize-form-mb-3">
+            <label for="id_common_questions" class="form-label">What common questions do your customers ask?</label>
+            {{ form.common_questions }}
+        </div>
+
+        <div class="customize-form-mb-3">
+            <label for="id_special_offers" class="form-label">Do you offer any special offers?</label>
+            {{ form.special_offers }}
+        </div>
+
+        <div class="customize-form-mb-3">
+            <label for="id_upload_video" class="form-label">Upload Video</label>
+            {{ form.upload_video }}
+        </div>
+
+        <div class="customize-form-mb-3">
+            <label for="id_upload_images" class="form-label">Upload Images</label>
+            {{ form.upload_images }}
+        </div>
+
+        <div class="customize-form-mb-3">
+            <label for="id_use_stock_images" class="form-label">Use Stock Images</label>
+            {{ form.use_stock_images }}
+        </div>
+
+        <div class="customize-form-mb-3">
+            <button type="submit" class="btn btn-primary">Get your design proposal</button>
+        </div>
+        </form>
+      </div>
+    </section>
+  </div>
+</div>
 
 <!---Product info section -->
 
@@ -136,14 +266,6 @@
         </div>
     </div>
 </section>
-
-
-
-
-
-
-
-
 
 <!-- Related products -->
 <section class="py-5 bg-light">
@@ -208,6 +330,46 @@
     var imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
     imageModal.show();
 }
+document.addEventListener('DOMContentLoaded', function() {
+    // Get open modal button
+    var openModalBtn = document.getElementById("openModalBtn");
+    // Get modal element
+    var modal = document.getElementById("customizeFormModal");
+    // Get close button
+    var closeBtn = document.querySelector(".closeBtn");
+
+    // Check if modal element exists
+    if (modal) {
+        // Listen for open click
+        openModalBtn.addEventListener("click", openModal);
+
+        // Listen for close click
+        closeBtn.addEventListener("click", closeModal);
+
+        // Listen for outside click
+        window.addEventListener("click", clickOutside);
+
+        // Function to open modal
+        function openModal() {
+            modal.style.display = "block";
+        }
+
+        // Function to close modal
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        // Function to close modal if outside click
+        function clickOutside(e) {
+            if (e.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    } else {
+        console.error("Modal element not found.");
+    }
+});
+
 </script>
 
 {% endblock %}
