@@ -9,7 +9,7 @@
         <div class="hero-card">
           <div class="hero-content text-center">
             <h1>
-              <span class="hero-h1-span visible"><img src="{% static 'assets/Flute_Logo_White_New_Ball-removebg-preview.png' %}" alt="Company Logo"></span>
+              <span class="hero-h1-span visible"><img src="{% static 'assets/Digital (42).png' %}" alt="Company Logo"></span>
               <span class="hero-h1-span visible">We</span>
               <span class="hero-h1-span visible">Build</span>
               <span class="hero-h1-span visible">Websites<span class="hero-h1-span visible" id="dot-end">.</span></span>
@@ -72,7 +72,7 @@
                         </div>
                     </div>
                     <div class="d-grid">
-                        <a class="btn btn-dark home-product-button" href="{% url 'product' product.id %}">
+                        <a class="btn" id="home-product-button" href="{% url 'product' product.id %}">
                             View Plan
                         </a>
                     </div>
@@ -83,7 +83,15 @@
     </div>
 </section>
 
-<!-- Services Section -->
+<section class="terms-section">
+    <div class="terms-container">
+        <div>
+            <h1 class="terms-h1">*Prices displayed are inclusive of particular package details, please read product description</h1>
+        </div>
+    </div>
+</section>
+
+<!--Services section -->
 <section id="services">
     <div class="services-container">
         <h2>We Keep It Simple</h2>
@@ -91,26 +99,20 @@
         <div id="service-items" class="row justify-content-center">
             <div class="col-md-4">
                 <div class="card service-card" id="service-card">
-                    <div class="card-body service-card-body">
-                        <h3><div class="service-num">Step 1</div>Complete our questionare</h3>
-                        <p id="service-p"></p>
-                    </div>
+                    <h3><span class="service-num">1</span>Complete our questionnaire</h3>
+                    <p id="service-p">Fill out our questionnaire to help us understand your requirements and goals.</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card service-card" id="service-card">
-                    <div class="card-body service-card-body">
-                        <h3><div class="service-num">Step 2</div>We'll Build your website</h3>
-                        <p id="service-p"></p>
-                    </div>
+                    <h3><span class="service-num">2</span>We'll Build your website</h3>
+                    <p id="service-p">Our expert team will design and develop your website, ensuring it meets your expectations.</p>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card service-card"  id="service-card">
-                    <div class="card-body service-card-body">
-                        <h3><div class="service-num">Step 3</div>Approval and launch</h3>
-                        <p id="service-p"></p>
-                    </div>
+                <div class="card service-card" id="service-card">
+                    <h3><span class="service-num">3</span>Approval and launch</h3>
+                    <p id="service-p">Review the website we've built for you. Once approved, we'll launch your website to the world!</p>
                 </div>
             </div>
         </div>
@@ -123,10 +125,10 @@
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="why-content">
-                    <h2>We build for any business</h2>
+                    <h2>We Simplify Website Building</h2>
                     <p class="title-small-about">Why us?</p>
-                    <p class="about-p-1">Our team of dedicated cleaners is passionate about transforming homes and businesses with our expert cleaning services. Our mission is to deliver exceptional quality, surpassing our clients' expectations every time.</p>
-                    <p class="about-p-2">With a commitment to professionalism and thoroughness, we take pride in enhancing spaces and creating environments that our clients love to live and work in. Whether it's a residential project or a commercial venture, we bring efficiency, reliability, and a keen eye for detail to every cleaning task.</p>
+                    <p class="about-p-1">Flute offers a streamlined web development experience, delivering fully functional websites in just 7 days. Clients benefit from regular updates, transparent pricing without hidden fees, and responsive customer support available 24/7.</p>
+                    <p class="about-p-2">Unlike traditional design agencies, Flute eliminates repetitive meetings and provides a seamless process from consultation to launch. Additionally, clients can take advantage of integrated marketing services to enhance their online presence.</p>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -157,12 +159,12 @@
 
 <!-- FAQ section Header -->
 
-<header class="hero-section faq-header-bg">
+<header class="faq-section-header faq-header-bg">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12 col-lg-12">
-                <div class="hero-card faq-card-bg">
-                    <div class="hero-content text-center">
+                <div class="faq-card faq-card-bg">
+                    <div class="faq-content text-center">
                         <h1 id="faq-header-home">FAQ</h1>
                         <p>Have a question that's not listed here?<a href="{% url 'contact' %}" class="faq-contact">Contact Us</a></p>
                     </div>
@@ -183,7 +185,7 @@
                     <!-- 1 What's included in every offer -->
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            <button id="accordion-button"class="accordion-button" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 What's included for in each plan?
                             </button>
@@ -200,7 +202,7 @@
                     <!-- 2 How long does it take to get my website? -->
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            <button id="accordion-button" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                 How long does it take to get my website?
                             </button>
@@ -217,7 +219,7 @@
                     <!-- 3 What platform are these websites built in? -->
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            <button id="accordion-button" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                 What platform are these websites built in?
                             </button>
@@ -235,7 +237,7 @@
                     <!-- 4 What is our guarantee? -->
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingFour">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            <button id="accordion-button" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                                 What is our guarantee?
                             </button>
@@ -254,7 +256,7 @@
                     <!-- 5 Do you get full ownership of your website? -->
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingFive">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            <button id="accordion-button" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                                 Do you get full ownership of your website?
                             </button>
@@ -273,7 +275,7 @@
                     <!-- 6 What is SEO? -->
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingSix">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            <button id="accordion-button" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                                 What is SEO?
                             </button>
@@ -292,7 +294,7 @@
                     <!-- 7 How can I edit my website when its launched? -->
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingSeven">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            <button id="accordion-button" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
                                 How can I edit my website when its launched?
                             </button>
@@ -311,7 +313,7 @@
                     <!-- Have a question that's not listed here? -->
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingEight">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            <button id="accordion-button" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
                                 Have a question that's not listed here?
                             </button>

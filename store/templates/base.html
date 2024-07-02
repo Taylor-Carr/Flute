@@ -22,11 +22,11 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light ">
-        <div class="container px-4 px-lg-5">
+        <div class="container ">
             <!-- Brand Logo and Home Button -->
 
             <a class="navbar-brand" href="{% url 'home' %}">
-                <img src="{% static 'assets/Digital (40).png' %}" alt="FLUTE" style="height: 46px;">
+                <img src="{% static 'assets/Digital (42).png' %}" alt="FLUTE" style="height: 46px;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -39,7 +39,7 @@
                 {% if request.path != '/search/' %}
 
                 <!-- Add a form in the navbar for quick search -->
-                <form class="d-flex mx-auto" method="get" action="{% url 'search' %}" style="max-width: 690px; width: 100%;">
+                <form class="d-flex mx-auto" method="get" action="{% url 'search' %}" style="max-width: 620px; width: 100%; padding-left: 5rem; margin: 0;">
                     <div class="input-group">
                         <input class="form-control" type="search" placeholder="Search our landing pages by industry..." aria-label="Search" name="query" id="search-input">
                         <button class="btn" type="submit" id="search-button">
@@ -127,7 +127,7 @@
                     </li>
                 </ul>
             </div>
-            <!--                   
+                <!---  
                <li class="nav-item">
                     <button type="button" class="btn ms-2 d-flex flex-column align-items-center" data-bs-toggle="modal" data-bs-target="#loginModal">
                         <i class="fa-solid fa-user mb-1"></i>
@@ -135,36 +135,21 @@
                     </button>
                 </li>
 
-            -->
 
-                <!-- Sign Up Icon / revue user journey -->
-                <!--
+
+            
+
                 <li class="nav-item">
                     <button type="button" class="btn ms-2 d-flex flex-column align-items-center" data-bs-toggle="modal" data-bs-target=".signup-modal">
                         <i class="fa-solid fa-user mb-1"></i>
                         <span id="nav-text">Sign Up</span>
                     </button>
                 </li>
-            -->
-
+                --->
                 {% endif %}
 
             </ul>
     
-           <!-- Cart Icon and Cart Quantity -->
-
-           <!--<form class="d-flex align-items-center">
-            <a class="btn ms-2 btn-custom d-flex flex-column align-items-center text-center" href="{% url 'cart_summary' %}">
-                <i class="fas fa-shopping-basket mb-1" id="basket-icon"></i>
-                <span id="nav-text">Basket</span>
-            </a>
-
-            {% if cart|length > 0 %}
-
-                <span class="ms-2 badge" id="cart_quantity">{{ cart|length }}</span>
-
-            {% endif %}
-        </form>-->
         </div>
     </div>
 </nav>
@@ -293,7 +278,7 @@
                 <div class="col-md-3">
                     <h4 class="footer-title">Store</h4>
                     <ul>
-                        <li><a href="{% url 'category_summary' %}"> Shop all W</a></li>
+                        <li><a href="{% url 'category_summary' %}"> Shop all Websites</a></li>
                         <!---
                         <li><a href="{% url 'category' 'Commerce' %}">E-Commerce</a></li>
                          Add more store links here if needed -->

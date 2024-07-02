@@ -119,12 +119,16 @@
   margin: 0 auto;
   padding: 0 15px; /* Optional: Add padding to align content with the main container */
 }
+
+.navbar-brand {
+  margin-right: 4rem;
+}
 .nav-item.dropdown .nav-link::after {
   display: none; /* Hide the default arrow */
 }
 
 .nav-item.dropdown .nav-link i.fas.fa-bars {
-  margin-right: 10px; /* Adjust the margin as needed */
+/* Adjust the margin as needed */
 }
 
 .navbar.navbar-light {
@@ -133,7 +137,7 @@
 }
 
 .navbar-light .navbar-nav .nav-link {
-  margin-left: 12px;
+
   color: black;
   font-weight: 500; /* Make the text bold */
 }
@@ -161,23 +165,24 @@
 
 .input-group {
   position: relative;
-  width: 100%;
+  width: 80%;
   border-radius: 20px; /* Apply border-radius to the input group */
   overflow: hidden; /* Ensure the border-radius is applied correctly */
-  border: 1px solid grey; /* Custom border for the input group */
+  border: 1.5px solid #333; /* Custom border for the input group */
+  padding-left: 10px;
 }
 
 .input-group input {
   border: none; /* Remove the default border of the input */
   outline: none; /* Remove the default outline of the input */
-  width: 100%;
+  width: 80%;
   padding: 8px 6px; /* Adjust padding as needed */
   box-sizing: border-box; /* Ensure padding does not affect the width */
   border-radius: 20px; /* Apply border-radius to match the input group */
 }
 
 #search-button {
-  background-color: #DB4A2B; /* Custom color */
+  background-color: #0A5C5A; /* Custom color */
   border: none;
   border-radius: 50%; /* Circular button */
   color: #fff; /* Text color */
@@ -199,7 +204,6 @@
 
 .form-control {
   border-radius: 20px; /* Apply border-radius to the input */
-  padding-right: 1rem; /* Add padding to make space for the button */
   box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
 }
 
@@ -216,9 +220,33 @@
   font-weight: 900;
 }
 
+/* Custom CSS for navbar responsiveness and max-width */
+.navbar {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.container {
+    max-width: 1200px; /* Set maximum width for the container */
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+@media (max-width: 991.98px) {
+    .navbar-expand-lg .navbar-collapse {
+        justify-content: flex-start; /* Adjust alignment for smaller screens */
+    }
+
+    .navbar-nav {
+        margin-top: 0; /* Remove margin for smaller screens */
+    }
+}
+
 /* Second Nav Bar for categories */
+
 #second-navbar {
-  background-color: #f5f5f5;
+  background-color: #f9f9f9;
   padding: 5px 0;
   width: 100%;
 }
@@ -233,7 +261,7 @@
 
 #nav-value-icon {
   padding-right: 6px;
-  color: #DB4A2B;
+  color: #0A5C5A;
 }
 
 #second-navbar ul {
@@ -249,7 +277,7 @@
   font-size: 0.8rem;
   font-weight: 700;
   font-family: 'Inter';
-  color: #333;
+  color: #213038;
   padding: 3px 35px; /* Adjust padding to increase space between items */
   display: flex;
   align-items: center; /* Vertically center the content */
@@ -257,7 +285,7 @@
 
 #second-navbar ul li a {
   text-decoration: none;
-  color: #333;
+  color: #213038;
   position: relative; /* Needed for the ::after pseudo-element */
 }
 
@@ -266,7 +294,7 @@
   display: block;
   width: 100%;
   height: 3px; /* Thickness of the underline */
-  background-color: #DB4A2B; /* Color of the underline */
+  background-color: #53C1C4; /* Color of the underline */
   position: absolute;
   bottom: -10px; /* Distance from the text */
   left: 0;
@@ -326,16 +354,14 @@
   max-width: 1200px; /* Adjust to your desired max width */
   width: 100%;
   margin: 0 auto; /* Center the container */
-  padding: 0 10px; /* Optional: Add padding for responsive spacing */
+  padding: 0 5px; /* Optional: Add padding for responsive spacing */
 }
 
 /* Header */
 header {
   background-color: #fff;
-  margin-top: 2rem;
   display: flex;
   width: 100%; /* Full width */
-  padding-top: 1rem;
   margin: 0 auto; /* Center the section horizontally */
 }
 
@@ -345,8 +371,8 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 /* Hero Card */
@@ -367,7 +393,7 @@ header {
 .hero-card::before, .hero-card::after {
   content: '';
   position: absolute;
-  background: radial-gradient(circle at 30% 70%, #D58668, #DB4A2B);
+  background: radial-gradient(circle at 30% 70%, #33908E, #0A5C5A);
   border-radius: 50%;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
@@ -393,7 +419,7 @@ header {
 }
 
 .hero-content h1 {
-  color: #000;
+  color: #333;
   font-size: 2rem;
   padding: 6px;
   margin: 0;
@@ -403,7 +429,7 @@ header {
 }
 
 #dot-end, #hero-dot {
-  color: #DB4A2B;
+  color: #0A5C5A;
   font-size: 2rem;
 }
 
@@ -412,7 +438,7 @@ header {
   margin-left: 0;
   width: 50px;
   height: 50px;
-  background: radial-gradient(circle at 30% 70%, #D58668, #DB4A2B);
+  background: radial-gradient(circle at 30% 70%, #33908E, #0A5C5A);
   border-radius: 50%;
   transform: translateY(-40%);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
@@ -501,7 +527,7 @@ header {
 .home-title-title {
   margin-bottom: 10px; /* Adjust spacing as needed */
   text-align: left;
-  color: #DB4A2B;
+  color: #0A5C5A;
   font-size: 3rem;
   margin-top: 40px;
   font-weight: 600;
@@ -620,6 +646,7 @@ header {
   font-size: 0.9rem;
   padding: 0.2rem;
   text-align: center;
+  color: #A9DAD3;
 }
 
 /* Description list */
@@ -638,7 +665,7 @@ header {
 .featured-product-card .product-title {
   font-size: 1.45rem;
   font-weight: 600;
-  color: #DB4A2B;
+  color: #0A5C5A;
   font-family: 'League Spartan', sans-serif;
   margin-bottom: 0.5rem;
 }
@@ -648,7 +675,7 @@ header {
   font-size: 1.25rem;
   font-weight: 600;
   font-family: 'Inter', sans-serif;
-  color: #DB4A2B;
+  color: #0A5C5A;
 }
 
 .featured-product-card .card-footer {
@@ -658,16 +685,21 @@ header {
   text-align: center;
 }
 
-.featured-product-card .card-footer .btn .home-product-button {
+.featured-product-card .card-footer .btn #home-product-button {
   color: #ffffff;
-  border-color: #333;
-  background-color: #333;
+  border-color: #0A5C5A;
+  background-color: #0A5C5A;
 }
 
-.home-product-button {
+#home-product-button {
   margin-bottom: 10px;
   margin-left: 10px;
   margin-right: 10px;
+  color: #fff;
+  background: #0A5C5A;
+  border-color: #0A5C5A;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
 }
 
 .featured-product-card .card-footer .btn:hover {
@@ -719,7 +751,7 @@ header {
   font-size: 1.8rem;
   font-weight: 600;
   font-family: 'League Spartan', sans-serif;
-  color: #DB4A2B;
+  color: #0A5C5A;
 }
 
 
@@ -741,7 +773,7 @@ header {
 }
 
 .value-icons {
-  color: #DB4A2B;
+  color: #0A5C5A;
   margin-right: 5px; /* Adjusted for better spacing */
 }
 
@@ -780,7 +812,7 @@ header {
 .price {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
-  color:#DB4A2B; 
+  color:#0A5C5A; 
   font-size: 1.4rem;
   margin-bottom: 0.2rem;
 }
@@ -950,10 +982,34 @@ header {
   }
 }
 
+/* Terms Section */
+.terms-section {
+  background-color: #fff;
+  padding-bottom: 2rem;
+  margin: 0 auto; /* Center the section horizontally */
+  margin-bottom: 1rem;
+}
 
-/* Services Section */
+.terms-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5px;
+  border: 1px solid #A9DAD3;
+  border-radius: 6px;
+}
+
+.terms-h1 {
+  text-align: center;
+  font-family: 'Inter';
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: #A9DAD3;
+  padding-top: 10px;
+}
+
+/* Services */
 #services {
-  background-color: #f9f9f9;
+  background-color: #0A5C5A;
   padding-top: 2rem;
   padding-bottom: 2rem;
   margin: 0 auto; /* Center the section horizontally */
@@ -963,77 +1019,73 @@ header {
 .services-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 10px; 
+  padding: 0 10px;
 }
 
 #services h2 {
-  color: #DB4A2B;
+  color: #f9f9f9;
   font-size: 3rem;
   margin-top: 15px;
   font-weight: 600;
-  font-family: 'Poppins';
+  font-family: 'Poppins', sans-serif;
   text-align: left;
 }
 
 #services-title-p {
-  color: grey;
-  font-family: 'Inter';
+  color: #adb5bd;
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
-  font-size: 0.8rem; /* Font size for paragraphs */
-  margin-bottom: 1rem;
-}
-
-
-.service-num {
-  font-size: 1.4rem;
-  color: #DB4A2B;
+  font-size: 0.8rem; /* Increase font size for better readability */
   text-align: left;
-  margin-bottom: 10px;
-  font-weight: 700;
-  font-family: 'League Spartan';
+  margin-bottom: 2rem;
 }
 
 #service-items {
   display: flex;
-  flex-wrap: wrap; /* Ensure items wrap onto a new row if necessary */
+  flex-wrap: wrap;
   justify-content: center;
 }
 
 #service-card {
-  position: relative; /* Needed to position the pseudo-element */
-  background: #333; /* White hue with 20% opacity */
-  backdrop-filter: blur(10px); /* Blur effect for glassy look */
+  position: relative;
+  background: #f5f5f5;
+  backdrop-filter: blur(10px);
   border-radius: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  margin: 10px; /* Add margin to create space between cards */
-  width: calc(25% - 20px); /* Adjust card width for spacing */
-  min-width: 300px; /* Ensure minimum width */
+  margin: 10px;
+  width: calc(33% - 20px); /* Adjust card width for spacing */
+  min-width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow: hidden; /* Hide overflow to clip pseudo-element */
+  text-align: center; /* Center text horizontally */
+  padding: 20px;
 }
 
-
-.service-card-body {
-  text-align: center;
+.service-num {
+  font-size: 2rem;
+  color: #A9DAD3;
+  font-weight: 700;
+  font-family: 'League Spartan', sans-serif;
+  margin-bottom: 10px;
+  margin-right: 20px;
 }
 
-.service-card-body h3 {
-  font-size: 1.4rem;
-  padding: 10px;
-  margin-bottom: 20px;
-  color: #fff;
-  font-weight: 500;
-  font-family: 'Poppins';
+.service-card h3 {
+  font-size: 1.5rem;
+  color: #0A5C5A;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 15px;
 }
 
 #service-p {
-  font-size: 0.9rem!important;
-  color: #fff!important;
-  font-weight: 500!important;
-  font-family: 'Inter'!important;
-  text-align: left!important;
+  font-size: 1rem;
+  color: #0A5C5A;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  line-height: 1.6; /* Increase line height for better readability */
 }
 
 /* Responsive adjustments */
@@ -1091,7 +1143,7 @@ header {
   font-family: 'Poppins', sans-serif;
   font-size: 3rem;
   font-weight: 600;
-  color: #DB4A2B;
+  color: #0A5C5A;
   margin-bottom: 20px; /* Space below heading */
 }
 
@@ -1208,7 +1260,7 @@ header {
 }
 
 .info-dropdown {
-  color: #DB4A2B;
+  color: #A9DAD3;
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   text-decoration: none;
@@ -1245,7 +1297,76 @@ header {
 }
 
 /* FAQS */
-/* home page faq */
+
+/* faq header  */
+.faq-section-header {
+  width: 100%; /* Full width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+/* Hero Card */
+.faq-card {
+  background-color: #f9f9f9;
+  border-radius: 20px;
+  padding: 20px;
+  max-width: 1200px; /* Match the max width of the container */
+  width: 100%; /* Ensure full width */
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden; /* Ensure pseudo-elements are visible */
+  margin: 0 auto; /* Center the card */
+}
+
+/* Adjust the Semi-Circles */
+.faq-card::after {
+  content: '';
+  position: absolute;
+  background: radial-gradient(circle at 30% 70%, #33908E, #0A5C5A);
+  border-radius: 50%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Adjust the Semi-Circles */
+.faq-card::before {
+  content: '';
+  position: absolute;
+  width: 120px; /* Adjust the size as needed */
+  height: 120px; /* Adjust the size as needed */
+  background: radial-gradient(circle at 30% 70%, #33908E, #0A5C5A);
+  border-radius: 50%;
+  box-shadow: 
+    -5px -5px 30px rgba(0, 0, 0, 0.1), /* Softer, lighter shadow */
+    -7px -7px 40px rgba(0, 0, 0, 0.2); /* Softer, slightly stronger shadow */
+  bottom: 5%; /* Move the element slightly up */
+  left: 95%; /* Move the element more to the right */
+}
+
+.faq-card::before {
+  top: 50%;
+  right: -20px;
+  width: 120px;
+  height: 120px;
+}
+
+.faq-card::after {
+  bottom: 70px;
+  left: -80px;
+  width: 175px;
+  height: 175px;
+}
+
+
+.faq-content {
+  position: relative;
+  z-index: 2;
+}
+
 
 .faq-header-bg {
   background-color: #f5f5f5;
@@ -1261,18 +1382,17 @@ header {
 }
 
 #faq-header-home {
-  color: #DB4A2B ;
+  color: #0A5C5A;
   font-weight: 600;
   font-family: 'Poppins', sans-serif;
   font-size: 3rem;
-  margin-top: 5px;
 }
 
 .faq-contact {
   text-decoration: none;
-  color: #DB4A2B !important;
+  color: #A9DAD3!important;
   margin-left: 4px;
-  font-weight: 500;
+  font-weight: 600;
   font-family: 'Inter';
 }
 .faq-header.bg-dark {
@@ -1301,7 +1421,7 @@ header {
     /* Accordion Styles */
  #faqAccordion .accordion-button {
       background-color: #ffffff;
-      color: #333;
+      color: #0A5C5A;
       border: none;
       padding: 1rem;
       font-size: 1rem;
@@ -1314,16 +1434,16 @@ header {
   }
 
   #faqAccordion .accordion-button:not(.collapsed) {
-      background-color: #DB4A2B !important;
-      color: #ffffff !important;
+      background-color: #A9DAD3 !important;
+      color: #0A5C5A !important;
   }
 
-  #faqAccordion .accordion-button::after {
-    color: #333 !important; /* Dark red color for the arrow */
+  #faqAccordion #accordion-button::after {
+    color: #0A5C5A !important; /* Dark red color for the arrow */
 }
 
-#faqAccordion .accordion-button:not(.collapsed)::after {
-    color: #333 !important; /* White color for the arrow when not collapsed */
+#faqAccordion #accordion-button:not(.collapsed)::after {
+    color: #0A5C5A!important; /* White color for the arrow when not collapsed */
 }
 
   #faqAccordion .accordion-item {
@@ -1346,13 +1466,13 @@ header {
 
   /* FAQS Button Styles */
   .faq-button.btn-primary {
-      background-color: #DB4A2B;
-      border-color: #DB4A2B;
+      background-color: #0A5C5A !important;
+      border-color: #0A5C5A !important;
   }
 
   .faq-button.btn-primary:hover {
-      background-color: #f04020;
-      border-color: #f04020;
+      background-color: #0A5C5A !important;
+      border-color: #0A5C5A !important;
   }
 /* Cart Summary related projects */
 .rounded-border {
@@ -1613,7 +1733,7 @@ header {
   font-size: 18px;
   font-weight: 500;
   font-family: 'League Spartan', sans-serif;
-  color: #DB4A2B;
+  color: #0A5C5A;
 }
 .social-links ul {
   padding-left: 0; /* Remove default left padding */
