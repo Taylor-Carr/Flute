@@ -163,7 +163,7 @@
   color: #333; /* Change text color */
 }
 
-.input-group {
+.search-input-group {
   position: relative;
   width: 80%;
   border-radius: 20px; /* Apply border-radius to the input group */
@@ -172,7 +172,7 @@
   padding-left: 10px;
 }
 
-.input-group input {
+.search-input-group input {
   border: none; /* Remove the default border of the input */
   outline: none; /* Remove the default outline of the input */
   width: 80%;
@@ -182,7 +182,7 @@
   outline: none; /* Remove the default blue outline */
 }
 
-.input-group input:focus {
+.search-input-group input:focus {
   border-color: black; /* Change border color to black on focus */
   outline: none; /* Ensure outline is removed */
   box-shadow: none; /* Remove any box-shadow */
@@ -210,7 +210,7 @@
   font-size: 1rem; /* Adjust icon size */
 }
 
-.form-control {
+.search-form-control {
   border-radius: 20px; /* Apply border-radius to the input */
   box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
 }
@@ -613,7 +613,7 @@ header {
 #img-container-featured {
   max-height: 300px!important; /* Adjust this height as needed */
   overflow-y: auto!important;
-  border-radius: 20px!important;
+  border-radius: 16px!important;
   border: 1px solid #f5f5f5!important;
 }
 
@@ -1042,6 +1042,150 @@ div#modal-img-container {
   margin-top: 10px;
 }
 
+/* custom_form.css */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  padding-top: 5px;
+}
+
+.modal-content {
+  background-color: #f5f5f5;
+  margin: 5% auto;
+  padding: 10px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 8px;
+}
+
+.closeBtn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.closeBtn:hover,
+.closeBtn:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.form-container {
+  padding: 15px;
+}
+
+.customise-form-title {
+  font-size: 24px;
+  margin-top: 15px;
+  padding-bottom: 0;
+  color: #0A5C5A;
+  font-family: 'Poppins', sans-serif;
+}
+
+.customise-form-title-second {
+  font-size: 24px;
+  margin-top: 30px;
+  padding-bottom: 0;
+  margin-bottom: 5px;
+  color: #0A5C5A;
+  font-family: 'Poppins', sans-serif;
+}
+
+.form-p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #333;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+}
+
+.form-p-legal {
+  font-size: 12px;
+  margin-bottom: 15px;
+  color: #333;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: 700!important;
+  margin-bottom: 10px!important;
+  display: block!important;
+  font-family: 'Inter', sans-serif!important;
+}
+
+.form-control {
+  background-color: white;
+  width: 100%!important;
+  padding: 10px!important;
+  margin-top: 5px!important;
+  margin-bottom: 20px!important;
+  border: 1px solid #f3f3f3!important;
+  border-radius: 12px!important;
+  font-weight: 400!important; /* Ensure the font weight is set correctly */
+  font-family: 'Inter', sans-serif!important;
+  color: black!important;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important; /* Grey box shadow */
+  outline: none!important; /* Remove the outline */
+}
+
+.form-control:focus {
+  border-color: #f9f9f9!important; /* Change border color on focus */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important; /* Grey box shadow */
+}
+
+.btn-primary-form {
+  background-color: #0A5C5A;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.btn-primary-form:hover {
+  background-color: white;
+  color: #0A5C5A;
+  border: 1px solid #A9DAD3;
+}
+
+
+.customize-form-text-muted {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+  color: #777;
+}
+
+/* name row */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  flex: 1;
+  margin-right: 10px; /* Adjust as needed */
+}
 
 /* Terms Section */
 .terms-section {

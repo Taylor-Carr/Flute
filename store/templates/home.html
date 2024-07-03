@@ -44,7 +44,7 @@
                         <div class="carousel-inner">
                             {% for image in product.images.all %}
                             <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                                <div class="img-container-featured">
+                                <div id="img-container-featured">
                                     <a href="{% url 'product' product.id %}">
                                         <img class="d-block w-100 product-image img-fluid" src="{{ image.image.url }}" alt="Product Image {{ forloop.counter }}">
                                     </a>

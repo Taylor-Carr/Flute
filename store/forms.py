@@ -88,10 +88,11 @@ class CombinedForm(forms.Form):
     special_offers = forms.CharField(label="Do you offer any special offers?", required=False, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Do you offer any special offers?'}))
     upload_video = forms.FileField(label="Upload Video", required=False, widget=forms.FileInput(attrs={'class': 'form-control'}))
     upload_images = forms.FileField(label="Upload Images", required=False, widget=MultiFileInput(attrs={'class': 'form-control', 'multiple': True}))
-    use_stock_images = forms.ChoiceField(label="Use Stock Images", choices=[(True, 'Yes'),], widget=forms.RadioSelect(attrs={'class': 'form-check-input'}))
+    use_stock_images = forms.ChoiceField(label="Use Stock Images", choices=[(True, 'Yes')], widget=forms.RadioSelect(attrs={'class': 'form-check-input'}))
 
     class Meta:
         fields = ('company_name', 'first_name', 'last_name', 'email', 'phone', 'password1', 'password2', 'logo_image', 'use_default_font', 'industry', 'services', 'company_established', 'about_company', 'target_market', 'areas_covered', 'reference_website', 'offered_services', 'common_questions', 'special_offers', 'upload_video', 'upload_images', 'use_stock_images')
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['email'].widget.attrs['class'] = 'form-control'
