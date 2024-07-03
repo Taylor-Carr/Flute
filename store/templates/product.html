@@ -12,7 +12,7 @@
         <div class="carousel-inner">
             {% for image in product.images.all %}
             <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                <div id="img-container">
+                <div id="img-container-why">
                     <img class="d-block w-100" id="detail-img-{{ forloop.counter }}" src="{{ image.image.url }}" alt="Product Image {{ forloop.counter }}" onclick="showImageModal('{{ image.image.url }}')">
                 </div>
             </div>
@@ -34,11 +34,11 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4>Example Landing Page</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="color:#DB4A2B;"></button>
+                <h4 class="img-modal-title">Example Website</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="color:#0A5C5A;"></button>
             </div>
             <div class="modal-body">
-                <div class="modal-img-container">
+                <div id="modal-img-container">
                     <img id="modal-img" class="img-fluid" src="" alt="Expanded Image">
                 </div>
             </div>
@@ -65,7 +65,7 @@
                         <button class="btn btn-link p-0 include-dropdown" type="button" data-bs-toggle="collapse" data-bs-target="#whatsIncluded" aria-expanded="false" aria-controls="whatsIncluded" id="detail-dropdown">
                             What's Included &#x25be;
                         </button>
-                        <div id="whatsIncluded" class="collapse">
+                        <div id="whatsIncluded">
                             <ul class="include-list">
                                 {% for benefit in product.benefits.all %}
                                     <li><i class="fa-solid fa-circle dropdown-circle"></i>{{ benefit.description }}</li>
@@ -101,7 +101,7 @@
             
                     <!-- Continue Button -->
                     <div class="d-grid">
-                        <a id="openModalBtn" class="btn btn-primary">
+                        <a id="openModalBtn" class="btn" style="color:#fff; background-color: #0A5C5A; font-family: 'Inter', sans-serif; ">
                             Continue <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
@@ -114,186 +114,206 @@
 
 <!-- Customise form pop up -->
 <div id="customizeFormModal" class="modal">
-  <div class="modal-content">
-    <span class="closeBtn">&times;</span>
-    <section class="customize-form-section">
-      <div class="form-container">
-        <form method="POST" action="{% url 'register_and_customize' %}" enctype="multipart/form-data">
-          {% csrf_token %}
-          {{ form.non_field_errors }}
-          <h5>Sign Up</h5>
-
-          <div class="customize-form-mb-3">
-            <label for="id_company_name" class="form-label">Company Name</label>
-            {{ form.company_name }}
-          </div>
-
-          <div class="customize-form-mb-3">
-            <label for="id_first_name" class="form-label">First Name</label>
-            {{ form.first_name }}
-          </div>
-
-          <div class="customize-form-mb-3">
-            <label for="id_last_name" class="form-label">Last Name</label>
-            {{ form.last_name }}
+    <div class="modal-content">
+      <span class="closeBtn">&times;</span>
+      <section class="customize-form-section">
+        <div class="form-container">
+          <form method="POST" action="{% url 'register_and_customize' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <h5>Sign Up</h5>
+  
+            <div class="customize-form-mb-3">
+              <label for="id_company_name" class="form-label">Company Name</label>
+              {{ form.company_name }}
+            </div>
+  
+            <div class="customize-form-mb-3">
+              <label for="id_first_name" class="form-label">First Name</label>
+              {{ form.first_name }}
+            </div>
+  
+            <div class="customize-form-mb-3">
+              <label for="id_last_name" class="form-label">Last Name</label>
+              {{ form.last_name }}
+            </div>
+  
+            <div class="customize-form-mb-3">
+              <label for="id_email" class="form-label">Email Address</label>
+              {{ form.email }}
+            </div>
+  
+            <div class="customize-form-mb-3">
+              <label for="id_phone" class="form-label">Phone Number</label>
+              {{ form.phone }}
+            </div>
+  
+            <div class="customize-form-mb-3">
+              <label for="id_password1" class="form-label">Password</label>
+              {{ form.password1 }}
+              <small class="customize-form-text-muted">{{ form.password1.help_text|safe }}</small>
+            </div>
+  
+            <div class="customize-form-mb-3">
+              <label for="id_password2" class="form-label">Confirm Password</label>
+              {{ form.password2 }}
+              <small class="customize-form-text-muted">{{ form.password2.help_text|safe }}</small>
+            </div>
+  
+            <h5>About your Business</h5>
+  
+            <div class="customize-form-mb-3">
+              <label for="id_logo_image" class="form-label">Upload Company Logo</label>
+              {{ form.logo_image }}
+            </div>
+  
+            <div class="customize-form-mb-3 form-check">
+              {{ form.use_default_font }}
+              <label for="id_use_default_font" class="form-check-label">Use Company Name as Logo</label>
+            </div>
+  
+            <div class="customize-form-mb-3">
+              <label for="id_industry" class="form-label">Industry</label>
+              {{ form.industry }}
+            </div>
+  
+            <div class="customize-form-mb-3">
+              <label for="id_services" class="form-label">Services</label>
+              {{ form.services }}
+            </div>
+  
+            <div class="customize-form-mb-3">
+              <label for="id_company_established" class="form-label">Company Established</label>
+              {{ form.company_established }}
+            </div>
+  
+            <div class="customize-form-mb-3">
+              <label for="id_about_company" class="form-label">About Your Company</label>
+              {{ form.about_company }}
+            </div>
+  
+            <div class="customize-form-mb-3">
+              <label for="id_target_market" class="form-label">Target Market</label>
+              {{ form.target_market }}
+            </div>
+  
+            <div class="customize-form-mb-3">
+              <label for="id_areas_covered" class="form-label">Areas Your Business Covers</label>
+              {{ form.areas_covered }}
+            </div>
+  
+            <div class="customize-form-mb-3">
+              <label for="id_reference_website" class="form-label">Reference Website (Website You Like)</label>
+              {{ form.reference_website }}
+            </div>
+  
+            <div class="customize-form-mb-3">
+              <label for="id_offered_services" class="form-label">What services do you offer?</label>
+              {{ form.offered_services }}
+            </div>
+  
+            <div class="customize-form-mb-3">
+              <label for="id_common_questions" class="form-label">What common questions do your customers ask?</label>
+              {{ form.common_questions }}
+            </div>
+  
+            <div class="customize-form-mb-3">
+              <label for="id_special_offers" class="form-label">Do you offer any special offers?</label>
+              {{ form.special_offers }}
+            </div>
+  
+            <div class="customize-form-mb-3">
+              <label for="id_upload_video" class="form-label">Upload Video</label>
+              {{ form.upload_video }}
+            </div>
+  
+            <div class="customize-form-mb-3">
+              <label for="id_upload_images" class="form-label">Upload Images</label>
+              {{ form.upload_images }}
+            </div>
+  
+            <div class="customize-form-mb-3">
+              <label for="id_use_stock_images" class="form-label">Use Stock Images</label>
+              {{ form.use_stock_images }}
+            </div>
+  
+            <div class="customize-form-mb-3">
+              <button type="submit" class="btn btn-primary">Get your design proposal</button>
+            </div>
+          </form>
         </div>
-
-        <div class="customize-form-mb-3">
-            <label for="id_email" class="form-label">Email Address</label>
-            {{ form.email }}
-        </div>
-
-        <div class="customize-form-mb-3 form-input">
-            <label for="id_phone" class="form-label">Phone Number</label>
-            <div class="form-input">{{ form.phone }}</div>
-        </div>
-
-        <div class="customize-form-mb-3">
-            <label for="id_password1" class="form-label">Password</label>
-            {{ form.password1 }}
-            <small class="customize-form-text-muted">{{ form.password1.help_text|safe }}</small>
-        </div>
-
-        <div class="customize-form-mb-3">
-            <label for="id_password2" class="form-label">Confirm Password</label>
-            {{ form.password2 }}
-            <small class="customize-form-text-muted">{{ form.password2.help_text|safe }}</small>
-        </div>
-
-        <h5>About your Business</h5>
-
-        <div class="customize-form-mb-3">
-            <label for="id_logo_image" class="form-label">Upload Company Logo</label>
-            {{ form.logo_image }}
-        </div>
-
-        <div class="customize-form-mb-3 form-check">
-            {{ form.use_default_font }}
-            <label for="id_use_default_font" class="form-check-label">Use Company Name as Logo</label>
-        </div>
-
-        <div class="customize-form-mb-3">
-            <label for="id_industry" class="form-label">Industry</label>
-            {{ form.industry }}
-        </div>
-
-        <div class="customize-form-mb-3">
-            <label for="id_services" class="form-label">Services</label>
-            {{ form.services }}
-        </div>
-
-        <div class="customize-form-mb-3">
-            <label for="id_company_established" class="form-label">Company Established</label>
-            {{ form.company_established }}
-        </div>
-
-        <div class="customize-form-mb-3">
-            <label for="id_about_company" class="form-label">About Your Company</label>
-            {{ form.about_company }}
-        </div>
-
-        <div class="customize-form-mb-3">
-            <label for="id_target_market" class="form-label">Target Market</label>
-            {{ form.target_market }}
-        </div>
-
-        <div class="customize-form-mb-3">
-            <label for="id_areas_covered" class="form-label">Areas Your Business Covers</label>
-            {{ form.areas_covered }}
-        </div>
-
-        <div class="customize-form-mb-3">
-            <label for="id_reference_website" class="form-label">Reference Website (Website You Like)</label>
-            {{ form.reference_website }}
-        </div>
-
-        <div class="customize-form-mb-3">
-            <label for="id_offered_services" class="form-label">What services do you offer?</label>
-            {{ form.offered_services }}
-        </div>
-
-        <div class="customize-form-mb-3">
-            <label for="id_common_questions" class="form-label">What common questions do your customers ask?</label>
-            {{ form.common_questions }}
-        </div>
-
-        <div class="customize-form-mb-3">
-            <label for="id_special_offers" class="form-label">Do you offer any special offers?</label>
-            {{ form.special_offers }}
-        </div>
-
-        <div class="customize-form-mb-3">
-            <label for="id_upload_video" class="form-label">Upload Video</label>
-            {{ form.upload_video }}
-        </div>
-
-        <div class="customize-form-mb-3">
-            <label for="id_upload_images" class="form-label">Upload Images</label>
-            {{ form.upload_images }}
-        </div>
-
-        <div class="customize-form-mb-3">
-            <label for="id_use_stock_images" class="form-label">Use Stock Images</label>
-            {{ form.use_stock_images }}
-        </div>
-
-        <div class="customize-form-mb-3">
-            <button type="submit" class="btn btn-primary">Get your design proposal</button>
-        </div>
-        </form>
-      </div>
-    </section>
+      </section>
+    </div>
   </div>
-</div>
-
 <!---Product info section -->
 
 <section class="product-info-section">
     <!-- Product info dropdown -->
     <div class="mb-2">
          <button class="btn btn-link p-0 info-dropdown" type="button" data-bs-toggle="collapse" data-bs-target="#detailedInfo" aria-expanded="false" aria-controls="detailedInfo">
-            <h2>Product Description &#x25be;</h2> 
+            <h2 id="product-information-title">Product Information &#x25be;</h2> 
         </button>
     </div>
 
     <!-- Collapsible Details Section -->
     <div class="mb-3">
         <div id="detailedInfo" class="collapse">
-            <div class="card card-body">
-                <h3>Our {{ product.name }} Plan</h3>
-                <p class="lead product-details">{{ product.description }}</p>
+            <div class="card card-body" style="border-radius: 20px;">
+                <h3 id="info-main-title">{{ product.name }}</h3>
+                <h5 id="info-title">This Product:</h5>
+                <p class="lead" id="product-information-p">{{ product.unique_design_info }}</p>
+                <h5 id="info-title">Domain Name:</h5>
+                <p class="lead" id="product-information-p">{{ product.domain_info }}</p>
+                <h5 id="info-title">Hosting:</h5>
+                <p class="lead" id="product-information-p">{{ product.hosting_info }}</p>
+                <h5 id="info-title">SEO (Search Engine Optimization):</h5>
+                <p class="lead" id="product-information-p">{{ product.seo_info }}</p>
+                <h5 id="info-title">After Launch:</h5>
+                <p class="lead" id="product-information-p">{{ product.support_info }}</p>
+                <h5 id="info-title">Copywriting:</h5>
+                <p class="lead" id="product-information-p">{{ product.copy_info }}</p>
+                <h5 id="info-title">Stock Images (Optional):</h5>
+                <p class="lead" id="product-information-p">{{ product.stock_images_info }}</p>
+                <hr>
+                <h3>Money Back Guarantee</h3>
+                <p>{{ product.guarantee_info }}</p>
             </div>
+
         </div>
     </div>
 </section>
 
 <!-- Related products -->
-<section class="py-5 bg-light">
-    <div class="container px-4 px-lg-5 my-5">
+<section class="py-2 bg-light">
+    <div class="container px-0 px-lg-0 my-2">
         <h2 class="fw-bolder mb-4">Related Products</h2>
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
             {% for related_product in related_products %}
             <div class="col mb-5">
                 <div class="card h-100">
                     <!-- Product image -->
-                    <img class="card-img-top" src="{{ related_product.images.first.image.url }}" alt="..." />
+                     <div id="img-container-featured">
+                        <img class="card-img-top" src="{{ related_product.images.first.image.url }}" alt="..." />
+                     </div>
                     <!-- Product details -->
                     <div class="card-body p-4">
                         <div class="text-center">
                             <!-- Product name -->
-                            <h5 class="fw-bolder">{{ related_product.name }}</h5>
+                            <h5 class="fw-bolder" id="related-product-title">{{ related_product.name }}</h5>
                             <!-- Product price -->
-                            {% if related_product.on_sale %}
-                            <strike class="text-muted me-2">£{{ related_product.price }}</strike>
-                            £{{ related_product.sale_price }}
-                            {% else %}
-                            £{{ related_product.price }}
-                            {% endif %}
+                              <div id="related-product-price">
+                                    {% if related_product.on_sale %}
+                                    <strike class="text-muted me-2">£{{ related_product.price }}</strike>
+                                    £{{ related_product.sale_price }}
+                                    {% else %}
+                                    £{{ related_product.price }}
+                                    {% endif %}
+                              </div>
                         </div>
                     </div>
                     <!-- Product actions -->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'product' related_product.id %}">View Product</a></div>
+                    <div class="card-footer p-2 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'product' related_product.id %}" id="home-product-button">View Product</a></div>
                     </div>
                 </div>
             </div>
@@ -331,42 +351,22 @@
     imageModal.show();
 }
 document.addEventListener('DOMContentLoaded', function() {
-    // Get open modal button
-    var openModalBtn = document.getElementById("openModalBtn");
-    // Get modal element
-    var modal = document.getElementById("customizeFormModal");
-    // Get close button
-    var closeBtn = document.querySelector(".closeBtn");
+    const modal = document.getElementById('customizeFormModal');
+    const openBtn = document.getElementById('openModalBtn');
+    const closeBtn = document.querySelector('.closeBtn');
 
-    // Check if modal element exists
-    if (modal) {
-        // Listen for open click
-        openModalBtn.addEventListener("click", openModal);
+    openBtn.onclick = function() {
+        modal.style.display = 'block';
+    }
 
-        // Listen for close click
-        closeBtn.addEventListener("click", closeModal);
+    closeBtn.onclick = function() {
+        modal.style.display = 'none';
+    }
 
-        // Listen for outside click
-        window.addEventListener("click", clickOutside);
-
-        // Function to open modal
-        function openModal() {
-            modal.style.display = "block";
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
         }
-
-        // Function to close modal
-        function closeModal() {
-            modal.style.display = "none";
-        }
-
-        // Function to close modal if outside click
-        function clickOutside(e) {
-            if (e.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    } else {
-        console.error("Modal element not found.");
     }
 });
 

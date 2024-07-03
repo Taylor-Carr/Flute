@@ -30,6 +30,18 @@ def register_and_customize(request):
 
     return render(request, 'your_template.html', {'form': form})
 
+
+def register_and_customize(request):
+    if request.method == 'POST':
+        form = CombinedForm(request.POST, request.FILES)
+        if form.is_valid():
+            # Process form data
+            pass
+    else:
+        form = CombinedForm()
+    
+    return render(request, 'your_template.html', {'form': form})
+
 def search(request):
     form = SearchForm(request.GET)
     query = request.GET.get('query')

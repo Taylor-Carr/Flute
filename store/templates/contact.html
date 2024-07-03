@@ -1,25 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<section class="py-5">
+<section class="py-5 contact-background">
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 align-items-center">
             <!-- Left Side: Title and Paragraph -->
-            <div class="col-lg-4 mb-4">
+            <div class="col-lg-4 mb-4 contact-card">
                 <div class="p-5 bg-light rounded-3">
-                    <h2 class="display-5 mb-4">Contact Us</h2>
-                    <p class="lead mb-4">Please fill out the form below and we'll get back to you as soon as possible.</p>
+                    <h2 class="display-6 mb-4 contact-title">Contact Us</h2>
+                    <p class="lead mb-4 contact-p">Please fill out the form and we'll get back to you as soon as possible.</p>
                 </div>
             </div>
             
             <!-- Right Side: Form -->
-            <div class="col-lg-8">
-                <div class="p-5 bg-light rounded-3">
+            <div class="col-lg-6">
+                <div class="p-2 bg-light rounded-3">
                     <form action="#" method="POST" class="contact-form">
-                        <h3 class="mb-4">Contact Form</h3>
+                        <h3 class="mb-4 contact-form-title">Contact Form</h3>
                         {% csrf_token %}
                         {{ form.as_p }}
-                        <div class="text-center mt-4">
+                        <div class="text-center mt-3">
                             <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                         </div>
                     </form>

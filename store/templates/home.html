@@ -15,33 +15,39 @@
               <span class="hero-h1-span visible">Websites<span class="hero-h1-span visible" id="dot-end">.</span></span>
               <span class="hero-h1-span visible" id="hero-dot"></span>
             </h1>
-            <p>Get noticed online with Flute! Fill out our questionnaire, we'll build and launch your website within 7 days.</p>
+            <p>Get noticed online with Flute! Fill out our questionnaire, we'll build and launch your website within 14 days.</p>
           </div>
         </div>
       </div>
     </div>
   </header>
+
+
 <section id="home-title-section">
     <div class="home-title-container">
         <h2 class="home-title-title text-left">It Starts With Picking a Plan</h2> <!-- Add your title here -->
         <p id="product-title-p">Get Online Fast With Flute.</p>
     </div>
 </section>
+
+
 <section class="py-1">
     <div class="product-container px-0 px-lg-0 mt-2 plans-con">
         <div class="product-container row justify-content-center">
             {% for product in products %}
-            <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-5"> <!-- Changed column classes for wider cards -->
-                <div class="card h-100 featured-product-card">
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-5">
+                <div class="card h-100 featured-product-card" style="border-radius: 20px;">
                     {% if product.on_sale %}
-                    <div class="badge bg-light text-black position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                    <div class="badge bg-light text-black position-absolute sale-badge">Sale</div>
                     {% endif %}
                     <div id="carouselProduct{{ product.id }}" class="carousel slide">
                         <div class="carousel-inner">
                             {% for image in product.images.all %}
                             <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                                <div class="img-container">
-                                    <a href="{% url 'product' product.id %}"><img class="d-block w-100 product-image img-fluid" src="{{ image.image.url }}" alt="Product Image {{ forloop.counter }}"></a>
+                                <div class="img-container-featured">
+                                    <a href="{% url 'product' product.id %}">
+                                        <img class="d-block w-100 product-image img-fluid" src="{{ image.image.url }}" alt="Product Image {{ forloop.counter }}">
+                                    </a>
                                 </div>
                             </div>
                             {% endfor %}
@@ -58,14 +64,16 @@
                     <div class="card-body p-4 product-details">
                         <div class="text-center">
                             <h5 class="fw-bolder product-title">{{ product.name }}</h5>
-                            <h5 class="fw-bolder product-descript">What's Included &#x25be;</h5>
-                            <ul class="fw-bolder product-descript-list">
-                                <li>SEO</li>
-                                <li>Hosting</li>
-                                <li>Copywriting</li>
-                            </ul>
+                            <div class="product-included">
+                                <h5 class="fw-bolder product-descript">What's Included</h5>
+                                <ul class="include-list">
+                                    {% for benefit in product.benefits.all %}
+                                        <li><i class="fa-solid fa-circle dropdown-circle"></i>{{ benefit.description }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
                             {% if product.on_sale %}
-                            £{{ product.sale_price }}
+                            <h5 class="fw-bolder product-price-sale">£{{ product.sale_price }}</h5>
                             {% else %}
                             <h5 class="fw-bolder product-price">£{{ product.price }}</h5>
                             {% endif %}
@@ -134,13 +142,21 @@
             <div class="col-lg-6">
                 <div id="whyCarousel" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner scrollable-container">
-                        {% for image in product.images.all %}
-                        <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                            <div id="img-container">
-                                <img class="d-block w-100" id="detail-img-{{ forloop.counter }}" src="{{ image.image.url }}" alt="Product Image {{ forloop.counter }}" onclick="showImageModal('{{ image.image.url }}')">
+                        <div class="carousel-item active">
+                            <div id="img-container-why">
+                                <img class="d-block w-100" id="detail-img-1" src="static/assets/painting-template.png" alt="Product Image 1" onclick="showImageModal('path/to/your/image1.jpg')">
                             </div>
                         </div>
-                        {% endfor %}
+                        <div class="carousel-item">
+                            <div id="img-container-why">
+                                <img class="d-block w-100" id="detail-img-2" src="static/assets/kitchen-template.png" alt="Product Image 2" onclick="showImageModal('path/to/your/image2.jpg')">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div id="img-container-why">
+                                <img class="d-block w-100" id="detail-img-2" src="static/assets/cleaning template.png" alt="Product Image 2" onclick="showImageModal('path/to/your/image2.jpg')">
+                            </div>
+                        </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#whyCarousel" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -182,19 +198,18 @@
             <div class="col-lg-8 col-xl-6">
                 <div class="accordion" id="faqAccordion">
 
-                    <!-- 1 What's included in every offer -->
+                   <!-- 1 What's included in every offer -->
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
-                            <button id="accordion-button"class="accordion-button" type="button" data-bs-toggle="collapse"
+                            <button id="accordion-button" class="accordion-button" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                What's included for in each plan?
+                                What's included in each plan?
                             </button>
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                             data-bs-parent="#faqAccordion">
                             <div class="accordion-body">
-                                Flute is an online platform that helps you to get online quickly and easily. It provides
-                                tools and resources to build and manage your online presence efficiently.
+                                Each plan varies, but at a minimum, includes 1 year of hosting, a domain name for 1 year, a unique landing page or website, copywriting, optional stock images, monthly updates and on going support.
                             </div>
                         </div>
                     </div>
@@ -210,8 +225,7 @@
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                             data-bs-parent="#faqAccordion">
                             <div class="accordion-body">
-                                Getting started with Flute is easy! Simply sign up for an account, choose a plan that
-                                suits your needs, and follow the guided steps to set up your website or online store.
+                                We design, build, and launch our clients' websites in 7 days, pending their approval.
                             </div>
                         </div>
                     </div>
@@ -221,57 +235,49 @@
                         <h2 class="accordion-header" id="headingThree">
                             <button id="accordion-button" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                What platform are these websites built in?
+                                What platform are these websites built on?
                             </button>
                         </h2>
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                             data-bs-parent="#faqAccordion">
                             <div class="accordion-body">
-                                Yes, Flute offers a range of customization options to help you create a unique
-                                website. You can choose from various templates, customize colors, fonts, and layouts,
-                                and add your own content and branding.
+                                We build all our websites from scratch. This allows us to be fully flexible and for our clients' websites to scale easily with their businesses.
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- 4 What is our guarantee? -->
+
+                    <!-- 4 Do I own my domain name? -->
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingFour">
                             <button id="accordion-button" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                What is our guarantee?
+                                Do I own my domain name?
                             </button>
                         </h2>
                         <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
                             data-bs-parent="#faqAccordion">
                             <div class="accordion-body">
-                                Yes, Flute offers a range of customization options to help you create a unique
-                                website. You can choose from various templates, customize colors, fonts, and layouts,
-                                and add your own content and branding.
+                                Domain names are "leased" rather than bought and owned. At Flute, we typically sign 1-year leases for domain names unless specified otherwise by clients.
                             </div>
                         </div>
                     </div>
 
-                    
-                    <!-- 5 Do you get full ownership of your website? -->
+                    <!-- 5 Will I own the website? -->
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingFive">
                             <button id="accordion-button" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                Do you get full ownership of your website?
+                                Will I own the website?
                             </button>
                         </h2>
                         <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
                             data-bs-parent="#faqAccordion">
                             <div class="accordion-body">
-                                Yes, Flute offers a range of customization options to help you create a unique
-                                website. You can choose from various templates, customize colors, fonts, and layouts,
-                                and add your own content and branding.
+                                Yes, your website is yours. At Flute, we design, build, launch, and manage our clients' websites, but you're free to use your website as you wish.
                             </div>
                         </div>
                     </div>
 
-                    
                     <!-- 6 What is SEO? -->
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingSix">
@@ -283,51 +289,26 @@
                         <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
                             data-bs-parent="#faqAccordion">
                             <div class="accordion-body">
-                                Yes, Flute offers a range of customization options to help you create a unique
-                                website. You can choose from various templates, customize colors, fonts, and layouts,
-                                and add your own content and branding.
+                                SEO (Search Engine Optimization) is a set of strategies used to improve your website's visibility on search engines, helping more potential customers find you online.
                             </div>
                         </div>
                     </div>
 
-                    
-                    <!-- 7 How can I edit my website when its launched? -->
+                    <!-- 7 How can I edit my website when it's launched? -->
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingSeven">
                             <button id="accordion-button" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                                How can I edit my website when its launched?
+                                How can I edit my website when it's launched?
                             </button>
                         </h2>
                         <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
                             data-bs-parent="#faqAccordion">
                             <div class="accordion-body">
-                                Yes, Flute offers a range of customization options to help you create a unique
-                                website. You can choose from various templates, customize colors, fonts, and layouts,
-                                and add your own content and branding.
+                                It's simple: we do it for you. We offer monthly revisions and updates over the course of our yearly plans. Flute provides a true A-Z solution. We manage our customers' sites to ensure accessibility standards are met, SEO is up-to-date, and changes to the site's copywriting or images don't affect responsiveness.
                             </div>
                         </div>
                     </div>
-
-                    
-                    <!-- Have a question that's not listed here? -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingEight">
-                            <button id="accordion-button" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-                                Have a question that's not listed here?
-                            </button>
-                        </h2>
-                        <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight"
-                            data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                Yes, Flute offers a range of customization options to help you create a unique
-                                website. You can choose from various templates, customize colors, fonts, and layouts,
-                                and add your own content and branding.
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>

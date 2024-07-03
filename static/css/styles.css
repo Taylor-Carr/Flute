@@ -168,7 +168,7 @@
   width: 80%;
   border-radius: 20px; /* Apply border-radius to the input group */
   overflow: hidden; /* Ensure the border-radius is applied correctly */
-  border: 1.5px solid #333; /* Custom border for the input group */
+  border: 1.5px solid grey; /* Custom border for the input group */
   padding-left: 10px;
 }
 
@@ -179,7 +179,15 @@
   padding: 8px 6px; /* Adjust padding as needed */
   box-sizing: border-box; /* Ensure padding does not affect the width */
   border-radius: 20px; /* Apply border-radius to match the input group */
+  outline: none; /* Remove the default blue outline */
 }
+
+.input-group input:focus {
+  border-color: black; /* Change border color to black on focus */
+  outline: none; /* Ensure outline is removed */
+  box-shadow: none; /* Remove any box-shadow */
+}
+
 
 #search-button {
   background-color: #0A5C5A; /* Custom color */
@@ -532,6 +540,7 @@ header {
   margin-top: 40px;
   font-weight: 600;
   font-family: 'Poppins';
+  margin-left: 2rem;
 }
 
 #product-title-p {
@@ -541,6 +550,7 @@ header {
   font-size: 0.8rem;
   font-weight: 600;
   color: grey;
+  margin-left: 2rem;
 }
 
 
@@ -599,37 +609,52 @@ header {
 }
 
 /* Make the image container scrollable */
-.img-container {
-  max-height: 300px; /* Adjust this height as needed */
-  overflow-y: auto;
+
+#img-container-featured {
+  max-height: 300px!important; /* Adjust this height as needed */
+  overflow-y: auto!important;
+  border-radius: 20px!important;
+  border: 1px solid #f5f5f5!important;
 }
 
-/* Custom scrollbar for WebKit browsers (Chrome, Safari) */
-.img-container::-webkit-scrollbar {
-  width: 8px; /* Width of the scrollbar */
+
+
+div#img-container-featured::-webkit-scrollbar {
+  width: 8px!important;
+  background-color: #f1f1f1!important;
+  border-radius: 20px!important;
 }
 
-.img-container::-webkit-scrollbar-thumb {
-  background: black; /* Color of the scrollbar thumb */
-  border-radius: 4px; /* Roundness of the scrollbar thumb */
+div#img-container-featured::-webkit-scrollbar-thumb {
+  background-color: #888!important;
+  border-radius: 8px!important;
+  border: 2px solid #f1f1f1!important;
 }
 
-.img-container::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Color when hovering over the scrollbar thumb */
+div#img-container-featured::-webkit-scrollbar-thumb:hover {
+  background-color: #555!important;
 }
 
-.img-container::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Color of the scrollbar track */
+/* Scrollbar track */
+#img-container-featured::-webkit-scrollbar-track {
+  background-color: transparent!important; /* Make scrollbar track transparent */
 }
+
+/* Add a subtle shadow to scrollbar thumb for depth */
+#img-container-featured::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)!important; /* Subtle shadow for depth */
+}
+
+
 
 /* Custom scrollbar for Firefox */
-.img-container {
+#img-container {
   scrollbar-width: thin; /* Width of the scrollbar */
   scrollbar-color: #888 #f1f1f1; /* Color of the scrollbar thumb and track */
 }
 
 /* For Edge and IE (legacy) */
-.img-container {
+#img-container {
   -ms-overflow-style: -ms-autohiding-scrollbar; /* Automatically hides scrollbar when not in use */
 }
 
@@ -654,7 +679,6 @@ header {
   font-weight: 400;
   font-family: 'Inter', sans-serif;
   font-size: 0.8rem;
-  padding-bottom: 0.4rem;
   padding-left: 0.4rem;
   padding-right: 0.4rem;
   text-align: center;
@@ -681,7 +705,7 @@ header {
 .featured-product-card .card-footer {
   background-color: transparent;
   border-top: none;
-  padding: 1rem;
+  padding: 0.5rem;
   text-align: center;
 }
 
@@ -773,12 +797,12 @@ header {
 }
 
 .value-icons {
-  color: #0A5C5A;
+  color: #A9DAD3;
   margin-right: 5px; /* Adjusted for better spacing */
 }
 
 #detail-dropdown {
-  color: #DB4A2B;
+  color: #A9DAD3;
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   text-decoration: none;
@@ -786,7 +810,7 @@ header {
 }
 
 .dropdown-circle {
-  color: #DB4A2B;
+  color: #A9DAD3;
   font-size: 0.6rem;
   text-align: center;
   margin-right: 0.6rem;
@@ -811,94 +835,77 @@ header {
 
 .price {
   font-family: 'Inter', sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   color:#0A5C5A; 
   font-size: 1.4rem;
   margin-bottom: 0.2rem;
 }
 
-
-/* PRODUCT IMAGE SCROLL */
-#img-container {
-  max-height: 500px; /* Adjust this height as needed */
-  overflow-y: auto;
+.btn .product-button {
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #fff;
+  background: #0A5C5A;
+  border-color: #0A5C5A;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+}
+.bi-arrow-right {
+  font-weight: 600;
+  padding-top: 5px;
+  padding-left: 5px;
 }
 
-
-/* Custom scrollbar for WebKit browsers (Chrome, Safari) */
-#img-container::-webkit-scrollbar {
-  width: 10px; /* Width of the scrollbar */
-}
-
-#img-container::-webkit-scrollbar-thumb {
-  background: #888; /* Color of the scrollbar thumb */
-  border-radius: 10px; /* Roundness of the scrollbar thumb */
-}
-
-#img-container::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Color when hovering over the scrollbar thumb */
-}
-
-#img-container::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Color of the scrollbar track */
-}
-
-/* Custom scrollbar for Firefox */
-#img-container {
-  scrollbar-width: thin; /* Width of the scrollbar */
-  scrollbar-color: #888 #f1f1f1; /* Color of the scrollbar thumb and track */
-}
-
-/* For Edge and IE (legacy) */
-#img-container {
-  -ms-overflow-style: -ms-autohiding-scrollbar; /* Automatically hides scrollbar when not in use */
-}
-
-#detail-img {
-  max-height: none; /* Ensure the image itself is not restricted by height */
-  width: auto; /* Maintain aspect ratio */
-}
 
 /* Image pop up model */
 
 /* Make the modal slightly larger */
+
+.img-modal-title {
+  color:#0A5C5A;
+}
+.modal-content {
+  padding: 5px;
+}
+
 .modal-lg {
   max-width: 80%;
 }
 
 /* Scrollable image container within the modal */
-.modal-img-container {
-  max-height: 70vh; /* Adjust the height as needed */
-  overflow-y: auto;
+div#modal-img-container {
+  max-height: 70vh !important; /* Adjust the height as needed */
+  overflow-y: auto !important;
 }
 
 /* Custom scrollbar for WebKit browsers (Chrome, Safari) */
-.modal-img-container::-webkit-scrollbar {
-  width: 10px; /* Width of the scrollbar */
+div#modal-img-container::-webkit-scrollbar {
+  width: 10px ; /* Width of the scrollbar */
 }
 
-.modal-img-container::-webkit-scrollbar-thumb {
-  background: #888; /* Color of the scrollbar thumb */
-  border-radius: 10px; /* Roundness of the scrollbar thumb */
+div#modal-img-container::-webkit-scrollbar-thumb {
+  background: #888 !important; /* Color of the scrollbar thumb */
+  border-radius: 10px !important; /* Roundness of the scrollbar thumb */
 }
 
-.modal-img-container::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Color when hovering over the scrollbar thumb */
+div#modal-img-container::-webkit-scrollbar-thumb:hover {
+  background: #555 !important; /* Color when hovering over the scrollbar thumb */
 }
 
-.modal-img-container::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Color of the scrollbar track */
+div#modal-img-container::-webkit-scrollbar-track {
+  background: #f1f1f1 !important; /* Color of the scrollbar track */
 }
 
 /* Custom scrollbar for Firefox */
-.modal-img-container {
-  scrollbar-width: thin; /* Width of the scrollbar */
-  scrollbar-color: #888 #f1f1f1; /* Color of the scrollbar thumb and track */
+div#modal-img-container {
+  scrollbar-width: thin !important; /* Width of the scrollbar */
+  scrollbar-color: #888 #f1f1f1 !important; /* Color of the scrollbar thumb and track */
 }
 
 /* For Edge and IE (legacy) */
-.modal-img-container {
-  -ms-overflow-style: -ms-autohiding-scrollbar; /* Automatically hides scrollbar when not in use */
+div#modal-img-container {
+  -ms-overflow-style: -ms-autohiding-scrollbar !important; /* Automatically hides scrollbar when not in use */
 }
 
 
@@ -981,6 +988,60 @@ header {
     transform: scale(0.95); /* Slightly smaller cards */
   }
 }
+
+/* Product Information */
+.product-info-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5px;
+}
+
+.info-dropdown {
+  text-decoration: none!important; /* Remove underline */
+  color: inherit; /* Ensure the button text inherits the color */
+}
+
+#info-main-title {
+  margin-bottom: 1.5rem;
+}
+/* Title for paragraphs */
+#product-information-title {
+  color: #0A5C5A;
+  font-size: 1.5rem;
+  margin-top: 15px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+}
+
+#product-information-p {
+  color: #333;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+#info-title {
+  color: #0A5C5A;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+/* related products */
+
+#related-product-title {
+  color:#0A5C5A;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+}
+
+#related-product-price {
+  color: #0A5C5A;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
 
 /* Terms Section */
 .terms-section {
@@ -1118,10 +1179,11 @@ header {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 10px; /* Padding around text content */
+  padding-bottom: 1rem; 
 }
 .why-section {
   background:#fff;
-  padding: 1rem 0; /* Adjust padding as needed */
+  padding-bottom: 2rem; 
 }
 
 .why-content {
@@ -1168,6 +1230,39 @@ header {
   font-size: 1em; /* Font size for paragraphs */
 }
 
+#img-container-why {
+  max-height: 450px; /* Adjust this height as needed */
+  overflow-y: auto;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  border-radius: 20px!important;
+
+}
+
+div#img-container-why::-webkit-scrollbar {
+  width: 8px!important;
+  background-color: #f1f1f1!important;
+  border-radius: 8px!important;
+}
+
+div#img-container-why::-webkit-scrollbar-thumb {
+  background-color: #888!important;
+  border-radius: 8px!important;
+  border: 2px solid #f1f1f1!important;
+}
+
+div#img-container-why::-webkit-scrollbar-thumb:hover {
+  background-color: #555!important;
+}
+
+/* Scrollbar track */
+#img-container-why::-webkit-scrollbar-track {
+  background-color: transparent!important; /* Make scrollbar track transparent */
+}
+
+/* Add a subtle shadow to scrollbar thumb for depth */
+#img-container-why::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)!important; /* Subtle shadow for depth */
+}
 
 /* Carousel Styles */
 
@@ -1589,16 +1684,37 @@ header {
 }
 
 /* Contact Form */
+.contact-background {
+  position: relative; /* Ensure the pseudo-elements are positioned relative to this container */
+  background-color: #0A5C5A;
+}
 
+.contact-title {
+  color:#0A5C5A;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  text-align: left;
+}
+
+.contact-p {
+  color: #333;
+  font-family: 'Inter', sans-serif;
+}
+.contact-form-title {
+  color: #0A5C5A;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+}
 .contact-form {
   background-color: #f8f9fa; /* Background color */
-  padding: 40px;
+  padding: 20px;
   border-radius: 10px;
-  margin-bottom: 7rem;
+  margin-bottom: 0.5rem;
 }
 
 .contact-form label {
   font-weight: bold;
+  font-family: 'Inter', sans-serif;
 }
 
 .contact-form input[type="text"],
@@ -1606,28 +1722,38 @@ header {
 .contact-form textarea {
   width: 100%;
   padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ced4da; /* Border color */
+  border: 1px solid #ced4da;
   border-radius: 5px;
+  outline: none; /* Remove the default blue outline */
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+  border-color: black; /* Change border color to black on focus */
+  outline: none; /* Ensure outline is removed */
+  box-shadow: none; /* Remove any box-shadow */
 }
 
 .contact-form textarea {
-  resize: none; /* Prevent resizing of textarea */
+  resize: none; 
 }
 
 .contact-form button {
   padding: 10px 30px;
   border: none;
-  border-radius: 5px;
-  background-color: #000; /* Button color */
-  color: #fff; /* Button text color */
+  border-radius: 8px;
+  background-color: #0A5C5A;
+  color: #fff; 
   cursor: pointer;
   font-family: 'Inter';
   font-size: 1rem;
 }
 
 .contact-form button:hover {
-  background-color: #000; /* Button hover color */
+  background-color: white;
+  border: 2px solid #A9DAD3; 
+  color: #0A5C5A;
 }
 
 /* SIGN UP FORM */
