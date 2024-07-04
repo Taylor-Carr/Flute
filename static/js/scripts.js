@@ -77,3 +77,38 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error("Modal element not found.");
     }
 });
+
+
+// Function to check if an element is in viewport
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+// Function to add animation class with delay when element is in viewport
+function addAnimationOnScroll() {
+    const cards = document.querySelectorAll('#service-card');
+
+    cards.forEach((card, index) => {
+        if (isInViewport(card)) {
+            // Calculate delay based on index
+            const delay = index * 100; // Adjust delay timing (200ms between each card)
+
+            // Add animation class with delay
+            setTimeout(() => {
+                card.classList.add('animate');
+            }, delay);
+        }
+    });
+}
+
+// Initial check on page load
+document.addEventListener('DOMContentLoaded', addAnimationOnScroll);
+
+// Listen for scroll events and check visibility of service cards
+window.addEventListener('scroll', addAnimationOnScroll);

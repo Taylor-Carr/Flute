@@ -122,7 +122,7 @@
                     {% csrf_token %}
                     {{ form.non_field_errors }}
                     <h5 class="customise-form-title">Tell us about your business.</h5>
-                    <p class="form-p">We'll use this information for content of your website. Don't worry, you can request that this information is changed at any point during the design process.</p>
+                    <p class="form-p">Don't worry, you can request that this information is changed and added to at any point during the design process.</p>
 
                     <!--Company info -->
                     <div class="form-group">
@@ -213,53 +213,53 @@
 
                     <!--Design info -->
                     <h5 class="customise-form-title-second">Your Design</h5>
-                    <p class="form-p">Your Domain name, we'll shop around and include the best deals and options in your design proposal.</p>
-                    
-                    
-                    <div class="form-group">
-                        <label>Preferred Design Styles</label><br>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="design_style" id="modern_design" value="Modern Design" {% if form.design_style.value == 'Modern Design' %} checked {% endif %}>
-                            <label class="form-check-label" for="modern_design">Modern</label>
+                    <div class="unique-form-group">
+                        <div class="unique-form-check">
+                            <input class="unique-form-check-input" type="checkbox" name="design_style" id="modern_design" value="Modern Design" {% if 'Modern Design' in form.design_style.value %} checked {% endif %}>
+                            <label class="unique-form-check-label" for="modern_design">Modern</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="design_style" id="vintage_design" value="Vintage Design" {% if form.design_style.value == 'Vintage Design' %} checked {% endif %}>
-                            <label class="form-check-label" for="vintage_design">Minimalist</label>
+                        <div class="unique-form-check">
+                            <input class="unique-form-check-input" type="checkbox" name="design_style" id="vintage_design" value="Vintage Design" {% if 'Vintage Design' in form.design_style.value %} checked {% endif %}>
+                            <label class="unique-form-check-label" for="vintage_design">Minimalist</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="design_style" id="dark_theme_design" value="Dark Theme Design" {% if form.design_style.value == 'Dark Theme Design' %} checked {% endif %}>
-                            <label class="form-check-label" for="dark_theme_design">Dark Theme</label>
+                        <div class="unique-form-check">
+                            <input class="unique-form-check-input" type="checkbox" name="design_style" id="dark_theme_design" value="Dark Theme Design" {% if 'Dark Theme Design' in form.design_style.value %} checked {% endif %}>
+                            <label class="unique-form-check-label" for="dark_theme_design">Dark Theme</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="design_style" id="light_theme_design" value="Light Theme Design" {% if form.design_style.value == 'Light Theme Design' %} checked {% endif %}>
-                            <label class="form-check-label" for="light_theme_design">Light Theme</label>
+                        <div class="unique-form-check">
+                            <input class="unique-form-check-input" type="checkbox" name="design_style" id="light_theme_design" value="Light Theme Design" {% if 'Light Theme Design' in form.design_style.value %} checked {% endif %}>
+                            <label class="unique-form-check-label" for="light_theme_design">Light Theme</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="design_style" id="futuristic_design" value="Futuristic Design" {% if form.design_style.value == 'Futuristic Design' %} checked {% endif %}>
-                            <label class="form-check-label" for="futuristic_design">Black & White</label>
+                        <div class="unique-form-check">
+                            <input class="unique-form-check-input" type="checkbox" name="design_style" id="futuristic_design" value="Futuristic Design" {% if 'Futuristic Design' in form.design_style.value %} checked {% endif %}>
+                            <label class="unique-form-check-label" for="futuristic_design">Black & White</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="design_style" id="bold_colors_design" value="Bold Colors Design" {% if form.design_style.value == 'Bold Colors Design' %} checked {% endif %}>
-                            <label class="form-check-label" for="bold_colors_design">Bold Colours</label>
+                        <div class="unique-form-check">
+                            <input class="unique-form-check-input" type="checkbox" name="design_style" id="bold_colors_design" value="Bold Colors Design" {% if 'Bold Colors Design' in form.design_style.value %} checked {% endif %}>
+                            <label class="unique-form-check-label" for="bold_colors_design">Bold Colours</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="design_style" id="pastel_colors_design" value="Pastel Colors Design" {% if form.design_style.value == 'Pastel Colors Design' %} checked {% endif %}>
-                            <label class="form-check-label" for="pastel_colors_design">Pastel Colours</label>
+                        <div class="unique-form-check">
+                            <input class="unique-form-check-input" type="checkbox" name="design_style" id="pastel_colors_design" value="Pastel Colors Design" {% if 'Pastel Colors Design' in form.design_style.value %} checked {% endif %}>
+                            <label class="unique-form-check-label" for="pastel_colors_design">Pastel Colours</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="design_style" id="professional_design" value="Professional Design" {% if form.design_style.value == 'Professional Design' %} checked {% endif %}>
-                            <label class="form-check-label" for="professional_design">Professional</label>
+                        <div class="unique-form-check">
+                            <input class="unique-form-check-input" type="checkbox" name="design_style" id="professional_design" value="Professional Design" {% if 'Professional Design' in form.design_style.value %} checked {% endif %}>
+                            <label class="unique-form-check-label" for="professional_design">Professional</label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="design_style" id="playful_design" value="Playful Design" {% if form.design_style.value == 'Playful Design' %} checked {% endif %}>
-                            <label class="form-check-label" for="playful_design">Playful</label>
+                        <div class="unique-form-check">
+                            <input class="unique-form-check-input" type="checkbox" name="design_style" id="playful_design" value="Playful Design" {% if 'Playful Design' in form.design_style.value %} checked {% endif %}>
+                            <label class="unique-form-check-label" for="playful_design">Playful</label>
+                        </div>
+                        <div class="unique-form-check">
+                            <input class="unique-form-check-input" type="checkbox" name="design_style" id="bold_typography_design" value="Bold Typography Design" {% if 'Bold Typography Design' in form.design_style.value %} checked {% endif %}>
+                            <label class="unique-form-check-label" for="bold_typography_design">Bold Typography</label>
                         </div>
                     </div>
 
-                    <p class="form-p">Your Domain name, we'll shop around and include the best deals and options in your design proposal.</p>
                     
                     <div class="form-group">
                         <label for="id_domain_name">Domain Name</label>
+                        <p class="form-p-domain">Your Domain name, we'll shop around and include the best deals and options in your design proposal.</p>
                         <input type="text" name="domain_name" id="id_domain_name" class="form-control" placeholder="www.yourcompany.com" value="{{ form.domain_name.value|default:'' }}">
                     </div>
 
@@ -282,6 +282,18 @@
 
                     <!-- Media Content -->
 
+                       <!--Logo -->
+
+                       <div class="form-group">
+                        <label for="id_logo_image">Upload Company Logo</label>
+                        <input type="file" name="logo_image" id="id_logo_image" class="form-control">
+                    </div>
+
+                    <div class="form-group form-check">
+                        <input type="checkbox" name="use_default_font" id="id_use_default_font" class="form-check-input" {% if form.use_default_font.value %}checked{% endif %}>
+                        <label for="id_use_default_font" class="form-check-label">Use Company Name as Logo</label>
+                    </div>
+
                     <!--Video -->
 
                     <div class="form-group">
@@ -290,6 +302,7 @@
                     </div>
 
                     <!--Images -->
+
                     <div class="form-group">
                         <label>Do you have any images you want to use?</label>
                         <div>
@@ -306,6 +319,7 @@
                     </div>
 
                     <!--Logo -->
+                    
                     <div class="form-group">
                         <label for="id_logo_image">Upload Company Logo</label>
                         <input type="file" name="logo_image" id="id_logo_image" class="form-control">
