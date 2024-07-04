@@ -165,7 +165,7 @@
 
 .search-input-group {
   position: relative;
-  width: 80%;
+  width: 100%;
   border-radius: 20px; /* Apply border-radius to the input group */
   overflow: hidden; /* Ensure the border-radius is applied correctly */
   border: 1.5px solid grey; /* Custom border for the input group */
@@ -175,19 +175,20 @@
 .search-input-group input {
   border: none; /* Remove the default border of the input */
   outline: none; /* Remove the default outline of the input */
-  width: 80%;
+  width: 100%;
   padding: 8px 6px; /* Adjust padding as needed */
   box-sizing: border-box; /* Ensure padding does not affect the width */
   border-radius: 20px; /* Apply border-radius to match the input group */
   outline: none; /* Remove the default blue outline */
+  box-shadow: none; /* Ensure no box-shadow by default */
+  -webkit-appearance: none; /* Reset webkit appearance */
 }
 
 .search-input-group input:focus {
   border-color: black; /* Change border color to black on focus */
   outline: none; /* Ensure outline is removed */
-  box-shadow: none; /* Remove any box-shadow */
+  box-shadow: inset 0 0 0 2px transparent; /* Remove inner shadow on focus */
 }
-
 
 #search-button {
   background-color: #0A5C5A; /* Custom color */
@@ -723,7 +724,7 @@ div#img-container-featured::-webkit-scrollbar-thumb:hover {
   background: #0A5C5A;
   border-color: #0A5C5A;
   font-family: 'Inter', sans-serif;
-  font-weight: 600;
+  font-weight: 300;
 }
 
 .featured-product-card .card-footer .btn:hover {
@@ -1096,9 +1097,8 @@ div#modal-img-container {
 
 .customise-form-title-second {
   font-size: 24px;
-  margin-top: 30px;
+  margin-top: 40px;
   padding-bottom: 0;
-  margin-bottom: 5px;
   color: #0A5C5A;
   font-family: 'Poppins', sans-serif;
 }
@@ -1114,15 +1114,14 @@ div#modal-img-container {
 .form-p-legal {
   font-size: 12px;
   margin-bottom: 15px;
+  margin-top: 20px;
   color: #333;
   font-family: 'Inter', sans-serif;
   font-weight: 800;
   text-align: center;
 }
 
-.form-group {
-  margin-bottom: 15px;
-}
+
 
 .form-group label {
   font-weight: 700!important;
@@ -1137,8 +1136,8 @@ div#modal-img-container {
   padding: 10px!important;
   margin-top: 5px!important;
   margin-bottom: 20px!important;
-  border: 1px solid #f3f3f3!important;
-  border-radius: 12px!important;
+  border: 1px solid #e0e0e0!important;
+  border-radius: 10px!important;
   font-weight: 400!important; /* Ensure the font weight is set correctly */
   font-family: 'Inter', sans-serif!important;
   color: black!important;
@@ -1148,11 +1147,13 @@ div#modal-img-container {
 
 .form-control:focus {
   border-color: #f9f9f9!important; /* Change border color on focus */
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important; /* Grey box shadow */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3)!important; /* Grey box shadow */
 }
 
-.btn-primary-form {
+#btn-primary-customise {
   background-color: #0A5C5A;
+  font-family: 'Inter';
+  font-weight: 300;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -1162,7 +1163,7 @@ div#modal-img-container {
   font-size: 18px;
 }
 
-.btn-primary-form:hover {
+#btn-primary-form:hover {
   background-color: white;
   color: #0A5C5A;
   border: 1px solid #A9DAD3;
@@ -1335,7 +1336,7 @@ div#modal-img-container {
   text-align: left; /* Align text to the left */
 }
 
-.title-small-about {
+.title-small-why {
   text-align: left;
   font-family: 'Poppins';
   text-transform: uppercase;
@@ -1357,21 +1358,22 @@ div#modal-img-container {
   font-family: 'Inter';
   font-size: 1rem; /* Font size for paragraphs */
   color: #666; /* Slightly darker text color */
-  margin-bottom: 30px; /* Space below paragraphs */
+  margin-bottom: 10px; /* Space below paragraphs */
 }
 
-.why-p-1 {
+#why-p-1 {
   font-family: 'Inter';
   font-weight: 600;
-  font-size: 1.1rem; /* Font size for paragraphs */
-  margin-top: 3rem;
-  margin-bottom: 4rem;
+  font-size: 1rem; /* Font size for paragraphs */
+  margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 
-.why-p-2 {
+#why-p-2 {
   padding: 0 5px;
-  font-family: 'Lato';
-  font-size: 1em; /* Font size for paragraphs */
+  font-weight: 600;
+  font-family: 'Inter';
+  font-size: 1rem; /* Font size for paragraphs */
 }
 
 #img-container-why {
@@ -1625,6 +1627,12 @@ div#img-container-why::-webkit-scrollbar-thumb:hover {
   font-weight: 600;
   font-family: 'Poppins', sans-serif;
   font-size: 3rem;
+}
+
+#faq-p {
+  font-weight: 500;
+  font-family: 'Inter';
+  color: #333;
 }
 
 .faq-contact {

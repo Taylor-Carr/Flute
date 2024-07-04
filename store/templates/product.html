@@ -129,13 +129,49 @@
                         <label for="id_company_name">Business Name</label>
                         <input type="text" name="company_name" id="id_company_name" class="form-control" placeholder="" value="{{ form.company_name.value|default:'' }}">
                     </div>
+
+                    <!--Contact info for site-->
+                    <div class="form-group">
+                        <label for="id_email">Business Email</label>
+                        <input type="email" name="email" id="id_email" class="form-control" placeholder="Email Address" value="{{ form.email.value|default:'' }}">
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="id_phone">Business Phone Number </label>
+                        <input type="tel" name="phone" id="id_phone" class="form-control" placeholder="Phone Number" value="{{ form.phone.value|default:'' }}">
+                    </div>
+
+                    <!--Social media urls -->
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="id_instagram">Instagram</label>
+                            <input type="text" name="instagram" id="id_instagram" class="form-control" placeholder="Instagram Username" value="{{ form.instagram.value|default:'' }}">
+                        </div>
+                
+                        <div class="form-group col">
+                            <label for="id_facebook">Facebook</label>
+                            <input type="text" name="facebook" id="id_facebook" class="form-control" placeholder="Facebook Page URL" value="{{ form.facebook.value|default:'' }}">
+                        </div>
+                    </div>
+                   <div class="form-row"> 
+                        <div class="form-group col">
+                            <label for="id_twitter">Twitter</label>
+                            <input type="text" name="twitter" id="id_twitter" class="form-control" placeholder="Twitter Username" value="{{ form.twitter.value|default:'' }}">
+                        </div>
+                
+                        <div class="form-group col">
+                            <label for="id_linkedin">LinkedIn</label>
+                            <input type="text" name="linkedin" id="id_linkedin" class="form-control" placeholder="LinkedIn Profile URL" value="{{ form.linkedin.value|default:'' }}">
+                        </div>
+                   </div>
+                   <!--Company info -->
                     <div class="form-group">
                         <label for="id_company_established">Company Established</label>
                         <input type="date" name="company_established" id="id_company_established" class="form-control" value="{{ form.company_established.value|default:'' }}">
                     </div>
   
                     <div class="form-group">
-                        <label for="id_offered_services">Main services you offer</label>
+                        <label for="id_offered_services">Services you offer</label>
                         <input type="text" name="offered_services" id="id_offered_services" class="form-control" placeholder="What services do you offer?" value="{{ form.offered_services.value|default:'' }}">
                     </div>
 
@@ -176,10 +212,52 @@
 
 
                     <!--Design info -->
-                    <h5 class="customise-form-title-second">Your Website</h5>
+                    <h5 class="customise-form-title-second">Your Design</h5>
+                    <p class="form-p">Your Domain name, we'll shop around and include the best deals and options in your design proposal.</p>
+                    
+                    
+                    <div class="form-group">
+                        <label>Preferred Design Styles</label><br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="design_style" id="modern_design" value="Modern Design" {% if form.design_style.value == 'Modern Design' %} checked {% endif %}>
+                            <label class="form-check-label" for="modern_design">Modern</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="design_style" id="vintage_design" value="Vintage Design" {% if form.design_style.value == 'Vintage Design' %} checked {% endif %}>
+                            <label class="form-check-label" for="vintage_design">Minimalist</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="design_style" id="dark_theme_design" value="Dark Theme Design" {% if form.design_style.value == 'Dark Theme Design' %} checked {% endif %}>
+                            <label class="form-check-label" for="dark_theme_design">Dark Theme</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="design_style" id="light_theme_design" value="Light Theme Design" {% if form.design_style.value == 'Light Theme Design' %} checked {% endif %}>
+                            <label class="form-check-label" for="light_theme_design">Light Theme</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="design_style" id="futuristic_design" value="Futuristic Design" {% if form.design_style.value == 'Futuristic Design' %} checked {% endif %}>
+                            <label class="form-check-label" for="futuristic_design">Black & White</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="design_style" id="bold_colors_design" value="Bold Colors Design" {% if form.design_style.value == 'Bold Colors Design' %} checked {% endif %}>
+                            <label class="form-check-label" for="bold_colors_design">Bold Colours</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="design_style" id="pastel_colors_design" value="Pastel Colors Design" {% if form.design_style.value == 'Pastel Colors Design' %} checked {% endif %}>
+                            <label class="form-check-label" for="pastel_colors_design">Pastel Colours</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="design_style" id="professional_design" value="Professional Design" {% if form.design_style.value == 'Professional Design' %} checked {% endif %}>
+                            <label class="form-check-label" for="professional_design">Professional</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="design_style" id="playful_design" value="Playful Design" {% if form.design_style.value == 'Playful Design' %} checked {% endif %}>
+                            <label class="form-check-label" for="playful_design">Playful</label>
+                        </div>
+                    </div>
 
-                    <p class="form-p">Your Domain name, we'll shop around and include the best deals and options in design proposal.</p>
-            
+                    <p class="form-p">Your Domain name, we'll shop around and include the best deals and options in your design proposal.</p>
+                    
                     <div class="form-group">
                         <label for="id_domain_name">Domain Name</label>
                         <input type="text" name="domain_name" id="id_domain_name" class="form-control" placeholder="www.yourcompany.com" value="{{ form.domain_name.value|default:'' }}">
@@ -187,12 +265,12 @@
 
                     <div class="form-group">
                         <label for="id_primary_goal">Whats the main goal of your landing page / Website? </label>
-                        <input type="text" name="primary_goal" id="id_primary_goal" class="form-control" placeholder="lead generation, event registration" value="{{ form.primary_goal.value|default:'' }}">
+                        <input type="text" name="primary_goal" id="id_primary_goal" class="form-control" placeholder="Lead generation, event registration" value="{{ form.primary_goal.value|default:'' }}">
                     </div>
 
                     <div class="form-group">
                         <label for="id_brand_assets">Preferred brand assets</label>
-                        <input type="text" name="brand_assets" id="id_brand_assets" class="form-control" placeholder="color scheme, fonts" value="{{ form.brand_assets.value|default:'' }}">
+                        <input type="text" name="brand_assets" id="id_brand_assets" class="form-control" placeholder="Colour scheme, fonts" value="{{ form.brand_assets.value|default:'' }}">
                     </div>
 
 
@@ -202,7 +280,7 @@
                     </div>
 
 
-                    <!--Content -->
+                    <!-- Media Content -->
 
                     <!--Video -->
 
@@ -279,7 +357,7 @@
                     <p class="form-p-legal">We won't share your information with anyone else.</p>
                     <!--Button -->
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary-form" id="home-product-button">Get your design proposal</button>
+                        <button type="submit" class="btn btn-primary" id="btn-primary-customise">Get your design proposal</button>
                     </div>
                 </form>
             </div>
