@@ -1001,11 +1001,14 @@ div#modal-img-container {
 #info-main-title {
   margin-bottom: 1.5rem;
 }
+
 /* Title for paragraphs */
+
 #product-information-title {
   color: #0A5C5A;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   margin-top: 15px;
+  margin-bottom: 0.8rem;
   font-weight: 600;
   font-family: 'Poppins', sans-serif;
 }

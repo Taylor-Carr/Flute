@@ -389,32 +389,68 @@
     </div>
 
     <!-- Collapsible Details Section -->
-    <div class="mb-3">
-        <div id="detailedInfo" class="collapse">
-            <div class="card card-body" style="border-radius: 20px;">
-                <h3 id="info-main-title">{{ product.name }}</h3>
-                <h5 id="info-title">This Product:</h5>
-                <p class="lead" id="product-information-p">{{ product.unique_design_info }}</p>
-                <h5 id="info-title">Domain Name:</h5>
-                <p class="lead" id="product-information-p">{{ product.domain_info }}</p>
-                <h5 id="info-title">Hosting:</h5>
-                <p class="lead" id="product-information-p">{{ product.hosting_info }}</p>
-                <h5 id="info-title">SEO (Search Engine Optimization):</h5>
-                <p class="lead" id="product-information-p">{{ product.seo_info }}</p>
-                <h5 id="info-title">After Launch:</h5>
-                <p class="lead" id="product-information-p">{{ product.support_info }}</p>
-                <h5 id="info-title">Copywriting:</h5>
-                <p class="lead" id="product-information-p">{{ product.copy_info }}</p>
-                <h5 id="info-title">Stock Images (Optional):</h5>
-                <p class="lead" id="product-information-p">{{ product.stock_images_info }}</p>
-                <hr>
-                <h3>Money Back Guarantee</h3>
-                <p id="product-information-p">{{ product.guarantee_info }}</p>
-            </div>
+   
+        <div class="mb-3">
+            <div id="detailedInfo" class="collapse">
+                <div class="card card-body" style="border-radius: 20px;">
+                    <h3 id="info-main-title">{{ product.name }}</h3>
 
+                    {% if product.unique_design_info %}
+                        <h5 id="info-title">This Product:</h5>
+                        <p class="lead" id="product-information-p">{{ product.unique_design_info }}</p>
+                    {% endif %}
+
+                    {% if product.domain_info %}
+                        <h5 id="info-title">Domain Name:</h5>
+                        <p class="lead" id="product-information-p">{{ product.domain_info }}</p>
+                    {% endif %}
+
+                    {% if product.hosting_info %}
+                        <h5 id="info-title">Hosting:</h5>
+                        <p class="lead" id="product-information-p">{{ product.hosting_info }}</p>
+                    {% endif %}
+
+                    {% if product.logo_info %}
+                    <h5 id="info-title">Logo Design:</h5>
+                    <p class="lead" id="product-information-p">{{ product.logo_info }}</p>
+                    {% endif %}
+
+                    {% if product.support_info %}
+                        <h5 id="info-title">After Launch:</h5>
+                        <p class="lead" id="product-information-p">{{ product.support_info }}</p>
+                    {% endif %}
+
+                    {% if product.seo_info %}
+                        <h5 id="info-title">SEO (Search Engine Optimization):</h5>
+                        <p class="lead" id="product-information-p">{{ product.seo_info }}</p>
+                    {% endif %}
+
+                    {% if product.copy_info %}
+                        <h5 id="info-title">Copywriting:</h5>
+                        <p class="lead" id="product-information-p">{{ product.copy_info }}</p>
+                    {% endif %}
+
+                    {% if product.video_info %}
+                        <h5 id="info-title">Media Upload (video):</h5>
+                        <p class="lead" id="product-information-p">{{ product.video_info }}</p>
+                    {% endif %}
+
+
+                    {% if product.stock_images_info %}
+                        <h5 id="info-title">Stock Images (Optional):</h5>
+                        <p class="lead" id="product-information-p">{{ product.stock_images_info }}</p>
+                    {% endif %}
+
+                    {% if product.guarantee_info %}
+                        <hr>
+                        <h3>Money Back Guarantee</h3>
+                        <p id="product-information-p">{{ product.guarantee_info }}</p>
+                    {% endif %}
+                </div>
+            </div>
         </div>
-    </div>
 </section>
+
 
 <!-- Related products -->
 <section class="py-2 bg-light">
