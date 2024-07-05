@@ -47,26 +47,26 @@
 </div>
             <div class="col-md-6">
                 <!--Product Name-->
-                <h1 class="display-5 fw-bolder" id="product-detail-title">Our {{ product.name }} - Landing Page</h1>
+                <h1 class="display-5 fw-bolder" id="product-detail-title">Our {{ product.name }}</h1>
 
                 
                 <div class="d-flex flex-column">
                     
                 <!-- Basic Description -->
 
-                 <div class="mb-2">
+                 <div class="mb-1">
                     <p class="product-details">{{ product.description }}</p>
                  </div>
 
                     
                     <!-- What's Included Dropdown -->
 
-                    <div class="mb-3">
+                    <div class="mb-1">
                         <button class="btn btn-link p-0 include-dropdown" type="button" data-bs-toggle="collapse" data-bs-target="#whatsIncluded" aria-expanded="false" aria-controls="whatsIncluded" id="detail-dropdown">
                             What's Included &#x25be;
                         </button>
                         <div id="whatsIncluded">
-                            <ul class="include-list">
+                            <ul class="include-list-detail">
                                 {% for benefit in product.benefits.all %}
                                     <li><i class="fa-solid fa-circle dropdown-circle"></i>{{ benefit.description }}</li>
                                 {% endfor %}
@@ -82,7 +82,7 @@
                         £{{ product.sale_price }}
                     </div>
                     {% else %}
-                    <div class="price">£{{ product.price }}</div>
+                    <div id="price-detail">£{{ product.price }}</div>
                     {% endif %}
                 </div>
 
@@ -101,7 +101,7 @@
             
                     <!-- Continue Button -->
                     <div class="d-grid">
-                        <a id="openModalBtn" class="btn" style="color:#fff; background-color: #0A5C5A; font-family: 'Inter', sans-serif; ">
+                        <a id="openModalBtn" class="btn" style="color:#fff; background-color: #0A5C5A; font-family: 'Inter', sans-serif; border-radius: 24px; font-weight: 500;">
                             Continue <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>

@@ -673,6 +673,14 @@ div#img-container-featured::-webkit-scrollbar-thumb:hover {
 }
 
 /* Description list */
+
+#benefit-list {
+  font-size: 0.8rem;
+  padding-left: 0;
+  padding-right: 0;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+}
 .featured-product-card .include-list {
   font-weight: 400;
   font-family: 'Inter', sans-serif;
@@ -691,7 +699,7 @@ div#img-container-featured::-webkit-scrollbar-thumb:hover {
 }
 
 .include-list li i {
-  color: #0A5C5A; /* Icon color */
+  color: #A9DAD3; /* Icon color */
   margin-right: 0.5rem; /* Space between icon and text */
 }
 
@@ -733,7 +741,8 @@ div#img-container-featured::-webkit-scrollbar-thumb:hover {
   background: #0A5C5A;
   border-color: #0A5C5A;
   font-family: 'Inter', sans-serif;
-  font-weight: 300;
+  font-weight: 500;
+  border-radius: 24px;
 }
 
 .featured-product-card .card-footer .btn:hover {
@@ -803,7 +812,7 @@ div#img-container-featured::-webkit-scrollbar-thumb:hover {
   margin-right: 0.6rem;
 }
 
-.include-list {
+.include-list-detail {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* Creates two columns */
   gap: 0.5rem; /* Space between items */
@@ -811,7 +820,7 @@ div#img-container-featured::-webkit-scrollbar-thumb:hover {
   list-style-type: none;
 }
 
-.include-list li {
+.include-list-detail li {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: 0.9rem;
@@ -820,7 +829,7 @@ div#img-container-featured::-webkit-scrollbar-thumb:hover {
 
 
 
-.price {
+#price-detail {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
   color:#0A5C5A; 
@@ -837,6 +846,7 @@ div#img-container-featured::-webkit-scrollbar-thumb:hover {
   border-color: #0A5C5A;
   font-family: 'Inter', sans-serif;
   font-weight: 600;
+  border-radius: 20px;
 }
 .bi-arrow-right {
   font-weight: 600;
@@ -1152,17 +1162,16 @@ div#modal-img-container {
 #btn-primary-customise {
   background-color: #0A5C5A;
   font-family: 'Inter';
-  font-weight: 300;
+  font-weight: 400;
   color: white;
   padding: 10px 20px;
   border: none;
-  border-radius: 12px;
-  cursor: pointer;
+  border-radius: 24px;
   width: 100%;
   font-size: 18px;
 }
 
-#btn-primary-form:hover {
+#btn-primary-customise:hover {
   background-color: white;
   color: #0A5C5A;
   border: 1px solid #A9DAD3;

@@ -61,17 +61,26 @@
                             <span class="visually-hidden">Next</span>
                         </a>
                     </div>
-                    <div class="card-body p-4 product-details">
+                    <div class="card-body p-3 product-details">
                         <div class="text-center">
                             <h5 class="fw-bolder product-title">{{ product.name }}</h5>
-                            <div class="product-included">
-                                <h5 class="fw-bolder product-descript">What's Included</h5>
-                                <ul class="include-list">
-                                    {% for benefit in product.benefits.all %}
-                                        <li><i class="fa-solid fa-circle dropdown-circle"></i>{{ benefit.description }}</li>
-                                    {% endfor %}
-                                </ul>
+
+
+                             <!-- What's Included Dropdown -->
+
+                            <div class="product-included mb-2">
+                                <button class="btn btn-link p-0 include-dropdown" type="button" data-bs-toggle="collapse" data-bs-target="#whatsIncluded" aria-expanded="false" aria-controls="whatsIncluded" id="detail-dropdown">
+                                    What's Included &#x25be;
+                                </button>
+                                <div id="whatsIncluded">
+                                    <ul class="include-list-detail">
+                                        {% for benefit in product.benefits.all|slice:":6" %}
+                                            <li id="benefit-list"><i class="fa-solid fa-circle dropdown-circle"></i>{{ benefit.description }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
                             </div>
+                                    
                             {% if product.on_sale %}
                             <h5 class="fw-bolder product-price-sale">£{{ product.sale_price }}</h5>
                             {% else %}
