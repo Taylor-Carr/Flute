@@ -112,3 +112,6 @@ document.addEventListener('DOMContentLoaded', addAnimationOnScroll);
 
 // Listen for scroll events and check visibility of service cards
 window.addEventListener('scroll', addAnimationOnScroll);
+
+
+

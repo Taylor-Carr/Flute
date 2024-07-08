@@ -112,34 +112,44 @@
 
 
 
-/* Nav Bar */
+/* Custom CSS for navbar responsiveness and max-width */
+.navbar {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
 .nav-container {
-  max-width: 1200px; /* Match this with the container max-width */
+  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 15px; /* Optional: Add padding to align content with the main container */
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative; /* Added for positioning child elements */
+}
+
+.navbar-header {
+  display: flex;
+  align-items: center;
 }
 
 .navbar-brand {
-  margin-right: 4rem;
+  margin-right: 1rem;
 }
+
+.support-dropdown {
+  margin-left: auto;
+}
+
 .nav-item.dropdown .nav-link::after {
-  display: none; /* Hide the default arrow */
-}
-
-.nav-item.dropdown .nav-link i.fas.fa-bars {
-/* Adjust the margin as needed */
-}
-
-.navbar.navbar-light {
-  padding-top: 0.5rem; /* Adjust the top padding */
-  padding-bottom: 0.5rem; /* Adjust the bottom padding */
+  display: none;
 }
 
 .navbar-light .navbar-nav .nav-link {
-
   color: black;
-  font-weight: 500; /* Make the text bold */
+  font-weight: 500;
 }
 
 #navbarDropdownSupport {
@@ -153,106 +163,150 @@
   font-size: 12px;
   font-weight: 500;
   font-family: 'Inter';
-  color: #333; /* Change text color */
+  color: #333;
 }
 
 #nav-text {
   font-size: 12px;
   font-weight: 600;
   font-family: 'Inter';
-  color: #333; /* Change text color */
+  color: #333;
 }
 
 .search-input-group {
   position: relative;
   width: 100%;
-  border-radius: 20px; /* Apply border-radius to the input group */
-  overflow: hidden; /* Ensure the border-radius is applied correctly */
+  border-radius: 20px;
+  overflow: hidden;
   border: 1px solid #e0e0e0;
   padding-left: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a slight grey box shadow */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .search-input-group input {
-  border: none; /* Remove the default border of the input */
-  outline: none; /* Remove the default outline of the input */
+  border: none;
+  outline: none;
   width: 100%;
-  padding: 8px 6px; /* Adjust padding as needed */
-  box-sizing: border-box; /* Ensure padding does not affect the width */
-  border-radius: 20px; /* Apply border-radius to match the input group */
-  outline: none; /* Remove the default blue outline */
-  box-shadow: none; /* Ensure no box-shadow by default */
-  -webkit-appearance: none; /* Reset webkit appearance */
+  padding: 8px 6px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  outline: none;
+  box-shadow: none;
+  -webkit-appearance: none;
 }
 
 .search-input-group input:focus {
-  border-color: black; /* Change border color to black on focus */
-  outline: none; /* Ensure outline is removed */
-  box-shadow: inset 0 0 0 2px transparent; /* Remove inner shadow on focus */
+  border-color: black;
+  outline: none;
+  box-shadow: inset 0 0 0 2px transparent;
 }
 
 #search-button {
-  background-color: #0A5C5A; /* Custom color */
+  background-color: #0A5C5A;
   border: none;
-  border-radius: 50%; /* Circular button */
-  color: #fff; /* Text color */
-  height: 2rem; /* Adjust height to make the button smaller */
-  width: 2rem; /* Adjust width to make the button smaller */
-  padding: 0.rem; /* Add padding */
+  border-radius: 50%;
+  color: #fff;
+  height: 2rem;
+  width: 2rem;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  right: 0.2rem; /* Adjust position to ensure the button is inside the input group */
+  right: 0.2rem;
   top: 50%;
-  transform: translateY(-50%); /* Center the button vertically */
+  transform: translateY(-50%);
 }
 
 #search-button .bi-search {
-  font-size: 1rem; /* Adjust icon size */
+  font-size: 1rem;
 }
 
 .search-form-control {
-  border-radius: 20px; /* Apply border-radius to the input */
-  box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
-}
-
-.shopping-basket {
-  font-size: 12px;
-  font-weight: 500;
-  font-family: 'Inter';
-  color: #333; 
-  margin-right: 5px;
-}
-#basket-icon {
-  font-size: 12px;
-  color: black;
-  font-weight: 900;
-}
-
-/* Custom CSS for navbar responsiveness and max-width */
-.navbar {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-}
-
-.container {
-    max-width: 1200px; /* Set maximum width for the container */
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 15px;
+  border-radius: 20px;
+  box-sizing: border-box;
 }
 
 @media (max-width: 991.98px) {
-    .navbar-expand-lg .navbar-collapse {
-        justify-content: flex-start; /* Adjust alignment for smaller screens */
-    }
+  .nav-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
 
-    .navbar-nav {
-        margin-top: 0; /* Remove margin for smaller screens */
-    }
+  .d-flex.justify-content-between.w-100 {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .navbar-header {
+    flex-grow: 1;
+  }
+
+  .support-dropdown {
+    flex-grow: 0;
+  }
+
+  .search-bar {
+    order: 3;
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .search-input-group {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .search-form-control {
+    width: calc(100% - 2rem); /* Adjusted to fit the button inside */
+  }
+
+  .dropdown-menu {
+    position: absolute !important; /* Important to override default positioning */
+    z-index: 1000; /* Adjust the z-index to ensure it appears above other elements */
+    background-color: white; /* Optional: Adjust background color as needed */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: Add box-shadow for a visual effect */
+    width: 100%; /* Ensure it takes full width of its container */
+  }
+
+  .navbar-collapse {
+    position: relative; /* Ensure relative positioning for the parent container */
+  }
 }
 
+@media (min-width: 992px) {
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .navbar-header {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar-brand {
+    margin-right: 1rem;
+  }
+
+  .search-bar {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 620px;
+  }
+
+  .support-dropdown {
+    margin-left: auto;
+  }
+
+  .navbar-nav {
+    display: flex;
+    align-items: center;
+  }
+}
 /* Second Nav Bar for categories */
 
 #second-navbar {
