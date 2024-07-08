@@ -121,9 +121,16 @@
 
 
     <!-- Nav 2 -->
-      <nav id="second-navbar">
-          <div class="container">
-            <ul>
+    <nav id="second-navbar">
+        <div class="container">
+          <ul>
+            <li><i class="fa-solid fa-credit-card" id="nav-value-icon"></i>Money Back Guarantee</li>
+            <li><i class="fa-solid fa-magnifying-glass" id="nav-value-icon"></i>SEO Optimized</li>
+            <li><i class="fa-solid fa-tablet-screen-button" id="nav-value-icon"></i>Mobile Responsive</li>
+            <li><i class="fa-solid fa-truck-fast" id="nav-value-icon"></i>Launch within 14 days</li>
+          </ul>
+        </div>
+      </nav>
                 <!--Commment out for future use -->
                   <!---
                       <li><a href="{% url 'category_summary' %}">Shop all Landing Pages</a></li>
@@ -134,16 +141,8 @@
                       <li><a href="{% url 'category' 'Personal Websites' %}">Personal Websites</a></li>
                   -->
                       <!---Currently used for value prop -->
-              <!---Currently used for value prop -->
-              <li></li>
-              <li><i class="fa-solid fa-credit-card" id="nav-value-icon"></i>Money Back Guarantee</li>
-              <li><i class="fa-solid fa-magnifying-glass" id="nav-value-icon"></i>SEO Optimized</li>
-              <li><i class="fa-solid fa-tablet-screen-button" id="nav-value-icon"></i>Mobile Responsive</li>
-              <li><i class="fa-solid fa-truck-fast" id="nav-value-icon"></i>Launch within 14 days</li>
-            </ul>
-          </div>
-        </nav>
-
+        
+    
     <!-- Error Messages -->
 
     {% if messages %}
@@ -212,61 +211,51 @@
         </div>
     </div> -->
 
-    <!-- Footer -->
-
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <h4 class="footer-title">Company</h4>
-                    <ul>
-                        <li><a href="{% url 'about' %}">About Us</a></li>
-                        <li><a href="{% url 'privacy' %}">Privacy Policy</a></li>
-                        <li><a href="{% url 'privacy' %}">Cookies</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <h4 class="footer-title">Support</h4>
-                    <ul>
-                        <li><a href="{% url 'faqs' %}">FAQ</a></li>
-                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
-
-                        <!---
-                        <li><a href="#">Order Status</a></li>
-                        <li><a href="{% url 'update_user' %}">Update Account</a></li>
-                         Add more support links here if needed -->
-
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <h4 class="footer-title">Store</h4>
-                    <ul>
-                        <li><a href="{% url 'category_summary' %}"> Shop all Websites</a></li>
-                        <!---
-                        <li><a href="{% url 'category' 'Commerce' %}">E-Commerce</a></li>
-                         Add more store links here if needed -->
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <h4 class="footer-title">Follow Us</h4>
-                    <div class="social-links">
-                        <ul>
-                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <p class="m-0 text-center text-black footer-copyright">Copyright &copy; WebFlute 2024</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-3">
+              <h4 class="footer-title">Company</h4>
+              <ul>
+                  <li><a href="{% url 'about' %}">About Us</a></li>
+                  <li><a href="{% url 'privacy' %}">Cookies</a></li>
+                  <li><a href="{% url 'privacy' %}">Privacy Policy</a></li>
+              </ul>
+          </div>
+          <div class="col-md-3">
+              <h4 class="footer-title">Support</h4>
+              <ul>
+                  <li><a href="{% url 'faqs' %}">FAQ</a></li>
+                  <li><a href="{% url 'contact' %}">Contact Us</a></li>
+              </ul>
+          </div>
+          <div class="col-md-3">
+              <h4 class="footer-title">Store</h4>
+              <ul>
+                  <li><a href="{% url 'category_summary' %}"> Shop all Websites</a></li>
+              </ul>
+          </div>
+          <div class="col-md-3">
+              <h4 class="footer-title">Follow Us</h4>
+              <div class="social-links">
+                  <ul>
+                      <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                      <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                      <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <p class="m-0 text-center text-black footer-copyright">Copyright &copy; WebFlute 2024</p>
+          </div>
+      </div>
+  </div>
+</footer>
 
     <!-- Bootstrap core JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
