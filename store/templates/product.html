@@ -2,65 +2,64 @@
 {% block content %}
 
 <!-- Product section -->
-
 <section class="py-2">
-    <div class="container px-4 px-lg-5 my-5">
+    <div class="container px-4 px-lg-5 my-4">
         <div class="row gx-4 gx-lg-5 align-items-center">
 
-<div class="col-md-6">
-    <div id="carouselProductDetail{{ product.id }}" class="carousel slide">
-        <div class="carousel-inner">
-            {% for image in product.images.all %}
-            <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                <div id="img-container-why">
-                    <img class="d-block w-100" id="detail-img-{{ forloop.counter }}" src="{{ image.image.url }}" alt="Product Image {{ forloop.counter }}" onclick="showImageModal('{{ image.image.url }}')">
+            <div class="col-md-6" id="title-carousel-container">
+                <!-- Product Name -->
+                <div id="title-container">
+                    <h1 class="display-5 fw-bolder mt-0 pt-0" id="product-detail-title">Our {{ product.name }}</h1>
+                </div>
+
+                <div id="carousel-container">
+                    <div id="carouselProductDetail{{ product.id }}" class="carousel slide">
+                        <div class="carousel-inner">
+                            {% for image in product.images.all %}
+                            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                <div id="img-container-detail">
+                                    <img class="d-block w-100" id="detail-img-{{ forloop.counter }}" src="{{ image.image.url }}" alt="Product Image {{ forloop.counter }}" onclick="showImageModal('{{ image.image.url }}')">
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselProductDetail{{ product.id }}" role="button" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselProductDetail{{ product.id }}" role="button" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-            {% endfor %}
-        </div>
-        <a class="carousel-control-prev" href="#carouselProductDetail{{ product.id }}" role="button" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselProductDetail{{ product.id }}" role="button" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </a>
-    </div>
-</div>
 
-<!-- Modal Structure -->
-<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="img-modal-title">Example Website</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="color:#0A5C5A;"></button>
-            </div>
-            <div class="modal-body">
-                <div id="modal-img-container">
-                    <img id="modal-img" class="img-fluid" src="" alt="Expanded Image">
+            <!-- Modal Structure -->
+            <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="img-modal-title">Example Website</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="color:#0A5C5A;"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="modal-img-container">
+                                <img id="modal-img" class="img-fluid" src="" alt="Expanded Image">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-            <div class="col-md-6">
-                <!--Product Name-->
-                <h1 class="display-5 fw-bolder" id="product-detail-title">Our {{ product.name }}</h1>
 
-                
+            <div class="col-md-6" id="details-container">
                 <div class="d-flex flex-column">
-                    
-                <!-- Basic Description -->
+                    <!-- Basic Description -->
+                    <div class="mb-1">
+                        <p class="product-details">{{ product.description }}</p>
+                    </div>
 
-                 <div class="mb-1">
-                    <p class="product-details">{{ product.description }}</p>
-                 </div>
-
-                    
                     <!-- What's Included Dropdown -->
-
                     <div class="mb-1">
                         <button class="btn btn-link p-0 include-dropdown" type="button" data-bs-toggle="collapse" data-bs-target="#whatsIncluded" aria-expanded="false" aria-controls="whatsIncluded" id="detail-dropdown">
                             What's Included &#x25be;
@@ -74,17 +73,17 @@
                         </div>
                     </div>
 
-                     <!-- Product Price -->
-                  <div class="mb-2">
-                    {% if product.on_sale %}
-                    <div class="price">
-                        <strike class="text-muted me-2">£{{ product.price }}</strike>
-                        £{{ product.sale_price }}
+                    <!-- Product Price -->
+                    <div class="mb-2">
+                        {% if product.on_sale %}
+                        <div class="price">
+                            <strike class="text-muted me-2">£{{ product.price }}</strike>
+                            £{{ product.sale_price }}
+                        </div>
+                        {% else %}
+                        <div id="price-detail">£{{ product.price }}</div>
+                        {% endif %}
                     </div>
-                    {% else %}
-                    <div id="price-detail">£{{ product.price }}</div>
-                    {% endif %}
-                </div>
 
                     <!-- Value Add -->
                     <div class="d-flex align-items-center mb-3 value-add">
@@ -98,9 +97,9 @@
                         <i class="fa-solid fa-rotate value-icons"></i> Unlimited Revisions Until Launch
                         </div>
                     </div>
-            
+
                     <!-- Continue Button -->
-                    <div class="d-grid">
+                    <div class="d-grid button-container">
                         <a id="openModalBtn" class="btn" style="color:#fff; background-color: #0A5C5A; font-family: 'Inter', sans-serif; border-radius: 24px; font-weight: 500;">
                             Continue <i class="bi bi-arrow-right"></i>
                         </a>
@@ -392,11 +391,11 @@
    
         <div class="mb-3">
             <div id="detailedInfo" class="collapse">
-                <div class="card card-body" style="border-radius: 20px;">
+                <div class="card-info card-body" style="border-radius: 20px;">
                     <h3 id="info-main-title">{{ product.name }}</h3>
 
                     {% if product.unique_design_info %}
-                        <h5 id="info-title">This Product:</h5>
+                        <h5 id="info-title">Whats Included:</h5>
                         <p class="lead" id="product-information-p">{{ product.unique_design_info }}</p>
                     {% endif %}
 
@@ -443,7 +442,7 @@
 
                     {% if product.guarantee_info %}
                         <hr>
-                        <h3>Money Back Guarantee</h3>
+                        <h3 class="guarantee-title">Money Back Guarantee</h3>
                         <p id="product-information-p">{{ product.guarantee_info }}</p>
                     {% endif %}
                 </div>
@@ -451,47 +450,105 @@
         </div>
 </section>
 
-
 <!-- Related products -->
 <section class="py-2 bg-light">
     <div class="container px-0 px-lg-0 my-2">
-        <h2 class="fw-bolder mb-4" id="info-main-title">Related Products</h2>
-        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            {% for related_product in related_products %}
-            <div class="col mb-5">
-                <div class="card h-100">
-                    <!-- Product image -->
-                     <div id="img-container-featured">
-                        <img class="card-img-top" src="{{ related_product.images.first.image.url }}" alt="..." />
-                     </div>
-                    <!-- Product details -->
-                    <div class="card-body p-4">
-                        <div class="text-center">
-                            <!-- Product name -->
-                            <h5 class="fw-bolder" id="related-product-title">{{ related_product.name }}</h5>
-                            <!-- Product price -->
-                              <div id="related-product-price">
-                                    {% if related_product.on_sale %}
-                                    <strike class="text-muted me-2">£{{ related_product.price }}</strike>
-                                    £{{ related_product.sale_price }}
-                                    {% else %}
-                                    £{{ related_product.price }}
-                                    {% endif %}
-                              </div>
+        <h2 class="fw-bolder mb-4" id="related-main-title">Related Products</h2>
+
+        <!-- Carousel for large screens -->
+        <div id="relatedProductsCarouselLg" class="carousel slide d-none d-lg-block" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {% for related_product in related_products %}
+                {% if forloop.first %}<div class="carousel-item active"><div class="row gx-4 gx-lg-5">{% elif forloop.counter|divisibleby:4 %}</div></div><div class="carousel-item"><div class="row gx-4 gx-lg-5">{% endif %}
+                    <div class="col-12 col-md-6 col-lg-3 mb-5">
+                        <div class="card h-100">
+                            <a href="{% url 'product' related_product.id %}">
+                                <div id="img-container-related">
+                                    <img class="card-img-top" src="{{ related_product.images.first.image.url }}" alt="{{ related_product.name }}"/>
+                                </div>
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <h5 class="fw-bolder" id="related-product-title">{{ related_product.name }}</h5>
+                                        <div id="related-product-price">
+                                            {% if related_product.on_sale %}
+                                            <strike class='text-muted me-2'>£{{ related_product.price }}</strike> £{{ related_product.sale_price }}
+                                            {% else %}
+                                            £{{ related_product.price }}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="card-footer p-2 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center">
+                                    <a class="btn btn-outline-dark mt-auto" href="{% url 'product' related_product.id %}" id="home-product-button">View Product</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <!-- Product actions -->
-                    <div class="card-footer p-2 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'product' related_product.id %}" id="home-product-button">View Product</a></div>
+                {% endfor %}
+                </div></div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#relatedProductsCarouselLg" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#relatedProductsCarouselLg" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <!-- Carousel for mobile screens -->
+        <div id="relatedProductsCarouselSm" class="carousel slide d-lg-none" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {% for related_product in related_products %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                    <div class="row gx-4 gx-lg-5">
+                        <div class="col-12 mb-5">
+                            <div class="card h-100">
+                                <a href="{% url 'product' related_product.id %}">
+                                    <div id="img-container-related">
+                                        <img class="card-img-top" src="{{ related_product.images.first.image.url }}" alt="{{ related_product.name }}"/>
+                                    </div>
+                                    <div class="card-body p-4">
+                                        <div class="text-center">
+                                            <h5 class="fw-bolder" id="related-product-title">{{ related_product.name }}</h5>
+                                            <div id="related-product-price">
+                                                {% if related_product.on_sale %}
+                                                <strike class='text-muted me-2'>£{{ related_product.price }}</strike> £{{ related_product.sale_price }}
+                                                {% else %}
+                                                £{{ related_product.price }}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="card-footer p-2 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center">
+                                        <a class="btn btn-outline-dark mt-auto" href="{% url 'product' related_product.id %}" id="home-product-button">View Product</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
+            <button class="carousel-control-prev" type="button" data-bs-target="#relatedProductsCarouselSm" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#relatedProductsCarouselSm" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
     </div>
 </section>
 
 <script>
+    // Function to add product to cart
     $(document).on('click', '#add-cart', function(e) {
         e.preventDefault();
         $.ajax({
@@ -513,42 +570,34 @@
         });
     });
 
+    // Function to show image modal
     function showImageModal(imageUrl) {
-    var modalImg = document.getElementById('modal-img');
-    modalImg.src = imageUrl;
-    var imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
-    imageModal.show();
-}
-document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById('customizeFormModal');
-    const openBtn = document.getElementById('openModalBtn');
-    const closeBtn = document.querySelector('.closeBtn');
-
-    openBtn.onclick = function() {
-        modal.style.display = 'block';
+        var modalImg = document.getElementById('modal-img');
+        modalImg.src = imageUrl;
+        var imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+        imageModal.show();
     }
 
-    closeBtn.onclick = function() {
-        modal.style.display = 'none';
-    }
+    // Function to handle modal display
+    document.addEventListener('DOMContentLoaded', function() {
+        const modal = document.getElementById('customizeFormModal');
+        const openBtn = document.getElementById('openModalBtn');
+        const closeBtn = document.querySelector('.closeBtn');
 
-    window.onclick = function(event) {
-        if (event.target == modal) {
+        openBtn.onclick = function() {
+            modal.style.display = 'block';
+        }
+
+        closeBtn.onclick = function() {
             modal.style.display = 'none';
         }
-    }
-});
 
-function toggleImageOptions() {
-        const useOwnImages = document.getElementById('use_own_images').checked;
-        const uploadImagesInput = document.getElementById('id_upload_images');
-
-        if (useOwnImages) {
-            uploadImagesInput.style.display = 'block';
-        } else {
-            uploadImagesInput.style.display = 'none';
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
         }
-    }
+    });
 
 </script>
 

@@ -114,7 +114,7 @@
 
 /* Custom CSS for navbar responsiveness and max-width */
 .navbar {
-  padding-top: 0.5rem;
+  padding-top: 0.2rem; /* Reduced top padding */
   padding-bottom: 0.5rem;
 }
 
@@ -151,7 +151,7 @@
   font-weight: 500;
 }
 
-#navbarDropdownSupport {
+#navbarDropdownSupport, #navbarDropdownSupportMobile {
   color: #333;
   font-weight: 800;
   font-family: 'Inter';
@@ -226,6 +226,7 @@
   box-sizing: border-box;
 }
 
+/* Adjustments for mobile view */
 @media (max-width: 991.98px) {
   .nav-container {
     flex-direction: column;
@@ -236,6 +237,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center; /* Center vertically */
   }
 
   .navbar-header {
@@ -244,12 +246,19 @@
 
   .support-dropdown {
     flex-grow: 0;
+    display: flex;
+    align-items: center; /* Center vertically */
+  }
+
+  .support-dropdown .nav-link {
+    font-size: 1.5rem; /* Make the burger icon larger */
   }
 
   .search-bar {
     order: 3;
     width: 100%;
-    margin-top: 15px;
+    margin-top: 10px;
+    margin-bottom: 5px;
   }
 
   .search-input-group {
@@ -269,8 +278,17 @@
     width: 100%; /* Ensure it takes full width of its container */
   }
 
+  .dropdown-menu .nav-link {
+    padding-left: 20px; /* Move the text slightly to the right */
+  }
+
   .navbar-collapse {
     position: relative; /* Ensure relative positioning for the parent container */
+  }
+
+  nav {
+    padding-top: 0;
+    padding-bottom: 0.2rem;
   }
 }
 
@@ -300,11 +318,6 @@
 
   .support-dropdown {
     margin-left: auto;
-  }
-
-  .navbar-nav {
-    display: flex;
-    align-items: center;
   }
 }
 
@@ -357,11 +370,31 @@
   #second-navbar ul {
     animation: none; /* Disable animation on larger screens */
   }
+
+  .nav-item {
+    margin-left: 10px;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #second-navbar ul li {
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: 'Inter';
+  color: #213038;
+  padding: 3px 35px; /* Adjust padding to increase space between items */
+  display: flex;
+  align-items: center; /* Vertically center the content */
+  white-space: nowrap; /* Prevent text from wrapping */
+}
 }
 
 
 
-/* Container Styles */
+
+/* Hero Section */ 
+
 .container {
   max-width: 1200px; /* Adjust to your desired max width */
   width: 100%;
@@ -865,21 +898,21 @@ div#img-container-featured::-webkit-scrollbar-thumb:hover {
   border-radius: 12px; /* Adjust the value as needed */
 }
 
-/* Product detail title */
-
+/* Product detail */
 #product-detail-title {
-  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-size: 2rem;
   font-weight: 600;
   font-family: 'League Spartan', sans-serif;
   color: #0A5C5A;
 }
 
-
 .product-details {
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 600;
   font-family: 'Inter', sans-serif;
   text-align: left;
+  margin-top: 4rem;
 }
 
 .value-add {
@@ -927,14 +960,12 @@ div#img-container-featured::-webkit-scrollbar-thumb:hover {
   color: #333;
 }
 
-
-
 #price-detail {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
   color:#0A5C5A; 
   font-size: 1.4rem;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.3rem;
 }
 
 .btn .product-button {
@@ -948,12 +979,98 @@ div#img-container-featured::-webkit-scrollbar-thumb:hover {
   font-weight: 600;
   border-radius: 20px;
 }
+
 .bi-arrow-right {
   font-weight: 600;
   padding-top: 5px;
   padding-left: 5px;
 }
 
+/* Detail img carousel */
+#img-container-detail {
+  max-height: 450px; /* Adjust this height as needed */
+  overflow-y: auto;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  border-radius: 20px!important;
+}
+
+#img-container-detail::-webkit-scrollbar {
+  width: 8px!important;
+  background-color: #f1f1f1!important;
+  border-radius: 8px!important;
+}
+
+#img-container-detail::-webkit-scrollbar-thumb {
+  background-color: #888!important;
+  border-radius: 8px!important;
+  border: 2px solid #f1f1f1!important;
+}
+
+#img-container-detail::-webkit-scrollbar-thumb:hover {
+  background-color: #555!important;
+}
+
+/* Scrollbar track */
+#img-container-detail::-webkit-scrollbar-track {
+  background-color: transparent!important; /* Make scrollbar track transparent */
+}
+
+/* Add a subtle shadow to scrollbar thumb for depth */
+#img-container-detail::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)!important; /* Subtle shadow for depth */
+}
+
+/* Styles for mobile view */
+@media (max-width: 767.98px) {
+  #title-carousel-container {
+    display: grid;
+    grid-template-rows: auto auto;
+  }
+
+  #title-container {
+    grid-row: 1;
+    width: 100%;
+    text-align: left;
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  #carousel-container {
+    grid-row: 2;
+    padding-bottom: 15px;
+  }
+
+  #details-container {
+    order: 2;
+  }
+
+  #img-container-detail {
+    max-height: 350px; /* Adjust this height as needed */
+    overflow-y: auto;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    border-radius: 20px!important;
+  }
+
+  #product-detail-title {
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    font-family: 'League Spartan', sans-serif;
+    color: #0A5C5A;
+  }
+  
+  .product-details {
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    text-align: left;
+    margin-top: 1rem;
+  }
+
+  .button-container {
+    margin-top: 5px;
+  }
+}
 
 /* Image pop up model */
 
@@ -1100,10 +1217,15 @@ div#modal-img-container {
 
 #info-main-title {
   margin-bottom: 1.5rem;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 10px;
+  color: #0A5C5A;
+  font-size: 1.9rem;
+  text-decoration: underline #A9DAD3;
 }
 
 /* Title for paragraphs */
-
 #product-information-title {
   color: #0A5C5A;
   font-size: 1.7rem;
@@ -1111,6 +1233,9 @@ div#modal-img-container {
   margin-bottom: 0.8rem;
   font-weight: 600;
   font-family: 'Poppins', sans-serif;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 10px
 }
 
 #product-information-p {
@@ -1118,6 +1243,8 @@ div#modal-img-container {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: 1rem;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 #info-title {
@@ -1125,13 +1252,16 @@ div#modal-img-container {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 1.2rem;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
-/* Product info section - detail page */
+/* Product info card */
 
 .product-info-section {
   max-width: 1050px;
   margin: 0 auto;
+
 }
 
 .product-info-section h2 {
@@ -1139,8 +1269,7 @@ div#modal-img-container {
   font-weight: 600;
   margin-bottom: 0.4rem;
   font-size: 1.4rem;
-  color:#333;
-  list-style: none;
+  color: #333;
 }
 
 .product-info-section .product-details {
@@ -1148,30 +1277,32 @@ div#modal-img-container {
   color: #333;
 }
 
-.info-dropdown {
+#info-dropdown {
   color: #A9DAD3;
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   text-decoration: none;
   margin-top: 1rem;
-  list-style: none;
 }
 
 #detailedInfo {
   margin-top: 1rem;
 }
 
-.card {
+.card-info {
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 1rem;
+  padding: 1.5rem; /* Increased padding */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
 }
 
 .card-body h3 {
   font-family: 'Inter', sans-serif;
   font-weight: bold;
   margin-bottom: 0.5rem;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .card-body ul {
@@ -1185,10 +1316,76 @@ div#modal-img-container {
   color: #555;
 }
 
+@media (max-width: 767.98px) {
+  #product-information-title {
+    margin-top: 0;
+    margin-left: 10px;
+    font-size: 1.2rem;
+  }
+
+  #info-dropdown {
+    margin-top: 0;
+  }
+
+  .card-info {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px; /* Increased padding for mobile */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px; /* Added margin for mobile */
+  }
+
+  .card-body ul li {
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    color: #555;
+  }
+
+  #product-information-p {
+    color: #333;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  #info-title {
+    color: #0A5C5A;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  #info-main-title {
+    margin-bottom: 1.5rem;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 10px;
+  }
+
+  .guarantee-title {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+
 /* related products */
 
+#related-main-title {
+  margin-bottom: 1.5rem;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 20px;
+  color: #0A5C5A;
+  font-size: 1.9rem;
+}
+
 #related-product-title {
-  color:#0A5C5A;
+  color: #0A5C5A;
   font-family: 'Inter', sans-serif;
   font-weight: 600;
 }
@@ -1200,6 +1397,108 @@ div#modal-img-container {
   margin-top: 10px;
 }
 
+/* Ensure images are responsive */
+#img-container-related img {
+  width: 100%;
+  height: auto;
+}
+
+/* Detail img carousel */
+#img-container-related {
+  max-height: 350px; /* Adjust this height as needed */
+  overflow-y: auto;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  border-radius: 20px !important;
+}
+
+#img-container-related::-webkit-scrollbar {
+  width: 8px !important;
+  background-color: #f1f1f1 !important;
+  border-radius: 8px !important;
+}
+
+#img-container-related::-webkit-scrollbar-thumb {
+  background-color: #888 !important;
+  border-radius: 8px !important;
+  border: 2px solid #f1f1f1 !important;
+}
+
+#img-container-related::-webkit-scrollbar-thumb:hover {
+  background-color: #555 !important;
+}
+
+/* Scrollbar track */
+#img-container-related::-webkit-scrollbar-track {
+  background-color: transparent !important; /* Make scrollbar track transparent */
+}
+
+/* Add a subtle shadow to scrollbar thumb for depth */
+#img-container-related::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important; /* Subtle shadow for depth */
+}
+
+/* Card adjustments for better mobile view */
+@media (max-width: 576px) {
+  .carousel-item {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+
+  .carousel-item .col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .carousel-item .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .carousel-item .col-lg-4 {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+  }
+}
+
+@media (min-width: 993px) {
+  .carousel-item .col-lg-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
+/* Card styles */
+.card {
+  margin-bottom: 20px;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-footer {
+  padding: 0.5rem;
+}
+
+.carousel-item {
+  display: flex;
+  justify-content: center;
+}
+
+/* Button styles */
+#home-product-button {
+  color: #fff;
+  background: #0A5C5A;
+  border-color: #0A5C5A;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  border-radius: 20px;
+}
 /* custom_form.css */
 .modal {
   display: none;
@@ -1919,20 +2218,34 @@ div#img-container-why::-webkit-scrollbar-thumb:hover {
   max-width: 90rem; /* Limit maximum width to 800px for larger screens */
 }
 
-.faq-header .text-white {
-  color: #DB4A2B !important;
-  font-weight: 500;
-  font-family: 'League Spartan', sans-serif;
-  font-size: 2rem;
-}
 
-.faq-header .text-white-50 {
-  color:#ffffff !important;
-  font-weight: 500;
-  font-family: 'League Spartan', sans-serif;
-  font-size: 1.4rem;
-}
+
+
 @media (max-width: 480px) {
+
+  .faq-card {
+    background-color: #f9f9f9;
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 1200px; /* Match the max width of the container */
+    width: 100%; /* Ensure full width */
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden; /* Ensure pseudo-elements are visible */
+    margin: 0 auto; /* Center the card */
+  }
+
+  #faq-header-home {
+    color: #0A5C5A;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2rem;
+  }
+
   /* Adjust the Semi-Circles */
 .faq-card::after {
   content: '';
