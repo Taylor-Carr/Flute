@@ -113,3 +113,28 @@ document.addEventListener('DOMContentLoaded', addAnimationOnScroll);
 // Listen for scroll events and check visibility of service cards
 window.addEventListener('scroll', addAnimationOnScroll);
 
+//form toggle image upload 
+
+function toggleLogoOptions() {
+    var uploadLogoInput = document.getElementById('id_logo_image');
+    var uploadLogoRadio = document.getElementById('upload_logo');
+    var useCompanyNameRadio = document.getElementById('use_company_name');
+
+    if (uploadLogoRadio.checked) {
+        uploadLogoInput.style.display = 'block';
+    } else {
+        uploadLogoInput.style.display = 'none';
+    }
+}
+
+function toggleImageOptions() {
+    var ownImagesInput = document.getElementById('id_upload_images');
+    var ownImagesRadio = document.getElementById('use_own_images');
+    var stockImagesRadio = document.getElementById('use_stock_images');
+
+    if (ownImagesRadio.checked) {
+        ownImagesInput.style.display = 'block';
+    } else {
+        ownImagesInput.style.display = 'none';
+    }
+}

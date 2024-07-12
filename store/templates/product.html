@@ -2,7 +2,7 @@
 {% block content %}
 
 <!-- Product section -->
-<section class="py-2">
+<section id="detail-section">
     <div class="container px-4 px-lg-5 my-4">
         <div class="row gx-4 gx-lg-5 align-items-center">
 
@@ -209,9 +209,11 @@
                         <input type="text" name="special_offers" id="id_special_offers" class="form-control" placeholder="" value="{{ form.special_offers.value|default:'' }}">
                     </div>
 
+                    <hr>
 
                     <!--Design info -->
                     <h5 class="customise-form-title-second">Your Design</h5>
+                    <p class="form-p-domain">Let us know what style(s) you prefer.</p>
                     <div class="unique-form-group">
                         <div class="unique-form-check">
                             <input class="unique-form-check-input" type="checkbox" name="design_style" id="modern_design" value="Modern Design" {% if 'Modern Design' in form.design_style.value %} checked {% endif %}>
@@ -255,15 +257,16 @@
                         </div>
                     </div>
 
+                        <hr>
                     
                     <div class="form-group">
-                        <label for="id_domain_name">Domain Name</label>
                         <p class="form-p-domain">Your Domain name, we'll shop around and include the best deals and options in your design proposal.</p>
+                        <label for="id_domain_name">Domain Name</label>
                         <input type="text" name="domain_name" id="id_domain_name" class="form-control" placeholder="www.yourcompany.com" value="{{ form.domain_name.value|default:'' }}">
                     </div>
 
                     <div class="form-group">
-                        <label for="id_primary_goal">Whats the main goal of your landing page / Website? </label>
+                        <label for="id_primary_goal">Whats the goal of your landing page / Website? </label>
                         <input type="text" name="primary_goal" id="id_primary_goal" class="form-control" placeholder="Lead generation, event registration" value="{{ form.primary_goal.value|default:'' }}">
                     </div>
 
@@ -278,56 +281,51 @@
                         <input type="url" name="reference_website" id="id_reference_website" class="form-control" placeholder="www.yourfaviroutewebsite.co.uk" value="{{ form.reference_website.value|default:'' }}">
                     </div>
 
+                    <hr>
 
                     <!-- Media Content -->
-
-                       <!--Logo -->
-
-                       <div class="form-group">
-                        <label for="id_logo_image">Upload Company Logo</label>
-                        <input type="file" name="logo_image" id="id_logo_image" class="form-control">
-                    </div>
-
-                    <div class="form-group form-check">
-                        <input type="checkbox" name="use_default_font" id="id_use_default_font" class="form-check-input" {% if form.use_default_font.value %}checked{% endif %}>
-                        <label for="id_use_default_font" class="form-check-label">Use Company Name as Logo</label>
-                    </div>
-
-                    <!--Video -->
+                    <h5 class="customise-form-title-second">Media</h5>
 
                     <div class="form-group">
-                        <label for="id_upload_video">Upload Video</label>
-                        <input type="file" name="upload_video" id="id_upload_video" class="form-control">
+                        <label for="id_logo_image" style="margin-top: 10px!important;">Upload Company Logo?</label>
+                        <div class="unique-form-check">
+                            <input type="radio" name="logo_option" id="upload_logo" value="upload" onchange="toggleLogoOptions()" class="unique-form-check-input">
+                            <label class="unique-form-check-label" for="upload_logo" style="margin-bottom: 0px!important;">Upload Company Logo</label>
+                        </div>
+                        <input type="file" name="logo_image" id="id_logo_image" class="form-control" style="display: none;">
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="unique-form-check">
+                            <input type="radio" name="logo_option" id="use_company_name" value="use_name" onchange="toggleLogoOptions()" class="unique-form-check-input">
+                            <label class="unique-form-check-label" for="use_company_name" style="margin-bottom: 0px!important;">Use Company Name as Logo</label>
+                        </div>
                     </div>
 
-                    <!--Images -->
-
                     <div class="form-group">
-                        <label>Do you have any images you want to use?</label>
-                        <div>
-                            <input type="radio" name="image_option" id="use_own_images" value="own" onchange="toggleImageOptions()"> Yes
+                        <label style="margin-top: 10px!important;">Image Upload?</label>
+                        <div class="unique-form-check">
+                            <input type="radio" name="image_option" id="use_own_images" value="own" onchange="toggleImageOptions()" class="unique-form-check-input">
+                            <label class="unique-form-check-label" for="use_own_images" style="margin-bottom: 0px!important;">Upload My Images</label>
                         </div>
                         <input type="file" name="upload_images" id="id_upload_images" class="form-control" multiple style="display: none;">
                     </div>
                     
                     <div class="form-group">
-                        <label>Use Stock Images</label>
-                        <div>
-                            <input type="radio" name="image_option" id="use_stock_images" value="stock" onchange="toggleImageOptions()"> Yes
+                        <div class="unique-form-check">
+                            <input type="radio" name="image_option" id="use_stock_images" value="stock" onchange="toggleImageOptions()" class="unique-form-check-input">
+                            <label class="unique-form-check-label" for="use_stock_images" style="margin-bottom: 0px!important;">Use Stock Images</label>
                         </div>
                     </div>
 
-                    <!--Logo -->
                     
                     <div class="form-group">
-                        <label for="id_logo_image">Upload Company Logo</label>
-                        <input type="file" name="logo_image" id="id_logo_image" class="form-control">
-                    </div>
-                    <div class="form-group form-check">
-                        <input type="checkbox" name="use_default_font" id="id_use_default_font" class="form-check-input" {% if form.use_default_font.value %}checked{% endif %}>
-                        <label for="id_use_default_font" class="form-check-label">Use Company Name as Logo</label>
+                        <label for="id_upload_video" style="margin-top: 10px!important;">Upload Video? (optional)</label>
+                        <input type="file" name="upload_video" id="id_upload_video" class="form-control">
                     </div>
 
+                    <hr>
+                 
                     <!-- Sign Up -->
                     <h5 class="customise-form-title-second">Sign Up</h5>
                     
@@ -377,6 +375,7 @@
         </section>
     </div>
   </div>
+
 <!---Product info section -->
 
 <section class="product-info-section">
@@ -386,12 +385,10 @@
             <h2 id="product-information-title">Product Information &#x25be;</h2> 
         </button>
     </div>
-
     <!-- Collapsible Details Section -->
-   
         <div class="mb-3">
             <div id="detailedInfo" class="collapse">
-                <div class="card-info card-body" style="border-radius: 20px;">
+                <div class="card-info card-body-related" style="border-radius: 20px;">
                     <h3 id="info-main-title">{{ product.name }}</h3>
 
                     {% if product.unique_design_info %}
@@ -450,26 +447,27 @@
         </div>
 </section>
 
+
 <!-- Related products -->
+
 <section class="py-2 bg-light">
     <div class="container px-0 px-lg-0 my-2">
         <h2 class="fw-bolder mb-4" id="related-main-title">Related Products</h2>
-
         <!-- Carousel for large screens -->
         <div id="relatedProductsCarouselLg" class="carousel slide d-none d-lg-block" data-bs-ride="carousel">
             <div class="carousel-inner">
                 {% for related_product in related_products %}
                 {% if forloop.first %}<div class="carousel-item active"><div class="row gx-4 gx-lg-5">{% elif forloop.counter|divisibleby:4 %}</div></div><div class="carousel-item"><div class="row gx-4 gx-lg-5">{% endif %}
                     <div class="col-12 col-md-6 col-lg-3 mb-5">
-                        <div class="card h-100">
-                            <a href="{% url 'product' related_product.id %}">
-                                <div id="img-container-related">
+                        <div class="related-product-card h-100">
+                            <a  id="link-blue-remove" href="{% url 'product' related_product.id %}">
+                                <div class="related-img-container">
                                     <img class="card-img-top" src="{{ related_product.images.first.image.url }}" alt="{{ related_product.name }}"/>
                                 </div>
-                                <div class="card-body p-4">
+                                <div class="card-body p-4 related-card-body">
                                     <div class="text-center">
-                                        <h5 class="fw-bolder" id="related-product-title">{{ related_product.name }}</h5>
-                                        <div id="related-product-price">
+                                        <h5 class="fw-bolder related-product-title">{{ related_product.name }}</h5>
+                                        <div class="related-product-price">
                                             {% if related_product.on_sale %}
                                             <strike class='text-muted me-2'>£{{ related_product.price }}</strike> £{{ related_product.sale_price }}
                                             {% else %}
@@ -479,9 +477,9 @@
                                     </div>
                                 </div>
                             </a>
-                            <div class="card-footer p-2 pt-0 border-top-0 bg-transparent">
+                            <div class="card-footer p-2 pt-0 border-top-0 bg-transparent related-card-footer">
                                 <div class="text-center">
-                                    <a class="btn btn-outline-dark mt-auto" href="{% url 'product' related_product.id %}" id="home-product-button">View Product</a>
+                                    <a id="related-product-button class="btn btn-outline-dark mt-auto related-home-product-button" href="{% url 'product' related_product.id %}">View Product</a>
                                 </div>
                             </div>
                         </div>
@@ -506,15 +504,15 @@
                 <div class="carousel-item {% if forloop.first %}active{% endif %}">
                     <div class="row gx-4 gx-lg-5">
                         <div class="col-12 mb-5">
-                            <div class="card h-100">
-                                <a href="{% url 'product' related_product.id %}">
-                                    <div id="img-container-related">
+                            <div class="related-product-card h-100">
+                                <a id="link-blue-remove" href="{% url 'product' related_product.id %}">
+                                    <div class="related-img-container">
                                         <img class="card-img-top" src="{{ related_product.images.first.image.url }}" alt="{{ related_product.name }}"/>
                                     </div>
-                                    <div class="card-body p-4">
+                                    <div class="card-body p-4 related-card-body" id="related-home-product-button">
                                         <div class="text-center">
-                                            <h5 class="fw-bolder" id="related-product-title">{{ related_product.name }}</h5>
-                                            <div id="related-product-price">
+                                            <h5 class="fw-bolder related-product-title">{{ related_product.name }}</h5>
+                                            <div class="related-product-price">
                                                 {% if related_product.on_sale %}
                                                 <strike class='text-muted me-2'>£{{ related_product.price }}</strike> £{{ related_product.sale_price }}
                                                 {% else %}
@@ -524,9 +522,9 @@
                                         </div>
                                     </div>
                                 </a>
-                                <div class="card-footer p-2 pt-0 border-top-0 bg-transparent">
+                                <div class="card-footer p-2 pt-0 border-top-0 bg-transparent related-card-footer">
                                     <div class="text-center">
-                                        <a class="btn btn-outline-dark mt-auto" href="{% url 'product' related_product.id %}" id="home-product-button">View Product</a>
+                                        <a id="related-product-button" class="btn mt-auto" href="{% url 'product' related_product.id %}">View Product</a>
                                     </div>
                                 </div>
                             </div>
@@ -546,7 +544,6 @@
         </div>
     </div>
 </section>
-
 <script>
     // Function to add product to cart
     $(document).on('click', '#add-cart', function(e) {
