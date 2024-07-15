@@ -1575,7 +1575,7 @@ div#modal-img-container {
 }
 
 
-/* General styles */
+/* form styling  */
 .modal {
   display: none;
   position: fixed;
@@ -1640,7 +1640,7 @@ div#modal-img-container {
 
 .form-p-domain {
   font-size: 14px;
-  color: #A9DAD3;
+  color: #333;
   margin-bottom: 15px;
 }
 
@@ -1771,6 +1771,15 @@ div#modal-img-container {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 20px; /* Adjust as needed */
+}
+
+.options-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.option {
+  margin-right: 20px; /* Add some space between the buttons */
+  margin-bottom: 10px;
 }
 
 .form-group {

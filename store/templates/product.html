@@ -283,46 +283,45 @@
 
                     <hr>
 
-                    <!-- Media Content -->
-                    <h5 class="customise-form-title-second">Media</h5>
+                            <!-- Media Content -->
+                            <h5 class="customise-form-title-second">Media</h5>
 
-                    <div class="form-group">
-                        <label for="id_logo_image" style="margin-top: 10px!important;">Upload Company Logo?</label>
-                        <div class="unique-form-check">
-                            <input type="radio" name="logo_option" id="upload_logo" value="upload" onchange="toggleLogoOptions()" class="unique-form-check-input">
-                            <label class="unique-form-check-label" for="upload_logo" style="margin-bottom: 0px!important;">Upload Company Logo</label>
-                        </div>
-                        <input type="file" name="logo_image" id="id_logo_image" class="form-control" style="display: none;">
-                    </div>
-                    
-                    <div class="form-group">
-                        <div class="unique-form-check">
-                            <input type="radio" name="logo_option" id="use_company_name" value="use_name" onchange="toggleLogoOptions()" class="unique-form-check-input">
-                            <label class="unique-form-check-label" for="use_company_name" style="margin-bottom: 0px!important;">Use Company Name as Logo</label>
-                        </div>
-                    </div>
+                            <div class="form-group">
+                                <label for="id_logo_image">Upload Company Logo</label>
+                                <!-- row 1 -->
+                                <div class="options-container">
+                                    <div class="unique-form-check option">
+                                        <input type="radio" name="logo_option" id="upload_logo" value="upload" onchange="toggleLogoOptions()" class="unique-form-check-input">
+                                        <label class="unique-form-check-label" for="upload_logo">Upload Company Logo</label>
+                                    </div>
+                                    <div class="unique-form-check option">
+                                        <input type="radio" name="logo_option" id="use_company_name" value="use_name" onchange="toggleLogoOptions()" class="unique-form-check-input">
+                                        <label class="unique-form-check-label" for="use_company_name">Use Company Name as Logo</label>
+                                    </div>
+                                </div>
+                                <input type="file" name="logo_image" id="id_logo_image" class="form-control" style="display: none;">
+                            </div>
 
-                    <div class="form-group">
-                        <label style="margin-top: 10px!important;">Image Upload?</label>
-                        <div class="unique-form-check">
-                            <input type="radio" name="image_option" id="use_own_images" value="own" onchange="toggleImageOptions()" class="unique-form-check-input">
-                            <label class="unique-form-check-label" for="use_own_images" style="margin-bottom: 0px!important;">Upload My Images</label>
-                        </div>
-                        <input type="file" name="upload_images" id="id_upload_images" class="form-control" multiple style="display: none;">
-                    </div>
-                    
-                    <div class="form-group">
-                        <div class="unique-form-check">
-                            <input type="radio" name="image_option" id="use_stock_images" value="stock" onchange="toggleImageOptions()" class="unique-form-check-input">
-                            <label class="unique-form-check-label" for="use_stock_images" style="margin-bottom: 0px!important;">Use Stock Images</label>
-                        </div>
-                    </div>
+                            <div class="form-group">
+                                <label>Image Upload</label>
+                                <!-- row 2 -->
+                                <div class="options-container">
+                                    <div class="unique-form-check option">
+                                        <input type="radio" name="image_option" id="use_own_images" value="own" onchange="toggleImageOptions()" class="unique-form-check-input">
+                                        <label class="unique-form-check-label" for="use_own_images">Upload My Images</label>
+                                    </div>
+                                    <div class="unique-form-check option">
+                                        <input type="radio" name="image_option" id="use_stock_images" value="stock" onchange="toggleImageOptions()" class="unique-form-check-input">
+                                        <label class="unique-form-check-label" for="use_stock_images">Use Stock Images</label>
+                                    </div>
+                                </div>
+                                <input type="file" name="upload_images" id="id_upload_images" class="form-control" multiple style="display: none;">
+                            </div>
 
-                    
-                    <div class="form-group">
-                        <label for="id_upload_video" style="margin-top: 10px!important;">Upload Video? (optional)</label>
-                        <input type="file" name="upload_video" id="id_upload_video" class="form-control">
-                    </div>
+                            <div class="form-group">
+                                <label for="id_upload_video">Upload Video (optional)</label>
+                                <input type="file" name="upload_video" id="id_upload_video" class="form-control">
+                            </div>
 
                     <hr>
                  
