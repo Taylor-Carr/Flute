@@ -1,75 +1,70 @@
 {% extends 'base.html'%}
-
 {% block content %}
-
-        <!-----Header / Hero Section ----->
-
-        <header class="hero-section">
-            <div class="container">
-                <div class="row justify-content-center"> 
-                    <div class="col-md-12 col-lg-12"> 
-                        <div class="hero-card">
-                            <div class="hero-content text-center">
-                                <h1 id="summary-title">{{ category }}</h1>
-                            </div>
-                        </div>
+<!--Header / Hero Section-->
+<header class="hero-section">
+    <div class="container">
+        <div class="row justify-content-center"> 
+            <div class="col-md-12 col-lg-12"> 
+                <div class="hero-card">
+                    <div class="hero-content text-center">
+                        <h1 id="summary-title">{{ category }}</h1>
                     </div>
                 </div>
             </div>
-        </header>
-
-        <!-----Section----->
-
-        <section class="py-5">
-            <div class="container px-4 px-lg-5 mt-5">
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                    {% for product in products %}
-                    <div class="col mb-5">
-                        <div class="card h-100">
+        </div>
+    </div>
+</header>
+<!--Section-->
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            {% for product in products %}
+            <div class="col mb-5">
+                <div class="card h-100">
+                    {% if product.on_sale %}
+                    <div class="badge bg-light text-black position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                    {% endif %}
+                    <!-- Product image carousel -->
+                    <div id="carouselProduct{{ product.id }}" class="carousel slide">
+                        <div class="carousel-inner">
+                            {% for image in product.images.all %}
+                            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                <img class="d-block w-100" src="{{ image.image.url }}" alt="Product Image {{ forloop.counter }}">
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselProduct{{ product.id }}" role="button" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselProduct{{ product.id }}" role="button" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </a>
+                    </div>
+                    <!-- Product details -->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name -->
+                            <h5 class="fw-bolder">{{ product.name }}</h5>
+                            <!-- Product price -->
                             {% if product.on_sale %}
-                            <div class="badge bg-light text-black position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                            <strike>£{{ product.price }}</strike>
+                            <br>
+                            £{{ product.sale_price }}
+                            {% else %}
+                            £{{ product.price }}
                             {% endif %}
-                            <!-- Product image carousel -->
-                            <div id="carouselProduct{{ product.id }}" class="carousel slide">
-                                <div class="carousel-inner">
-                                    {% for image in product.images.all %}
-                                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                                        <img class="d-block w-100" src="{{ image.image.url }}" alt="Product Image {{ forloop.counter }}">
-                                    </div>
-                                    {% endfor %}
-                                </div>
-                                <a class="carousel-control-prev" href="#carouselProduct{{ product.id }}" role="button" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </a>
-                                <a class="carousel-control-next" href="#carouselProduct{{ product.id }}" role="button" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </a>
-                            </div>
-                            <!-- Product details -->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name -->
-                                    <h5 class="fw-bolder">{{ product.name }}</h5>
-                                    <!-- Product price -->
-                                    {% if product.on_sale %}
-                                    <strike>£{{ product.price }}</strike>
-                                    <br>
-                                    £{{ product.sale_price }}
-                                    {% else %}
-                                    £{{ product.price }}
-                                    {% endif %}
-                                </div>
-                            </div>
-                            <!-- Product actions -->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'product' product.id %}">View Product</a></div>
-                            </div>
                         </div>
                     </div>
-                    {% endfor %}
+                    <!-- Product actions -->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'product' product.id %}">View Product</a></div>
+                    </div>
                 </div>
             </div>
-        </section>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 {% endblock %}

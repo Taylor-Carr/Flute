@@ -1,17 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-
 <!-- Product section -->
 <section id="detail-section">
     <div class="container px-4 px-lg-5 my-4">
         <div class="row gx-4 gx-lg-5 align-items-center">
-
             <div class="col-md-6" id="title-carousel-container">
                 <!-- Product Name -->
                 <div id="title-container">
-                    <h1 class="display-5 fw-bolder mt-0 pt-0" id="product-detail-title">Our {{ product.name }}</h1>
+                    <h1 class="display-5 fw-bolder mt-0 pt-0" id="product-detail-title">{{ product.name }} Plan</h1>
                 </div>
-
                 <div id="carousel-container">
                     <div id="carouselProductDetail{{ product.id }}" class="carousel slide">
                         <div class="carousel-inner">
@@ -34,7 +31,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Modal Structure -->
             <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -51,14 +47,12 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-md-6" id="details-container">
                 <div class="d-flex flex-column">
                     <!-- Basic Description -->
                     <div class="mb-1">
                         <p class="product-details">{{ product.description }}</p>
                     </div>
-
                     <!-- What's Included Dropdown -->
                     <div class="mb-1">
                         <button class="btn btn-link p-0 include-dropdown" type="button" data-bs-toggle="collapse" data-bs-target="#whatsIncluded" aria-expanded="false" aria-controls="whatsIncluded" id="detail-dropdown">
@@ -72,7 +66,6 @@
                             </ul>
                         </div>
                     </div>
-
                     <!-- Product Price -->
                     <div class="mb-2">
                         {% if product.on_sale %}
@@ -84,7 +77,6 @@
                         <div id="price-detail">£{{ product.price }}</div>
                         {% endif %}
                     </div>
-
                     <!-- Value Add -->
                     <div class="d-flex align-items-center mb-3 value-add">
                         <div class="me-3">
@@ -97,7 +89,6 @@
                         <i class="fa-solid fa-rotate value-icons"></i> Unlimited Revisions Until Launch
                         </div>
                     </div>
-
                     <!-- Continue Button -->
                     <div class="d-grid button-container">
                         <a id="openModalBtn" class="btn" style="color:#fff; background-color: #0A5C5A; font-family: 'Inter', sans-serif; border-radius: 24px; font-weight: 500;">
@@ -109,8 +100,6 @@
         </div>
     </div>
 </section>
-
-
 <!-- Customise form pop up -->
 <div id="customizeFormModal" class="modal">
     <div class="modal-content">
@@ -122,31 +111,26 @@
                     {{ form.non_field_errors }}
                     <h5 class="customise-form-title">Tell us about your business.</h5>
                     <p class="form-p">Don't worry, you can request that this information is changed and added to at any point during the design process.</p>
-
                     <!--Company info -->
                     <div class="form-group">
                         <label for="id_company_name">Business Name</label>
                         <input type="text" name="company_name" id="id_company_name" class="form-control" placeholder="" value="{{ form.company_name.value|default:'' }}">
                     </div>
-
                     <!--Contact info for site-->
                     <div class="form-group">
                         <label for="id_email">Business Email</label>
                         <input type="email" name="email" id="id_email" class="form-control" placeholder="Email Address" value="{{ form.email.value|default:'' }}">
                     </div>
-            
                     <div class="form-group">
                         <label for="id_phone">Business Phone Number </label>
                         <input type="tel" name="phone" id="id_phone" class="form-control" placeholder="Phone Number" value="{{ form.phone.value|default:'' }}">
                     </div>
-
                     <!--Social media urls -->
                     <div class="form-row">
                         <div class="form-group col">
                             <label for="id_instagram">Instagram</label>
                             <input type="text" name="instagram" id="id_instagram" class="form-control" placeholder="Instagram Username" value="{{ form.instagram.value|default:'' }}">
                         </div>
-                
                         <div class="form-group col">
                             <label for="id_facebook">Facebook</label>
                             <input type="text" name="facebook" id="id_facebook" class="form-control" placeholder="Facebook Page URL" value="{{ form.facebook.value|default:'' }}">
@@ -157,7 +141,6 @@
                             <label for="id_twitter">Twitter</label>
                             <input type="text" name="twitter" id="id_twitter" class="form-control" placeholder="Twitter Username" value="{{ form.twitter.value|default:'' }}">
                         </div>
-                
                         <div class="form-group col">
                             <label for="id_linkedin">LinkedIn</label>
                             <input type="text" name="linkedin" id="id_linkedin" class="form-control" placeholder="LinkedIn Profile URL" value="{{ form.linkedin.value|default:'' }}">
@@ -168,49 +151,39 @@
                         <label for="id_company_established">Company Established</label>
                         <input type="date" name="company_established" id="id_company_established" class="form-control" value="{{ form.company_established.value|default:'' }}">
                     </div>
-  
                     <div class="form-group">
                         <label for="id_offered_services">Services you offer</label>
                         <input type="text" name="offered_services" id="id_offered_services" class="form-control" placeholder="What services do you offer?" value="{{ form.offered_services.value|default:'' }}">
                     </div>
-
                     <div class="form-group">
                         <label for="id_company_values">Company values</label>
                         <input type="text" name="company_values" id="id_company_values" class="form-control" placeholder="Slogan, brand beliefs etc" value="{{ form.company_values.value|default:'' }}">
                     </div>
-  
                     <div class="form-group">
                         <label for="id_about_company">About Your Business</label>
                         <textarea name="about_company" id="id_about_company" class="form-control" placeholder="What sets you apart from your competitors?">{{ form.about_company.value|default:'' }}</textarea>
                     </div>
-  
                     <div class="form-group">
                         <label for="id_target_market">Target Market</label>
                         <input type="text" name="target_market" id="id_target_market" class="form-control" placeholder="Target Market" value="{{ form.target_market.value|default:'' }}">
                     </div>
-                    
                     <div class="form-group">
                         <label for="id_company_location">Company Location</label>
                         <input type="text" name="company_location" id="id_company_location" class="form-control" placeholder="Company Location" value="{{ form.company_location.value|default:'' }}">
                     </div>
-
                     <div class="form-group">
                         <label for="id_areas_covered">Areas Your Business Covers</label>
                         <input type="text" name="areas_covered" id="id_areas_covered" class="form-control" placeholder="Areas Your Business Covers" value="{{ form.areas_covered.value|default:'' }}">
                     </div>
-  
                     <div class="form-group">
                         <label for="id_common_questions">Common questions your customers ask</label>
                         <input type="text" name="common_questions" id="id_common_questions" class="form-control" placeholder="What common questions do your customers ask?" value="{{ form.common_questions.value|default:'' }}">
                     </div>
-  
                     <div class="form-group">
                         <label for="id_special_offers">Special discounts or promotions</label>
                         <input type="text" name="special_offers" id="id_special_offers" class="form-control" placeholder="" value="{{ form.special_offers.value|default:'' }}">
                     </div>
-
                     <hr>
-
                     <!--Design info -->
                     <h5 class="customise-form-title-second">Your Design</h5>
                     <p class="form-p-domain">Let us know what style(s) you prefer.</p>
@@ -256,79 +229,64 @@
                             <label class="unique-form-check-label" for="bold_typography_design">Bold Typography</label>
                         </div>
                     </div>
-
                         <hr>
-                    
                     <div class="form-group">
                         <p class="form-p-domain">Your Domain name, we'll shop around and include the best deals and options in your design proposal.</p>
                         <label for="id_domain_name">Domain Name</label>
                         <input type="text" name="domain_name" id="id_domain_name" class="form-control" placeholder="www.yourcompany.com" value="{{ form.domain_name.value|default:'' }}">
                     </div>
-
                     <div class="form-group">
                         <label for="id_primary_goal">Whats the goal of your landing page / Website? </label>
                         <input type="text" name="primary_goal" id="id_primary_goal" class="form-control" placeholder="Lead generation, event registration" value="{{ form.primary_goal.value|default:'' }}">
                     </div>
-
                     <div class="form-group">
                         <label for="id_brand_assets">Preferred brand assets</label>
                         <input type="text" name="brand_assets" id="id_brand_assets" class="form-control" placeholder="Colour scheme, fonts" value="{{ form.brand_assets.value|default:'' }}">
                     </div>
-
-
                     <div class="form-group">
                         <label for="id_reference_website">Reference Website</label>
                         <input type="url" name="reference_website" id="id_reference_website" class="form-control" placeholder="www.yourfaviroutewebsite.co.uk" value="{{ form.reference_website.value|default:'' }}">
                     </div>
-
                     <hr>
-
-                            <!-- Media Content -->
-                            <h5 class="customise-form-title-second">Media</h5>
-
-                            <div class="form-group">
-                                <label for="id_logo_image">Upload Company Logo</label>
-                                <!-- row 1 -->
-                                <div class="options-container">
-                                    <div class="unique-form-check option">
-                                        <input type="radio" name="logo_option" id="upload_logo" value="upload" onchange="toggleLogoOptions()" class="unique-form-check-input">
-                                        <label class="unique-form-check-label" for="upload_logo">Upload Company Logo</label>
-                                    </div>
-                                    <div class="unique-form-check option">
-                                        <input type="radio" name="logo_option" id="use_company_name" value="use_name" onchange="toggleLogoOptions()" class="unique-form-check-input">
-                                        <label class="unique-form-check-label" for="use_company_name">Use Company Name as Logo</label>
-                                    </div>
-                                </div>
-                                <input type="file" name="logo_image" id="id_logo_image" class="form-control" style="display: none;">
+                    <!-- Media Content -->
+                    <h5 class="customise-form-title-second">Media</h5>
+                    <div class="form-group">
+                        <label for="id_logo_image">Upload Company Logo</label>
+                        <!-- row 1 -->
+                        <div class="options-container">
+                            <div class="unique-form-check option">
+                                <input type="radio" name="logo_option" id="upload_logo" value="upload" onchange="toggleLogoOptions()" class="unique-form-check-input">
+                                <label class="unique-form-check-label" for="upload_logo">Upload Company Logo</label>
                             </div>
-
-                            <div class="form-group">
-                                <label>Image Upload</label>
-                                <!-- row 2 -->
-                                <div class="options-container">
-                                    <div class="unique-form-check option">
-                                        <input type="radio" name="image_option" id="use_own_images" value="own" onchange="toggleImageOptions()" class="unique-form-check-input">
-                                        <label class="unique-form-check-label" for="use_own_images">Upload My Images</label>
-                                    </div>
-                                    <div class="unique-form-check option">
-                                        <input type="radio" name="image_option" id="use_stock_images" value="stock" onchange="toggleImageOptions()" class="unique-form-check-input">
-                                        <label class="unique-form-check-label" for="use_stock_images">Use Stock Images</label>
-                                    </div>
-                                </div>
-                                <input type="file" name="upload_images" id="id_upload_images" class="form-control" multiple style="display: none;">
+                            <div class="unique-form-check option">
+                                <input type="radio" name="logo_option" id="use_company_name" value="use_name" onchange="toggleLogoOptions()" class="unique-form-check-input">
+                                <label class="unique-form-check-label" for="use_company_name">Use Company Name as Logo</label>
                             </div>
-
-                            <div class="form-group">
-                                <label for="id_upload_video">Upload Video (optional)</label>
-                                <input type="file" name="upload_video" id="id_upload_video" class="form-control">
+                        </div>
+                        <input type="file" name="logo_image" id="id_logo_image" class="form-control" style="display: none;">
+                    </div>
+                    <div class="form-group">
+                        <label>Image Upload</label>
+                        <!-- row 2 -->
+                        <div class="options-container">
+                            <div class="unique-form-check option">
+                                <input type="radio" name="image_option" id="use_own_images" value="own" onchange="toggleImageOptions()" class="unique-form-check-input">
+                                <label class="unique-form-check-label" for="use_own_images">Upload My Images</label>
                             </div>
-
+                            <div class="unique-form-check option">
+                                <input type="radio" name="image_option" id="use_stock_images" value="stock" onchange="toggleImageOptions()" class="unique-form-check-input">
+                                <label class="unique-form-check-label" for="use_stock_images">Use Stock Images</label>
+                            </div>
+                        </div>
+                        <input type="file" name="upload_images" id="id_upload_images" class="form-control" multiple style="display: none;">
+                    </div>
+                    <div class="form-group">
+                        <label for="id_upload_video">Upload Video (optional)</label>
+                        <input type="file" name="upload_video" id="id_upload_video" class="form-control">
+                    </div>
                     <hr>
-                 
                     <!-- Sign Up -->
                     <h5 class="customise-form-title-second">Sign Up</h5>
-                    
-
                     <!--Name -->
                     <div class="form-row">
                         <div class="form-group col">
@@ -341,14 +299,11 @@
                             <input type="text" name="last_name" id="id_last_name" class="form-control" placeholder="Last Name" value="{{ form.last_name.value|default:'' }}">
                         </div>
                     </div>
-
-
                     <!--Email-->
                     <div class="form-group">
                         <label for="id_email">Email Address</label>
                         <input type="email" name="email" id="id_email" class="form-control" placeholder="Email Address" value="{{ form.email.value|default:'' }}">
                     </div>
-
                     <!--Password -->
                     <div class="form-row">
                         <div class="form-group col">
@@ -362,8 +317,7 @@
                             <input type="password" name="password2" id="id_password2" class="form-control" placeholder="Confirm Password">
                             <small class="customize-form-text-muted">{{ form.password2.help_text|safe }}</small>
                         </div>
-                    </div>
-                   
+                    </div>              
                     <p class="form-p-legal">We won't share your information with anyone else.</p>
                     <!--Button -->
                     <div class="form-group">
@@ -374,9 +328,7 @@
         </section>
     </div>
   </div>
-
 <!---Product info section -->
-
 <section class="product-info-section">
     <!-- Product info dropdown -->
     <div class="mb-2">
@@ -445,10 +397,7 @@
             </div>
         </div>
 </section>
-
-
 <!-- Related products -->
-
 <section class="py-2 bg-light">
     <div class="container px-0 px-lg-0 my-2">
         <h2 class="fw-bolder mb-4" id="related-main-title">Related Products</h2>
@@ -495,7 +444,6 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-
         <!-- Carousel for mobile screens -->
         <div id="relatedProductsCarouselSm" class="carousel slide d-lg-none" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -551,8 +499,8 @@
             type: 'POST',
             url: '{% url "cart_add" %}',
             data: {
-                product_id: $(this).val(),  // get the product ID from the button's value
-                product_qty: $('#qty-cart').val(),  // Get the selected quantity value
+                product_id: $(this).val(),  
+                product_qty: $('#qty-cart').val(),  
                 csrfmiddlewaretoken: '{{ csrf_token }}',
                 action: 'post'
             },

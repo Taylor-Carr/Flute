@@ -1,16 +1,4 @@
 @charset "UTF-8";
-/*!
-* Start Bootstrap - Shop Homepage v5.0.6 (https://startbootstrap.com/template/shop-homepage)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-shop-homepage/blob/master/LICENSE)
-*/
-/*!
- * Bootstrap  v5.2.3 (https://getbootstrap.com/)
- * Copyright 2011-2022 The Bootstrap Authors
- * Copyright 2011-2022 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
- /* google fonts */
  @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
@@ -111,10 +99,8 @@
 }
 
 
-
-/* Custom CSS for navbar responsiveness and max-width */
 .navbar {
-  padding-top: 0.2rem; /* Reduced top padding */
+  padding-top: 0.2rem; 
   padding-bottom: 0.5rem;
 }
 
@@ -126,7 +112,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative; /* Added for positioning child elements */
+  position: relative; 
 }
 
 .navbar-header {
@@ -237,7 +223,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Center vertically */
+    align-items: center;
   }
 
   .navbar-header {
@@ -247,11 +233,11 @@
   .support-dropdown {
     flex-grow: 0;
     display: flex;
-    align-items: center; /* Center vertically */
+    align-items: center;
   }
 
   .support-dropdown .nav-link {
-    font-size: 1.5rem; /* Make the burger icon larger */
+    font-size: 1.5rem;
   }
 
   .search-bar {
@@ -267,23 +253,23 @@
   }
 
   .search-form-control {
-    width: calc(100% - 2rem); /* Adjusted to fit the button inside */
+    width: calc(100% - 2rem); 
   }
 
   .dropdown-menu {
-    position: absolute !important; /* Important to override default positioning */
-    z-index: 1000; /* Adjust the z-index to ensure it appears above other elements */
-    background-color: white; /* Optional: Adjust background color as needed */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: Add box-shadow for a visual effect */
-    width: 100%; /* Ensure it takes full width of its container */
+    position: absolute !important;
+    z-index: 1000; 
+    background-color: white; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+    width: 100%; 
   }
 
   .dropdown-menu .nav-link {
-    padding-left: 20px; /* Move the text slightly to the right */
+    padding-left: 20px; 
   }
 
   .navbar-collapse {
-    position: relative; /* Ensure relative positioning for the parent container */
+    position: relative; 
   }
 
   nav {
@@ -332,10 +318,10 @@
 #second-navbar .container {
   display: flex;
   justify-content: center;
-  max-width: 1200px; /* Match this with the container max-width */
+  max-width: 1200px; 
   width: 100%;
   margin: 0 auto;
-  overflow: hidden; /* Hide the overflowing list items */
+  overflow: hidden; 
 }
 
 #nav-value-icon {
@@ -348,8 +334,8 @@
   padding: 0;
   margin: 0;
   display: flex;
-  flex-wrap: nowrap; /* Prevent items from wrapping */
-  animation: slide 30s linear infinite; /* Apply the animation */
+  flex-wrap: nowrap; 
+  animation: slide 30s linear infinite;
 }
 
 #second-navbar ul li {
@@ -357,18 +343,17 @@
   font-weight: 700;
   font-family: 'Inter';
   color: #213038;
-  padding: 3px 35px; /* Adjust padding to increase space between items */
+  padding: 3px 35px;
   display: flex;
-  align-items: center; /* Vertically center the content */
-  white-space: nowrap; /* Prevent text from wrapping */
+  align-items: center;
+  white-space: nowrap; 
 }
-
 
 
 /* Responsive Design */
 @media (min-width: 769px) {
   #second-navbar ul {
-    animation: none; /* Disable animation on larger screens */
+    animation: none;
   }
 
   .nav-item {
@@ -383,10 +368,10 @@
   font-weight: 700;
   font-family: 'Inter';
   color: #213038;
-  padding: 3px 35px; /* Adjust padding to increase space between items */
+  padding: 3px 35px; 
   display: flex;
-  align-items: center; /* Vertically center the content */
-  white-space: nowrap; /* Prevent text from wrapping */
+  align-items: center; 
+  white-space: nowrap;
 }
 }
 
@@ -396,23 +381,23 @@
 /* Hero Section */ 
 
 .container {
-  max-width: 1200px; /* Adjust to your desired max width */
+  max-width: 1200px; 
   width: 100%;
-  margin: 0 auto; /* Center the container */
-  padding: 0 5px; /* Optional: Add padding for responsive spacing */
+  margin: 0 auto; 
+  padding: 0 5px; 
 }
 
 /* Header */
 header {
   background-color: #fff;
   display: flex;
-  width: 100%; /* Full width */
-  margin: 0 auto; /* Center the section horizontally */
+  width: 100%; 
+  margin: 0 auto; 
 }
 
 /* Hero Section */
 .hero-section {
-  width: 100%; /* Full width */
+  width: 100%; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -425,13 +410,13 @@ header {
   background-color: #f9f9f9;
   border-radius: 20px;
   padding: 20px;
-  max-width: 1200px; /* Match the max width of the container */
-  width: 100%; /* Ensure full width */
+  max-width: 1200px; 
+  width: 100%;
   text-align: center;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
   position: relative;
-  overflow: hidden; /* Ensure pseudo-elements are visible */
-  margin: 0 auto; /* Center the card */
+  overflow: hidden;
+  margin: 0 auto;
 }
 
 /* Adjust the Semi-Circles */
@@ -486,7 +471,7 @@ header {
   border-radius: 50%;
   transform: translateY(-40%);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  position: relative; /* Change to absolute in the mobile view */
+  position: relative; 
 }
 
 
@@ -589,11 +574,11 @@ header {
     height: 30px;
     background: radial-gradient(circle at 30% 70%, #33908E, #0A5C5A);
     border-radius: 50%;
-    transform: translateY(0); /* Remove translateY to position correctly */
+    transform: translateY(0); 
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    position: absolute; /* Position absolutely */
-    top: -5px; /* Adjust as needed */
-    right: 25px; /* Use right instead of left to position it to the top right */
+    position: absolute; 
+    top: -5px;
+    right: 25px;
   }
 
   .hero-content img {
@@ -621,10 +606,9 @@ header {
 .home-title-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 10px; /* Remove padding */
 }
 .home-title-title {
-  margin-bottom: 10px; /* Adjust spacing as needed */
+  margin-bottom: 10px; 
   text-align: left;
   color: #0A5C5A;
   font-size: 3rem;
@@ -656,10 +640,10 @@ header {
   .home-title-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0px; /* Remove padding */
+    padding: 0px;
   }
   .home-title-title {
-    margin-bottom: 10px; /* Adjust spacing as needed */
+    margin-bottom: 10px;
     text-align: left;
     color: #0A5C5A;
     font-size: 2.2rem;
@@ -683,34 +667,34 @@ header {
 
 /* Home Page Product */
 .product-container {
-  max-width: 100%; /* Allow the container to take full width */
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 0px; /* Remove padding */
-  display: flex; /* Use flexbox */
-  flex-wrap: wrap; /* Allow items to wrap to the next line */
-  justify-content: center; /* Center the items horizontally */
+  padding: 0 0px; 
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center; 
 }
 
 /* Adjust column width */
 @media (min-width: 992px) {
   .col-xl-2-5 {
-    flex: 0 0 20%; /* Each card takes 20% of the width */
+    flex: 0 0 20%;
     max-width: 20%;
   }
 }
 
 @media (min-width: 1200px) {
   .col-xl-2-5 {
-    flex: 0 0 18%; /* Adjust further for larger screens if needed */
+    flex: 0 0 18%;
     max-width: 18%;
   }
 }
 
 .featured-product-card {
-  flex: 0 0 45%; /* Adjust width to 45% for larger cards */
-  margin-left: 2% !important; /* Increase margin for more space between cards */
-  margin-right: 2% !important; /* Increase margin for more space between cards */
-  min-height: 450px; /* Set a minimum height for the cards */
+  flex: 0 0 45%; 
+  margin-left: 2% !important; 
+  margin-right: 2% !important; 
+  min-height: 450px;
   background-color: var(--card-bg);
   border-radius: var(--card-border-radius);
   box-shadow: var(--card-shadow);
@@ -764,18 +748,18 @@ div#img-container-featured::-webkit-scrollbar-thumb:hover {
 
 /* Scrollbar track */
 #img-container-featured::-webkit-scrollbar-track {
-  background-color: transparent!important; /* Make scrollbar track transparent */
+  background-color: transparent!important; 
 }
 
 /* Add a subtle shadow to scrollbar thumb for depth */
 #img-container-featured::-webkit-scrollbar-thumb {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)!important; /* Subtle shadow for depth */
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)!important;
 }
 
 /* Custom scrollbar for Firefox */
 #img-container {
-  scrollbar-width: thin; /* Width of the scrollbar */
-  scrollbar-color: #888 #f1f1f1; /* Color of the scrollbar thumb and track */
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1; 
 }
 
 /* For Edge and IE (legacy) */
@@ -783,7 +767,7 @@ div#img-container-featured::-webkit-scrollbar-thumb:hover {
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
-/* Ensuring the image itself scales properly */
+
 .product-image {
   max-height: none;
   width: auto; 
@@ -817,8 +801,8 @@ div#img-container-featured::-webkit-scrollbar-thumb:hover {
   padding: 0.4rem;
   text-align: left;
   list-style: none;
-  padding-left: 0; /* Remove left padding for list */
-  margin-bottom: 1rem; /* Add space below the list */
+  padding-left: 0; 
+  margin-bottom: 1rem;
 }
 
 #detail-dropdown-home {
@@ -832,12 +816,12 @@ div#img-container-featured::-webkit-scrollbar-thumb:hover {
 .include-list li {
   display: flex;
   align-items: center;
-  margin-bottom: 0.5rem; /* Add space between list items */
+  margin-bottom: 0.5rem; 
 }
 
 .include-list li i {
-  color: #A9DAD3; /* Icon color */
-  margin-right: 0.5rem; /* Space between icon and text */
+  color: #A9DAD3; 
+  margin-right: 0.5rem; 
 }
 
 /* Title */
@@ -890,16 +874,16 @@ div#img-container-featured::-webkit-scrollbar-thumb:hover {
 /* Phone */
 @media (max-width: 768px) {
   .featured-product-card {
-    flex: 0 0 100%; /* Full width for small screens */
-    min-height: 550px; /* Adjust min-height for small screens */
-    margin-bottom: 2rem; /* Add margin at bottom for spacing */
+    flex: 0 0 100%; 
+    min-height: 550px; 
+    margin-bottom: 2rem; 
   }
 }
 
 /* PRODUCT DETAIL CARD STYLING */
 
 #detail-img {
-  border-radius: 12px; /* Adjust the value as needed */
+  border-radius: 12px; 
 }
 
 /* Product detail */
@@ -933,7 +917,7 @@ div#img-container-featured::-webkit-scrollbar-thumb:hover {
 
 .value-icons {
   color: #A9DAD3;
-  margin-right: 5px; /* Adjusted for better spacing */
+  margin-right: 5px; 
 }
 
 #detail-dropdown {
@@ -953,8 +937,8 @@ div#img-container-featured::-webkit-scrollbar-thumb:hover {
 
 .include-list-detail {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Creates two columns */
-  gap: 0.5rem; /* Space between items */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem; 
   padding: 0;
   list-style-type: none;
 }
@@ -994,9 +978,9 @@ div#img-container-featured::-webkit-scrollbar-thumb:hover {
 
 /* Detail img carousel */
 #img-container-detail {
-  max-height: 420px; /* Adjust this height as needed */
+  max-height: 420px; 
   overflow-y: auto;
-  overflow-x: hidden; /* Hide horizontal scrollbar */
+  overflow-x: hidden; 
   border-radius: 20px!important;
 }
 
@@ -1018,12 +1002,12 @@ div#img-container-featured::-webkit-scrollbar-thumb:hover {
 
 /* Scrollbar track */
 #img-container-detail::-webkit-scrollbar-track {
-  background-color: transparent!important; /* Make scrollbar track transparent */
+  background-color: transparent!important; 
 }
 
 /* Add a subtle shadow to scrollbar thumb for depth */
 #img-container-detail::-webkit-scrollbar-thumb {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)!important; /* Subtle shadow for depth */
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)!important;
 }
 
 /* Styles for mobile view */
@@ -1051,9 +1035,9 @@ div#img-container-featured::-webkit-scrollbar-thumb:hover {
   }
 
   #img-container-detail {
-    max-height: 350px; /* Adjust this height as needed */
+    max-height: 350px;
     overflow-y: auto;
-    overflow-x: hidden; /* Hide horizontal scrollbar */
+    overflow-x: hidden; 
     border-radius: 20px!important;
   }
 
@@ -1095,37 +1079,37 @@ div#img-container-featured::-webkit-scrollbar-thumb:hover {
 
 /* Scrollable image container within the modal */
 div#modal-img-container {
-  max-height: 70vh !important; /* Adjust the height as needed */
+  max-height: 70vh !important; 
   overflow-y: auto !important;
 }
 
 /* Custom scrollbar for WebKit browsers (Chrome, Safari) */
 div#modal-img-container::-webkit-scrollbar {
-  width: 10px ; /* Width of the scrollbar */
+  width: 10px ; 
 }
 
 div#modal-img-container::-webkit-scrollbar-thumb {
-  background: #888 !important; /* Color of the scrollbar thumb */
-  border-radius: 10px !important; /* Roundness of the scrollbar thumb */
+  background: #888 !important;
+  border-radius: 10px !important; 
 }
 
 div#modal-img-container::-webkit-scrollbar-thumb:hover {
-  background: #555 !important; /* Color when hovering over the scrollbar thumb */
+  background: #555 !important; 
 }
 
 div#modal-img-container::-webkit-scrollbar-track {
-  background: #f1f1f1 !important; /* Color of the scrollbar track */
+  background: #f1f1f1 !important; 
 }
 
 /* Custom scrollbar for Firefox */
 div#modal-img-container {
-  scrollbar-width: thin !important; /* Width of the scrollbar */
-  scrollbar-color: #888 #f1f1f1 !important; /* Color of the scrollbar thumb and track */
+  scrollbar-width: thin !important; 
+  scrollbar-color: #888 #f1f1f1 !important; 
 }
 
 /* For Edge and IE (legacy) */
 div#modal-img-container {
-  -ms-overflow-style: -ms-autohiding-scrollbar !important; /* Automatically hides scrollbar when not in use */
+  -ms-overflow-style: -ms-autohiding-scrollbar !important; 
 }
 
 
@@ -1170,7 +1154,7 @@ div#modal-img-container {
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    filter: invert(1); /* Invert icon color */
+    filter: invert(1); 
 }
 
 
@@ -1187,25 +1171,25 @@ div#modal-img-container {
 
 @media (max-width: 768px) {
   .product-card {
-    transform: scale(0.9); /* Slightly smaller cards */
+    transform: scale(0.9);
   }
 }
 
 @media (min-width: 769px) and (max-width: 992px) {
   .product-card {
-    transform: scale(0.9); /* Slightly smaller cards */
+    transform: scale(0.9); 
   }
 }
 
 @media (min-width: 993px) and (max-width: 1200px) {
   .product-card {
-    transform: scale(0.95); /* Slightly smaller cards */
+    transform: scale(0.95);
   }
 }
 
 @media (min-width: 1201px) {
   .product-card {
-    transform: scale(0.95); /* Slightly smaller cards */
+    transform: scale(0.95);
   }
 }
 
@@ -1217,8 +1201,8 @@ div#modal-img-container {
 }
 
 .info-dropdown {
-  text-decoration: none!important; /* Remove underline */
-  color: inherit; /* Ensure the button text inherits the color */
+  text-decoration: none!important; 
+  color: inherit;
 }
 
 #info-main-title {
@@ -1298,7 +1282,7 @@ div#modal-img-container {
 .card-info {
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 1.5rem; /* Increased padding */
+  padding: 1.5rem; 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-top: 1rem;
 }
@@ -1336,9 +1320,9 @@ div#modal-img-container {
   .card-info {
     border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 15px; /* Increased padding for mobile */
+    padding: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 10px; /* Added margin for mobile */
+    margin: 10px;
   }
 
   .card-body ul li {
@@ -1417,10 +1401,10 @@ div#modal-img-container {
 }
 /* Ensure images are responsive */
 .related-product-card {
-  flex: 0 0 45%; /* Adjust width to 45% for larger cards */
-  margin-left: 2% !important; /* Increase margin for more space between cards */
-  margin-right: 2% !important; /* Increase margin for more space between cards */
-  min-height: 450px; /* Set a minimum height for the cards */
+  flex: 0 0 45%; 
+  margin-left: 2% !important; 
+  margin-right: 2% !important; 
+  min-height: 450px; 
   background-color: var(--card-bg);
   border-radius: var(--card-border-radius);
   box-shadow: var(--card-shadow);
@@ -1437,9 +1421,9 @@ div#modal-img-container {
 
 /* Detail img carousel */
 #img-container-related {
-  max-height: 330px; /* Adjust this height as needed */
+  max-height: 330px; 
   overflow-y: auto;
-  overflow-x: hidden; /* Hide horizontal scrollbar */
+  overflow-x: hidden; 
   border-radius: 20px !important;
 }
 
@@ -1461,12 +1445,12 @@ div#modal-img-container {
 
 /* Scrollbar track */
 #img-container-related::-webkit-scrollbar-track {
-  background-color: transparent !important; /* Make scrollbar track transparent */
+  background-color: transparent !important;
 }
 
 /* Add a subtle shadow to scrollbar thumb for depth */
 #img-container-related::-webkit-scrollbar-thumb {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important; /* Subtle shadow for depth */
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important; 
 }
 
 /* Card adjustments for better mobile view */
@@ -1542,9 +1526,9 @@ div#modal-img-container {
 
 /* Ensure WebKit scroll styles are applied */
 .related-img-container {
-  max-height: 360px; /* Adjust this height as needed */
+  max-height: 360px; 
   overflow-y: auto;
-  overflow-x: hidden; /* Hide horizontal scrollbar */
+  overflow-x: hidden; 
   border-radius: 20px !important;
 }
 
@@ -1566,12 +1550,12 @@ div#modal-img-container {
 
 /* Scrollbar track */
 .related-img-container::-webkit-scrollbar-track {
-  background-color: transparent !important; /* Make scrollbar track transparent */
+  background-color: transparent !important; 
 }
 
 /* Add a subtle shadow to scrollbar thumb for depth */
 .related-img-container::-webkit-scrollbar-thumb {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important; /* Subtle shadow for depth */
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important; 
 }
 
 
@@ -1594,7 +1578,7 @@ div#modal-img-container {
   margin: 5% auto;
   padding: 10px;
   border: 1px solid #888;
-  width: 90%; /* Reduce width for better mobile fit */
+  width: 90%; 
   max-width: 600px;
   border-radius: 8px;
 }
@@ -1667,16 +1651,16 @@ div#modal-img-container {
   margin-bottom: 25px !important;
   border: 1px solid #e0e0e0 !important;
   border-radius: 10px !important;
-  font-weight: 400 !important; /* Ensure the font weight is set correctly */
+  font-weight: 400 !important; 
   font-family: 'Inter', sans-serif !important;
   color: black !important;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1) !important; /* Grey box shadow */
-  outline: none !important; /* Remove the outline */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1) !important; 
+  outline: none !important; 
 }
 
 .form-control:focus {
-  border-color: #f9f9f9 !important; /* Change border color on focus */
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) !important; /* Grey box shadow */
+  border-color: #f9f9f9 !important; 
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) !important; 
 }
 
 #btn-primary-customise {
@@ -1722,7 +1706,7 @@ div#modal-img-container {
   cursor: pointer;
   transition: background-color 0.3s ease, border 0.3s ease;
   position: relative;
-  flex: 1 0 calc(50% - 20px); /* Two columns with some margin */
+  flex: 1 0 calc(50% - 20px); 
 }
 
 .unique-form-check-input {
@@ -1770,7 +1754,7 @@ div#modal-img-container {
 .form-row {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 20px; /* Adjust as needed */
+  margin-bottom: 20px;
 }
 
 .options-container {
@@ -1778,40 +1762,40 @@ div#modal-img-container {
   flex-wrap: wrap;
 }
 .option {
-  margin-right: 20px; /* Add some space between the buttons */
+  margin-right: 20px;
   margin-bottom: 10px;
 }
 
 .form-group {
   flex: 1;
-  margin-right: 10px; /* Adjust as needed */
+  margin-right: 10px; 
 }
 
 @media (max-width: 767.98px) {
   .modal-content {
-    width: 95%; /* Use more screen width on mobile */
+    width: 95%; 
     margin: 10px;
     padding-left: 0;
     padding-right: 0;
   }
 
   .form-row {
-    flex-direction: column; /* Stack form groups vertically */
+    flex-direction: column; 
   }
 
   .form-group {
-    margin-right: 0; /* Remove right margin */
-    margin-bottom: 5px; /* Add bottom margin */
+    margin-right: 0; 
+    margin-bottom: 5px; 
   }
 
   .unique-form-check {
-    flex: 1 0 100%; /* Full width on mobile */
-    margin: 5px 0; /* Adjust margins */
+    flex: 1 0 100%; 
+    margin: 5px 0; 
   }
 
   #btn-primary-customise {
-    padding: 10px; /* Adjust padding for mobile */
-    font-size: 16px; /* Adjust font size for mobile */
+    padding: 10px; 
+    font-size: 16px; 
   }
 }
 
@@ -1819,7 +1803,7 @@ div#modal-img-container {
 .terms-section {
   background-color: #fff;
   padding-bottom: 2rem;
-  margin: 0 auto; /* Center the section horizontally */
+  margin: 0 auto; 
   margin-bottom: 1rem;
 }
 
@@ -1855,7 +1839,7 @@ div#modal-img-container {
 @media (max-width: 480px) {
   .terms-section {
     background-color: #fff;
-    margin: 0 auto; /* Center the section horizontally */
+    margin: 0 auto;
   }
 
   .terms-container {
@@ -1883,7 +1867,7 @@ div#modal-img-container {
 .terms-section {
   background-color: #fff;
   padding-bottom: 2rem;
-  margin: 0 auto; /* Center the section horizontally */
+  margin: 0 auto;
   margin-bottom: 1rem;
 }
 
@@ -1918,7 +1902,7 @@ div#modal-img-container {
 @media (max-width: 480px) {
   .terms-section {
     background-color: #fff;
-    margin: 0 auto; /* Center the section horizontally */
+    margin: 0 auto; 
   }
 
   .terms-container {
@@ -1946,7 +1930,7 @@ div#modal-img-container {
   background-color: #0A5C5A;
   padding-top: 2rem;
   padding-bottom: 2rem;
-  margin: 0 auto; /* Center the section horizontally */
+  margin: 0 auto; 
   margin-bottom: 3rem;
 }
 
@@ -2000,15 +1984,15 @@ div#modal-img-container {
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   margin: 30px;
   padding: 20px;
-  opacity: 0; /* Initially hidden */
-  transform: translateY(20px); /* Slide down effect */
+  opacity: 0; 
+  transform: translateY(20px); 
   transition: opacity 0.5s ease, transform 0.5s ease;
-  box-sizing: border-box; /* Ensure padding and borders are included in the width and height */
+  box-sizing: border-box; 
 }
 
 .service-card.animate {
-  opacity: 1; /* Fade in */
-  transform: translateY(0); /* Slide up to normal position */
+  opacity: 1; 
+  transform: translateY(0); 
 }
 
 .service-num {
@@ -2036,19 +2020,19 @@ div#modal-img-container {
   font-weight: 500;
   font-family: 'Inter', sans-serif;
   text-align: center;
-  line-height: 1.6; /* Increase line height for better readability */
+  line-height: 1.6; 
 }
 
 /* Responsive adjustments */
 @media (max-width: 992px) {
   #service-items {
-    flex-direction: row; /* Ensure items are displayed in rows */
-    justify-content: space-around; /* Space evenly around cards */
+    flex-direction: row;
+    justify-content: space-around;
   }
 
   .service-card {
-    flex: 0 0 45%; /* Two cards per row with some margin */
-    margin: 1%; /* Margin for spacing between cards */
+    flex: 0 0 45%; 
+    margin: 1%; 
     padding: 10px;
   }
 
@@ -2078,7 +2062,7 @@ div#modal-img-container {
     font-family: 'Inter', sans-serif;
 
     text-align: center;
-    line-height: 1.6; /* Increase line height for better readability */
+    line-height: 1.6; 
   }
 }
 
@@ -2099,11 +2083,11 @@ div#modal-img-container {
   }
 
   .service-card {
-    width: 100%; /* Full width for small screens */
-    margin: 15px 0; /* Add vertical margin to separate cards */
+    width: 100%; 
+    margin: 15px 0;
     padding: 20px;
-    opacity: 0; /* Initially hidden */
-    transform: translateY(20px); /* Slide down effect */
+    opacity: 0; 
+    transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
   }
   
@@ -2122,7 +2106,7 @@ div#modal-img-container {
 .why-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 10px; /* Padding around text content */
+  padding: 0 10px; 
   padding-bottom: 1rem; 
 }
 .why-section {
@@ -2131,8 +2115,8 @@ div#modal-img-container {
 }
 
 .why-content {
-  padding: 0 10px; /* Padding around text content */
-  text-align: left; /* Align text to the left */
+  padding: 0 10px; 
+  text-align: left; 
 }
 
 .title-small-why {
@@ -2150,20 +2134,20 @@ div#modal-img-container {
   font-size: 3rem;
   font-weight: 600;
   color: #0A5C5A;
-  margin-bottom: 20px; /* Space below heading */
+  margin-bottom: 20px;
 }
 
 .why-content {
   font-family: 'Inter';
-  font-size: 1rem; /* Font size for paragraphs */
-  color: #666; /* Slightly darker text color */
-  margin-bottom: 10px; /* Space below paragraphs */
+  font-size: 1rem; 
+  color: #666; 
+  margin-bottom: 10px;
 }
 
 #why-p-1 {
   font-family: 'Inter';
   font-weight: 500;
-  font-size: 1rem; /* Font size for paragraphs */
+  font-size: 1rem;
   margin-top: 1rem;
   margin-bottom: 2rem;
 }
@@ -2172,13 +2156,13 @@ div#modal-img-container {
   padding: 0 5px;
   font-weight: 500;
   font-family: 'Inter';
-  font-size: 1rem; /* Font size for paragraphs */
+  font-size: 1rem; 
 }
 
 #img-container-why {
-  max-height: 450px; /* Adjust this height as needed */
+  max-height: 450px; 
   overflow-y: auto;
-  overflow-x: hidden; /* Hide horizontal scrollbar */
+  overflow-x: hidden; 
   border-radius: 20px!important;
 
 }
@@ -2201,49 +2185,49 @@ div#img-container-why::-webkit-scrollbar-thumb:hover {
 
 /* Scrollbar track */
 #img-container-why::-webkit-scrollbar-track {
-  background-color: transparent!important; /* Make scrollbar track transparent */
+  background-color: transparent!important;
 }
 
 /* Add a subtle shadow to scrollbar thumb for depth */
 #img-container-why::-webkit-scrollbar-thumb {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)!important; /* Subtle shadow for depth */
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)!important; 
 }
 
 /* Carousel Styles */
 
 .carousel {
-  height: 100%; /* Ensure carousel takes full height of container */
+  height: 100%; 
 }
 
 .carousel-inner {
-  height: 100%; /* Ensure inner items take full height of carousel */
+  height: 100%; 
 }
 
 .carousel-item img {
   margin-right: 40px;
-  height: 100%; /* Ensure images fill the carousel item */
-  object-fit: cover; /* Cover to fill entire space */
+  height: 100%; 
+  object-fit: cover;
   border-radius: 12px;
 }
 
 .carousel-control-prev,
 .carousel-control-next {
-  width: auto; /* Adjust width of controls */
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  width: auto;
+  background-color: rgba(0, 0, 0, 0.5); 
 }
 
 .carousel-control-prev {
-  left: -50px; /* Adjust left position of previous control */
+  left: -50px;
 }
 
 .carousel-control-next {
-  right: -50px; /* Adjust right position of next control */
+  right: -50px; 
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  filter: invert(1); /* Invert icon color */
-  background-color: transparent; /* Ensure no background color on icon itself */
+  filter: invert(1);
+  background-color: transparent; 
 }
 
 
@@ -2253,7 +2237,7 @@ div#img-container-why::-webkit-scrollbar-thumb:hover {
   .why-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 10px; /* Padding around text content */
+    padding: 0 10px;
     padding-bottom: 1rem;
     padding-top: 2rem; 
   }
@@ -2263,7 +2247,7 @@ div#img-container-why::-webkit-scrollbar-thumb:hover {
     font-size: 2.2rem;
     font-weight: 600;
     color: #0A5C5A;
-    margin-bottom: 20px; /* Space below heading */
+    margin-bottom: 20px; 
   }
 }
 
@@ -2271,7 +2255,7 @@ div#img-container-why::-webkit-scrollbar-thumb:hover {
 
 /* faq header  */
 .faq-section-header {
-  width: 100%; /* Full width */
+  width: 100%; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2283,13 +2267,13 @@ div#img-container-why::-webkit-scrollbar-thumb:hover {
   background-color: #f9f9f9;
   border-radius: 20px;
   padding: 20px;
-  max-width: 1200px; /* Match the max width of the container */
-  width: 100%; /* Ensure full width */
+  max-width: 1200px; 
+  width: 100%;
   text-align: center;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
   position: relative;
-  overflow: hidden; /* Ensure pseudo-elements are visible */
-  margin: 0 auto; /* Center the card */
+  overflow: hidden; 
+  margin: 0 auto;
 }
 
 /* Adjust the Semi-Circles */
@@ -2306,15 +2290,15 @@ div#img-container-why::-webkit-scrollbar-thumb:hover {
 .faq-card::before {
   content: '';
   position: absolute;
-  width: 120px; /* Adjust the size as needed */
-  height: 120px; /* Adjust the size as needed */
+  width: 120px; 
+  height: 120px; 
   background: radial-gradient(circle at 30% 70%, #33908E, #0A5C5A);
   border-radius: 50%;
   box-shadow: 
-    -5px -5px 30px rgba(0, 0, 0, 0.1), /* Softer, lighter shadow */
-    -7px -7px 40px rgba(0, 0, 0, 0.2); /* Softer, slightly stronger shadow */
-  bottom: 5%; /* Move the element slightly up */
-  left: 95%; /* Move the element more to the right */
+    -5px -5px 30px rgba(0, 0, 0, 0.1), 
+    -7px -7px 40px rgba(0, 0, 0, 0.2); 
+  bottom: 5%; 
+  left: 95%; 
 }
 
 .faq-card::before {
@@ -2373,10 +2357,10 @@ div#img-container-why::-webkit-scrollbar-thumb:hover {
 }
 .faq-header.bg-dark {
   border-radius: 20px;
-  margin: 2rem auto; /* Center the header horizontally */
+  margin: 2rem auto; 
   padding: 5px;
-  width: 90%; /* Set width to 80% of the screen width */
-  max-width: 90rem; /* Limit maximum width to 800px for larger screens */
+  width: 90%; 
+  max-width: 90rem; 
 }
 
 
@@ -2391,13 +2375,13 @@ div#img-container-why::-webkit-scrollbar-thumb:hover {
     padding-bottom: 10px;
     padding-left: 20px;
     padding-right: 20px;
-    max-width: 1200px; /* Match the max width of the container */
-    width: 100%; /* Ensure full width */
+    max-width: 1200px;
+    width: 100%; 
     text-align: center;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
     position: relative;
-    overflow: hidden; /* Ensure pseudo-elements are visible */
-    margin: 0 auto; /* Center the card */
+    overflow: hidden; 
+    margin: 0 auto;
   }
 
   #faq-header-home {
@@ -2422,16 +2406,16 @@ div#img-container-why::-webkit-scrollbar-thumb:hover {
 .faq-card::before {
   content: '';
   position: absolute;
-  width: 120px; /* Adjust the size as needed */
-  height: 120px; /* Adjust the size as needed */
+  width: 120px; 
+  height: 120px;
   background: radial-gradient(circle at 30% 70%, #33908E, #0A5C5A);
   border-radius: 50%;
   box-shadow: 
-    -5px -5px 30px rgba(0, 0, 0, 0.1), /* Softer, lighter shadow */
-    -7px -7px 40px rgba(0, 0, 0, 0.2); /* Softer, slightly stronger shadow */
-  bottom: 5%; /* Move the element slightly up */
-  left: 95%; /* Move the element more to the right */
-  transform: translate(-20px, 20px); /* Move slightly to the left and down */
+    -5px -5px 30px rgba(0, 0, 0, 0.1), 
+    -7px -7px 40px rgba(0, 0, 0, 0.2); 
+  bottom: 5%; 
+  left: 95%; 
+  transform: translate(-20px, 20px);
 }
 
 .faq-card::before {
@@ -2455,7 +2439,7 @@ div#img-container-why::-webkit-scrollbar-thumb:hover {
 }
 
 .faq-section-header {
-  width: 100%; /* Full width */
+  width: 100%; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2487,11 +2471,11 @@ div#img-container-why::-webkit-scrollbar-thumb:hover {
   }
 
   #faqAccordion #accordion-button::after {
-    color: #0A5C5A !important; /* Dark red color for the arrow */
+    color: #0A5C5A !important;
 }
 
 #faqAccordion #accordion-button:not(.collapsed)::after {
-    color: #0A5C5A!important; /* White color for the arrow when not collapsed */
+    color: #0A5C5A!important;
 }
 
   #faqAccordion .accordion-item {
@@ -2525,7 +2509,7 @@ div#img-container-why::-webkit-scrollbar-thumb:hover {
 /* Cart Summary related projects */
 .rounded-border {
   border-radius: 16px;
-  background-color: #f5f5f5; /* Adjust the value as needed */
+  background-color: #f5f5f5; 
 }
 
 .cart-related-title {
@@ -2564,9 +2548,9 @@ div#img-container-why::-webkit-scrollbar-thumb:hover {
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
-  max-width: 600px; /* Adjust max-width to limit the width of the modal */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add box shadow */
+  max-width: 600px; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 /* Close button */
@@ -2638,7 +2622,7 @@ div#img-container-why::-webkit-scrollbar-thumb:hover {
 
 /* Contact Form */
 .contact-background {
-  position: relative; /* Ensure the pseudo-elements are positioned relative to this container */
+  position: relative; 
   background-color: #0A5C5A;
 }
 
@@ -2659,7 +2643,7 @@ div#img-container-why::-webkit-scrollbar-thumb:hover {
   font-weight: 500;
 }
 .contact-form {
-  background-color: #f8f9fa; /* Background color */
+  background-color: #f8f9fa;
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 0.5rem;
@@ -2677,15 +2661,15 @@ div#img-container-why::-webkit-scrollbar-thumb:hover {
   padding: 10px;
   border: 1px solid #ced4da;
   border-radius: 5px;
-  outline: none; /* Remove the default blue outline */
+  outline: none;
 }
 
 .contact-form input[type="text"]:focus,
 .contact-form input[type="email"]:focus,
 .contact-form textarea:focus {
-  border-color: black; /* Change border color to black on focus */
-  outline: none; /* Ensure outline is removed */
-  box-shadow: none; /* Remove any box-shadow */
+  border-color: black;
+  outline: none;
+  box-shadow: none; 
 }
 
 .contact-form textarea {
@@ -2712,94 +2696,85 @@ div#img-container-why::-webkit-scrollbar-thumb:hover {
 /* SIGN UP FORM */
 
 .signup-modal {
-  /* Center the modal vertically and horizontally */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .signup-modal .modal-content {
-  /* Set a fixed width for the modal content */
   width: 400px;
 }
 
 .signup-modal .modal-body {
-  
-  /* Add padding to the modal body */
   padding: 20px;
 }
 
 .signup-modal input[type="text"],
 .signup-modal input[type="email"],
 .signup-modal input[type="password"] {
-  /* Add margin bottom to input fields */
   margin-bottom: 10px;
 }
 
 .signup-modal .btn-primary {
-  /* Make the primary button stand out */
   background-color: #007bff;
   border-color: #007bff;
   color: #fff;
 }
 
 .signup-modal .btn-primary:hover {
-  /* Add hover effect for the primary button */
   background-color: #0056b3;
   border-color: #0056b3;
 }
 
 .signup-modal .modal-title {
-  /* Style the modal title */
   margin-bottom: 15px;
   font-size: 24px;
 }
 
 .signup-modal .btn-close {
-  /* Style the close button */
   color: #000;
   opacity: 0.5;
 }
 
 .signup-modal .btn-close:hover {
-  /* Add hover effect for the close button */
   color: #000;
   opacity: 0.75;
 }
+
 /* Footer */
 
 .footer ul {
-  list-style-type: none; /* Hide bullet points */
-  padding-left: 0; /* Remove default left padding */
-  text-align: center; /* Center the text */
+  list-style-type: none;
+  padding-left: 0; 
+  text-align: center; 
 }
 
 .footer ul li {
-  margin-bottom: 8px; /* Add some spacing between list items */
+  margin-bottom: 8px; 
 }
 
 .footer a {
-  color: black; /* Set link color */
-  text-decoration: none; /* Remove underline */
+  color: black;
+  text-decoration: none; 
 }
 
 .footer a:hover {
-  text-decoration: none; /* Ensure no underline on hover */
+  text-decoration: none;
 }
 
 .footer ul li:hover a {
-  border-bottom: 1px solid black; /* Add underline on hover */
+  border-bottom: 1px solid black; 
   color: black;
 }
 
 .footer ul li:hover a:focus {
-  outline: none; /* Remove default browser highlighting */
+  outline: none;
 }
 
 .footer {
-  background-color: #fff; /* Set background color */
-  color: black; /* Set text color */
-  padding-top: 20px; /* Add padding top and bottom */
+  background-color: #fff; 
+  color: black; 
+  padding-top: 20px; 
   padding-bottom: 10px;
 }
 
@@ -2816,24 +2791,24 @@ div#img-container-why::-webkit-scrollbar-thumb:hover {
   font-weight: 500;
   font-family: 'League Spartan', sans-serif;
   color: #0A5C5A;
-  text-align: center; /* Center the title */
+  text-align: center;
 }
 
 .footer .col-md-3 {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center items horizontally */
+  align-items: center; 
 }
 
 .social-links ul {
-  padding-left: 0; /* Remove default left padding */
-  margin-top: 10px; /* Add some spacing from the section title */
-  text-align: center; /* Center the text */
+  padding-left: 0; 
+  margin-top: 10px; 
+  text-align: center; 
 }
 
 .social-links ul li {
-  display: inline-block; /* Display social icons horizontally */
-  margin-right: 10px; /* Add spacing between social icons */
+  display: inline-block;
+  margin-right: 10px;
   margin-bottom: 8px;
 }
 
@@ -2847,13 +2822,13 @@ div#img-container-why::-webkit-scrollbar-thumb:hover {
 }
 
 .social-links a {
-  color: black; /* Set social icon color */
-  font-size: 24px; /* Adjust social icon size */
-  text-decoration: none; /* Remove underline */
+  color: black; 
+  font-size: 24px; 
+  text-decoration: none;
 }
 
 .social-links a:hover {
-  color: black; /* Change social icon color on hover */
+  color: black; 
 }
 
 /* Media query for smaller screens */
@@ -2864,9 +2839,9 @@ div#img-container-why::-webkit-scrollbar-thumb:hover {
   }
 
   .footer .col-md-3 {
-    flex: 0 0 50%; /* Each column takes 50% width */
+    flex: 0 0 50%; 
     max-width: 50%;
-    margin-bottom: 20px; /* Add space between the rows */
+    margin-bottom: 20px;
   }
 }
 
@@ -3463,7 +3438,7 @@ progress {
 }
 @media (min-width: 1400px) {
   .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 1320px;
+    max-width: 1200px;
   }
 }
 .row {
@@ -12459,8 +12434,8 @@ textarea.form-control-lg {
     padding-left: 1.5rem !important;
   }
   .px-lg-5 {
-    padding-right: 3rem !important;
-    padding-left: 3rem !important;
+    padding-right: 1rem !important;
+    padding-left: 1rem !important;
   }
   .py-lg-0 {
     padding-top: 0 !important;

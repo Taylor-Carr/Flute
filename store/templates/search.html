@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-
 {% block content %}
 <div class="container py-5">
     <h1>Search</h1>
@@ -8,7 +7,6 @@
         <input class="form-control me-2" type="search" placeholder="Search for products..." aria-label="Search" name="query" value="{{ query }}">
         <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
-
     {% if query %}
         <h2>Results for "{{ query }}"</h2>
         <div class="row">

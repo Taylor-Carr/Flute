@@ -1,81 +1,77 @@
 {% extends 'base.html'%}
-
 {% block content %}
 <div class="container">
-    {% if cart_products %}
-    {% for product in cart_products %}
-    <!--{{ product }} £{{ product.price }}-->
-    <div class="container px-4 px-lg-5 my-5">
-        <div class="row gx-4 gx-lg-5 align-items-center">
-            <div class="col-md-6">
-                <div id="carouselProductDetail{{ product.id }}" class="carousel slide">
-                    <div class="carousel-inner">
-                        {% for image in product.images.all %}
-                        <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                            <img class="d-block w-100" src="{{ image.image.url }}" alt="Product Image {{ forloop.counter }}">
-                        </div>
-                        {% endfor %}
+{% if cart_products %}
+{% for product in cart_products %}
+<!--{{ product }} £{{ product.price }}-->
+<div class="container px-4 px-lg-5 my-5">
+    <div class="row gx-4 gx-lg-5 align-items-center">
+        <div class="col-md-6">
+            <div id="carouselProductDetail{{ product.id }}" class="carousel slide">
+                <div class="carousel-inner">
+                    {% for image in product.images.all %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <img class="d-block w-100" src="{{ image.image.url }}" alt="Product Image {{ forloop.counter }}">
                     </div>
-                    <a class="carousel-control-prev" href="#carouselProductDetail{{ product.id }}" role="button" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselProductDetail{{ product.id }}" role="button" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </a>
+                    {% endfor %}
                 </div>
-            </div>
-            <div class="col-md-6">
-                <h1 class="display-5 fw-bolder">{{ product.name }}</h1>
-                <p class="lead">{{ product.description }}</p>
-                <div class="d-flex">
-                    {% if product.on_sale %}
-                    <div class="price">
-                        <strike class="text-muted me-2">£{{ product.price }}</strike>
-                        £{{ product.sale_price }}
-                    </div>
-                    {% else %}
-                    <div class="price">£{{ product.price }}</div>
-                        <br>
-                        <!-- PRODUCT ID TAKE OUT AT END OF FIRST DEV CYCLE -->
-                        ID: {{ product.id }}
-                    {% endif %}
-                </div>
-                <br>
-                <br>
-    
-                <div class="d-flex mt-3">
-                    <!--Un-needed quantity-->
-                    <!--<input class="form-control me-3" id="inputQuantity" type="number" value="1" style="max-width: 3rem;" />-->
-                    <button class="btn btn-dark delete-product" type="button" data-index="{{ product.id }}" id="delete-product">
-                        <i class="bi-cart-fill me-1"></i>
-                        Delete Item
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {% endfor %}
-    <!-- Cart total -->
-    <h2>Total:£{{ totals }} </h2>
-    <br>
-    <br>
-    <br>
-    {% else %}
-    
-        <div class="container px-4 px-lg-5 my-5">
-            <div class="text-center text-black">
-                <h1 class="display-4 fw-bolder">Basket</h1>
-                <p class="lead fw-normal text-black-50 mb-0">Your Basket is empty.</p>
-            </div>
-            <div class="d-flex mt-3">
-                <a class="btn btn-dark" type="button" href="{% url 'home' %}" id="">
-                    Shop Websites
+                <a class="carousel-control-prev" href="#carouselProductDetail{{ product.id }}" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselProductDetail{{ product.id }}" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
                 </a>
             </div>
         </div>
-
+        <div class="col-md-6">
+            <h1 class="display-5 fw-bolder">{{ product.name }}</h1>
+            <p class="lead">{{ product.description }}</p>
+            <div class="d-flex">
+                {% if product.on_sale %}
+                <div class="price">
+                    <strike class="text-muted me-2">£{{ product.price }}</strike>
+                    £{{ product.sale_price }}
+                </div>
+                {% else %}
+                <div class="price">£{{ product.price }}</div>
+                    <br>
+                    <!-- PRODUCT ID TAKE OUT AT END OF FIRST DEV CYCLE -->
+                    ID: {{ product.id }}
+                {% endif %}
+            </div>
+            <br>
+            <br>
+            <div class="d-flex mt-3">
+                <!--Un-needed quantity-->
+                <!--<input class="form-control me-3" id="inputQuantity" type="number" value="1" style="max-width: 3rem;" />-->
+                <button class="btn btn-dark delete-product" type="button" data-index="{{ product.id }}" id="delete-product">
+                    <i class="bi-cart-fill me-1"></i>
+                    Delete Item
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+<!-- Cart total -->
+<h2>Total:£{{ totals }} </h2>
+<br>
+<br>
+<br>
+{% else %}
+<div class="container px-4 px-lg-5 my-5">
+    <div class="text-center text-black">
+        <h1 class="display-4 fw-bolder">Basket</h1>
+        <p class="lead fw-normal text-black-50 mb-0">Your Basket is empty.</p>
+    </div>
+    <div class="d-flex mt-3">
+        <a class="btn btn-dark" type="button" href="{% url 'home' %}" id="">
+            Shop Websites
+        </a>
+    </div>
+</div>
 <!-- Related products -->
 <section class="py-5 bg-light rounded-border">
     <div class="container px-4 px-lg-5 my-5">
@@ -112,14 +108,8 @@
 </section>
     {% endif %}
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 <script>
-
 $(document).on('click', '.update-cart', function(e){
     e.preventDefault();
     var productid = $(this).data('index');
@@ -161,7 +151,5 @@ $(document).on('click', '.delete-product', function(e){
         }
     });
 });
-
 </script>
-
 {% endblock %}

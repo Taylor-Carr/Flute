@@ -15,9 +15,9 @@ SECRET_KEY = 'django-insecure-+=(k!)=d67!hw=$r&-%%h9$)s5t%a*80!e3b!=m8bmy1j+*ddl
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-taylorcarr-flute-hs5yqs6k3um.ws-eu115.gitpod.io']
+ALLOWED_HOSTS = ['8000-taylorcarr-flute-qz93bpg5riw.ws-eu116.gitpod.io']
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-taylorcarr-flute-hs5yqs6k3um.ws-eu115.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-taylorcarr-flute-qz93bpg5riw.ws-eu116.gitpod.io']
 
 AUTHENTICATION_BACKENDS = ['store.backends.EmailBackend', 'django.contrib.auth.backends.ModelBackend']
 

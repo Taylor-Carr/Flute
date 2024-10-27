@@ -1,8 +1,6 @@
 {% extends 'base.html'%}
 {% load static %}
-
 {% block content %}
-
 <header>
     <div class="container">
       <div class="hero-section">
@@ -21,21 +19,17 @@
       </div>
     </div>
   </header>
-
-
 <section id="home-title-section">
     <div class="home-title-container">
-        <h2 class="home-title-title">Start With Picking a Plan.</h2> <!-- Add your title here -->
+        <h2 class="home-title-title">Start With Picking a Plan.</h2> 
         <p id="product-title-p">Get Online Fast With Flute.</p>
     </div>
 </section>
-
-
 <section class="py-1">
     <div class="product-container px-0 px-lg-0 mt-2 plans-con">
         <div class="product-container row justify-content-center">
             {% for product in products %}
-            <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-5">
+            <div class="col-12 col-md-4 col-lg-4 col-xl-4 mb-5">
                 <div class="card h-100 featured-product-card" style="border-radius: 20px;">
                     {% if product.on_sale %}
                     <div class="badge bg-light text-black position-absolute sale-badge">Sale</div>
@@ -64,10 +58,7 @@
                     <div class="card-body">
                         <div class="text-center">
                             <h5 class="fw-bolder product-title">{{ product.name }}</h5>
-
-
                              <!-- What's Included Dropdown -->
-
                             <div class="product-included mb-2">
                                 <button class="btn btn-link p-0 include-dropdown" type="button" data-bs-toggle="collapse" data-bs-target="#whatsIncluded" aria-expanded="false" aria-controls="whatsIncluded" id="detail-dropdown-home">
                                     What's Included &#x25be;
@@ -80,7 +71,6 @@
                                     </ul>
                                 </div>
                             </div>
-                                    
                             {% if product.on_sale %}
                             <h5 class="fw-bolder product-price-sale">£{{ product.sale_price }}</h5>
                             {% else %}
@@ -99,7 +89,6 @@
         </div>
     </div>
 </section>
-
 <section class="terms-section">
     <div class="terms-container">
         <div>
@@ -107,7 +96,6 @@
         </div>
     </div>
 </section>
-
 <!-- Services section -->
 <section id="services">
     <div class="services-container">
@@ -135,7 +123,6 @@
         </div>
     </div>
 </section>
-
 <!--Why Flute?-->
 <section class="why-section">
     <div class="why-container">
@@ -180,10 +167,7 @@
         </div>
     </div>
 </section>
-
-
 <!-- FAQ section Header -->
-
 <header class="faq-section-header faq-header-bg">
     <div class="container">
         <div class="row justify-content-center">
@@ -198,15 +182,12 @@
         </div>
     </div>
 </header>
-
 <!---Faq accordion -->
-
 <section class="py-5  faq-section">
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-lg-8 col-xl-6">
                 <div class="accordion" id="faqAccordion">
-
                    <!-- 1 What's included in every offer -->
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
@@ -222,7 +203,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- 2 How long does it take to get my website? -->
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingTwo">
@@ -238,7 +218,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- 3 What platform are these websites built in? -->
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingThree">
@@ -254,7 +233,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- 4 Do I own my domain name? -->
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingFour">
@@ -270,7 +248,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- 5 Will I own the website? -->
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingFive">
@@ -286,7 +263,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- 6 What is SEO? -->
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingSix">
@@ -302,7 +278,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- 7 How can I edit my website when it's launched? -->
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingSeven">
@@ -318,7 +293,6 @@
                             </div>
                         </div>
                     </div>
-
                      <!-- 8 -->
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingEight">
@@ -334,7 +308,6 @@
                             </div>
                         </div>
                     </div> 
-
                 </div>
             </div>
         </div>

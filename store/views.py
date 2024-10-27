@@ -15,16 +15,11 @@ def register_and_customize(request):
     if request.method == 'POST':
         form = CombinedForm(request.POST, request.FILES)
         if form.is_valid():
-            # Handle the form submission here
-            # For example, save the data to the database
             email = form.cleaned_data['email']
-            # Handle other fields similarly
-            # Handle the files
             files = request.FILES.getlist('upload_images')
             for file in files:
-                # Process each file here
                 pass
-            return redirect('success_url')  # Replace with your success URL
+            return redirect('success_url')  
     else:
         form = CombinedForm()
 
@@ -35,7 +30,6 @@ def register_and_customize(request):
     if request.method == 'POST':
         form = CombinedForm(request.POST, request.FILES)
         if form.is_valid():
-            # Process form data
             pass
     else:
         form = CombinedForm()
@@ -47,11 +41,11 @@ def search(request):
     query = request.GET.get('query')
     results = []
 
-    print("Received query:", query)  # Debugging print
+    print("Received query:", query)
 
     if query:
         results = Product.objects.filter(name__icontains=query)
-        print("Found", len(results), "results")  # Debugging print
+        print("Found", len(results), "results") 
 
     return render(request, 'search.html', {'form': form, 'query': query, 'results': results})
 
@@ -69,21 +63,19 @@ def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            # Process the form data
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
             
-            # Send email (or save to database)
+          
             send_mail(
                 f'Contact Form Submission from {name}',
                 message,
                 email,
-                ['your_email@example.com'],  # Replace with your email
+                ['your_email@example.com'], 
             )
             
-            # Redirect to a success page or show a success message
-            return redirect('contact_success')  # Replace with your success page URL name
+            return redirect('contact_success') 
     else:
         form = ContactForm()
     
@@ -149,7 +141,7 @@ def category(request, foo):
         messages.error(request, "That category doesn't exist")
         return redirect('home')
 
-#change product category to display on home page
+
 def home(request):
     business_category = Category.objects.get(name='Landing Pages')
     products = Product.objects.filter(category=business_category)
